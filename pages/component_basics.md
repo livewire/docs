@@ -61,7 +61,7 @@ public function render()
 
 Livewire components store and track state using class properties on the Component class. Here's what's important to know:
 
-### Autmatically Available Inside View
+### Automatically Available Inside View
 
 Properties marked as `public` are automatically made available in the Blade view. For example:
 

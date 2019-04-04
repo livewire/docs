@@ -114,7 +114,7 @@ counter.blade.php
 
 web.php
 ```php
-Route::livewire('/counter' App\Http\Livewire\Counter::class)
+Route::livewire('/counter' App\Http\Livewire\Counter::class);
 ```
 </div></div>
 
