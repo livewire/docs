@@ -99,7 +99,7 @@ contact-form.blade.php
 
 ## Custom validators
 
-If you wish to use your own validation system in Livewire, that isn't a problem. Livewire will catch `ValidationException`s and provide the errors to the view just like using `$this->validate()`.
+If you wish to use your own validation system in Livewire, that isn't a problem. Livewire will catch `ValidationException` and provide the errors to the view just like using `$this->validate()`.
 
 For example:
 

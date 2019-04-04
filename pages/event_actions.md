@@ -36,7 +36,7 @@ Like you saw in the **keydown** example, Livewire directives sometimes offer "mo
 
 Modifier | Description
 --- | ---
-stop | Equivelant of `event.stopPropogation()`
+stop | Equivelant of `event.stopPropagation()`
 prevent | Equivelant of `event.preventDefault()`
 
 ## Keydown Modifiers
