@@ -198,7 +198,7 @@
 <span class="pl-s1"><span class="pl-k">@</span><span class="pl-c1">endsection</span></span></pre></div>
 <h3>
 <a id="user-content-component-aliases" class="anchor" href="#component-aliases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Component Aliases</h3>
-<p>For some, it might feel weird passing an expression like <code>App\Http\Livewire\Counter::class</code> into a blade diretive. If this is the case for you, you can register component aliases in a ServiceProvider and just use those in your views like so:</p>
+<p>For some, it might feel weird passing an expression like <code>App\Http\Livewire\Counter::class</code> into a blade directive. If this is the case for you, you can register component aliases in a ServiceProvider and just use those in your views like so:</p>
 <p><strong>AppServiceProvider.php</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">boot</span>()</span>
 <span class="pl-s1">{</span>
@@ -296,7 +296,7 @@
 <a id="user-content-route-model-binding" class="anchor" href="#route-model-binding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Route Model Binding</h3>
 <p>Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:</p>
 <p><strong>web.php</strong></p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{user}<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">ShowContact</span><span class="pl-k">::</span><span class="pl-c1">classs</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{user}<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">ShowContact</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span></pre></div>
 <p><strong>App\Http\Livewire\ShowContact.php</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">ShowContact</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
 <span class="pl-s1">{</span>
