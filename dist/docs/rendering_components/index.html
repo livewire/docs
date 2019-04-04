@@ -251,7 +251,7 @@
 <p><strong>After</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> Route</span></span>
 <span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span></pre></div>
-<p>Note: for this feature to work, Livewire assumes you have a layout stored in <code>resources/views/layouts/app.blade.php</code> that yeilds a "content" section (<code>@yield('content')</code>)</p>
+<p>Note: for this feature to work, Livewire assumes you have a layout stored in <code>resources/views/layouts/app.blade.php</code> that yields a "content" section (<code>@yield('content')</code>)</p>
 <h3>
 <a id="user-content-custom-layout-file" class="anchor" href="#custom-layout-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom Layout File</h3>
 <p>If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:</p>
@@ -259,7 +259,7 @@
 <span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
 <span class="pl-s1">    <span class="pl-k">-&gt;</span>layout(<span class="pl-s"><span class="pl-pds">'</span>layouts.base<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> Customizing section (@yeild('body'))</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> Customizing section (@yield('body'))</span></span>
 <span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
 <span class="pl-s1">    <span class="pl-k">-&gt;</span>section(<span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>);</span></pre></div>
 <p>You can also configure these settings for an entire route group using the group option array syntax:</p>
