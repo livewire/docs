@@ -175,9 +175,9 @@ class ShowContact extends LivewireComponent
 
     public function created(User $user)
     {
-        $this->contact = Contact::find($id);
+        $this->contact = $user;
     }
 }
 ```
 
-Now, after visiting `/contact/123`, the value passed into `created` will be an instance of the `Contact` model with id `123`.
+Now, after visiting `/contact/123`, the value passed into `created` will be an instance of the `User` model with id `123`.

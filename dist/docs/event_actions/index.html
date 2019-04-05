@@ -316,7 +316,7 @@
 <p>This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.</p>
 <h2>
 <a id="user-content-polling-actions" class="anchor" href="#polling-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Polling Actions</h2>
-<p>Livewire offers a directive called <code>wire:interval="someAction"</code> that, when added to an element, will fire <code>someAction</code> to the Livewire component every <code>500ms</code>. You can customize the frequency by passing a directive modifier like <code>250ms</code>. For example:</p>
+<p>Livewire offers a directive called <code>wire:interval="someAction"</code> that, when added to an element, will fire <code>someAction</code> to the Livewire component every <code>500ms</code>. You can customize the frequency by passing a directive modifier like <code>150ms</code>. For example:</p>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">wire:interval.150ms</span>=<span class="pl-s"><span class="pl-pds">"</span>$refresh<span class="pl-pds">"</span></span>&gt;
     Current time: {{ now() }}
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
