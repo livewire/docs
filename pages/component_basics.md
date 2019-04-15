@@ -102,7 +102,7 @@ Let's say you wanted to make the 'Hello World' message more specific, and greet 
 public $message = 'Hello ' . auth()->user()->first_name;
 ```
 
-Unfortunately, this is illegal in PHP. However, you can initialize properties at run-time using the `created` method/hook in Livewire. For example:
+Unfortunately, this is illegal in PHP. However, you can initialize properties at run-time using the `mount` method/hook in Livewire. For example:
 
 <div title="Component"><div title="Component__class">
 
@@ -112,7 +112,7 @@ class HelloWorld extends LivewireComponent
 {
     public $message;
 
-    public function created()
+    public function mount()
     {
         $this->message = 'Hello ' . auth()->user()->first_name;
     }

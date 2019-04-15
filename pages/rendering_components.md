@@ -46,7 +46,7 @@ Additionally, you can pass data into a component by passing additional parameter
 @livewire('show-contact', $contactId)
 ```
 
-Any additional parameters passed into Livewire components, will be made available through the `created` lifecycle hook.
+Any additional parameters passed into Livewire components, will be made available through the `mount` lifecycle hook.
 
 ```php
 class ShowContact extends LivewireComponent
@@ -54,7 +54,7 @@ class ShowContact extends LivewireComponent
     public $name;
     public $email;
 
-    public function created($id)
+    public function mount($id)
     {
         $contact = User::find($id);
 
@@ -130,7 +130,7 @@ Route::layout('layouts.base')->section('body')->group(function () {
 
 ### Route Parameters
 
-Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `created` lifecycle hook. For example:
+Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` lifecycle hook. For example:
 
 **web.php**
 ```php
@@ -144,7 +144,7 @@ class ShowContact extends LivewireComponent
     public $name;
     public $email;
 
-    public function created($id)
+    public function mount($id)
     {
         $contact = User::find($id);
 
@@ -156,7 +156,7 @@ class ShowContact extends LivewireComponent
 }
 ```
 
-As you can see, the `created` method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit `/contact/123`, the `$id` variable passed into the `created` method will contain the value `123`.
+As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
 
 ### Route Model Binding
 
@@ -173,11 +173,11 @@ class ShowContact extends LivewireComponent
 {
     public $contact;
 
-    public function created(User $user)
+    public function mount(User $user)
     {
         $this->contact = $user;
     }
 }
 ```
 
-Now, after visiting `/contact/123`, the value passed into `created` will be an instance of the `User` model with id `123`.
+Now, after visiting `/contact/123`, the value passed into `mount` will be an instance of the `User` model with id `123`.

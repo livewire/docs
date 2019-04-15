@@ -210,13 +210,13 @@
 <a id="user-content-initial-parameters" class="anchor" href="#initial-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initial Parameters</h3>
 <p>Additionally, you can pass data into a component by passing additional parameters into the <code>@livewire</code> directive. For example, let's say we have an <code>ShowContact</code> Livewire component that needs to know which contact to show. Here's how you would pass in the contact id.</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">@</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>show-contact<span class="pl-pds">'</span></span>, <span class="pl-smi">$contactId</span>)</span></pre></div>
-<p>Any additional parameters passed into Livewire components, will be made available through the <code>created</code> lifecycle hook.</p>
+<p>Any additional parameters passed into Livewire components, will be made available through the <code>mount</code> lifecycle hook.</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">ShowContact</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
 <span class="pl-s1">{</span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$name</span>;</span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$email</span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">created</span>(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">mount</span>(<span class="pl-smi">$id</span>)</span>
 <span class="pl-s1">    {</span>
 <span class="pl-s1">        <span class="pl-smi">$contact</span> <span class="pl-k">=</span> <span class="pl-c1">User</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>);</span>
 <span class="pl-s1"></span>
@@ -272,7 +272,7 @@
 <span class="pl-s1">});</span></pre></div>
 <h3>
 <a id="user-content-route-parameters" class="anchor" href="#route-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Route Parameters</h3>
-<p>Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's <code>created</code> lifecycle hook. For example:</p>
+<p>Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's <code>mount</code> lifecycle hook. For example:</p>
 <p><strong>web.php</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{id}<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">ShowContact</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span></pre></div>
 <p><strong>App\Http\Livewire\ShowContact.php</strong></p>
@@ -281,7 +281,7 @@
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$name</span>;</span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$email</span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">created</span>(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">mount</span>(<span class="pl-smi">$id</span>)</span>
 <span class="pl-s1">    {</span>
 <span class="pl-s1">        <span class="pl-smi">$contact</span> <span class="pl-k">=</span> <span class="pl-c1">User</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>);</span>
 <span class="pl-s1"></span>
@@ -291,7 +291,7 @@
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">...</span></span>
 <span class="pl-s1">}</span></pre></div>
-<p>As you can see, the <code>created</code> method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit <code>/contact/123</code>, the <code>$id</code> variable passed into the <code>created</code> method will contain the value <code>123</code>.</p>
+<p>As you can see, the <code>mount</code> method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit <code>/contact/123</code>, the <code>$id</code> variable passed into the <code>mount</code> method will contain the value <code>123</code>.</p>
 <h3>
 <a id="user-content-route-model-binding" class="anchor" href="#route-model-binding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Route Model Binding</h3>
 <p>Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:</p>
@@ -302,12 +302,12 @@
 <span class="pl-s1">{</span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$contact</span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">created</span>(<span class="pl-c1">User</span> <span class="pl-smi">$user</span>)</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">mount</span>(<span class="pl-c1">User</span> <span class="pl-smi">$user</span>)</span>
 <span class="pl-s1">    {</span>
 <span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">contact</span> <span class="pl-k">=</span> <span class="pl-smi">$user</span>;</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1">}</span></pre></div>
-<p>Now, after visiting <code>/contact/123</code>, the value passed into <code>created</code> will be an instance of the <code>User</code> model with id <code>123</code>.</p>
+<p>Now, after visiting <code>/contact/123</code>, the value passed into <code>mount</code> will be an instance of the <code>User</code> model with id <code>123</code>.</p>
 
         </div>
     </div>
