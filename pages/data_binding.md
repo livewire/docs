@@ -68,6 +68,11 @@ class Todos extends LivewireComponent
 {
     public $todo;
 
+    public function addTodo()
+    {
+        Todo::create(['todo' => $this->todo]);
+    }
+
     public function render()
     {
         return view('livewire.todos');

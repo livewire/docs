@@ -95,10 +95,10 @@ Notice that we are no longer calling the `increment` and `decrement` functions, 
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
 
 ## Polling Actions
-Livewire offers a directive called `wire:interval="someAction"` that, when added to an element, will fire `someAction` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `150ms`. For example:
+Livewire offers a directive called `wire:poll="someAction"` that, when added to an element, will fire `someAction` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `150ms`. For example:
 
 ```html
-<div wire:interval.150ms="$refresh">
+<div wire:poll.150ms="$refresh">
     Current time: {{ now() }}
 </div>
 ```
