@@ -9,33 +9,16 @@ There are two ways to render Livewire components:
 
 You can include a Livewire component in an existing Blade view with the `@livewire` directive.
 
-Let's assume we have a route like `Route::get('/home', 'HomeController@show')`, and `HomeController` returns a view named `home.blade.php`. We can include a component called `Counter` like so:
+Let's assume we have a route like `Route::get('/home', 'HomeController@show')`, and `HomeController` returns a view named `home.blade.php`. We can include a component called `counter` like so:
 
 ```php
 @extends('layouts.app')
 
 @section('content')
 
-    @livewire(App\Http\Livewire\Counter::class)
+    @livewire('counter')
 
 @endsection
-```
-
-### Component Aliases
-
-For some, it might feel weird passing an expression like `App\Http\Livewire\Counter::class` into a blade directive. If this is the case for you, you can register component aliases in a ServiceProvider and just use those in your views like so:
-
-**AppServiceProvider.php**
-```php
-public function boot()
-{
-    Livewire::component('counter', Counter::class);
-}
-```
-
-Now you can pass the component alias into the directive:
-```php
-@livewire('counter')
 ```
 
 ### Initial Parameters
@@ -88,14 +71,14 @@ class HomeController extends Controller
 @extends('layouts.app')
 
 @section('content')
-    @livewire(App\Http\Livewire\Counter::class)
+    @livewire('counter')
 @endsection
 ```
 
 **After**
 ```php
 // Route
-Route::livewire('/home', App\Http\Livewire\Counter::class);
+Route::livewire('/home', 'counter');
 ```
 
 Note: for this feature to work, Livewire assumes you have a layout stored in `resources/views/layouts/app.blade.php` that yields a "content" section (`@yield('content')`)
@@ -105,11 +88,11 @@ If you use a different layout file or section name, you can configure these in t
 
 ```php
 // Customizing layout
-Route::livewire('/home', App\Http\Livewire\Counter::class)
+Route::livewire('/home', 'counter')
     ->layout('layouts.base');
 
 // Customizing section (@yield('body'))
-Route::livewire('/home', App\Http\Livewire\Counter::class)
+Route::livewire('/home', 'counter')
     ->section('body');
 ```
 
@@ -134,7 +117,7 @@ Often you need to access route parameters inside your controller methods. Becaus
 
 **web.php**
 ```php
-Route::livewire('/contact/{id}', App\Http\Livewire\ShowContact::class);
+Route::livewire('/contact/{id}', 'show-contact');
 ```
 
 **App\Http\Livewire\ShowContact.php**
@@ -164,7 +147,7 @@ Like you would expect, Livewire components implement all functionality you're us
 
 **web.php**
 ```php
-Route::livewire('/contact/{user}', App\Http\Livewire\ShowContact::class);
+Route::livewire('/contact/{user}', 'show-contact');
 ```
 
 **App\Http\Livewire\ShowContact.php**

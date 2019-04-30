@@ -8,7 +8,6 @@
 ```
 
 *Include the JavaScript*
-> Note: This will typically be added to a global layout file like `layouts/app.blade.php`
 <div title="Component"><div title="Component__class"><div char="fade">
 
 ```html
@@ -68,7 +67,69 @@ resources/views/livewire/counter.blade.php
 </div>
 </div>
 
-## Add functionality
+Let's replace the Livewire view with some text so we can see something tangible in the browser.
+
+<div title="Component">
+<div title="Component__view">
+
+resources/views/livewire/counter.blade.php
+```html
+<div>
+    <h1>Hello World!</h1>
+</div>
+```
+</div>
+</div>
+
+## Register the component
+
+Register the component inside a service provider like so:
+
+<div title="Component">
+<div title="Component__class">
+
+app/Providers/AppServiceProvider.php
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        Livewire::component('counter', \App\Http\Counter::class);
+    }
+}
+```
+</div>
+</div>
+
+## Inlude the component
+Livewire components are included into Blade views just like Blade includes or components. You can include the `@livewire` blade directive wherever you want the component to render.
+
+<div title="Component">
+<div title="Component__class">
+
+resources/views/welcome.blade.php
+```php
+    <!-- Render the Livewire component. -->
+    @livewire('counter')
+
+    {!! Livewire::scripts() !!}
+</body>
+</html>
+```
+</div>
+</div>
+
+## View it in the browser
+
+Now load the page you included Livewire on in the browser. You should see "Hello World!". You should see the `Counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.
+
+## Add "counter" functionality
 
 To add "counting" functionality, replace the generated content of your `Counter` component and view with the following:
 
@@ -108,21 +169,6 @@ counter.blade.php
 ```
 </div></div>
 
-## Register A Route
-
-<div title="Component"><div title="Component__class">
-
-web.php
-```php
-Route::livewire('/counter', App\Http\Livewire\Counter::class);
-```
-</div></div>
-
-<div title="Warning"><div title="Warning__content">
-
-Livewire looks for `layouts/app.blade.php` with `@yield('content')`, and renders the component there. This file is usually added when you run `php artisan make:auth`. If you are having trouble with this, go [here](/livewire/docs/rendering_components) for more info.
-</div></div>
-
 ## View it in the browser
 
-Now navigate to `/counter` in your browser. You should see the `Counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.
+Now reload the page in the browser, you should see the `Counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.
