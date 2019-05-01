@@ -152,8 +152,14 @@
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/data_binding">
                         Data Binding
                     </a></li>
-                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/event_actions">
-                        Event Actions
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/triggering_actions">
+                        Triggering Actions
+                    </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/events">
+                        Events
+                    </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/nesting_components">
+                        Nesting Components
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/validation">
                         Input Validation
@@ -189,11 +195,8 @@
 <p><strong>view</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">input</span> <span class="pl-c1">wire</span>:<span class="pl-c1">model</span><span class="pl-k">.</span><span class="pl-c1">lazy</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>cardNumber<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
-<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">button</span> <span class="pl-c1">wire</span>:<span class="pl-c1">click</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>checkout<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span><span class="pl-c1">Checkout</span><span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">button</span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span> <span class="pl-c1">wire</span>:<span class="pl-c1">loading</span><span class="pl-k">-</span><span class="pl-k">class</span><span class="pl-k">.</span><span class="pl-c1">remove</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
-<span class="pl-s1">        <span class="pl-c1">Processing</span> <span class="pl-c1">Payment</span><span class="pl-k">...</span></span>
-<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">button</span> <span class="pl-c1">wire</span>:<span class="pl-c1">click</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>checkout<span class="pl-pds">"</span></span> <span class="pl-c1">wire</span>:<span class="pl-c1">loading</span><span class="pl-k">-</span><span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>with-loading-spinner<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span><span class="pl-c1">Checkout</span><span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">button</span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span></pre></div>
 <p>When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the payment is finished processing, the message will dissapear.</p>
 <h2>

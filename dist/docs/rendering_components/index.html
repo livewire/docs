@@ -152,8 +152,14 @@
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/data_binding">
                         Data Binding
                     </a></li>
-                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/event_actions">
-                        Event Actions
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/triggering_actions">
+                        Triggering Actions
+                    </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/events">
+                        Events
+                    </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/nesting_components">
+                        Nesting Components
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/validation">
                         Input Validation
@@ -258,11 +264,11 @@
 <span class="pl-s1">    <span class="pl-k">-&gt;</span>section(<span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>);</span></pre></div>
 <p>You can also configure these settings for an entire route group using the group option array syntax:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>group([<span class="pl-s"><span class="pl-pds">'</span>layout<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>layouts.base<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>section<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>], <span class="pl-k">function</span> () {</span>
-<span class="pl-s1">    <span class="pl-k">...</span></span>
+<span class="pl-s1">    <span class="pl-c"><span class="pl-c">//</span></span></span>
 <span class="pl-s1">});</span></pre></div>
 <p>Or the fluent alternative:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>layout(<span class="pl-s"><span class="pl-pds">'</span>layouts.base<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>section(<span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>group(<span class="pl-k">function</span> () {</span>
-<span class="pl-s1">    <span class="pl-k">...</span></span>
+<span class="pl-s1">    <span class="pl-c"><span class="pl-c">//</span></span></span>
 <span class="pl-s1">});</span></pre></div>
 <h3>
 <a id="user-content-route-parameters" class="anchor" href="#route-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Route Parameters</h3>

@@ -156,7 +156,7 @@
                         Triggering Actions
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/events">
-                        Events
+                        <strong>Events</strong>
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/nesting_components">
                         Nesting Components
@@ -180,7 +180,7 @@
                         Custom JavaScript
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/turbolinks">
-                        <strong>SPA Mode</strong>
+                        SPA Mode
                     </a></li>
                             </ul>
         </div>
@@ -188,21 +188,90 @@
         
         <div class="markdown-body main-body p-8 pt-4 pl-16">
             <h1>
-<a id="user-content-spa-mode" class="anchor" href="#spa-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SPA Mode</h1>
-<p>While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.</p>
-<p>Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's walk through it.</p>
-<p>Checkout the <a href="https://github.com/turbolinks/turbolinks">Turbolinks documentation</a> for installation instructions.</p>
-<p>Now, add the following JS in a script tag at the bottom of the page, or in your <code>app.js</code> file.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-smi">Turbolinks</span>.<span class="pl-c1">start</span>()
-
-<span class="pl-c1">document</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>turbolinks:load<span class="pl-pds">'</span></span>, () <span class="pl-k">=&gt;</span> {
-    <span class="pl-k">if</span> (<span class="pl-k">!</span> <span class="pl-c1">window</span>.<span class="pl-smi">livewire</span>) {
-        <span class="pl-c1">window</span>.<span class="pl-smi">livewire</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Livewire</span>()
-    } <span class="pl-k">else</span> {
-        <span class="pl-c1">window</span>.<span class="pl-smi">livewire</span>.<span class="pl-en">restart</span>()
-    }
-})</pre></div>
-<p>And that's it! This little snippet tells Turbolinks to reload Livewire everytime a new page is visited or returned to.</p>
+<a id="user-content-events" class="anchor" href="#events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h1>
+<p>Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.</p>
+<h2>
+<a id="user-content-firing-events" class="anchor" href="#firing-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Firing Events</h2>
+<p>There are two ways to fire events from Livewire components.</p>
+<h3>
+<a id="user-content-method-a-from-the-template" class="anchor" href="#method-a-from-the-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method A: From The Template</h3>
+<p>This method is twice as fast as Method B, so it is the preffered usage.</p>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">button</span> <span class="pl-e">wire:click</span>=<span class="pl-s"><span class="pl-pds">"</span>$emit('showModal')<span class="pl-pds">"</span></span>&gt;</pre></div>
+<h3>
+<a id="user-content-method-b-from-the-component" class="anchor" href="#method-b-from-the-component" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method B: From The Component</h3>
+<p>This method is twice as fast as Method B, so it is the preffered usage.</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>emit(<span class="pl-s"><span class="pl-pds">'</span>showModal<span class="pl-pds">'</span></span>);</span></pre></div>
+<h2>
+<a id="user-content-listening-for-events" class="anchor" href="#listening-for-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Listening For Events</h2>
+<p>Event listeners are registered in the <code>$listeners</code> property of your Livewire components.</p>
+<div title="Component"><div title="Component__class">
+<p>Modal</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">Modal</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$isOpen</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$listeners</span> <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>showModal<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>open<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">open</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">isOpen</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">render</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">return</span> view(<span class="pl-s"><span class="pl-pds">'</span>livewire.modal<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+</div></div>
+<p>Now when any other component on the page emits a <code>showModal</code> event, this component will pick it up and fire the <code>open</code> method on itself.</p>
+<h2>
+<a id="user-content-listening-for-laravel-echo-events" class="anchor" href="#listening-for-laravel-echo-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Listening for Laravel Echo events</h2>
+<p>Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.</p>
+<div title="Warning"><div title="Warning__content">
+<p>This feature assumes you have installed Laravel Echo and the <code>window.Echo</code> object is globally available. For more info on this, check out the <a href="https://laravel.com/docs/5.8/broadcasting#installing-laravel-echo" rel="nofollow">docs</a>.</p>
+</div></div>
+<p>Consider the following Laravel Event:</p>
+<div title="Component"><div title="Component__class">
+<p>Modal</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">OrderShipped</span> <span class="pl-k">implements</span> <span class="pl-e">ShouldBroadcast</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">use</span> <span class="pl-c1">Dispatchable</span>, <span class="pl-c1">InteractsWithSockets</span>, <span class="pl-c1">SerializesModels</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">broadcastOn</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">Channel</span>(<span class="pl-s"><span class="pl-pds">'</span>orders<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span></pre></div>
+</div></div>
+<p>Let's say you fire this event with Laravel's broadcasting system like this:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">event(<span class="pl-k">new</span> <span class="pl-c1">OrderShipped</span>);</span></pre></div>
+<p>Normally, you would listen for this event in Laravel Echo like so:</p>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">Echo</span>.<span class="pl-en">channel</span>(<span class="pl-s"><span class="pl-pds">'</span>orders<span class="pl-pds">'</span></span>)
+        .<span class="pl-en">listen</span>(<span class="pl-s"><span class="pl-pds">'</span>OrderShipped<span class="pl-pds">'</span></span>, (<span class="pl-smi">e</span>) <span class="pl-k">=&gt;</span> {
+            <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">e</span>.<span class="pl-smi">order</span>.<span class="pl-c1">name</span>);
+        });</pre></div>
+<p>With Livewire however, all you have to do is register it in your <code>$listeners</code> property, with some special syntax to designate it's from Echo.</p>
+<div title="Component"><div title="Component__class">
+<p>OrderTracker</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">OrderTracker</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$showNewOrderNotication</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$listeners</span> <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>echo:orders,OrderShipped<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>notifyNewOrder<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">notifyNewOrder</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">showNewOrderNotification</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">render</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">return</span> view(<span class="pl-s"><span class="pl-pds">'</span>livewire.order-tracker<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+</div></div>
+<p>Now, Livewire will intercept the received event from Pusher, and act accordingly.</p>
 
         </div>
     </div>
