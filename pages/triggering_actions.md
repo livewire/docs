@@ -1,6 +1,6 @@
-# Event Actions
+# Triggering Actions
 
-Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: `wire:[event]="[action]"`.
+Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: `wire:[native event]="[action]"`.
 
 Here are some common events you may need to listen for:
 
@@ -64,8 +64,8 @@ In Livewire, there are some "special" actions that are usually prefixed with a "
 
 Function | Description
 --- | ---
-$set(_property_, _value_) | Shortcut to update the value of a property
-$toggle(_property_) | Shortcut to toggle boolean properties on or off
+$set('_property_', _value_) | Shortcut to update the value of a property
+$toggle('_property_') | Shortcut to toggle boolean properties on or off
 $refresh | Will re-render the component without firing any action
 
 You can pass these as the value of an event listener to do special things in Livewire.
@@ -95,10 +95,10 @@ Notice that we are no longer calling the `increment` and `decrement` functions, 
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
 
 ## Polling Actions
-Livewire offers a directive called `wire:poll="someAction"` that, when added to an element, will fire `someAction` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `150ms`. For example:
+Livewire offers a directive called `wire:poll="someAction"` that, when added to an element, will fire `someAction` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:
 
 ```html
-<div wire:poll.150ms="$refresh">
+<div wire:poll.750ms="$refresh">
     Current time: {{ now() }}
 </div>
 ```

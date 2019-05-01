@@ -29,8 +29,6 @@ Additionally, you can pass data into a component by passing additional parameter
 @livewire('show-contact', $contactId)
 ```
 
-Any additional parameters passed into Livewire components, will be made available through the `mount` lifecycle hook.
-
 ```php
 class ShowContact extends LivewireComponent
 {
@@ -47,6 +45,12 @@ class ShowContact extends LivewireComponent
 
     ...
 }
+```
+
+You can pass multiple parameters to the `mount()` hook and receive them like so:
+
+```php
+@livewire('show-contact', $contactId, $profilePhotoUrl)
 ```
 
 ## B) Render Component As Entire Page
@@ -100,14 +104,14 @@ You can also configure these settings for an entire route group using the group 
 
 ```php
 Route::group(['layout' => 'layouts.base', 'section' => 'body'], function () {
-    ...
+    //
 });
 ```
 
 Or the fluent alternative:
 ```php
 Route::layout('layouts.base')->section('body')->group(function () {
-    ...
+    //
 });
 ```
 

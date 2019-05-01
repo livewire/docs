@@ -143,6 +143,9 @@
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/component_basics">
                         Component Basics
                     </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/registering_components">
+                        Registering Components
+                    </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/rendering_components">
                         <strong>Rendering Components</strong>
                     </a></li>
@@ -188,29 +191,18 @@
 <h2>
 <a id="user-content-a-include-inside-blade-view" class="anchor" href="#a-include-inside-blade-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A) Include Inside Blade View</h2>
 <p>You can include a Livewire component in an existing Blade view with the <code>@livewire</code> directive.</p>
-<p>Let's assume we have a route like <code>Route::get('/home', 'HomeController@show')</code>, and <code>HomeController</code> returns a view named <code>home.blade.php</code>. We can include a component called <code>Counter</code> like so:</p>
+<p>Let's assume we have a route like <code>Route::get('/home', 'HomeController@show')</code>, and <code>HomeController</code> returns a view named <code>home.blade.php</code>. We can include a component called <code>counter</code> like so:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">@</span><span class="pl-k">extends</span>(<span class="pl-s"><span class="pl-pds">'</span>layouts.app<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-k">@</span>section(<span class="pl-s"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">@</span>livewire(<span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
+<span class="pl-s1">    <span class="pl-k">@</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-k">@</span><span class="pl-c1">endsection</span></span></pre></div>
-<h3>
-<a id="user-content-component-aliases" class="anchor" href="#component-aliases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Component Aliases</h3>
-<p>For some, it might feel weird passing an expression like <code>App\Http\Livewire\Counter::class</code> into a blade directive. If this is the case for you, you can register component aliases in a ServiceProvider and just use those in your views like so:</p>
-<p><strong>AppServiceProvider.php</strong></p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">boot</span>()</span>
-<span class="pl-s1">{</span>
-<span class="pl-s1">    <span class="pl-c1">Livewire</span><span class="pl-k">::</span>component(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span>
-<span class="pl-s1">}</span></pre></div>
-<p>Now you can pass the component alias into the directive:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">@</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>)</span></pre></div>
 <h3>
 <a id="user-content-initial-parameters" class="anchor" href="#initial-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initial Parameters</h3>
 <p>Additionally, you can pass data into a component by passing additional parameters into the <code>@livewire</code> directive. For example, let's say we have an <code>ShowContact</code> Livewire component that needs to know which contact to show. Here's how you would pass in the contact id.</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">@</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>show-contact<span class="pl-pds">'</span></span>, <span class="pl-smi">$contactId</span>)</span></pre></div>
-<p>Any additional parameters passed into Livewire components, will be made available through the <code>mount</code> lifecycle hook.</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">ShowContact</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
 <span class="pl-s1">{</span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$name</span>;</span>
@@ -226,6 +218,8 @@
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">...</span></span>
 <span class="pl-s1">}</span></pre></div>
+<p>You can pass multiple parameters to the <code>mount()</code> hook and receive them like so:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">@</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>show-contact<span class="pl-pds">'</span></span>, <span class="pl-smi">$contactId</span>, <span class="pl-smi">$profilePhotoUrl</span>)</span></pre></div>
 <h2>
 <a id="user-content-b-render-component-as-entire-page" class="anchor" href="#b-render-component-as-entire-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>B) Render Component As Entire Page</h2>
 <p>If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helpers to cut out the extra boilerplate code. Take a look at the following example:</p>
@@ -246,21 +240,21 @@
 <span class="pl-s1"><span class="pl-k">@</span><span class="pl-k">extends</span>(<span class="pl-s"><span class="pl-pds">'</span>layouts.app<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-k">@</span>section(<span class="pl-s"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">    <span class="pl-k">@</span>livewire(<span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
+<span class="pl-s1">    <span class="pl-k">@</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1"><span class="pl-k">@</span><span class="pl-c1">endsection</span></span></pre></div>
 <p><strong>After</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> Route</span></span>
-<span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span></pre></div>
+<span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>);</span></pre></div>
 <p>Note: for this feature to work, Livewire assumes you have a layout stored in <code>resources/views/layouts/app.blade.php</code> that yields a "content" section (<code>@yield('content')</code>)</p>
 <h3>
 <a id="user-content-custom-layout-file" class="anchor" href="#custom-layout-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom Layout File</h3>
 <p>If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> Customizing layout</span></span>
-<span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
+<span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">    <span class="pl-k">-&gt;</span>layout(<span class="pl-s"><span class="pl-pds">'</span>layouts.base<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> Customizing section (@yield('body'))</span></span>
-<span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
+<span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/home<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">    <span class="pl-k">-&gt;</span>section(<span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>);</span></pre></div>
 <p>You can also configure these settings for an entire route group using the group option array syntax:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>group([<span class="pl-s"><span class="pl-pds">'</span>layout<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>layouts.base<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>section<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>], <span class="pl-k">function</span> () {</span>
@@ -274,7 +268,7 @@
 <a id="user-content-route-parameters" class="anchor" href="#route-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Route Parameters</h3>
 <p>Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's <code>mount</code> lifecycle hook. For example:</p>
 <p><strong>web.php</strong></p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{id}<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">ShowContact</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{id}<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>show-contact<span class="pl-pds">'</span></span>);</span></pre></div>
 <p><strong>App\Http\Livewire\ShowContact.php</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">ShowContact</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
 <span class="pl-s1">{</span>
@@ -296,7 +290,7 @@
 <a id="user-content-route-model-binding" class="anchor" href="#route-model-binding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Route Model Binding</h3>
 <p>Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:</p>
 <p><strong>web.php</strong></p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{user}<span class="pl-pds">'</span></span>, <span class="pl-c1">App\Http\Livewire\</span><span class="pl-c1">ShowContact</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Route</span><span class="pl-k">::</span>livewire(<span class="pl-s"><span class="pl-pds">'</span>/contact/{user}<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>show-contact<span class="pl-pds">'</span></span>);</span></pre></div>
 <p><strong>App\Http\Livewire\ShowContact.php</strong></p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">ShowContact</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
 <span class="pl-s1">{</span>

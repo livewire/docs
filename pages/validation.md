@@ -162,3 +162,8 @@ contact-form.blade.php
 </div>
 ```
 </div></div></div>
+
+<div title="Warning"><div title="Warning__content">
+
+You might be wondering if you can use Laravel's `FormRequest`s. Due to the nature of Livewire, hooking into the http request wouldn't make sense. For now, this functionality is not possible or recommended.
+</div></div>

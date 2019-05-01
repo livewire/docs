@@ -5,39 +5,34 @@ Consider the following Livewire component:
 
 <div title="Component"><div title="Component__class">
 
-FavoriteColor
+MyNameIs
 ```php
-class FavoriteColor extends LivewireComponent
+class MyNameIs extends LivewireComponent
 {
-    public $color;
+    public $name;
 
     public function render()
     {
-        return view('livewire.favorite-color');
+        return view('livewire.my-name-is');
     }
 }
 ```
 </div>
 <div title="Component__view">
 
-favorite-color.blade.php
+my-name-is.blade.php
 ```html
 <div>
-    What's your favorite color?
+    What's your name?
+    <input type="text" wire:model="name">
 
-    <select wire:model="color">
-        <option>Pink</option>
-        <option>Purple</option>
-        <option>Yellow</option>
-    </select>
-
-    Your favorite color is {{ $color }}
+    My name is chica-chica {{ $name }}
 </div>
 ```
 </div>
 </div>
 
-When the user selects a favorite color from the dropdown, the value of the `$color` property will automatically update. Livewire knows to keep track of the selected color because of the `wire:model` directive.
+When the user types "Slim Shady" into the text field, the value of the `$name` property will automatically update. Livewire knows to keep track of the provided name because of the `wire:model` directive.
 
 Internally, Livewire listens for "input" events on the element and updates the class property with the element's value. Therefore, you can apply `wire:model` to any element that emits `input` events.
 
@@ -45,7 +40,9 @@ Common elements to use `wire:model` on include:
 
 Element Tag |
 --- |
-`<input>` |
+`<input type="input">` |
+`<input type="radio">` |
+`<input type="checkbox">` |
 `<select>` |
 `<textarea>` |
 
@@ -58,36 +55,35 @@ Be careful using `wire:model` on `<input>` elements, it is usually better to use
 
 By default, Livewire sends a request to server after every "input" event. This is usually fine for things like `<select>` elements that don't update frequently, however, this is often unnescessary for text fields that update as the user types.
 
-In those cases, use the `lazy` directive modifier to save on network requests.
+In those cases, use the `lazy` directive modifier to listen for the native "change" event.
 
 <div title="Component"><div title="Component__class">
 
-Todos
+MyNameIs
 ```php
-class Todos extends LivewireComponent
+class MyNameIs extends LivewireComponent
 {
-    public $todo;
-
-    public function addTodo()
-    {
-        Todo::create(['todo' => $this->todo]);
-    }
+    public $name;
 
     public function render()
     {
-        return view('livewire.todos');
+        return view('livewire.my-name-is');
     }
 }
 ```
-</div><div title="Component__view">
+</div>
+<div title="Component__view">
 
-favorite-color.blade.php
+my-name-is.blade.php
 ```html
 <div>
-    <input wire:model.lazy="todo">
-    <button wire:click="addTodo">Add Todo</button>
+    What's your name?
+    <input type="text" wire:model.lazy="name">
+
+    My name is chica-chica {{ $name }}
 </div>
 ```
-</div></div>
+</div>
+</div>
 
-Now, the `$todo` property will only be updated when the user clicks the "Add Todo" button.
+Now, the `$todo` property will only be updated when the user clicks away from the input field.

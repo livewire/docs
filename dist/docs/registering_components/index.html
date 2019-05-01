@@ -144,7 +144,7 @@
                         Component Basics
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/registering_components">
-                        Registering Components
+                        <strong>Registering Components</strong>
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/rendering_components">
                         Rendering Components
@@ -174,7 +174,7 @@
                         Custom JavaScript
                     </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/turbolinks">
-                        <strong>SPA Mode</strong>
+                        SPA Mode
                     </a></li>
                             </ul>
         </div>
@@ -182,21 +182,27 @@
         
         <div class="markdown-body main-body p-8 pt-4 pl-16">
             <h1>
-<a id="user-content-spa-mode" class="anchor" href="#spa-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SPA Mode</h1>
-<p>While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.</p>
-<p>Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's walk through it.</p>
-<p>Checkout the <a href="https://github.com/turbolinks/turbolinks">Turbolinks documentation</a> for installation instructions.</p>
-<p>Now, add the following JS in a script tag at the bottom of the page, or in your <code>app.js</code> file.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-smi">Turbolinks</span>.<span class="pl-c1">start</span>()
-
-<span class="pl-c1">document</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>turbolinks:load<span class="pl-pds">'</span></span>, () <span class="pl-k">=&gt;</span> {
-    <span class="pl-k">if</span> (<span class="pl-k">!</span> <span class="pl-c1">window</span>.<span class="pl-smi">livewire</span>) {
-        <span class="pl-c1">window</span>.<span class="pl-smi">livewire</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Livewire</span>()
-    } <span class="pl-k">else</span> {
-        <span class="pl-c1">window</span>.<span class="pl-smi">livewire</span>.<span class="pl-en">restart</span>()
-    }
-})</pre></div>
-<p>And that's it! This little snippet tells Turbolinks to reload Livewire everytime a new page is visited or returned to.</p>
+<a id="user-content-registering-components" class="anchor" href="#registering-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Registering Components</h1>
+<p>Registering Livewire components should feel similar to registering Vue components, or Blade components.</p>
+<p>You can register them wherever you like, but it will probably make the most sense to register them inside your AppServiceProvider.php or a separate LivewireServiceProvider that you make.</p>
+<div title="Component">
+<div title="Component__class">
+<p>app/Providers/AppServiceProvider.php</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">namespace</span> <span class="pl-en">App\Providers</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Illuminate\Support\ServiceProvider</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">AppServiceProvider</span> <span class="pl-k">extends</span> <span class="pl-e">ServiceProvider</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">boot</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-c1">Livewire</span><span class="pl-k">::</span>component(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">\App\Http\Livewire\</span><span class="pl-c1">Counter</span><span class="pl-k">::</span><span class="pl-c1">class</span>);</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+</div>
+</div>
 
         </div>
     </div>

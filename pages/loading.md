@@ -10,11 +10,8 @@ Fortunately, Livewire makes this kind of thing simple. We can use the `wire:load
 ```php
 <div>
     <input wire:model.lazy="cardNumber">
-    <button wire:click="checkout">Checkout</button>
 
-    <div class="hidden" wire:loading-class.remove="hidden">
-        Processing Payment...
-    </div>
+    <button wire:click="checkout" wire:loading-class="with-loading-spinner">Checkout</button>
 </div>
 ```
 

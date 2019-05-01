@@ -143,6 +143,9 @@
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/component_basics">
                         Component Basics
                     </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/registering_components">
+                        Registering Components
+                    </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/rendering_components">
                         Rendering Components
                     </a></li>
@@ -182,11 +185,13 @@
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
 <p>Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.</p>
 <h2>
-<a id="user-content-include-php-via-composer" class="anchor" href="#include-php-via-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Include PHP (via composer)</h2>
+<a id="user-content-step-1-include-the-php" class="anchor" href="#step-1-include-the-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Include the PHP</h2>
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">&gt;</span> composer require calebporzio/livewire</pre></div>
 <h2>
-<a id="user-content-include-javascript-via-snippet" class="anchor" href="#include-javascript-via-snippet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Include JavaScript (via snippet)</h2>
-<p>To get started quickly, you can include the following snippet at the end of the <code>&lt;body&gt;</code> in your html page. It is recommended that you put this in a layout file such as <code>resources/views/layouts/app.blade.php</code>. You can create this layout file in a new laravel project by executing <code>artisan make:auth</code>.</p>
+<a id="user-content-step-2-include-the-javascript" class="anchor" href="#step-2-include-the-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Include the JavaScript</h2>
+<p>You can either include the JavaScript via the provided Blade helper (easiest), or include it via NPM if you have a build pipeline for your JavaScript.</p>
+<h3>
+<a id="user-content-option-a-blade-snippet" class="anchor" href="#option-a-blade-snippet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option A) Blade Snippet</h3>
 <div title="Component"><div title="Component__class">
 <div char="fade">
 <div class="highlight highlight-text-html-basic"><pre>    ...</pre></div>
@@ -197,9 +202,8 @@
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
 </div>
 </div></div>
-<h2>
-<a id="user-content-include-javascript-via-npm" class="anchor" href="#include-javascript-via-npm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Include JavaScript (via NPM)</h2>
-<p>If you have a more sophistocated javascript build setup, you can alternatively install and import Livewire via NPM.</p>
+<h3>
+<a id="user-content-option-b-install-via-npm" class="anchor" href="#option-b-install-via-npm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option B) install via NPM</h3>
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">&gt;</span> npm install laravel-livewire --save-dev</pre></div>
 <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">Livewire</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>laravel-livewire<span class="pl-pds">'</span></span>
 

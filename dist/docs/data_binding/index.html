@@ -143,6 +143,9 @@
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/component_basics">
                         Component Basics
                     </a></li>
+                                    <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/registering_components">
+                        Registering Components
+                    </a></li>
                                     <li class="mb-2"><a class="no-underline text-black text-sm" href="/docs/rendering_components">
                         Rendering Components
                     </a></li>
@@ -184,33 +187,28 @@
 <p>Consider the following Livewire component:</p>
 <div title="Component">
 <div title="Component__class">
-<p>FavoriteColor</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">FavoriteColor</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
+<p>MyNameIs</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">MyNameIs</span> <span class="pl-k">extends</span> <span class="pl-e">LivewireComponent</span></span>
 <span class="pl-s1">{</span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$color</span>;</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-smi">$name</span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">render</span>()</span>
 <span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> view(<span class="pl-s"><span class="pl-pds">'</span>livewire.favorite-color<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">        <span class="pl-k">return</span> view(<span class="pl-s"><span class="pl-pds">'</span>livewire.my-name-is<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1">}</span></pre></div>
 </div>
 <div title="Component__view">
-<p>favorite-color.blade.php</p>
+<p>my-name-is.blade.php</p>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span>&gt;
-    What's your favorite color?
+    What's your name?
+    &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">wire:model</span>=<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>&gt;
 
-    &lt;<span class="pl-ent">select</span> <span class="pl-e">wire:model</span>=<span class="pl-s"><span class="pl-pds">"</span>color<span class="pl-pds">"</span></span>&gt;
-        &lt;<span class="pl-ent">option</span>&gt;Pink&lt;/<span class="pl-ent">option</span>&gt;
-        &lt;<span class="pl-ent">option</span>&gt;Purple&lt;/<span class="pl-ent">option</span>&gt;
-        &lt;<span class="pl-ent">option</span>&gt;Yellow&lt;/<span class="pl-ent">option</span>&gt;
-    &lt;/<span class="pl-ent">select</span>&gt;
-
-    Your favorite color is {{ $color }}
+    My name is chica-chica {{ $name }}
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 </div>
 </div>
-<p>When the user selects a favorite color from the dropdown, the value of the <code>$color</code> property will automatically update. Livewire knows to keep track of the selected color because of the <code>wire:model</code> directive.</p>
+<p>When the user types "Slim Shady" into the text field, the value of the <code>$name</code> property will automatically update. Livewire knows to keep track of the selected color because of the <code>wire:model</code> directive.</p>
 <p>Internally, Livewire listens for "input" events on the element and updates the class property with the element's value. Therefore, you can apply <code>wire:model</code> to any element that emits <code>input</code> events.</p>
 <p>Common elements to use <code>wire:model</code> on include:</p>
 <table>
@@ -221,7 +219,13 @@
 </thead>
 <tbody>
 <tr>
-<td><code>&lt;input&gt;</code></td>
+<td><code>&lt;input type="input"&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;input type="radio"&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;input type="checkbox"&gt;</code></td>
 </tr>
 <tr>
 <td><code>&lt;select&gt;</code></td>
@@ -237,7 +241,7 @@
 <h2>
 <a id="user-content-lazily-updating" class="anchor" href="#lazily-updating" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lazily Updating</h2>
 <p>By default, Livewire sends a request to server after every "input" event. This is usually fine for things like <code>&lt;select&gt;</code> elements that don't update frequently, however, this is often unnescessary for text fields that update as the user types.</p>
-<p>In those cases, use the <code>lazy</code> directive modifier to save on network requests.</p>
+<p>In those cases, use the <code>lazy</code> directive modifier to listen for the native "change" event.</p>
 <div title="Component">
 <div title="Component__class">
 <p>Todos</p>
@@ -264,7 +268,7 @@
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 </div>
 </div>
-<p>Now, the <code>$todo</code> property will only be updated when the user clicks the "Add Todo" button.</p>
+<p>Now, the <code>$todo</code> property will only be updated when the user clicks away from the input field.</p>
 
         </div>
     </div>

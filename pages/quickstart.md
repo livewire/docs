@@ -100,7 +100,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Livewire::component('counter', \App\Http\Counter::class);
+        Livewire::component('counter', \App\Http\Livewire\Counter::class);
     }
 }
 ```

@@ -52,8 +52,11 @@ foreach ($app->make('router')->getRoutes() as $route) {
 
     $kernel->terminate($request, $response);
     $content = $response->getContent();
-    $file = 'dist/'.$route->uri().'/index.html';
+    $directory = 'dist/'.$route->uri();
+    $file = $directory.'/index.html';
 
+    $app->make('files')->exists($directory)
+        || $app->make('files')->makeDirectory($directory);
     $app->make('files')->put($file, $content);
     echo 'Route processed: ['.$route->uri()."]\n";
 }
