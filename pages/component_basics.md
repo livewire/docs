@@ -41,6 +41,12 @@ show-posts.blade.php
 
 <div title="Warning"><div title="Warning__content">
 
+A component should contain only one root tag.
+
+</div></div>
+
+<div title="Warning"><div title="Warning__content">
+
 Although `render()` methods closely resemble controller methods, there are a few techniques you are used to using in controllers that aren't available in Livewire components.
 
 Here are some common things you might forget ARE NOT possible in Livewire:
