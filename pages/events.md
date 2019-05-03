@@ -14,7 +14,6 @@ This method is twice as fast as Method B, so it is the preffered usage.
 ```
 
 ### Method B: From The Component
-This method is twice as fast as Method B, so it is the preffered usage.
 
 ```php
 $this->emit('showModal');
