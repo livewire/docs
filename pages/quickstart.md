@@ -107,7 +107,7 @@ class AppServiceProvider extends ServiceProvider
 </div>
 </div>
 
-## Inlude the component
+## Include the component
 Livewire components are included into Blade views just like Blade includes or components. You can include the `@livewire` blade directive wherever you want the component to render.
 
 <div title="Component">
