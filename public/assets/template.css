@@ -1,3 +1,11 @@
+/* Import Nunito for headings */
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
 
 .bg-yellow {
     background-color: #FFE771;
@@ -42,27 +50,27 @@ body {
 }
 
 [title="Component__class"] p {
-    color: #005e71;
+    color: #718096;
 }
 
 [title="Component__view"] p {
-    color: #d0e4e7;
+    color: #718096;
 }
 
 [title="Component__class"] {
     position: relative;
-    background: #f1f7f8;
+    background: #F7FAFC;
     padding: 16px;
 }
 
 [title="Component__view"] {
     position: relative;
-    background: #004857;
+    background: #EDF2F7;
     padding: 16px;
 }
 
 [title="Component__view"] pre {
-    color: #d9ebee;
+    /* color: #d9ebee; */
 }
 
 /* Fade */
@@ -78,12 +86,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #F1F7F8;
+    background: #F7FAFC;
     opacity: .5;
 }
 
 [title="Component__view"] [char="fade"]::before {
-    background: #064856;
+    background: #EDF2F7;
 }
 
 /* Warning */
@@ -92,7 +100,7 @@ body {
     margin-bottom: 16px;
     margin-top: 24px;
     display: flex;
-    background-color: #ff707e;
+    background-color: #fb6a98;
     border-radius: 6px;
     padding: 16px;
     font-size: 14px;
@@ -120,13 +128,13 @@ body {
 }
 
 .markdown-body .highlight pre, .markdown-body pre {
-    background-color: #f1f7f8;
+    background-color: #F7FAFC;
     border-radius: 6px;
     margin-bottom: 16px;
 }
 
 .markdown-body code, .markdown-body tt {
-    background-color: #f1f7f8;
+    background-color: #F7FAFC;
 }
 
 .markdown-body {
@@ -141,126 +149,127 @@ body {
  * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
  */
 
-[title="Component__view"] .pl-c /* comment, punctuation.definition.comment, string.comment */ {
+
+[title="Component__view_rmme"] .pl-c /* comment, punctuation.definition.comment, string.comment */ {
   color: #959da5;
 }
 
-[title="Component__view"] .pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.quote, markup.raw, meta.diff.header */,
-[title="Component__view"] .pl-s .pl-v /* string variable */ {
+[title="Component__view_rmme"] .pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.quote, markup.raw, meta.diff.header */,
+[title="Component__view_rmme"] .pl-s .pl-v /* string variable */ {
   color: #c8e1ff;
 }
 
-[title="Component__view"] .pl-e /* entity */,
-[title="Component__view"] .pl-en /* entity.name */ {
+[title="Component__view_rmme"] .pl-e /* entity */,
+[title="Component__view_rmme"] .pl-en /* entity.name */ {
   color: #b392f0;
 }
 
-[title="Component__view"] .pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
-[title="Component__view"] .pl-s .pl-s1 /* string source */ {
-  color: #f6f8fa;
+[title="Component__view_rmme"] .pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+[title="Component__view_rmme"] .pl-s .pl-s1 /* string source */ {
+  color: #F7FAFC;
 }
 
-[title="Component__view"] .pl-ent /* entity.name.tag */ {
+[title="Component__view_rmme"] .pl-ent /* entity.name.tag */ {
   color: #7bcc72;
 }
 
-[title="Component__view"] .pl-k /* keyword, storage, storage.type */ {
+[title="Component__view_rmme"] .pl-k /* keyword, storage, storage.type */ {
   color: #ea4a5a;
 }
 
-[title="Component__view"] .pl-s /* string */,
-[title="Component__view"] .pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
-[title="Component__view"] .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
-[title="Component__view"] .pl-sr /* string.regexp */,
-[title="Component__view"] .pl-sr .pl-cce /* string.regexp constant.character.escape */,
-[title="Component__view"] .pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
-[title="Component__view"] .pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
+[title="Component__view_rmme"] .pl-s /* string */,
+[title="Component__view_rmme"] .pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
+[title="Component__view_rmme"] .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+[title="Component__view_rmme"] .pl-sr /* string.regexp */,
+[title="Component__view_rmme"] .pl-sr .pl-cce /* string.regexp constant.character.escape */,
+[title="Component__view_rmme"] .pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+[title="Component__view_rmme"] .pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
   color: #79b8ff;
 }
 
-[title="Component__view"] .pl-v /* variable */,
-[title="Component__view"] .pl-ml /* markup.list, sublimelinter.mark.warning */ {
+[title="Component__view_rmme"] .pl-v /* variable */,
+[title="Component__view_rmme"] .pl-ml /* markup.list, sublimelinter.mark.warning */ {
   color: #fb8532;
 }
 
-[title="Component__view"] .pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
+[title="Component__view_rmme"] .pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
   color: #d73a49;
 }
 
-[title="Component__view"] .pl-ii /* invalid.illegal */ {
+[title="Component__view_rmme"] .pl-ii /* invalid.illegal */ {
   color: #fafbfc;
   background-color: #d73a49;
 }
 
-[title="Component__view"] .pl-c2 /* carriage-return */ {
+[title="Component__view_rmme"] .pl-c2 /* carriage-return */ {
   color: #fafbfc;
   background-color: #d73a49;
 }
 
-[title="Component__view"] .pl-c2::before /* carriage-return */ {
+[title="Component__view_rmme"] .pl-c2::before /* carriage-return */ {
   content: "^M";
 }
 
-[title="Component__view"] .pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+[title="Component__view_rmme"] .pl-sr .pl-cce /* string.regexp constant.character.escape */ {
   font-weight: bold;
   color: #7bcc72;
 }
 
-[title="Component__view"] .pl-mh /* markup.heading */,
-[title="Component__view"] .pl-mh .pl-en /* markup.heading entity.name */,
-[title="Component__view"] .pl-ms /* meta.separator */ {
+[title="Component__view_rmme"] .pl-mh /* markup.heading */,
+[title="Component__view_rmme"] .pl-mh .pl-en /* markup.heading entity.name */,
+[title="Component__view_rmme"] .pl-ms /* meta.separator */ {
   font-weight: bold;
   color: #0366d6;
 }
 
-[title="Component__view"] .pl-mi /* markup.italic */ {
+[title="Component__view_rmme"] .pl-mi /* markup.italic */ {
   font-style: italic;
-  color: #f6f8fa;
+  color: #F7FAFC;
 }
 
-[title="Component__view"] .pl-mb /* markup.bold */ {
+[title="Component__view_rmme"] .pl-mb /* markup.bold */ {
   font-weight: bold;
-  color: #f6f8fa;
+  color: #F7FAFC;
 }
 
-[title="Component__view"] .pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+[title="Component__view_rmme"] .pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
   color: #b31d28;
   background-color: #ffeef0;
 }
 
-[title="Component__view"] .pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+[title="Component__view_rmme"] .pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
   color: #176f2c;
   background-color: #f0fff4;
 }
 
-[title="Component__view"] .pl-mc /* markup.changed, punctuation.definition.changed */ {
+[title="Component__view_rmme"] .pl-mc /* markup.changed, punctuation.definition.changed */ {
   color: #b08800;
   background-color: #fffdef;
 }
 
-[title="Component__view"] .pl-mi2 /* markup.ignored, markup.untracked */ {
+[title="Component__view_rmme"] .pl-mi2 /* markup.ignored, markup.untracked */ {
   color: #2f363d;
   background-color: #959da5;
 }
 
-[title="Component__view"] .pl-mdr /* meta.diff.range */ {
+[title="Component__view_rmme"] .pl-mdr /* meta.diff.range */ {
   font-weight: bold;
   color: #b392f0;
 }
 
-[title="Component__view"] .pl-mo /* meta.output */ {
+[title="Component__view_rmme"] .pl-mo /* meta.output */ {
   color: #0366d6;
 }
 
-[title="Component__view"] .pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+[title="Component__view_rmme"] .pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
   color: #ffeef0;
 }
 
-[title="Component__view"] .pl-sg /* sublimelinter.gutter-mark */ {
+[title="Component__view_rmme"] .pl-sg /* sublimelinter.gutter-mark */ {
   color: #6a737d;
 }
 
-[title="Component__view"] .pl-corl /* constant.other.reference.link, string.other.link */ {
+[title="Component__view_rmme"] .pl-corl /* constant.other.reference.link, string.other.link */ {
   text-decoration: underline;
   color: #79b8ff;
 }

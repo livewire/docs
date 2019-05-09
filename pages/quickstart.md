@@ -4,10 +4,10 @@
 
 *Include the PHP*
 ```bash
-> composer require calebporzio/livewire
+composer require calebporzio/livewire
 ```
 
-*Include the JavaScript*
+*Include the JavaScript (on every page that will be using Livewire)*
 <div title="Component"><div title="Component__class"><div char="fade">
 
 ```html
@@ -31,7 +31,7 @@
 Run the following command to generate a new Livewire component called `Counter` and it's corresponding Blade view.
 
 ```bash
-> php artisan make:livewire Counter
+php artisan make:livewire counter
 ```
 
 Running this command will generate the following two files:
@@ -45,9 +45,9 @@ app/Http/Livewire/Counter.php
 
 namespace App\Http\Livewire;
 
-use Livewire\LivewireComponent;
+use Livewire\Component;
 
-class Counter extends LivewireComponent
+class Counter extends Component
 {
     public function render()
     {
@@ -61,7 +61,7 @@ class Counter extends LivewireComponent
 resources/views/livewire/counter.blade.php
 ```html
 <div>
-    {{-- Go effing nuts. --}}
+    ...
 </div>
 ```
 </div>
@@ -81,42 +81,20 @@ resources/views/livewire/counter.blade.php
 </div>
 </div>
 
-## Register the component
-
-Register the component inside a service provider like so:
+## Include the component
+Think of Livewire components like you would Blade includes. You can include the `@livewire` blade directive wherever you want the component to render.
 
 <div title="Component">
 <div title="Component__class">
 
-app/Providers/AppServiceProvider.php
 ```php
-<?php
-
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot()
-    {
-        Livewire::component('counter', \App\Http\Livewire\Counter::class);
-    }
-}
+    <div>
+        @livewire('counter')
+    </div>
 ```
-</div>
-</div>
+<div char="fade">
 
-## Inlude the component
-Livewire components are included into Blade views just like Blade includes or components. You can include the `@livewire` blade directive wherever you want the component to render.
-
-<div title="Component">
-<div title="Component__class">
-
-resources/views/welcome.blade.php
 ```php
-    <!-- Render the Livewire component. -->
-    @livewire('counter')
 
     {!! Livewire::scripts() !!}
 </body>
@@ -124,20 +102,21 @@ resources/views/welcome.blade.php
 ```
 </div>
 </div>
+</div>
 
 ## View it in the browser
 
-Now load the page you included Livewire on in the browser. You should see "Hello World!". You should see the `Counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.
+Now load the page you included Livewire on in the browser. You should see "Hello World!".
 
 ## Add "counter" functionality
 
-To add "counting" functionality, replace the generated content of your `Counter` component and view with the following:
+Replace the generated content of the `counter` component class and view with the following:
 
 <div title="Component"><div title="Component__class">
 
 Counter.php
 ```php
-class Counter extends LivewireComponent
+class Counter extends Component
 {
     public $count = 0;
 
@@ -162,13 +141,17 @@ class Counter extends LivewireComponent
 counter.blade.php
 ```html
 <div style="text-align: center">
+
     <button wire:click="increment">+</button>
+
     <h1>{{ $count }}</h1>
+
     <button wire:click="decrement">-</button>
+
 </div>
 ```
 </div></div>
 
 ## View it in the browser
 
-Now reload the page in the browser, you should see the `Counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.
+Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.

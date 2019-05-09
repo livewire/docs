@@ -3,7 +3,7 @@ Livewire has both a PHP component AND a Javascript component. You need to make s
 
 ## Step 1: Include the PHP
 ```bash
-> composer require calebporzio/livewire
+composer require calebporzio/livewire
 ```
 
 ## Step 2: Include the JavaScript
@@ -32,7 +32,7 @@ You can either include the JavaScript via the provided Blade helper (easiest), o
 ### Option B) install via NPM
 
 ```bash
-> npm install laravel-livewire --save-dev
+npm install laravel-livewire --save-dev
 ```
 
 ```js

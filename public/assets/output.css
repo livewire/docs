@@ -1,0 +1,1015 @@
+/* Import Nunito for headings */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+
+/**
+ * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
+ * A thin layer on top of normalize.css that provides a starting point more
+ * suitable for web applications.
+ */
+
+/**
+ * 1. Prevent padding and border from affecting element width
+ * https://goo.gl/pYtbK7
+ * 2. Change the default font family in all browsers (opinionated)
+ */
+
+html {
+  box-sizing: border-box; /* 1 */
+  font-family: sans-serif; /* 2 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Removes the default spacing and border for appropriate elements.
+ */
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Tailwind custom reset styles
+ */
+
+/**
+ * 1. Use the system font stack as a sane default.
+ * 2. Use Tailwind's default "normal" line-height so the user isn't forced
+ * to override it to ensure consistency even when using the default theme.
+ */
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  line-height: 1.5; /* 2 */
+}
+
+/**
+ * Allow adding a border to an element by just adding a border-width.
+ *
+ * By default, the way the browser specifies that an element should have no
+ * border is by setting it's border-style to `none` in the user-agent
+ * stylesheet.
+ *
+ * In order to easily add borders to elements by just setting the `border-width`
+ * property, we change the default border-style for all elements to `solid`, and
+ * use border-width to hide them instead. This way our `border` utilities only
+ * need to set the `border-width` property instead of the entire `border`
+ * shorthand, making our border utilities much more straightforward to compose.
+ *
+ * https://github.com/tailwindcss/tailwindcss/pull/116
+ */
+
+*,
+*::before,
+*::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: #e2e8f0;
+}
+
+/**
+ * Undo the `border-style: none` reset that Normalize applies to images so that
+ * our `border-{width}` utilities have the expected effect.
+ *
+ * The Normalize reset is unnecessary for us since we default the border-width
+ * to 0 on all elements.
+ *
+ * https://github.com/tailwindcss/tailwindcss/issues/362
+ */
+
+img {
+  border-style: solid;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/**
+ * Reset links to optimize for opt-in styling instead of
+ * opt-out.
+ */
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/**
+ * Reset form element properties that are easy to forget to
+ * style explicitly so you don't inadvertently introduce
+ * styles that deviate from your design system. These styles
+ * supplement a partial reset that is already applied by
+ * normalize.css.
+ */
+
+button,
+input,
+select,
+textarea {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+/**
+ * Use the configured 'mono' font family for elements that
+ * are expected to be rendered with a monospace font, falling
+ * back to the system monospace stack if there is no configured
+ * 'mono' font family.
+ */
+
+pre,
+code,
+kbd {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/**
+ * Make replaced elements `display: block` by default as that's
+ * the behavior you want almost all of the time. Inspired by
+ * CSS Remedy, with `svg` added as well.
+ *
+ * https://github.com/mozdevs/cssremedy/issues/14
+ */
+
+img,
+svg,
+canvas,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+/**
+ * Constrain images and videos to the parent width and preserve
+ * their instrinsic aspect ratio.
+ *
+ * https://github.com/mozdevs/cssremedy/issues/14
+ */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.bg-gray-200{
+  background-color: #edf2f7;
+}
+
+.rounded{
+  border-radius: 0.25rem;
+}
+
+.rounded-full{
+  border-radius: 9999px;
+}
+
+.border{
+  border-width: 1px;
+}
+
+.block{
+  display: block;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.inline{
+  display: inline;
+}
+
+.flex{
+  display: flex;
+}
+
+.table{
+  display: table;
+}
+
+.hidden{
+  display: none;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.justify-end{
+  justify-content: flex-end;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.float-right{
+  float: right;
+}
+
+.float-left{
+  float: left;
+}
+
+.font-normal{
+  font-weight: 400;
+}
+
+.h-5{
+  height: 1.25rem;
+}
+
+.leading-normal{
+  line-height: 1.5;
+}
+
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
+.mr-6{
+  margin-right: 1.5rem;
+}
+
+.mr-8{
+  margin-right: 2rem;
+}
+
+.mr-20{
+  margin-right: 5rem;
+}
+
+.outline-none{
+  outline: 0;
+}
+
+.p-2{
+  padding: 0.5rem;
+}
+
+.p-8{
+  padding: 2rem;
+}
+
+.py-2{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.pt-4{
+  padding-top: 1rem;
+}
+
+.pl-4{
+  padding-left: 1rem;
+}
+
+.pl-6{
+  padding-left: 1.5rem;
+}
+
+.pt-8{
+  padding-top: 2rem;
+}
+
+.pt-12{
+  padding-top: 3rem;
+}
+
+.pl-16{
+  padding-left: 4rem;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.shadow-md{
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.fill-current{
+  fill: currentColor;
+}
+
+.text-black{
+  color: #000;
+}
+
+.text-white{
+  color: #fff;
+}
+
+.text-gray-500{
+  color: #a0aec0;
+}
+
+.text-gray-800{
+  color: #2d3748;
+}
+
+.text-sm{
+  font-size: 0.875rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.no-underline{
+  text-decoration: none;
+}
+
+.visible{
+  visibility: visible;
+}
+
+.break-all{
+  word-break: break-all;
+}
+
+.w-2{
+  width: 0.5rem;
+}
+
+.w-5{
+  width: 1.25rem;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.bg-teal-dark {
+  background-color: #65cfe0;
+}
+
+body {
+  margin: 0;
+}
+
+/* I have to use the "title" attribute, because GitHub strips classes from markdown. */
+
+[title="Component"] {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+[title="Component"] div {
+  margin-bottom: 0 !important;
+}
+
+[title="Component"] pre {
+  padding: 0 !important;
+  background-color: transparent !important;
+  margin-bottom: 0 !important;
+}
+
+[title="Component"] p {
+  z-index: 1;
+  font-weight: bold;
+  margin-bottom: 0 !important;
+  position: absolute;
+  right: 0;
+  padding: 2px 10px;
+  font-size: 14px;
+  top: 0
+}
+
+[title="Component__class"] p {
+  color: #718096;
+}
+
+[title="Component__view"] p {
+  color: #718096;
+}
+
+[title="Component__class"] {
+  position: relative;
+  background: #F7FAFC;
+  padding: 16px;
+}
+
+[title="Component__view"] {
+  position: relative;
+  background: #EDF2F7;
+  padding: 16px;
+}
+
+[title="Component__view"] pre {
+  /* color: #d9ebee; */
+}
+
+/* Fade */
+
+[char="fade"] {
+  position: relative;
+}
+
+[char="fade"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #F7FAFC;
+  opacity: .5;
+}
+
+[title="Component__view"] [char="fade"]::before {
+  background: #EDF2F7;
+}
+
+/* Warning */
+
+[title="Warning"] {
+  margin-bottom: 16px;
+  margin-top: 24px;
+  display: flex;
+  background-color: #fb6a98;
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 14px;
+}
+
+[title="Warning__content"] {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+[title="Warning__content"] p {
+  color: white;
+}
+
+[title="Warning"] code {
+  color: #222;
+}
+
+[title="Warning"]::before {
+  content: url(https://s3.us-east-2.amazonaws.com/calebporzio.com/svgs/alarm.svg);
+  width: 35px;
+  display: block;
+  margin-right: 16px;
+  color: white;
+}
+
+.markdown-body .highlight pre, .markdown-body pre {
+  background-color: #F7FAFC;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.markdown-body code, .markdown-body tt {
+  background-color: #F7FAFC;
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 750px;
+}
+
+/*!
+ * GitHub Dark v0.5.0
+ * Copyright (c) 2012 - 2017 GitHub, Inc.
+ * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
+ */
+
+[title="Component__view_rmme"] .pl-c /* comment, punctuation.definition.comment, string.comment */ {
+  color: #959da5;
+}
+
+[title="Component__view_rmme"] .pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.quote, markup.raw, meta.diff.header */,
+[title="Component__view_rmme"] .pl-s .pl-v /* string variable */ {
+  color: #c8e1ff;
+}
+
+[title="Component__view_rmme"] .pl-e /* entity */,
+[title="Component__view_rmme"] .pl-en /* entity.name */ {
+  color: #b392f0;
+}
+
+[title="Component__view_rmme"] .pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+[title="Component__view_rmme"] .pl-s .pl-s1 /* string source */ {
+  color: #F7FAFC;
+}
+
+[title="Component__view_rmme"] .pl-ent /* entity.name.tag */ {
+  color: #7bcc72;
+}
+
+[title="Component__view_rmme"] .pl-k /* keyword, storage, storage.type */ {
+  color: #ea4a5a;
+}
+
+[title="Component__view_rmme"] .pl-s /* string */,
+[title="Component__view_rmme"] .pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
+[title="Component__view_rmme"] .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+[title="Component__view_rmme"] .pl-sr /* string.regexp */,
+[title="Component__view_rmme"] .pl-sr .pl-cce /* string.regexp constant.character.escape */,
+[title="Component__view_rmme"] .pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+[title="Component__view_rmme"] .pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
+  color: #79b8ff;
+}
+
+[title="Component__view_rmme"] .pl-v /* variable */,
+[title="Component__view_rmme"] .pl-ml /* markup.list, sublimelinter.mark.warning */ {
+  color: #fb8532;
+}
+
+[title="Component__view_rmme"] .pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
+  color: #d73a49;
+}
+
+[title="Component__view_rmme"] .pl-ii /* invalid.illegal */ {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+[title="Component__view_rmme"] .pl-c2 /* carriage-return */ {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+[title="Component__view_rmme"] .pl-c2::before /* carriage-return */ {
+  content: "^M";
+}
+
+[title="Component__view_rmme"] .pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+  font-weight: bold;
+  color: #7bcc72;
+}
+
+[title="Component__view_rmme"] .pl-mh /* markup.heading */,
+[title="Component__view_rmme"] .pl-mh .pl-en /* markup.heading entity.name */,
+[title="Component__view_rmme"] .pl-ms /* meta.separator */ {
+  font-weight: bold;
+  color: #0366d6;
+}
+
+[title="Component__view_rmme"] .pl-mi /* markup.italic */ {
+  font-style: italic;
+  color: #F7FAFC;
+}
+
+[title="Component__view_rmme"] .pl-mb /* markup.bold */ {
+  font-weight: bold;
+  color: #F7FAFC;
+}
+
+[title="Component__view_rmme"] .pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+[title="Component__view_rmme"] .pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+  color: #176f2c;
+  background-color: #f0fff4;
+}
+
+[title="Component__view_rmme"] .pl-mc /* markup.changed, punctuation.definition.changed */ {
+  color: #b08800;
+  background-color: #fffdef;
+}
+
+[title="Component__view_rmme"] .pl-mi2 /* markup.ignored, markup.untracked */ {
+  color: #2f363d;
+  background-color: #959da5;
+}
+
+[title="Component__view_rmme"] .pl-mdr /* meta.diff.range */ {
+  font-weight: bold;
+  color: #b392f0;
+}
+
+[title="Component__view_rmme"] .pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+  color: #ffeef0;
+}
+
+[title="Component__view_rmme"] .pl-sg /* sublimelinter.gutter-mark */ {
+  color: #6a737d;
+}
+
+[title="Component__view_rmme"] .pl-corl /* constant.other.reference.link, string.other.link */ {
+  text-decoration: underline;
+  color: #79b8ff;
+}
