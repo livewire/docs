@@ -7,13 +7,13 @@ Hooks | Description
 mount | Runs immediately after the Livewire component is instantiated
 updating | Runs before any update to the Livewire component
 updated | Runs after any update to the Livewire component
-updatingEmail | Runs before a property called `$email` is updated
-updatedEmail | Runs after a property called `$email` is updated
+updatingFoo | Runs before a property called `$foo` is updated
+updatedFoo | Runs after a property called `$foo` is updated
 
 ```php
 class HelloWorld extends LivewireComponent
 {
-    public $email;
+    public $foo;
 
     public function mount()
     {
@@ -25,12 +25,12 @@ class HelloWorld extends LivewireComponent
         //
     }
 
-    public function updatingEmail($value)
+    public function updatingFoo($value)
     {
         //
     }
 
-    public function updatedEmail($value)
+    public function updatedFoo($value)
     {
         //
     }

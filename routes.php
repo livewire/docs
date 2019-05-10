@@ -7,7 +7,6 @@ collect([
     'Quickstart' => 'pages/quickstart.md',
     'Installation' => 'pages/installation.md',
     'Component Basics' => 'pages/component_basics.md',
-    'Registering Components' => 'pages/registering_components.md',
     'Rendering Components' => 'pages/rendering_components.md',
     'Data Binding' => 'pages/data_binding.md',
     'Triggering Actions' => 'pages/triggering_actions.md',

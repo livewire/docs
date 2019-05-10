@@ -1,0 +1,26 @@
+{
+  "name": "livewire-docs",
+  "version": "1.0.0",
+  "description": "## Running Locally * `composer install` * `cp .env.example .env` * `valet link` (or whatever you use to serve sites locally) * Go to `/docs/quickstart`",
+  "main": "index.js",
+  "scripts": {
+    "generate": "./generate",
+    "tailwind": "npx tailwind build public/assets/template.css -o public/assets/output.css",
+    "purge": "npx purgecss --css public/assets/output.css --content dist/**/*.html --out public/assets",
+    "build": "./generate && npm run tailwind && npm run purge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calebporzio/livewire-docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calebporzio/livewire-docs/issues"
+  },
+  "homepage": "https://github.com/calebporzio/livewire-docs#readme",
+  "devDependencies": {
+    "purgecss": "^1.3.0",
+    "tailwindcss": "^1.0.0-beta.8"
+  }
+}
