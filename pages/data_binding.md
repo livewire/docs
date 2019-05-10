@@ -1,8 +1,6 @@
 # Data Binding
 If you've used front-end frameworks like Angular, React, or Vue, you are already familiar with this concept. However, if you are new to this concept, allow me to demonstrate.
 
-Consider the following Livewire component:
-
 <div title="Component"><div title="Component__class">
 
 MyNameIs
@@ -23,7 +21,6 @@ class MyNameIs extends LivewireComponent
 my-name-is.blade.php
 ```html
 <div>
-    What's your name?
     <input type="text" wire:model="name">
 
     My name is chica-chica {{ $name }}
@@ -45,11 +42,6 @@ Element Tag |
 `<input type="checkbox">` |
 `<select>` |
 `<textarea>` |
-
-<div title="Warning"><div title="Warning__content">
-
-Be careful using `wire:model` on `<input>` elements, it is usually better to use `wire:model.lazy` instead. See below for more info.
-</div></div>
 
 ## Lazily Updating
 
@@ -77,7 +69,6 @@ class MyNameIs extends LivewireComponent
 my-name-is.blade.php
 ```html
 <div>
-    What's your name?
     <input type="text" wire:model.lazy="name">
 
     My name is chica-chica {{ $name }}

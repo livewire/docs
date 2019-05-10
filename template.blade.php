@@ -40,7 +40,7 @@
         </div>
 
         {{-- Content --}}
-        <div class="markdown-body main-body p-8 pt-4 pl-16">
+        <div class="markdown-body main-body p-8 pt-4 pb-16 pl-16">
             {!! GitDown\Facades\GitDown::parseAndCache($content) !!}
         </div>
     </div>

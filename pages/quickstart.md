@@ -28,7 +28,7 @@ composer require calebporzio/livewire
 
 ## Create a component
 
-Run the following command to generate a new Livewire component called `Counter` and it's corresponding Blade view.
+Run the following command to generate a new Livewire component called `counter`.
 
 ```bash
 php artisan make:livewire counter
@@ -67,7 +67,7 @@ resources/views/livewire/counter.blade.php
 </div>
 </div>
 
-Let's replace the Livewire view with some text so we can see something tangible in the browser.
+Let's add some text to the view so we can see something tangible in the browser.
 
 <div title="Component">
 <div title="Component__view">
@@ -82,19 +82,24 @@ resources/views/livewire/counter.blade.php
 </div>
 
 ## Include the component
-Think of Livewire components like you would Blade includes. You can include the `@livewire` blade directive wherever you want the component to render.
+Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
 
 <div title="Component">
 <div title="Component__class">
+<div char="fade">
 
 ```php
     <div>
+```
+</div>
+
+```php
         @livewire('counter')
-    </div>
 ```
 <div char="fade">
 
 ```php
+    </div>
 
     {!! Livewire::scripts() !!}
 </body>
@@ -114,7 +119,7 @@ Replace the generated content of the `counter` component class and view with the
 
 <div title="Component"><div title="Component__class">
 
-Counter.php
+app/Http/Livewire/Counter.php
 ```php
 class Counter extends Component
 {
@@ -138,7 +143,7 @@ class Counter extends Component
 ```
 </div><div title="Component__view">
 
-counter.blade.php
+resources/views/livewire/counter.blade.php
 ```html
 <div style="text-align: center">
 

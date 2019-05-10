@@ -29,6 +29,11 @@ You can either include the JavaScript via the provided Blade helper (easiest), o
 ```
 </div></div></div>
 
+<div title="Warning"><div title="Warning__content">
+
+Including the JavaScript this way will result in the JavaScript being loaded directly on the page. This should be used for experimentation only. Option B will utilize the browser's caching to reduce page sizes and a faster overall experience.
+</div></div>
+
 ### Option B) install via NPM
 
 ```bash
