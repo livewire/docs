@@ -67,23 +67,17 @@ class CounterTest extends TestCase
 
 ## End-to-end Testing
 
-<div title="Warning"><div title="Warning__content">
-
-This style of testing is currently under development and likely won't work as expected.
-</div></div>
-
 ```php
 class CounterTest extends TestCase
 {
     /** @test */
     function can_increment()
     {
-        $counter = Livewire::test(Counter::class);
-
-        $counter->assertSee(1)
-            ->click('[wire:click="increment"]')
+        Livewire::test(Counter::class)
+            ->assertSee(1)
+            ->runAction('increment')
             ->assertSee(2)
-            ->click('[wire:click="decrement"]')
+            ->runAction('decrement')
             ->assertSee(1);
     }
 }

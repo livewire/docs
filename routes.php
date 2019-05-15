@@ -11,6 +11,7 @@ collect([
     'Data Binding' => 'pages/data_binding.md',
     'Triggering Actions' => 'pages/triggering_actions.md',
     'Events' => 'pages/events.md',
+    'Redirecting' => 'pages/redirecting.md',
     'Nesting Components' => 'pages/nesting_components.md',
     'Input Validation' => 'pages/validation.md',
     'Lifecycle Hooks' => 'pages/lifecycle_hooks.md',

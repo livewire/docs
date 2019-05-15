@@ -9,9 +9,9 @@
     @gitdown
     <link href="/assets/output.css" rel="stylesheet">
 </head>
-<body class="font-source-sans font-normal text-gray-800 leading-normal">
+<body class="font-source-sans font-normal text-gray-800 leading-normal bg-gray-200">
     {{-- Navbar --}}
-    <div class="flex items-center justify-between bg-gray-200">
+    <div class="flex items-center justify-between">
         <div class="relative mr-20">
             <div class="p-2 pl-4">
                 {!! file_get_contents(public_path('assets/logo.svg')) !!}
@@ -40,7 +40,7 @@
         </div>
 
         {{-- Content --}}
-        <div class="markdown-body main-body p-8 pt-4 pb-16 pl-16">
+        <div class="markdown-body main-body p-8 pt-4 pb-32 pl-16">
             {!! GitDown\Facades\GitDown::parseAndCache($content) !!}
         </div>
     </div>
