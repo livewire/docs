@@ -41,12 +41,6 @@ show-posts.blade.php
 
 <div title="Warning"><div title="Warning__content">
 
-A component should contain only one root tag.
-
-</div></div>
-
-<div title="Warning"><div title="Warning__content">
-
 Although `render()` methods closely resemble controller methods, there are a few techniques you are used to using in controllers that aren't available in Livewire components.
 
 Here are some common things you might forget ARE NOT possible in Livewire:
@@ -63,9 +57,18 @@ public function render()
 ```
 </div></div>
 
+<div title="Warning"><div title="Warning__content">
+
+A component's view should contain only one root tag.
+</div></div>
+
 ## Component Properties
 
 Livewire components store and track state using class properties on the Component class. Here's what's important to know:
+
+* Properties MUST be public
+* Properties are exposed as plain-text in JavaScript
+* Properties MUST be of PHP type: `string`, `numeric`, or `array`
 
 ### Automatically Available Inside View
 
@@ -141,44 +144,3 @@ hello-world.blade.php
 ```
 </div>
 </div>
-
-## Redirecting
-
-You may want to redirect from inside a Livewire component to another route in your app. Livewire offers a simple `$this->redirect()` method to accomplish this:
-
-<div title="Component"><div title="Component__class">
-
-ContactForm.php
-```php
-class ContactForm extends LivewireComponent
-{
-    public $email;
-
-    public function addContact()
-    {
-        Contact::create(['email' => $this->email]);
-
-        $this->redirect('/contact-form-success');
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
-    }
-}
-```
-</div>
-<div title="Component__view">
-
-contact-form.blade.php
-```html
-<div>
-    Email: <input wire:model="email">
-
-    <button wire:click="addContact">Submit</button>
-</div>
-```
-</div>
-</div>
-
-Now, after the user clicks "Submit" and their contact is added to the database, they will be redirected to the success page (`/contact-form-success`).

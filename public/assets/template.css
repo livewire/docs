@@ -65,7 +65,7 @@ body {
 
 [title="Component__view"] {
     position: relative;
-    background: #EDF2F7;
+    background: #fff;
     padding: 16px;
 }
 
@@ -91,7 +91,7 @@ body {
 }
 
 [title="Component__view"] [char="fade"]::before {
-    background: #EDF2F7;
+    background: #fff;
 }
 
 /* Warning */
