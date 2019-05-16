@@ -23,7 +23,7 @@ mix.js('source/_assets/js/main.js', 'js')
     .sass('source/_assets/sass/main.scss', 'css/main.css')
     .options({
         processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.js')],
+        postCss: [tailwindcss('./tailwind.config.js')],
     })
     .purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue'],

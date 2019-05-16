@@ -14,13 +14,13 @@
         "docsearch.js": "^2.6.2",
         "extra-watch-webpack-plugin": "^1.0.3",
         "hasbin": "^1.2.3",
-        "highlight.js": "^9.13.1",
+        "highlight.js": "^9.15.6",
         "laravel-mix": "^4.0.0",
         "laravel-mix-purgecss": "^3.0.0",
         "node-cmd": "^3.0.0",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "tailwindcss": "^0.7.2",
+        "tailwindcss": "^1.0.1",
         "vue-template-compiler": "^2.5.21",
         "yargs": "^4.6.0"
     }

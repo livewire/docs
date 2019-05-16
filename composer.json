@@ -15,7 +15,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\Listeners\\": "listeners/"
+            "App\\Listeners\\": "listeners/",
+            "App\\Parsers\\": "parsers/"
         }
     }
 }

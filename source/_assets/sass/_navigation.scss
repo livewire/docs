@@ -1,7 +1,7 @@
 .nav-menu {
     @apply .-mt-12;
     @apply .-mx-8;
-    @apply .bg-grey-lighter;
+    @apply .bg-gray-400;
     @apply .mb-8;
     @apply .pb-4;
     @apply .pt-8;
@@ -25,10 +25,9 @@
 
 .nav-menu__item {
     @apply .block;
-    @apply .list-reset;
     @apply .no-underline;
     @apply .mb-3;
     @apply .mt-0;
-    @apply .text-grey-darkest;
+    @apply .text-blue-900;
     @apply .text-sm;
 }

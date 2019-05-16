@@ -39,14 +39,12 @@
         @endif
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
-        <header class="flex items-center shadow bg-white border-b h-24 mb-8 py-4" role="banner">
-            <div class="container flex items-center max-w-4xl mx-auto px-4 lg:px-8">
+    <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
+        <header class="flex items-center h-24 mb-8 py-4" role="banner">
+            <div class="container flex items-center mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
                     <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
                         <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
-
-                        <h1 class="text-lg md:text-2xl text-blue-darkest font-semibold hover:text-blue-dark my-0 pr-4">{{ $page->siteName }}</h1>
                     </a>
                 </div>
 
@@ -69,7 +67,7 @@
         @stack('scripts')
 
         <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
-            <ul class="flex flex-col md:flex-row justify-center list-reset">
+            <ul class="flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
                     &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a> {{ date('Y') }}.
                 </li>

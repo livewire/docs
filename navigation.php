@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Quickstart' => 'docs/quickstart',
     'Getting Started' => [
         'url' => 'docs/getting-started',
         'children' => [
