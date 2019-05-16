@@ -1,17 +1,11 @@
 window.docsearch = require('docsearch.js');
 
-import hljs from 'highlight.js/lib/highlight';
+import Prism from 'prismjs'
 
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('css', require('highlight.js/lib/languages/css'));
-hljs.registerLanguage('html', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
-hljs.registerLanguage('json', require('highlight.js/lib/languages/json'));
-hljs.registerLanguage('markdown', require('highlight.js/lib/languages/markdown'));
-hljs.registerLanguage('php', require('highlight.js/lib/languages/php'));
-hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'));
+// Load languages.
+import 'prismjs/components/prism-markup'
+import 'prismjs/components/prism-markup-templating'
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-php'
 
-document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
-});
+Prism.highlightAll();

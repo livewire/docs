@@ -25,6 +25,16 @@ mix.js('source/_assets/js/main.js', 'js')
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
     })
+    // .webpackConfig({
+    //     module: {
+    //         rules: [
+    //             {
+    //                 test: /\.css/,
+    //                 loader: 'style-loader!css-loader'
+    //             }
+    //         ]
+    //     }
+    // })
     .purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue'],
         folders: ['source'],

@@ -1,9 +1,8 @@
 @tailwind base;
 @tailwind components;
 
-// Code syntax highlighting,
-// powered by https://highlightjs.org
-@import '~highlight.js/styles/a11y-light.css';
+// Custom code syntax highlighting theme.
+@import 'prism-theme';
 
 @import 'base';
 @import 'navigation';

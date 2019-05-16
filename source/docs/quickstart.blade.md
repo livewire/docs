@@ -13,7 +13,7 @@ composer require calebporzio/livewire
 
 *Include the JavaScript (on every page that will be using Livewire)*
 
-@component('_partials.code', ['lang' => 'php'])@verbatim
+@component('_partials.code', ['lang' => 'html'])@verbatim
     ...
     {!! Livewire::scripts() !!}
 </body>
