@@ -7990,6 +7990,15 @@ pre code {
   z-index: auto;
 }
 
+.scrollbar-none::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none;

@@ -10,3 +10,12 @@
 @import 'search';
 
 @tailwind utilities;
+
+.scrollbar-none::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.scrollbar-none {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
