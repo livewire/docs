@@ -126,17 +126,15 @@ p {
 }
 
 pre {
-    @apply .bg-gray-100;
     @apply .leading-loose;
     @apply .my-6;
     @apply .overflow-x-auto;
-    @apply .p-4;
-    @apply .rounded;
     @apply .text-base;
+    @apply .p-0;
 
     code {
         @apply .bg-transparent;
         @apply .block;
-        @apply .p-0;
+        @apply .p-4;
     }
 }

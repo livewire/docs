@@ -2,6 +2,7 @@
 
 use App\Listeners\GenerateSitemap;
 use TightenCo\Jigsaw\Jigsaw;
+use Illuminate\Support\Facades\Blade;
 
 /** @var $container \Illuminate\Container\Container */
 /** @var $events \TightenCo\Jigsaw\Events\EventBus */
@@ -16,5 +17,12 @@ use TightenCo\Jigsaw\Jigsaw;
  *     // Your code here
  * });
  */
+
+$events->beforeBuild(function (Jigsaw $jigsaw) {
+    $compiler = $jigsaw->app->make(\Illuminate\View\Factory::class)->getEngineResolver()->resolve('blade')->getCompiler();
+
+    $compiler->component('_partials.code', 'code');
+    $compiler->component('_partials.code-component', 'codeComponent');
+});
 
 $events->afterBuild(GenerateSitemap::class);

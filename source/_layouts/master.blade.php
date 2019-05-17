@@ -44,7 +44,7 @@
             <div class="container flex items-center mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
                     <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
-                        <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
+                        <img class="mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
                     </a>
                 </div>
 
@@ -69,7 +69,7 @@
         <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
             <ul class="flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
-                    &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a> {{ date('Y') }}.
+                    &copy; <a href="https://livewire.dev" title="Livewire">Livewire</a> {{ date('Y') }}.
                 </li>
 
                 <li>

@@ -13,15 +13,15 @@
 pre[class*="language-"],
 code[class*="language-"] {
   color: #bfc7d5;
-  font-size: 13px;
+  font-size: 16px;
   text-shadow: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Fira Code, Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.5;
+  line-height: 2;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -44,16 +44,12 @@ code[class*="language-"]::mozselection {
   }
 }
 pre[class*="language-"] {
-  padding: 1em;
-  margin: .5em 0;
   overflow: auto;
-  background: #2a2e3d;
 }
 :not(pre) > code[class*="language-"] {
   padding: .1em .3em;
   border-radius: .3em;
   color: #d2dcee;
-  background: #2a2e3d;
 }
 /*********************************************************
 * Tokens
@@ -93,7 +89,6 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
   color: #bf8fe0;
-  background: #2a2e3d;
 }
 .token.atrule,
 .token.attr-value,
@@ -133,10 +128,9 @@ pre[class*="language-"] > code[class*="language-"] {
   left: 0;
   right: 0;
   padding: inherit 0;
-  margin-top: 1em;
-  background: #40475e;
-  box-shadow: inset 5px 0 0 #bfc7d5;
+  background: rgba(132, 173, 242, 0.17);
   z-index: 0;
+  margin-top: 1em;
   pointer-events: none;
   line-height: inherit;
   white-space: pre;
