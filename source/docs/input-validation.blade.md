@@ -1,11 +1,18 @@
-# Input Validation
+---
+title: Input Validation
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 Consider the following Livewire component:
 
-<div title="Component"><div title="Component__class">
-
-ContactForm
-```php
+@codeComponent([
+    'className' => 'ContactForm',
+    'viewName' => 'contact-form.blade.php',
+])
+@slot('class')
+@verbatim
 class ContactForm extends LivewireComponent
 {
     public $email;
@@ -20,37 +27,33 @@ class ContactForm extends LivewireComponent
         return view('livewire.contact-form');
     }
 }
-```
-</div><div title="Component__view">
-
-contact-form.blade.php
-```html
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
 <div>
     Email: <input wire:model.lazy="email">
 
     <button wire:click="saveContact">Save Contact</button>
 </div>
-```
-</div></div>
+@endverbatim
+@endslot
+@endcodeComponent
 
 We can add validation to this form almost exactly how you would in a controller. Take a look:
 
-<div title="Component"><div title="Component__class">
-
-ContactForm
-<div char="fade">
-
-```php
+@codeComponent([
+    'className' => 'ContactForm',
+    'viewName' => 'contact-form.blade.php',
+])
+@slot('class')
+@verbatim
 class ContactForm extends LivewireComponent
 {
     public $email;
 
     public function saveContact()
     {
-```
-</div>
-
-```php
         $validatedData = $this->validate([
             'email' => 'required|email',
         ]);
@@ -58,10 +61,6 @@ class ContactForm extends LivewireComponent
         // Execution doesn't reach here if validation fails.
 
         Contact::create($validatedData);
-```
-<div char="fade">
-
-```php
     }
 
     public function render()
@@ -69,31 +68,22 @@ class ContactForm extends LivewireComponent
         return view('livewire.contact-form');
     }
 }
-```
-</div></div><div title="Component__view">
-
-contact-form.blade.php
-<div char="fade">
-
-```html
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
 <div>
     Email: <input wire:model.lazy="email">
 
-```
-</div>
-
-```html
     @if($errors->has('email'))
         <span>{{ $errors->first('email') }}</span>
     @endif
-```
-<div char="fade">
 
-```html
     <button wire:click="saveContact">Save Contact</button>
 </div>
-```
-</div></div></div>
+@endverbatim
+@endslot
+@endcodeComponent
 
 > Note: Livewire exposes the same `$errors` object as Laravel, for more information, reference the [Laravel Docs](https://laravel.com/docs/5.8/validation#quick-displaying-the-validation-errors).
 
@@ -102,23 +92,18 @@ contact-form.blade.php
 If you wish to use your own validation system in Livewire, that isn't a problem. Livewire will catch `ValidationException` and provide the errors to the view just like using `$this->validate()`.
 
 For example:
-
-<div title="Component"><div title="Component__class">
-
-ContactForm
-<div char="fade">
-
-```php
+@codeComponent([
+    'className' => 'ContactForm',
+    'viewName' => 'contact-form.blade.php',
+])
+@slot('class')
+@verbatim
 class ContactForm extends LivewireComponent
 {
     public $email;
 
     public function saveContact()
     {
-```
-</div>
-
-```php
         $validatedData = Validator::make(
             ['email' => $this->email],
             ['email' => 'required|email'],
@@ -126,10 +111,6 @@ class ContactForm extends LivewireComponent
         ])->validate();
 
         Contact::create($validatedData);
-```
-<div char="fade">
-
-```php
     }
 
     public function render()
@@ -137,31 +118,22 @@ class ContactForm extends LivewireComponent
         return view('livewire.contact-form');
     }
 }
-```
-</div></div><div title="Component__view">
-
-contact-form.blade.php
-<div char="fade">
-
-```html
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
 <div>
     Email: <input wire:model.lazy="email">
 
-```
-</div>
-
-```html
     @if($errors->has('email'))
         <span>{{ $errors->first('email') }}</span>
     @endif
-```
-<div char="fade">
 
-```html
     <button wire:click="saveContact">Save Contact</button>
 </div>
-```
-</div></div></div>
+@endverbatim
+@endslot
+@endcodeComponent
 
 <div title="Warning"><div title="Warning__content">
 

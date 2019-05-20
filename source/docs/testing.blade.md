@@ -1,4 +1,9 @@
-# Testing
+---
+title: Testing
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 Livewire supports 2 styles of testing it's components:
 1. Unit testing
@@ -6,10 +11,12 @@ Livewire supports 2 styles of testing it's components:
 
 For these demonstrations, we will be using a simple Counter component like the following:
 
-<div title="Component"><div title="Component__class">
-
-Counter.php
-```php
+@codeComponent([
+    'className' => 'Counter.php',
+    'viewName' => 'counter.blade.php',
+])
+@slot('class')
+@verbatim
 class Counter extends LivewireComponent
 {
     public $count = 0;
@@ -29,18 +36,18 @@ class Counter extends LivewireComponent
         return view('livewire.counter');
     }
 }
-```
-</div><div title="Component__view">
-
-counter.blade.php
-```html
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
 <div style="text-align: center">
     <button wire:click="increment">+</button>
     <h1>{{ $count }}</h1>
     <button wire:click="decrement">-</button>
 </div>
-```
-</div></div>
+@endverbatim
+@endslot
+@endcodeComponent
 
 ## Unit Testing
 

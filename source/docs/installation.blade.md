@@ -1,4 +1,10 @@
-# Installation
+---
+title: Installation
+description: todo
+extends: _layouts.documentation
+section: content
+---
+
 Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.
 
 ## Step 1: Include the PHP
@@ -11,23 +17,14 @@ You can either include the JavaScript via the provided Blade helper (easiest), o
 
 ### Option A) Blade Snippet
 
-<div title="Component"><div title="Component__class"><div char="fade">
-
-```html
+@code
+@verbatim
     ...
-```
-</div>
-
-```php
     {!! Livewire::scripts() !!}
-```
-<div char="fade">
-
-```html
 </body>
 </html>
-```
-</div></div></div>
+@endverbatim
+@endcode
 
 <div title="Warning"><div title="Warning__content">
 

@@ -1,11 +1,18 @@
-# Redirecting
+---
+title: Redirecting
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 You may want to redirect from inside a Livewire component to another route in your app. Livewire offers a simple `$this->redirect()` method to accomplish this:
 
-<div title="Component"><div title="Component__class">
-
-ContactForm.php
-```php
+@codeComponent([
+    'className' => 'ContactForm.php',
+    'viewName' => 'contact-form.blade.php',
+])
+@slot('class')
+@verbatim
 class ContactForm extends LivewireComponent
 {
     public $email;
@@ -22,19 +29,17 @@ class ContactForm extends LivewireComponent
         return view('livewire.contact-form');
     }
 }
-```
-</div>
-<div title="Component__view">
-
-contact-form.blade.php
-```html
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
 <div>
     Email: <input wire:model="email">
 
     <button wire:click="addContact">Submit</button>
 </div>
-```
-</div>
-</div>
+@endverbatim
+@endslot
+@endcodeComponent
 
 Now, after the user clicks "Submit" and their contact is added to the database, they will be redirected to the success page (`/contact-form-success`).

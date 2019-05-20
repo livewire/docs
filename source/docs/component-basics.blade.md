@@ -1,4 +1,9 @@
-# Component Basics
+---
+title: Component Basics
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 ## The render() method
 

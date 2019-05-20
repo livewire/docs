@@ -1,6 +1,9 @@
 window.docsearch = require('docsearch.js');
 
 import Prism from 'prismjs'
+import animate from 'animateplus'
+
+window.animate = animate
 
 // Load languages.
 import 'prismjs/components/prism-markup'

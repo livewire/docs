@@ -1,4 +1,9 @@
-# Triggering Actions
+---
+title: Triggering Actions
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: `wire:[native event]="[action]"`.
 
@@ -73,22 +78,28 @@ You can pass these as the value of an event listener to do special things in Liv
 Let's take `$set()` for example. It can be used to manually set a component property's value. Consider the `Counter` component's view.
 
 **Before**
-```php
+
+@code(['lang' => 'php'])
+@verbatim
 <div>
     {{ $count }}
     <button wire:click="increment">+</button>
     <button wire:click="decrement">-</button>
 </div>
-```
+@endverbatim
+@endcode
 
 **After**
-```php
+
+@code(['lang' => 'php'])
+@verbatim
 <div>
     {{ $count }}
     <button wire:click="$set('count', {{ $count + 1 }})">+</button>
     <button wire:click="$set('count', {{ $count - 1 }})">-</button>
 </div>
-```
+@endverbatim
+@endcode
 
 Notice that we are no longer calling the `increment` and `decrement` functions, we are direcly specifying, in blade, what we want data set to.
 
@@ -97,8 +108,10 @@ This can save on lots of redundant, one-line component methods that only exist t
 ## Polling Actions
 Livewire offers a directive called `wire:poll="someAction"` that, when added to an element, will fire `someAction` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:
 
-```html
+@code
+@verbatim
 <div wire:poll.750ms="$refresh">
     Current time: {{ now() }}
 </div>
-```
+@endverbatim
+@endcode

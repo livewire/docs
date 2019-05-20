@@ -789,7 +789,7 @@ pre[class*=language-] > code[class*=language-] {
   left: 0;
   right: 0;
   padding: inherit 0;
-  background: rgba(132, 173, 242, 0.17);
+  background: rgba(65, 96, 147, 0.17);
   z-index: 0;
   margin-top: 1em;
   pointer-events: none;

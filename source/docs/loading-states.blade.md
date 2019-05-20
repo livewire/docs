@@ -1,4 +1,9 @@
-# Loading States
+---
+title: Loading States
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases where the page may not react immediately to a user event (like a click). It is up to you to determine when you should provide the user with some kind of loading state or not.
 

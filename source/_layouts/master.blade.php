@@ -44,7 +44,7 @@
             <div class="container flex items-center mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
                     <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
-                        <img class="mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
+                        {!! file_get_contents(__DIR__ . "/../source/assets/img/logo.svg") !!}
                     </a>
                 </div>
 

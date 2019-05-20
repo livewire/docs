@@ -1,4 +1,9 @@
-# SPA Mode
+---
+title: SPA Mode
+description: todo
+extends: _layouts.documentation
+section: content
+---
 
 While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.
 
@@ -27,7 +32,8 @@ And that's it! This little snippet tells Turbolinks to reload Livewire everytime
 If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helpers to cut out the extra boilerplate code. Take a look at the following example:
 
 *Before*
-```php
+@code(['lang' => 'php'])
+@verbatim
 // Route
 Route::get('/home', 'HomeController@show');
 
@@ -46,7 +52,8 @@ class HomeController extends Controller
 @section('content')
     @livewire('counter')
 @endsection
-```
+@endverbatim
+@endcode
 
 **After**
 ```php
