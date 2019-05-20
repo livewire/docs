@@ -51,7 +51,7 @@ class Counter extends LivewireComponent
 
 ## Unit Testing
 
-```php
+@code(['lang' => 'php'])
 class CounterTest extends TestCase
 {
     /** @test */
@@ -70,11 +70,11 @@ class CounterTest extends TestCase
         $this->assertEquals(1, $counter->count);
     }
 }
-```
+@endcode
 
 ## End-to-end Testing
 
-```php
+@code(['lang' => 'php'])
 class CounterTest extends TestCase
 {
     /** @test */
@@ -88,4 +88,4 @@ class CounterTest extends TestCase
             ->assertSee(1);
     }
 }
-```
+@endcode

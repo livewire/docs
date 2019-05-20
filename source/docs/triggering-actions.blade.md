@@ -18,22 +18,22 @@ submit | `wire:submit`
 Here are a few examples of each in HTML:
 
 **click**
-```html
+@code
 <button wire:click="showModal">Show Modal</button>
-```
+@endcode
 
 **keydown**
-```html
+@code
 <input wire:keydown.enter="search">
-```
+@endcode
 
 **submit**
-```html
+@code
 <form wire:submit="addTodo">
     <input wire:model="title">
     <button>Add Todo</button>
 </form>
-```
+@endcode
 
 ## Modifiers
 
@@ -50,7 +50,7 @@ To listen for specific keys on **keydown** events, you can pass the name of the 
 
 Here is a quick list of some common ones you may need:
 
-Browser Event | Livewire Modifier
+Native Browser Event | Livewire Modifier
 --- | ---
 Backspace | backspace
 Escape | escape
@@ -58,9 +58,9 @@ Shift | shift
 Tab | tab
 ArrowRight | arrow-right
 
-```html
-<input wire:keydown.page-down="someAction">
-```
+@code
+<input wire:keydown.page-down="foo">
+@endcode
 
 In the above example, the handler will only be called if `event.key` is equal to 'PageDown'.
 
@@ -106,7 +106,7 @@ Notice that we are no longer calling the `increment` and `decrement` functions, 
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
 
 ## Polling Actions
-Livewire offers a directive called `wire:poll="someAction"` that, when added to an element, will fire `someAction` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:
+Livewire offers a directive called `wire:poll="foo"` that, when added to an element, will fire `foo` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:
 
 @code
 @verbatim

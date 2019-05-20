@@ -2,6 +2,24 @@ body {
     font-size: 17px;
 }
 
+.svg {
+    height: 1em;
+    margin-top: -4px;
+    pointer-events:none;
+    vertical-align: middle;
+    width: 1em;
+}
+
+.svg .outline {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+ul { @apply .list-disc; }
+ol { @apply .list-decimal; }
+
 a {
     @apply .font-semibold;
     @apply .no-underline;
@@ -25,7 +43,7 @@ blockquote {
 
 code {
     @apply .bg-gray-300;
-    @apply .px-2;
+    @apply .px-1;
     @apply .py-px;
     @apply .rounded;
     @apply .text-sm;
@@ -72,10 +90,10 @@ h2 {
 h2::before {
     content: " ";
     @apply block;
-    @apply bg-gray-400;
     @apply w-full;
-    height: 1px;
     @apply mb-8;
+    height: 12px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 0,1' id='Line' stroke='%23CBD5DF' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
 }
 
 h2:first-child::before {
@@ -84,7 +102,7 @@ h2:first-child::before {
 
 h3 {
     @apply .font-bold;
-    @apply .text-3xl;
+    @apply .text-2xl;
 }
 
 h4 {
@@ -136,5 +154,21 @@ pre {
         @apply .bg-transparent;
         @apply .block;
         @apply .p-4;
+    }
+}
+
+table {
+    @apply w-full text-left rounded-lg overflow-hidden;
+
+    th {
+        @apply text-sm font-semibold text-gray-700 p-2 bg-gray-300;
+    }
+
+    tr:first-child td {
+        @apply border-0;
+    }
+
+    td {
+        @apply p-2 border-t text-sm bg-gray-100 border-gray-400;
     }
 }

@@ -15,7 +15,7 @@ updated | Runs after any update to the Livewire component
 updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
 
-```php
+@code(['lang' => 'php'])
 class HelloWorld extends LivewireComponent
 {
     public $foo;
@@ -45,4 +45,4 @@ class HelloWorld extends LivewireComponent
         //
     }
 }
-```
+@endcode

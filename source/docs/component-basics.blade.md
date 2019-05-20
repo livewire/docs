@@ -7,10 +7,11 @@ section: content
 
 ## The render() method
 
-There are two things to know:
+The following points are important to know:
 
-1) It should return a plain-old Blade view
-2) It runs every time the component updates
+* `render()` should return a Blade view (like controllers do)
+* The Blade view MUST have a root HTML tag
+* `render()` runs every time the component updates
 
 ### Returning Blade
 The `render()` method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:
@@ -43,13 +44,14 @@ class ShowPosts extends LivewireComponent
 @endslot
 @endcodeComponent
 
-<div title="Warning"><div title="Warning__content">
-
+@warning
 Although `render()` methods closely resemble controller methods, there are a few techniques you are used to using in controllers that aren't available in Livewire components.
 
 Here are some common things you might forget ARE NOT possible in Livewire:
+@endwarning
 
-```php
+@code(['lang' => 'php'])
+@verbatim
 public function render()
 {
     return redirect()->to('/endpoint');
@@ -58,13 +60,8 @@ public function render()
     // Or
     return ['some' => 'data'];
 }
-```
-</div></div>
-
-<div title="Warning"><div title="Warning__content">
-
-A component's view should contain only one root tag.
-</div></div>
+@endverbatim
+@endcode
 
 ## Component Properties
 
@@ -110,19 +107,17 @@ class HelloWorld extends LivewireComponent
 
 Let's say you wanted to make the 'Hello World' message more specific, and greet the currently logged in user. You might try setting the message to:
 
-```php
+@code(['lang' => 'php'])
 public $message = 'Hello ' . auth()->user()->first_name;
-```
+@endcode
 
 Unfortunately, this is illegal in PHP. However, you can initialize properties at run-time using the `mount` method/hook in Livewire. For example:
-
 
 @codeComponent([
     'className' => 'HelloWorld.php',
     'viewName' => 'hello-world.blade.php',
 ])
 @slot('class')
-@verbatim
 class HelloWorld extends LivewireComponent
 {
     public $message;
@@ -137,7 +132,6 @@ class HelloWorld extends LivewireComponent
         return view('livewire.hello-world');
     }
 }
-@endverbatim
 @endslot
 @slot('view')
 @verbatim

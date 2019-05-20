@@ -40,7 +40,7 @@
     </head>
 
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <header class="flex items-center h-24 mb-8 py-4" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white" role="banner">
             <div class="container flex items-center mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
                     <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
@@ -57,6 +57,12 @@
 
             @yield('nav-toggle')
         </header>
+        <div class="mb-6" style="
+            background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
+            background-repeat-y: no-repeat;
+            background-position-y: bottom;
+            height: 10px;
+        "></div>
 
         <main role="main" class="w-full flex-auto">
             @yield('body')
@@ -67,7 +73,7 @@
         @stack('scripts')
 
         <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
-            <ul class="flex flex-col md:flex-row justify-center">
+            <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
                     &copy; <a href="https://livewire.dev" title="Livewire">Livewire</a> {{ date('Y') }}.
                 </li>

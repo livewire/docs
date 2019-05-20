@@ -801,6 +801,29 @@ body {
   font-size: 17px;
 }
 
+.svg {
+  height: 1em;
+  margin-top: -4px;
+  pointer-events: none;
+  vertical-align: middle;
+  width: 1em;
+}
+
+.svg .outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 a {
   font-weight: 600;
   text-decoration: none;
@@ -825,8 +848,8 @@ blockquote {
 
 code {
   background-color: #e2e8f0;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   padding-top: 1px;
   padding-bottom: 1px;
   border-radius: 0.25rem;
@@ -879,10 +902,10 @@ h2 {
 h2::before {
   content: " ";
   display: block;
-  background-color: #cbd5e0;
   width: 100%;
-  height: 1px;
   margin-bottom: 2rem;
+  height: 12px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 0,1' id='Line' stroke='%23CBD5DF' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
 }
 
 h2:first-child::before {
@@ -891,7 +914,7 @@ h2:first-child::before {
 
 h3 {
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
 }
 
 h4 {
@@ -947,6 +970,33 @@ pre code {
   background-color: transparent;
   display: block;
   padding: 1rem;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+table th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+  padding: 0.5rem;
+  background-color: #e2e8f0;
+}
+
+table tr:first-child td {
+  border-width: 0;
+}
+
+table td {
+  padding: 0.5rem;
+  border-top-width: 1px;
+  font-size: 0.875rem;
+  background-color: #f7fafc;
+  border-color: #cbd5e0;
 }
 
 .nav-menu {

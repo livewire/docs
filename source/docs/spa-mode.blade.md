@@ -13,7 +13,7 @@ Checkout the [Turbolinks documentation](https://github.com/turbolinks/turbolinks
 
 Now, add the following JS in a script tag at the bottom of the page, or in your `app.js` file.
 
-```js
+@code(['lang' => 'js'])
 Turbolinks.start()
 
 document.addEventListener('turbolinks:load', () => {
@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', () => {
         window.livewire.restart()
     }
 })
-```
+@endcode
 
 And that's it! This little snippet tells Turbolinks to reload Livewire everytime a new page is visited or returned to.
 
@@ -56,17 +56,17 @@ class HomeController extends Controller
 @endcode
 
 **After**
-```php
+@code(['lang' => 'php'])
 // Route
 Route::livewire('/home', 'counter');
-```
+@endcode
 
 Note: for this feature to work, Livewire assumes you have a layout stored in `resources/views/layouts/app.blade.php` that yields a "content" section (`@yield('content')`)
 
 ### Custom Layout File
 If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:
 
-```php
+@code(['lang' => 'php'])
 // Customizing layout
 Route::livewire('/home', 'counter')
     ->layout('layouts.base');
@@ -74,34 +74,34 @@ Route::livewire('/home', 'counter')
 // Customizing section (@yield('body'))
 Route::livewire('/home', 'counter')
     ->section('body');
-```
+@endcode
 
 You can also configure these settings for an entire route group using the group option array syntax:
 
-```php
+@code(['lang' => 'php'])
 Route::group(['layout' => 'layouts.base', 'section' => 'body'], function () {
     //
 });
-```
+@endcode
 
 Or the fluent alternative:
-```php
+@code(['lang' => 'php'])
 Route::layout('layouts.base')->section('body')->group(function () {
     //
 });
-```
+@endcode
 
 ### Route Parameters
 
 Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` lifecycle hook. For example:
 
 **web.php**
-```php
+@code(['lang' => 'php'])
 Route::livewire('/contact/{id}', 'show-contact');
-```
+@endcode
 
 **App\Http\Livewire\ShowContact.php**
-```php
+@code(['lang' => 'php'])
 class ShowContact extends LivewireComponent
 {
     public $name;
@@ -117,7 +117,7 @@ class ShowContact extends LivewireComponent
 
     ...
 }
-```
+@endcode
 
 As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
 
@@ -126,12 +126,12 @@ As you can see, the `mount` method in a Livewire component is acting like a cont
 Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:
 
 **web.php**
-```php
+@code(['lang' => 'php'])
 Route::livewire('/contact/{user}', 'show-contact');
-```
+@endcode
 
 **App\Http\Livewire\ShowContact.php**
-```php
+@code(['lang' => 'php'])
 class ShowContact extends LivewireComponent
 {
     public $contact;
@@ -141,6 +141,6 @@ class ShowContact extends LivewireComponent
         $this->contact = $user;
     }
 }
-```
+@endcode
 
 Now, after visiting `/contact/123`, the value passed into `mount` will be an instance of the `User` model with id `123`.

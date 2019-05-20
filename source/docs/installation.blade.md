@@ -8,9 +8,11 @@ section: content
 Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.
 
 ## Step 1: Include the PHP
-```bash
+@code(['lang' => 'bash'])
+@verbatim
 composer require calebporzio/livewire
-```
+@endverbatim
+@endcode
 
 ## Step 2: Include the JavaScript
 You can either include the JavaScript via the provided Blade helper (easiest), or include it via NPM if you have a build pipeline for your JavaScript.
@@ -33,12 +35,16 @@ Including the JavaScript this way will result in the JavaScript being loaded dir
 
 ### Option B) install via NPM
 
-```bash
+@code(['lang' => 'bash'])
+@verbatim
 npm install laravel-livewire --save-dev
-```
+@endverbatim
+@endcode
 
-```js
+@code(['lang' => 'js'])
+@verbatim
 import Livewire from 'laravel-livewire'
 
 window.livewire = new Livewire
-```
+@endverbatim
+@endcode

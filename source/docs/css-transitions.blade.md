@@ -10,8 +10,8 @@ One of the benefits of using Livewire is utilizing familiar backend functionalit
 
 Livewire provides a basic "fade" transition out-of-the-box.
 
+@code(['lang' => 'php'])
 @verbatim
-```php
 <div>
     [...]
 
@@ -21,8 +21,8 @@ Livewire provides a basic "fade" transition out-of-the-box.
         </div>
     @endif
 </div>
-```
 @endverbatim
+@endcode
 
 When `$showConfirmationModal` is `true`, it's contents are shown. When `$showConfirmationModal` becomes `false`, the contents will fade out, rather than dissapear instantly.
 
@@ -30,14 +30,13 @@ You can control the length of this fade by adding an additional time modifier. T
 
 `wire:transition.fade.1s` or `wire:transition.fade.1000ms`
 
-<div title="Warning"><div title="Warning__content">
-
+@warning
 If your element isn't transitioning in and out as expected, it's possible Livewire is having a hard time keeping track of it. In those cases, add a unique `key` attribute to the element like so:
+@endwarning
 
-```php
+@code
 <div wire:transition.fade key="unique-key">
-```
-</div></div>
+@endcode
 
 ## Custom transitions
 
@@ -45,8 +44,8 @@ Livewire provides a convenient system for performing more advanced transitions.
 
 Let's say we want to add a "fade in and out" transition to a confirmation modal in our component. To achieve this, we need to first declare the transition in our view using Livewire's `wire:transition` directive.
 
+@code(['lang' => 'php'])
 @verbatim
-```php
 <div>
     @if($showConfirmationModal)
         <div wire:transition="fade">
@@ -54,12 +53,12 @@ Let's say we want to add a "fade in and out" transition to a confirmation modal 
         </div>
     @endif
 </div>
-```
 @endverbatim
+@endcode
 
 Now, we need to provide the appropriate CSS selectors in our app's stylesheet for this transition:
 
-```css
+@code(['lang' => 'css'])
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;
 }
@@ -67,7 +66,7 @@ Now, we need to provide the appropriate CSS selectors in our app's stylesheet fo
 .fade-enter, .fade-leave {
   opacity: 0;
 }
-```
+@endcode
 
 As you can see, Livewire applies the following four classes to the component at different times before adding or removing the element from the page:
 
