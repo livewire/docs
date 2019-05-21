@@ -9,7 +9,7 @@
         <meta property="og:site_name" content="Docs Starter Template"/>
         <meta property="og:title" content="Component Basics | Docs Starter Template"/>
         <meta property="og:description" content="todo"/>
-        <meta property="og:url" content="https://my-jigsaw-docs.com/docs/component-basics"/>
+        <meta property="og:url" content="https://livewire.com/docs/docs/component-basics"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -19,16 +19,25 @@
         
         <title>Docs Starter Template | Component Basics</title>
 
-        <link rel="home" href="https://my-jigsaw-docs.com">
+        <link rel="home" href="https://livewire.com/docs">
         <link rel="icon" href="/favicon.ico">
 
         
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=4ed093e4fdaf84ed5f1e">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=95457be1a026fb92212a">
 
-            </head>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Animate the Jellyfish logo because why not?
+                animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+                    animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+                })
+            })
+        </script>
+    </head>
 
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
         <header class="flex items-center h-24 py-4 bg-white" role="banner">
