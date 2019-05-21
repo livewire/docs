@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Events
+
 Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.
 
 ## Firing Events

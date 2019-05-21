@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# CSS Transitions
+
 ## Simple fade transition
 One of the benefits of using Livewire is utilizing familiar backend functionality like Blade, while making smooth front-ends. Livewire provides a simple CSS Transition system to help achieve this effect.
 

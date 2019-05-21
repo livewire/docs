@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Redirecting
+
 You may want to redirect from inside a Livewire component to another route in your app. Livewire offers a simple `$this->redirect()` method to accomplish this:
 
 @codeComponent([

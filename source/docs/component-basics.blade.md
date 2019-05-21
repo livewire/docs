@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Component Basics
+
 ## The render() method
 
 The following points are important to know:

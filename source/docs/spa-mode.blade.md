@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# SPA Mode
+
 While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.
 
 Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's walk through it.

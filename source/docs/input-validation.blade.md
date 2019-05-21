@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Input Validation
+
 Consider the following Livewire component:
 
 @codeComponent([

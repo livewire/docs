@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Loading States
+
 Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases where the page may not react immediately to a user event (like a click). It is up to you to determine when you should provide the user with some kind of loading state or not.
 
 ## Toggling elements during "loading" states
@@ -57,6 +59,7 @@ The method outlined above works great for simple components, however, it's commo
         Processing Payment...
     </div>
 </div>
+@endcode
 
 Notice, we've added a "Cancel" button to the checkout form. If the user clicks the "Cancel" button, the "Processing Payment..." message will show briefly. This is clearly undesireable, therefore Livewire offers two directives. You can add `wire:target` to the loading indicator, and pass in the name of a `ref` you define by attaching `wire:ref` to the target. Let's look at the adapted example:
 

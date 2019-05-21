@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Triggering Actions
+
 Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: `wire:[native event]="[action]"`.
 
 Here are some common events you may need to listen for:

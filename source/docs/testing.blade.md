@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Testing
+
 Livewire supports 2 styles of testing it's components:
 1. Unit testing
 2. End-to-end testing

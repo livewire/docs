@@ -5,6 +5,8 @@ extends: _layouts.documentation
 section: content
 ---
 
+# Nesting Components
+
 Livewire supports nesting components. This feature, allows you to compose components from other components, which is an incredibly powerful architectural pattern.
 
 Here is an example of a nested component:
