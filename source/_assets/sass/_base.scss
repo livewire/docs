@@ -93,7 +93,7 @@ h2::before {
     @apply w-full;
     @apply mb-8;
     height: 12px;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 0,1' id='Line' stroke='%23CBD5DF' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3e%3cpath d='M25,1 C20,1 20,11 15,11 C10,11 10,1 5,1 C0,1 0,11 -5,11 C-10,11 -10,1 -15,1' id='Line' stroke='%23CBD5DF' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
 }
 
 h2:first-child::before {

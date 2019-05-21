@@ -11,7 +11,7 @@ Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). 
 
 Hooks | Description
 --- | ---
-mount | Runs immediately after the Livewire component is instantiated
+mount | Runs immediately after the component is instantiated, but before `render()` is called
 updating | Runs before any update to the Livewire component
 updated | Runs after any update to the Livewire component
 updatingFoo | Runs before a property called `$foo` is updated

@@ -100,6 +100,7 @@ class OrderTracker extends LivewireComponent
 {
     public $showNewOrderNotication = false;
 
+    // Special Syntax: ['echo:{channel},{event}' => '{method}']
     protected $listeners = ['echo:orders,OrderShipped' => 'notifyNewOrder'];
 
     public function notifyNewOrder()

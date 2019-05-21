@@ -7,9 +7,9 @@
         <meta name="description" content="todo">
 
         <meta property="og:site_name" content="Docs Starter Template"/>
-        <meta property="og:title" content="Testing | Docs Starter Template"/>
+        <meta property="og:title" content="API Reference | Docs Starter Template"/>
         <meta property="og:description" content="todo"/>
-        <meta property="og:url" content="https://livewire.com/docs/docs/testing"/>
+        <meta property="og:url" content="https://livewire.com/docs/docs/api"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>Docs Starter Template | Testing</title>
+        <title>Docs Starter Template | API Reference</title>
 
         <link rel="home" href="https://livewire.com/docs">
         <link rel="icon" href="/favicon.ico">
@@ -242,7 +242,7 @@
             <li class="pl-4">
             
         <a href="/docs/testing"
-            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+            class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Testing
         </a>
@@ -269,7 +269,7 @@
             <li class="pl-4">
             
         <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
             API Reference
         </a>
@@ -279,80 +279,67 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1>Testing</h1>
-<p>Livewire supports 2 styles of testing it's components:</p>
-<ol>
-<li>Unit testing</li>
-<li>End-to-end testing</li>
-</ol>
-<p>For these demonstrations, we will be using a simple Counter component like the following:</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">Counter.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">class Counter extends LivewireComponent
-{
-    public $count = 0;
-
-    public function increment()
-    {
-        $this-&gt;count++;
-    }
-
-    public function decrement()
-    {
-        $this-&gt;count--;
-    }
-
-    public function render()
-    {
-        return view('livewire.counter');
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">counter.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div style="text-align: center"&gt;
-    &lt;button wire:click="increment"&gt;+&lt;/button&gt;
-    &lt;h1&gt;{{ $count }}&lt;/h1&gt;
-    &lt;button wire:click="decrement"&gt;-&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<h2>Unit Testing</h2>
-<div class="rounded-lg bg-gray-800">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        $counter = Livewire::test(Counter::class);
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-
-        $counter-&gt;increment();
-
-        $this-&gt;assertEquals(2, $counter-&gt;count);
-
-        $counter-&gt;decrement();
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-    }
-}</code></pre>
-</div>
-<h2>End-to-end Testing</h2>
-<div class="rounded-lg bg-gray-800">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        Livewire::test(Counter::class)
-            -&gt;assertSee(1)
-            -&gt;runAction('increment')
-            -&gt;assertSee(2)
-            -&gt;runAction('decrement')
-            -&gt;assertSee(1);
-    }
-}</code></pre>
-</div>        </div>
+            <h1>API Reference</h1>
+<h2>Template API</h2>
+<h3>Directives</h3>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wire:click="foo"</code></td>
+<td>Listens for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
+</tr>
+<tr>
+<td><code>wire:keydown.enter="foo"</code></td>
+<td>Listens for a keydown event with <code>Enter</code> as its key, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
+</tr>
+<tr>
+<td><code>wire:foo="bar"</code></td>
+<td>Listens for an event called &quot;foo&quot;. (You can specify any event you would like to listen for this way)</td>
+</tr>
+<tr>
+<td><code>wire:model="foo"</code></td>
+<td>Assuming <code>$foo</code> is a public property on the component class, everytime an input element with this directive is updated, the property will be updated.</td>
+</tr>
+<tr>
+<td><code>wire:model.debounce.100ms="foo"</code></td>
+<td>Debounces the <code>input</code> events emitted by the element every 100 milliseconds</td>
+</tr>
+<tr>
+<td><code>wire:poll.500ms="foo"</code></td>
+<td>Livewire will run the &quot;foo&quot; method on the component class every 500 milliseconds</td>
+</tr>
+<tr>
+<td><code>wire:loading</code></td>
+<td>Assuming the element's CSS <code>display</code> property is <code>none</code>, this directive will set it to <code>block</code> while network requests are in transit</td>
+</tr>
+<tr>
+<td><code>wire:loading.class="foo"</code></td>
+<td>Will add the <code>foo</code> class to the element while network requests are happening</td>
+</tr>
+<tr>
+<td><code>wire:loading.class.remove="foo"</code></td>
+<td>Will remove the <code>foo</code> class while loading</td>
+</tr>
+<tr>
+<td><code>wire:loading.attr="disabled"</code></td>
+<td>Will add the <code>disabled="true"</code> attribute while loading</td>
+</tr>
+<tr>
+<td><code>wire:target="foo"</code></td>
+<td>Will scope <code>wire:loading</code> functionality to the element that has <code>wire:ref="foo"</code></td>
+</tr>
+<tr>
+<td><code>wire:ref</code></td>
+<td>This directive is used as a way of referencing other elements from other directives (like <code>wire:loading</code>/<code>wire:target</code>)</td>
+</tr>
+</tbody>
+</table>        </div>
     </div>
 </section>
         </main>

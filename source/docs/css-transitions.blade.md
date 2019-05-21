@@ -15,18 +15,14 @@ Livewire provides a basic "fade" transition out-of-the-box.
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    [...]
-
-    @if($showConfirmationModal)
-        <div wire:transition.fade>
-            [...]
-        </div>
+    @if($showName)
+        <div wire:transition.fade>Jerry</div>
     @endif
 </div>
 @endverbatim
 @endcode
 
-When `$showConfirmationModal` is `true`, it's contents are shown. When `$showConfirmationModal` becomes `false`, the contents will fade out, rather than dissapear instantly.
+When `$showName` is `true`, it's contents are shown. When `$showName` becomes `false`, the contents will fade out, rather than dissapear instantly.
 
 You can control the length of this fade by adding an additional time modifier. The following directive will cause the element to fade in and out for a duration of one second.
 

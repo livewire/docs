@@ -26,7 +26,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=95457be1a026fb92212a">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=e88fa1a1990b33009633">
 
         
         <script>
@@ -114,7 +114,7 @@
             background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
             background-repeat-y: no-repeat;
             background-position-y: bottom;
-            height: 10px;
+            height: 12px;
         "></div>
 
         <main role="main" class="w-full flex-auto">
@@ -178,10 +178,19 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/events"
+        <a href="/docs/input-validation"
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
-            Events
+            Input Validation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/loading-states"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Loading States
         </a>
     
     </li>
@@ -196,24 +205,6 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/nesting-components"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Input Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
         <a href="/docs/lifecycle-hooks"
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
@@ -223,10 +214,19 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/loading-states"
+        <a href="/docs/events"
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
-            Loading States
+            Events
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/nesting-components"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Nesting Components
         </a>
     
     </li>
@@ -266,11 +266,21 @@
         </a>
     
     </li>
+            <li class="pl-4">
+            
+        <a href="/docs/api"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            API Reference
+        </a>
+    
+    </li>
     </ul>
         </nav>
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <p>Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: <code>wire:[native event]="[action]"</code>.</p>
+            <h1>Triggering Actions</h1>
+<p>Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: <code>wire:[native event]="[action]"</code>.</p>
 <p>Here are some common events you may need to listen for:</p>
 <table>
 <thead>
@@ -309,6 +319,18 @@
     &lt;input wire:model="title"&gt;
     &lt;button&gt;Add Todo&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="-ml-16 absolute pr-4 text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a custom event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
+    </div>
 </div>
 <h2>Modifiers</h2>
 <p>Like you saw in the <strong>keydown</strong> example, Livewire directives sometimes offer &quot;modifiers&quot; to add extra functionality to an event. Below are the available modifiers that can be used with any event:</p>
@@ -396,20 +418,18 @@
 <p><strong>Before</strong></p>
 <div class="rounded-lg bg-gray-800">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $count }}
-    &lt;button wire:click="increment"&gt;+&lt;/button&gt;
-    &lt;button wire:click="decrement"&gt;-&lt;/button&gt;
+    {{ $message }}
+    &lt;button wire:click="setMessageToHello"&gt;Say Hi&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <p><strong>After</strong></p>
 <div class="rounded-lg bg-gray-800">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $count }}
-    &lt;button wire:click="$set('count', {{ $count + 1 }})"&gt;+&lt;/button&gt;
-    &lt;button wire:click="$set('count', {{ $count - 1 }})"&gt;-&lt;/button&gt;
+    {{ $message }}
+    &lt;button wire:click="$set('message', 'Hello')"&gt;Say Hi&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Notice that we are no longer calling the <code>increment</code> and <code>decrement</code> functions, we are direcly specifying, in blade, what we want data set to.</p>
+<p>Notice that we are no longer calling the <code>setMessageToHello</code> function, we are direcly specifying, what we want data set to.</p>
 <p>This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.</p>
 <h2>Polling Actions</h2>
 <p>Livewire offers a directive called <code>wire:poll="foo"</code> that, when added to an element, will fire <code>foo</code> to the Livewire component every <code>500ms</code>. You can customize the frequency by passing a directive modifier like <code>750ms</code>. For example:</p>

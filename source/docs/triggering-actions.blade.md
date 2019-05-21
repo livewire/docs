@@ -37,6 +37,10 @@ Here are a few examples of each in HTML:
 </form>
 @endcode
 
+@tip
+You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a custom event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
+@endtip
+
 ## Modifiers
 
 Like you saw in the **keydown** example, Livewire directives sometimes offer "modifiers" to add extra functionality to an event. Below are the available modifiers that can be used with any event:
@@ -84,9 +88,8 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    {{ $count }}
-    <button wire:click="increment">+</button>
-    <button wire:click="decrement">-</button>
+    {{ $message }}
+    <button wire:click="setMessageToHello">Say Hi</button>
 </div>
 @endverbatim
 @endcode
@@ -96,14 +99,13 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    {{ $count }}
-    <button wire:click="$set('count', {{ $count + 1 }})">+</button>
-    <button wire:click="$set('count', {{ $count - 1 }})">-</button>
+    {{ $message }}
+    <button wire:click="$set('message', 'Hello')">Say Hi</button>
 </div>
 @endverbatim
 @endcode
 
-Notice that we are no longer calling the `increment` and `decrement` functions, we are direcly specifying, in blade, what we want data set to.
+Notice that we are no longer calling the `setMessageToHello` function, we are direcly specifying, what we want data set to.
 
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
 

@@ -31,15 +31,20 @@ class MyNameIs extends LivewireComponent
 <div>
     <input type="text" wire:model="name">
 
-    My name is chica-chica {{ $name }}
+    Hi! My name is {{ $name }}
 </div>
 @endverbatim
 @endslot
 @endcodeComponent
 
-When the user types "Slim Shady" into the text field, the value of the `$name` property will automatically update. Livewire knows to keep track of the provided name because of the `wire:model` directive.
+When the user types something into the text field, the value of the `$name` property will automatically update. Livewire knows to keep track of the provided name because of the `wire:model` directive.
 
 Internally, Livewire listens for "input" events on the element and updates the class property with the element's value. Therefore, you can apply `wire:model` to any element that emits `input` events.
+
+`<input type="text">`
+@tip
+By default, Livewire applies a 150ms debounce to text inputs. You can override this default like so: <code>&lt;input type="text" wire:model.debounce.0ms="name"&gt;</code>
+@endtip
 
 Common elements to use `wire:model` on include:
 
@@ -50,6 +55,17 @@ Element Tag |
 `<input type="checkbox">` |
 `<select>` |
 `<textarea>` |
+
+## Debouncing Input
+
+Livewire offers a "debounce" modifer when using `wire:model`. If you want to apply a 1 second debounce to an input, you include the modifier like so:
+
+@code
+<input type="text" wire:model.debounce.1000ms="name">
+
+<!-- You can also specify the time in seconds: -->
+<input type="text" wire:model.debounce.1s="name">
+@endcode
 
 ## Lazily Updating
 

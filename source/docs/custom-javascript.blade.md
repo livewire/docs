@@ -23,7 +23,7 @@ To package JavaScript up with a component, just add a `<script>` tag inside the 
 
 Livewire makes it extremely easy to use Vue components inside your Livewire components, and it even goes a step further and interfaces with them directly!
 
-Let's say we have a "<loading-spinner>" Vue component, and we want to use it in our Livewire component.
+Let's say we have a `<loading-spinner>` Vue component, and we want to use it in our Livewire component.
 
 @code
 <div>
