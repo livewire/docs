@@ -107,7 +107,9 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 
 Notice that we are no longer calling the `setMessageToHello` function, we are direcly specifying, what we want data set to.
 
+@tip
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
+@endtip
 
 ## Polling Actions
 Livewire offers a directive called `wire:poll="foo"` that, when added to an element, will fire `foo` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:

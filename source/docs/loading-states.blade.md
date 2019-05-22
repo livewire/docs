@@ -13,16 +13,6 @@ Because Livewire makes a roundtrip to the server every time an action is trigger
 
 Elements with the `wire:loading` directive are only visible while waiting for actions to complete (network requests).
 
-In order for this to work properly, you will need to add the following style to any page Livewire is used on:
-
-@code(['lang' => 'css'])
-[wire\:loading] {
-    display: none
-}
-@endcode
-
-Now any element that has `wire:loading` will be hidden by default, and shown during network requests:
-
 @code(['lang' => 'html'])
 <div>
     <button wire:click="checkout">Checkout</button>

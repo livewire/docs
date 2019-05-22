@@ -75,7 +75,7 @@ Livewire components store and track state using class properties on the Componen
 
 ### Automatically Available Inside View
 
-Properties marked as `public` are automatically made available in the Blade view. For example:
+Similar to Jobs or Mailables, properties marked as `public` are automatically made available in the Blade view. For example:
 
 @codeComponent([
     'className' => 'HelloWorld.php',
@@ -107,7 +107,7 @@ class HelloWorld extends LivewireComponent
 
 ### Initializing Properties
 
-Let's say you wanted to make the 'Hello World' message more specific, and greet the currently logged in user. You might try setting the message to:
+Let's say you wanted to make the 'Hello World' message more specific, and greet the currently logged in user. You might try setting the message property to:
 
 @code(['lang' => 'php'])
 public $message = 'Hello ' . auth()->user()->first_name;
@@ -144,3 +144,5 @@ class HelloWorld extends LivewireComponent
 @endverbatim
 @endslot
 @endcodeComponent
+
+You can think of `mount()` like you would the `boot()` method of a Laravel Model, or the `created()` method of a Vue component.

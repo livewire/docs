@@ -7,17 +7,17 @@ section: content
 
 ## Install Livewire
 
-*Include the PHP*
+Include the PHP
 @code(['lang' => 'bash'])
 composer require calebporzio/livewire
 @endcode
 
-*Include the JavaScript (on every page that will be using Livewire)*
+Include the JavaScript (on every page that will be using Livewire)
 
 @code
 @verbatim
     ...
-    {!! Livewire::scripts() !!}
+    @livewireAssets
 </body>
 </html>
 @endverbatim

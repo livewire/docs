@@ -7,7 +7,7 @@ section: content
 
 # Lifecycle Hooks
 
-Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific actions are handled.
+Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
 Hooks | Description
 --- | ---

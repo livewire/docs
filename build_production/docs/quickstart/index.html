@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>Docs Starter Template | Quickstart</title>
+        <title>Livewire | Quickstart</title>
 
         <link rel="home" href="https://livewire.com/docs">
         <link rel="icon" href="/favicon.ico">
@@ -26,7 +26,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=0719c15b7d77222acb29">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0c429d5b7d4546d59105">
 
         
         <script>
@@ -97,13 +97,13 @@
     onclick="navMenu.toggle()"
 >
     <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
     >
         <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
     </svg>
 
     <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
     >
         <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
     </svg>
@@ -280,14 +280,14 @@
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h2>Install Livewire</h2>
-<p><em>Include the PHP</em></p>
+<p>Include the PHP</p>
 <div class="rounded-lg bg-gray-800">
     <pre class="scrollbar-none"><code class="scrolling-touch language-bash">composer require calebporzio/livewire</code></pre>
 </div>
-<p><em>Include the JavaScript (on every page that will be using Livewire)</em></p>
+<p>Include the JavaScript (on every page that will be using Livewire)</p>
 <div class="rounded-lg bg-gray-800">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">...
-    {!! Livewire::scripts() !!}
+    @livewireAssets
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
