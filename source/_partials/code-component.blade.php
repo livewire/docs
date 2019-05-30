@@ -1,4 +1,4 @@
-<div class="rounded-lg bg-gray-800 overflow-hidden">
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
     @isset($class)
     <div class="relative py-1">
         @isset($className) <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">{{ $className }}</span> @endisset

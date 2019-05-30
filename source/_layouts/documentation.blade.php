@@ -4,7 +4,7 @@
     @include('_nav.menu-toggle')
 @endsection
 
-@section('body')
+@section('content')
 <section class="container mx-auto px-6 md:px-8 py-4">
     <div class="flex flex-col lg:flex-row">
         <nav id="js-nav-menu" class="nav-menu hidden lg:block">
@@ -16,4 +16,4 @@
         </div>
     </div>
 </section>
-@endsection
+@overwrite
