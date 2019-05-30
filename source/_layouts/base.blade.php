@@ -13,6 +13,7 @@
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
+        <meta name="twitter:image" content="/assets/img/logo.png">
         <meta name="twitter:image:alt" content="{{ $page->siteName }}">
         <meta name="twitter:card" content="summary_large_image">
 
