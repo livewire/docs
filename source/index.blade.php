@@ -44,8 +44,8 @@
 "></div>
 
 <div class="">
-    <div class="absolute pt-6 pl-12 xl:pl-16 hidden lg:block" id="underwater-jelly">
-        {!! file_get_contents(__DIR__ . "/../source/assets/img/underwater_jelly.svg") !!}
+    <div class="absolute right-0 pt-6 pr-12 xl:pr-16 hidden lg:block" id="underwater-jelly">
+        <img src="/assets/img/underwater_jelly.svg">
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -63,7 +63,7 @@
 
 <div class="">
     @code(['lang' => 'javascript']) @verbatim
-    <script>
+<script>
     export default {
         data: { count: 0 },
         methods: {
@@ -75,53 +75,52 @@
             },
         },
     }
-    </script>
+</script>
 
-    <template>
-        <div>
-            <button @click="increment">+</button>
-            <button @click="decrement">-</button>
+<template>
+    <div>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
 
-            <span>{{ count }}</span>
-        </div>
-    </template>
-    @endverbatim @endcode
+        <span>{{ count }}</span>
+    </div>
+</template>
+@endverbatim @endcode
 </div>
 
         <p>Now, let's see how we would accomplish the exact same thing with a Livewire component.</p>
 
 <div class="">
-    @codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
-    class Counter extends Component
+@codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
+class Counter extends Component
+{
+    public $count = 0;
+
+    public function increment()
     {
-        public $count = 0;
-
-        public function increment()
-        {
-            $this->count++;
-        }
-
-        public function decrement()
-        {
-            $this->count--;
-        }
-
-        public function render()
-        {
-            return view('livewire.counter');
-        }
+        $this->count++;
     }
-    </script>
-    @endverbatim @endslot
 
-    @slot('view') @verbatim
-    <div>
-        <button wire:click="increment">+</button>
-        <button wire:click="decrement">-</button>
+    public function decrement()
+    {
+        $this->count--;
+    }
 
-        <span>{{ $count }}</span>
-    </div>
-    @endverbatim @endslot @endcodeComponent
+    public function render()
+    {
+        return view('livewire.counter');
+    }
+}
+@endverbatim @endslot
+
+@slot('view') @verbatim
+<div>
+    <button wire:click="increment">+</button>
+    <button wire:click="decrement">-</button>
+
+    <span>{{ $count }}</span>
+</div>
+@endverbatim @endslot @endcodeComponent
 </div>
 
         <p>Are you still with me? I know, it's bonkers, but just go with it for now.</p>
@@ -136,7 +135,7 @@
             <li>Vue re-renders the template and updates the DOM</li>
         </ol>
 
-        <p>Livewire works nearly the same, but with 2 extra steps.</p>
+        <p>Livewire works nearly the same, but with 2 extra steps behind the scenes.</p>
 
         <ol>
             <li>Livewire hears the click because of <code>@verbatim wire:click="increment" @endverbatim</code></li>
@@ -146,7 +145,7 @@
             <li>Livewire receives the response, and updates the DOM</li>
         </ol>
 
-        <p>Clever huh?</p>
+        <p>Cool huh?</p>
 
         <h2>Can I replace all my Vue components with Livewire components now?</h2>
 
