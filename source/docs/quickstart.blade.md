@@ -79,7 +79,7 @@ Let's add some text to the view so we can see something tangible in the browser.
 ## Include the component
 Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
 
-@code(['lineHighlight' => 2])
+@code(['lineHighlight' => 3])
 @verbatim
 <body>
     <div>
