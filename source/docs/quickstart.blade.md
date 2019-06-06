@@ -81,6 +81,7 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 
 @code(['lineHighlight' => 2])
 @verbatim
+<body>
     <div>
         @livewire('counter')
     </div>
