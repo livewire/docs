@@ -15,7 +15,7 @@
 
         <meta name="twitter:image" content="/assets/img/logo.png">
         <meta name="twitter:image:alt" content="{{ $page->siteName }}">
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary">
 
         @if ($page->docsearchApiKey && $page->docsearchIndexName)
             <meta name="generator" content="tighten_jigsaw_doc">
