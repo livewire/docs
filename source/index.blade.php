@@ -73,67 +73,67 @@
         <p>Consider the following "counter" component written in VueJs:</p>
 
         <div class="">
-            @code(['lang' => 'javascript']) @verbatim
-            <script>
-                export default {
-                    data: {
-                        count: 0
-                    },
-                    methods: {
-                        increment() {
-                            this.count++
-                        },
-                        decrement() {
-                            this.count--
-                        },
-                    },
-                }
-            </script>
+@code(['lang' => 'javascript']) @verbatim
+<script>
+    export default {
+        data: {
+            count: 0
+        },
+        methods: {
+            increment() {
+                this.count++
+            },
+            decrement() {
+                this.count--
+            },
+        },
+    }
+</script>
 
-            <template>
-                <div>
-                    <button @click="increment">+</button>
-                    <button @click="decrement">-</button>
+<template>
+    <div>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
 
-                    <span>{{ count }}</span>
-                </div>
-            </template>
-            @endverbatim @endcode
+        <span>{{ count }}</span>
+    </div>
+</template>
+@endverbatim @endcode
         </div>
 
         <p>Now, let's see how we would accomplish the exact same thing with a Livewire component.</p>
 
         <div class="">
-            @codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
-            class Counter extends Component
-            {
-            public $count = 0;
+@codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
+class Counter extends Component
+{
+public $count = 0;
 
-            public function increment()
-            {
-            $this->count++;
-            }
+public function increment()
+{
+$this->count++;
+}
 
-            public function decrement()
-            {
-            $this->count--;
-            }
+public function decrement()
+{
+$this->count--;
+}
 
-            public function render()
-            {
-            return view('livewire.counter');
-            }
-            }
-            @endverbatim @endslot
+public function render()
+{
+return view('livewire.counter');
+}
+}
+@endverbatim @endslot
 
-            @slot('view') @verbatim
-            <div>
-                <button wire:click="increment">+</button>
-                <button wire:click="decrement">-</button>
+@slot('view') @verbatim
+<div>
+    <button wire:click="increment">+</button>
+    <button wire:click="decrement">-</button>
 
-                <span>{{ $count }}</span>
-            </div>
-            @endverbatim @endslot @endcodeComponent
+    <span>{{ $count }}</span>
+</div>
+@endverbatim @endslot @endcodeComponent
         </div>
 
         <p>Are you still with me? I know, it's bonkers, but just go with it for now.</p>

@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=b098c7ca78ee82f8de16">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=1b9ecc147cb8057c1d79">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -142,66 +142,66 @@
         <p>Consider the following "counter" component written in VueJs:</p>
 
         <div class="">
-            <div class="rounded-lg bg-gray-800 mb-12">
+<div class="rounded-lg bg-gray-800 mb-12">
     <pre  class="scrollbar-none"><code class="scrolling-touch language-javascript">&lt;script&gt;
-                export default {
-                    data: {
-                        count: 0
-                    },
-                    methods: {
-                        increment() {
-                            this.count++
-                        },
-                        decrement() {
-                            this.count--
-                        },
-                    },
-                }
-            &lt;/script&gt;
+    export default {
+        data: {
+            count: 0
+        },
+        methods: {
+            increment() {
+                this.count++
+            },
+            decrement() {
+                this.count--
+            },
+        },
+    }
+&lt;/script&gt;
 
-            &lt;template&gt;
-                &lt;div&gt;
-                    &lt;button @click=&quot;increment&quot;&gt;+&lt;/button&gt;
-                    &lt;button @click=&quot;decrement&quot;&gt;-&lt;/button&gt;
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;button @click=&quot;increment&quot;&gt;+&lt;/button&gt;
+        &lt;button @click=&quot;decrement&quot;&gt;-&lt;/button&gt;
 
-                    &lt;span&gt;{{ count }}&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/template&gt;</code></pre>
+        &lt;span&gt;{{ count }}&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/template&gt;</code></pre>
 </div>
         </div>
 
         <p>Now, let's see how we would accomplish the exact same thing with a Livewire component.</p>
 
         <div class="">
-            <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">App\Http\Livewire\Counter.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">class Counter extends Component
-            {
-            public $count = 0;
+{
+public $count = 0;
 
-            public function increment()
-            {
-            $this-&gt;count++;
-            }
+public function increment()
+{
+$this-&gt;count++;
+}
 
-            public function decrement()
-            {
-            $this-&gt;count--;
-            }
+public function decrement()
+{
+$this-&gt;count--;
+}
 
-            public function render()
-            {
-            return view(&#039;livewire.counter&#039;);
-            }
-            }</code></pre>
+public function render()
+{
+return view(&#039;livewire.counter&#039;);
+}
+}</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">resources/views/livewire/counter.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-                &lt;button wire:click=&quot;increment&quot;&gt;+&lt;/button&gt;
-                &lt;button wire:click=&quot;decrement&quot;&gt;-&lt;/button&gt;
+    &lt;button wire:click=&quot;increment&quot;&gt;+&lt;/button&gt;
+    &lt;button wire:click=&quot;decrement&quot;&gt;-&lt;/button&gt;
 
-                &lt;span&gt;{{ $count }}&lt;/span&gt;
-            &lt;/div&gt;</code></pre>
+    &lt;span&gt;{{ $count }}&lt;/span&gt;
+&lt;/div&gt;</code></pre>
     </div>
     </div>
 
