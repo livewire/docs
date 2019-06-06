@@ -4,7 +4,7 @@ return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'Livewire',
-    'siteDescription' => 'A magical full-stack framework for Laravel',
+    'siteDescription' => 'A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => '',

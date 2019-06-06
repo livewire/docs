@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bg-white">
-    <div class="px-8 p-4 flex justify-between items-center">
+    <div class="px-8 p-4 flex justify-between items-center flex-col sm:flex-row">
         <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
             {!! file_get_contents(__DIR__ . "/../source/assets/img/logo.svg") !!}
         </a>
@@ -48,10 +48,21 @@
         <img src="/assets/img/underwater_jelly.svg">
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Animate the Jellyfish logo because why not?
-            animate({elements: '#underwater-jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-                animate({elements: '#underwater-jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+            animate({
+                elements: '#underwater-jelly',
+                transform: ['translateY(0%)', 'translateY(-3%)'],
+                easing: 'in-out-cubic'
+            }).then(() => {
+                animate({
+                    elements: '#underwater-jelly',
+                    transform: ['translateY(-3%)', 'translateY(3%)'],
+                    loop: true,
+                    direction: 'alternate',
+                    easing: 'in-out-cubic',
+                    duration: 2000
+                })
             })
         })
     </script>
@@ -61,67 +72,69 @@
 
         <p>Consider the following "counter" component written in VueJs:</p>
 
-<div class="">
-    @code(['lang' => 'javascript']) @verbatim
-<script>
-    export default {
-        data: { count: 0 },
-        methods: {
-            increment() {
-                this.count++
-            },
-            decrement() {
-                this.count--
-            },
-        },
-    }
-</script>
+        <div class="">
+            @code(['lang' => 'javascript']) @verbatim
+            <script>
+                export default {
+                    data: {
+                        count: 0
+                    },
+                    methods: {
+                        increment() {
+                            this.count++
+                        },
+                        decrement() {
+                            this.count--
+                        },
+                    },
+                }
+            </script>
 
-<template>
-    <div>
-        <button @click="increment">+</button>
-        <button @click="decrement">-</button>
+            <template>
+                <div>
+                    <button @click="increment">+</button>
+                    <button @click="decrement">-</button>
 
-        <span>{{ count }}</span>
-    </div>
-</template>
-@endverbatim @endcode
-</div>
+                    <span>{{ count }}</span>
+                </div>
+            </template>
+            @endverbatim @endcode
+        </div>
 
         <p>Now, let's see how we would accomplish the exact same thing with a Livewire component.</p>
 
-<div class="">
-@codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
-class Counter extends Component
-{
-    public $count = 0;
+        <div class="">
+            @codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
+            class Counter extends Component
+            {
+            public $count = 0;
 
-    public function increment()
-    {
-        $this->count++;
-    }
+            public function increment()
+            {
+            $this->count++;
+            }
 
-    public function decrement()
-    {
-        $this->count--;
-    }
+            public function decrement()
+            {
+            $this->count--;
+            }
 
-    public function render()
-    {
-        return view('livewire.counter');
-    }
-}
-@endverbatim @endslot
+            public function render()
+            {
+            return view('livewire.counter');
+            }
+            }
+            @endverbatim @endslot
 
-@slot('view') @verbatim
-<div>
-    <button wire:click="increment">+</button>
-    <button wire:click="decrement">-</button>
+            @slot('view') @verbatim
+            <div>
+                <button wire:click="increment">+</button>
+                <button wire:click="decrement">-</button>
 
-    <span>{{ $count }}</span>
-</div>
-@endverbatim @endslot @endcodeComponent
-</div>
+                <span>{{ $count }}</span>
+            </div>
+            @endverbatim @endslot @endcodeComponent
+        </div>
 
         <p>Are you still with me? I know, it's bonkers, but just go with it for now.</p>
 
@@ -151,12 +164,18 @@ class Counter extends Component
 
         <p>Not exactly. Livewire will hopefully replace a bunch of them, but because every interaction requires a roundtrip to the server, it's better to use JavaScript for things that need to be instant (like animations).</p>
 
-        <p>A good rule of thumb is: any JavaScript components that rely on ajax for server communication, will be better off as Livewire components. There's lot's of other good use cases, but this gives you a basic idea of where to start.</p>
+        <p>A good rule of thumb is: any JavaScript components that rely on ajax for server communication, will be better off as Livewire components. There's lots of other good use cases, but this gives you a basic idea of where to start.</p>
 
         <h2>When can I use it in my projects?</h2>
 
         <p>Right now, the repository is invite-only. Sign up for my email newsletter to get notified when I start letting people in.</p>
 
+        <style>
+            .formkit-form[data-uid="2e197490cb"][min-width~="700"] [data-style="clean"],
+            .formkit-form[data-uid="2e197490cb"][min-width~="800"] [data-style="clean"] {
+                padding: 0 !important;
+            }
+        </style>
         <script async data-uid="2e197490cb" src="https://f.convertkit.com/2e197490cb/2cb7ff8b4c.js"></script>
     </div>
 </div>
