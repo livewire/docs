@@ -52,6 +52,35 @@ class Modal extends LivewireComponent
 
 Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
 
+## Listening for global events
+
+Livewire allows you to register global event listeners in JavaScript.
+
+Let's say a Livewire component emitted an event like so:
+
+@code(['lang' => 'php'])
+public function increment()
+{
+    $this->count++;
+
+    $this->emit('incremented', $this->count);
+}
+@endcode
+
+You could register a global listener for it in JavaScript.
+
+@code(['lang' => 'javascript'])
+<script>
+window.livewire.on('incremented', count => {
+    alert('The count was incremented to: ' + count);
+})
+</script>
+@endcode
+
+@tip
+This feature is actually incredibly powerful. It provides a bridge between Livewire and other JS inside your app. For example, if you had a JavaScript function to show a toaster (popup) inside your app to show notification messages, you could trigger them from inside your Livewire component with this feature.
+@endtip
+
 ## Listening for Laravel Echo events
 
 Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
