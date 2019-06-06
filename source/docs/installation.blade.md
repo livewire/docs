@@ -24,7 +24,7 @@ You can either include the JavaScript via the provided Blade helper (easiest), o
 @code
 @verbatim
     ...
-    {!! Livewire::scripts() !!}
+    @livewireAssets
 </body>
 </html>
 @endverbatim

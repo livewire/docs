@@ -85,7 +85,7 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
         @livewire('counter')
     </div>
 
-    {!! Livewire::scripts() !!}
+    @livewireAssets
 </body>
 </html>
 @endverbatim
