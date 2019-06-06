@@ -107,22 +107,22 @@
 @codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
 class Counter extends Component
 {
-public $count = 0;
+    public $count = 0;
 
-public function increment()
-{
-$this->count++;
-}
+    public function increment()
+    {
+        $this->count++;
+    }
 
-public function decrement()
-{
-$this->count--;
-}
+    public function decrement()
+    {
+        $this->count--;
+    }
 
-public function render()
-{
-return view('livewire.counter');
-}
+    public function render()
+    {
+        return view('livewire.counter');
+    }
 }
 @endverbatim @endslot
 
