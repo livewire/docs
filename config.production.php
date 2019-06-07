@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://livewire.com/docs',
+    'baseUrl' => 'https://livewire-framework.com/',
     'production' => true,
 
     // DocSearch credentials
