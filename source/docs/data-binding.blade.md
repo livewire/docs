@@ -102,4 +102,4 @@ class MyNameIs extends LivewireComponent
 @endslot
 @endcodeComponent
 
-Now, the `$todo` property will only be updated when the user clicks away from the input field.
+Now, the `$name` property will only be updated when the user clicks away from the input field.
