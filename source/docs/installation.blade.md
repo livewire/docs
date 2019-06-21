@@ -36,6 +36,7 @@ Including the JavaScript this way will result in the JavaScript being loaded dir
 </div></div>
 
 ### Option B) install via NPM
+\* Not yet available
 
 @code(['lang' => 'bash'])
 @verbatim
