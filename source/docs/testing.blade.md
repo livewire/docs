@@ -19,7 +19,9 @@ For these demonstrations, we will be using a simple Counter component like the f
 ])
 @slot('class')
 @verbatim
-class Counter extends LivewireComponent
+use Livewire\Component;
+
+class Counter extends Component
 {
     public $count = 0;
 

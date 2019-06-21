@@ -18,7 +18,9 @@ updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
 
 @code(['lang' => 'php'])
-class HelloWorld extends LivewireComponent
+use Livewire\Component;
+
+class HelloWorld extends Component
 {
     public $foo;
 

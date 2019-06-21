@@ -15,7 +15,9 @@ If you've used front-end frameworks like Angular, React, or Vue, you are already
 ])
 @slot('class')
 @verbatim
-class MyNameIs extends LivewireComponent
+use Livewire\Component;
+
+class MyNameIs extends Component
 {
     public $name;
 
@@ -80,7 +82,9 @@ In those cases, use the `lazy` directive modifier to listen for the native "chan
 ])
 @slot('class')
 @verbatim
-class MyNameIs extends LivewireComponent
+use Livewire\Component;
+
+class MyNameIs extends Component
 {
     public $name;
 

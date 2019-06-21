@@ -24,7 +24,9 @@ The `render()` method is expected to return a Blade view, therefore, you can com
 ])
 @slot('class')
 @verbatim
-class ShowPosts extends LivewireComponent
+use Livewire\Component;
+
+class ShowPosts extends Component
 {
     public function render()
     {
@@ -83,7 +85,9 @@ Similar to Jobs or Mailables, properties marked as `public` are automatically ma
 ])
 @slot('class')
 @verbatim
-class HelloWorld extends LivewireComponent
+use Livewire\Component;
+
+class HelloWorld extends Component
 {
     public $message = 'Hello World';
 
@@ -120,7 +124,9 @@ Unfortunately, this is illegal in PHP. However, you can initialize properties at
     'viewName' => 'hello-world.blade.php',
 ])
 @slot('class')
-class HelloWorld extends LivewireComponent
+use Livewire\Component;
+
+class HelloWorld extends Component
 {
     public $message;
 

@@ -280,7 +280,9 @@
 <p>The <code>render()</code> method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ShowPosts.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">class ShowPosts extends LivewireComponent
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ShowPosts.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class ShowPosts extends Component
 {
     public function render()
     {
@@ -334,7 +336,9 @@ Here are some common things you might forget ARE NOT possible in Livewire:
 <p>Similar to Jobs or Mailables, properties marked as <code>public</code> are automatically made available in the Blade view. For example:</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">class HelloWorld extends LivewireComponent
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class HelloWorld extends Component
 {
     public $message = 'Hello World';
 
@@ -360,7 +364,9 @@ Here are some common things you might forget ARE NOT possible in Livewire:
 <p>Unfortunately, this is illegal in PHP. However, you can initialize properties at run-time using the <code>mount</code> method/hook in Livewire. For example:</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">class HelloWorld extends LivewireComponent
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class HelloWorld extends Component
 {
     public $message;
 

@@ -105,6 +105,8 @@
 
         <div class="">
 @codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
+use Livewire\Component;
+
 class Counter extends Component
 {
     public $count = 0;
