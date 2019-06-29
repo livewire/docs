@@ -314,15 +314,15 @@
     {
         $counter = Livewire::test(Counter::class);
 
-        $this-&gt;assertEquals(1, $counter-&gt;count);
+        $this-&gt;assertEquals(0, $counter-&gt;count);
 
         $counter-&gt;increment();
 
-        $this-&gt;assertEquals(2, $counter-&gt;count);
+        $this-&gt;assertEquals(1, $counter-&gt;count);
 
         $counter-&gt;decrement();
 
-        $this-&gt;assertEquals(1, $counter-&gt;count);
+        $this-&gt;assertEquals(0, $counter-&gt;count);
     }
 }</code></pre>
 </div>

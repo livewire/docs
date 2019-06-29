@@ -61,15 +61,15 @@ class CounterTest extends TestCase
     {
         $counter = Livewire::test(Counter::class);
 
-        $this->assertEquals(1, $counter->count);
+        $this->assertEquals(0, $counter->count);
 
         $counter->increment();
 
-        $this->assertEquals(2, $counter->count);
+        $this->assertEquals(1, $counter->count);
 
         $counter->decrement();
 
-        $this->assertEquals(1, $counter->count);
+        $this->assertEquals(0, $counter->count);
     }
 }
 @endcode
