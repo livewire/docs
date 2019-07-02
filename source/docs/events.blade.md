@@ -14,7 +14,7 @@ Livewire components can communicate with each other through a global event syste
 There are two ways to fire events from Livewire components.
 
 ### Method A: From The Template
-This method is twice as fast as Method B, so it is the preffered usage.
+This method is twice as fast as Method B, so it is the preferred usage.
 
 @code
 <button wire:click="$emit('showModal')">

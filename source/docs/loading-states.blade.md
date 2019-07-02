@@ -35,7 +35,7 @@ If you don't want to add the global style from above, you can declare `display: 
 </div>
 @endcode
 
-When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will dissapear.
+When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disapear.
 
 ## Targeting specific actions
 The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions. Consider the following example:
@@ -51,7 +51,7 @@ The method outlined above works great for simple components, however, it's commo
 </div>
 @endcode
 
-Notice, we've added a "Cancel" button to the checkout form. If the user clicks the "Cancel" button, the "Processing Payment..." message will show briefly. This is clearly undesireable, therefore Livewire offers two directives. You can add `wire:target` to the loading indicator, and pass in the name of a `ref` you define by attaching `wire:ref` to the target. Let's look at the adapted example:
+Notice, we've added a "Cancel" button to the checkout form. If the user clicks the "Cancel" button, the "Processing Payment..." message will show briefly. This is clearly undesirable, therefore Livewire offers two directives. You can add `wire:target` to the loading indicator, and pass in the name of a `ref` you define by attaching `wire:ref` to the target. Let's look at the adapted example:
 
 @code(['lang' => 'html'])
 <div>

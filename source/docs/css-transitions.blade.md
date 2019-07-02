@@ -22,7 +22,7 @@ Livewire provides a basic "fade" transition out-of-the-box.
 @endverbatim
 @endcode
 
-When `$showName` is `true`, it's contents are shown. When `$showName` becomes `false`, the contents will fade out, rather than dissapear instantly.
+When `$showName` is `true`, it's contents are shown. When `$showName` becomes `false`, the contents will fade out, rather than disapear instantly.
 
 You can control the length of this fade by adding an additional time modifier. The following directive will cause the element to fade in and out for a duration of one second.
 

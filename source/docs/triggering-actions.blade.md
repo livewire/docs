@@ -47,8 +47,8 @@ Like you saw in the **keydown** example, Livewire directives sometimes offer "mo
 
 Modifier | Description
 --- | ---
-stop | Equivelant of `event.stopPropagation()`
-prevent | Equivelant of `event.preventDefault()`
+stop | Equivalent of `event.stopPropagation()`
+prevent | Equivalent of `event.preventDefault()`
 
 ## Keydown Modifiers
 
@@ -105,7 +105,7 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @endverbatim
 @endcode
 
-Notice that we are no longer calling the `setMessageToHello` function, we are direcly specifying, what we want data set to.
+Notice that we are no longer calling the `setMessageToHello` function, we are directly specifying, what we want data set to.
 
 @tip
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
