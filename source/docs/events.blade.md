@@ -31,7 +31,9 @@ Event listeners are registered in the `$listeners` property of your Livewire com
 
 @codeComponent(['className' => 'Modal'])
 @slot('class')
-class Modal extends LivewireComponent
+use Livewire\Component;
+
+class Modal extends Component
 {
     public $isOpen = false;
 
@@ -125,7 +127,9 @@ With Livewire however, all you have to do is register it in your `$listeners` pr
 
 @codeComponent(['className' => 'OrderTracker'])
 @slot('class')
-class OrderTracker extends LivewireComponent
+use Livewire\Component;
+
+class OrderTracker extends Component
 {
     public $showNewOrderNotication = false;
 

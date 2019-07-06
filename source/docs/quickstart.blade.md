@@ -106,6 +106,8 @@ Replace the generated content of the `counter` component class and view with the
 ])
 @slot('class')
 @verbatim
+use Livewire\Component;
+
 class Counter extends Component
 {
     public $count = 0;

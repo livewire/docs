@@ -15,7 +15,9 @@ Consider the following Livewire component:
 ])
 @slot('class')
 @verbatim
-class ContactForm extends LivewireComponent
+use Livewire\Component;
+
+class ContactForm extends Component
 {
     public $email;
 
@@ -50,7 +52,9 @@ We can add validation to this form almost exactly how you would in a controller.
 ])
 @slot('class')
 @verbatim
-class ContactForm extends LivewireComponent
+use Livewire\Component;
+
+class ContactForm extends Component
 {
     public $email;
 
@@ -100,7 +104,9 @@ For example:
 ])
 @slot('class')
 @verbatim
-class ContactForm extends LivewireComponent
+use Livewire\Component;
+
+class ContactForm extends Component
 {
     public $email;
 

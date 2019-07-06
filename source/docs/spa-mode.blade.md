@@ -104,7 +104,9 @@ Route::livewire('/contact/{id}', 'show-contact');
 
 **App\Http\Livewire\ShowContact.php**
 @code(['lang' => 'php'])
-class ShowContact extends LivewireComponent
+use Livewire\Component;
+
+class ShowContact extends Component
 {
     public $name;
     public $email;
@@ -134,7 +136,9 @@ Route::livewire('/contact/{user}', 'show-contact');
 
 **App\Http\Livewire\ShowContact.php**
 @code(['lang' => 'php'])
-class ShowContact extends LivewireComponent
+use Livewire\Component;
+
+class ShowContact extends Component
 {
     public $contact;
 

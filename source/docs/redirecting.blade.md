@@ -15,7 +15,9 @@ You may want to redirect from inside a Livewire component to another route in yo
 ])
 @slot('class')
 @verbatim
-class ContactForm extends LivewireComponent
+use Livewire\Component;
+
+class ContactForm extends Component
 {
     public $email;
 

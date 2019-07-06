@@ -19,7 +19,9 @@ You can pass data into a component by passing additional parameters into the `@l
 
 @code(['lang' => 'php'])
 @verbatim
-class ShowContact extends LivewireComponent
+use Livewire\Component;
+
+class ShowContact extends Component
 {
     public $name;
     public $email;
