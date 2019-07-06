@@ -291,7 +291,7 @@
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>When the &quot;Checkout&quot; button is clicked, the &quot;Processing Payment...&quot; message will show. When the action is finished, the message will dissapear.</p>
+<p>When the &quot;Checkout&quot; button is clicked, the &quot;Processing Payment...&quot; message will show. When the action is finished, the message will disapear.</p>
 <h2>Targeting specific actions</h2>
 <p>The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions. Consider the following example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -304,7 +304,7 @@
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Notice, we've added a &quot;Cancel&quot; button to the checkout form. If the user clicks the &quot;Cancel&quot; button, the &quot;Processing Payment...&quot; message will show briefly. This is clearly undesireable, therefore Livewire offers two directives. You can add <code>wire:target</code> to the loading indicator, and pass in the name of a <code>ref</code> you define by attaching <code>wire:ref</code> to the target. Let's look at the adapted example:</p>
+<p>Notice, we've added a &quot;Cancel&quot; button to the checkout form. If the user clicks the &quot;Cancel&quot; button, the &quot;Processing Payment...&quot; message will show briefly. This is clearly undesirable, therefore Livewire offers two directives. You can add <code>wire:target</code> to the loading indicator, and pass in the name of a <code>ref</code> you define by attaching <code>wire:ref</code> to the target. Let's look at the adapted example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;button wire:click="checkout" wire:ref="checkout-button"&gt;Checkout&lt;/button&gt;

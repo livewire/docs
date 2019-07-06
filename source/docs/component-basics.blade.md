@@ -12,7 +12,7 @@ section: content
 The following points are important to know:
 
 * `render()` should return a Blade view (like controllers do)
-* The Blade view MUST have a root HTML tag
+* The root HTML tag of Blade view MUST be a `<div>`
 * `render()` runs every time the component updates
 
 ### Returning Blade

@@ -333,7 +333,7 @@ class MyNameIs extends Component
 </tbody>
 </table>
 <h2>Debouncing Input</h2>
-<p>Livewire offers a &quot;debounce&quot; modifer when using <code>wire:model</code>. If you want to apply a 1 second debounce to an input, you include the modifier like so:</p>
+<p>Livewire offers a &quot;debounce&quot; modifier when using <code>wire:model</code>. If you want to apply a 1 second debounce to an input, you include the modifier like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input type="text" wire:model.debounce.1000ms="name"&gt;
 
@@ -341,7 +341,7 @@ class MyNameIs extends Component
 &lt;input type="text" wire:model.debounce.1s="name"&gt;</code></pre>
 </div>
 <h2>Lazily Updating</h2>
-<p>By default, Livewire sends a request to server after every &quot;input&quot; event. This is usually fine for things like <code>&lt;select&gt;</code> elements that don't update frequently, however, this is often unnescessary for text fields that update as the user types.</p>
+<p>By default, Livewire sends a request to server after every &quot;input&quot; event. This is usually fine for things like <code>&lt;select&gt;</code> elements that don't update frequently, however, this is often unnecessary for text fields that update as the user types.</p>
 <p>In those cases, use the <code>lazy</code> directive modifier to listen for the native &quot;change&quot; event.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">

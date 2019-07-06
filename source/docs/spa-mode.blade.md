@@ -27,7 +27,7 @@ document.addEventListener('turbolinks:load', () => {
 })
 @endcode
 
-And that's it! This little snippet tells Turbolinks to reload Livewire everytime a new page is visited or returned to.
+And that's it! This little snippet tells Turbolinks to reload Livewire every time a new page is visited or returned to.
 
 ## Render Component As Entire Page
 
