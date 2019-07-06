@@ -12,7 +12,7 @@ section: content
 The following points are important to know:
 
 * `render()` should return a Blade view (like controllers do)
-* The root HTML tag of Blade view MUST be a `<div>`
+* There MUST be one root HTML tag for each Livewire Blade view
 * `render()` runs every time the component updates
 
 ### Returning Blade

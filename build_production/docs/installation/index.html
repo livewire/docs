@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=1b9ecc147cb8057c1d79">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=b098c7ca78ee82f8de16">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -275,26 +275,12 @@
     <pre class="scrollbar-none"><code class="scrolling-touch language-bash">composer require calebporzio/livewire</code></pre>
 </div>
 <h2>Step 2: Include the JavaScript</h2>
-<p>You can either include the JavaScript via the provided Blade helper (easiest), or include it via NPM if you have a build pipeline for your JavaScript.</p>
-<h3>Option A) Blade Snippet</h3>
+<p>Add the following Blade directive before the closing <code>body</code> tag in your template.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">...
     @livewireAssets
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-</div>
-<div title="Warning"><div title="Warning__content">
-
-Including the JavaScript this way will result in the JavaScript being loaded directly on the page. This should be used for experimentation only. Option B will utilize the browser's caching to reduce page sizes and a faster overall experience.
-</div></div>
-<h3>Option B) install via NPM</h3>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-bash">npm install laravel-livewire --save-dev</code></pre>
-</div>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-js">import Livewire from 'laravel-livewire'
-
-window.livewire = new Livewire</code></pre>
 </div>        </div>
     </div>
 </section>

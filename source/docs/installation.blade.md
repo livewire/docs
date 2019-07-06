@@ -17,9 +17,7 @@ composer require calebporzio/livewire
 @endcode
 
 ## Step 2: Include the JavaScript
-You can either include the JavaScript via the provided Blade helper (easiest), or include it via NPM if you have a build pipeline for your JavaScript.
-
-### Option A) Blade Snippet
+Add the following Blade directive before the closing `body` tag in your template.
 
 @code
 @verbatim
@@ -27,27 +25,5 @@ You can either include the JavaScript via the provided Blade helper (easiest), o
     @livewireAssets
 </body>
 </html>
-@endverbatim
-@endcode
-
-<div title="Warning"><div title="Warning__content">
-
-Including the JavaScript this way will result in the JavaScript being loaded directly on the page. This should be used for experimentation only. Option B will utilize the browser's caching to reduce page sizes and a faster overall experience.
-</div></div>
-
-### Option B) install via NPM
-\* Not yet available
-
-@code(['lang' => 'bash'])
-@verbatim
-npm install laravel-livewire --save-dev
-@endverbatim
-@endcode
-
-@code(['lang' => 'js'])
-@verbatim
-import Livewire from 'laravel-livewire'
-
-window.livewire = new Livewire
 @endverbatim
 @endcode

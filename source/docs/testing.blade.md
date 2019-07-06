@@ -86,9 +86,9 @@ class CounterTest extends TestCase
     {
         Livewire::test(Counter::class)
             ->assertSee(1)
-            ->runAction('increment')
+            ->call('increment')
             ->assertSee(2)
-            ->runAction('decrement')
+            ->call('decrement')
             ->assertSee(1);
     }
 }
