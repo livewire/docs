@@ -85,11 +85,11 @@ class CounterTest extends TestCase
     function can_increment()
     {
         Livewire::test(Counter::class)
-            ->assertSee(1)
+            ->assertSee(0)
             ->call('increment')
-            ->assertSee(2)
+            ->assertSee(1)
             ->call('decrement')
-            ->assertSee(1);
+            ->assertSee(0);
     }
 }
 @endcode
