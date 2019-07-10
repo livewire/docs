@@ -78,6 +78,8 @@ Function | Description
 $set('_property_', _value_) | Shortcut to update the value of a property
 $toggle('_property_') | Shortcut to toggle boolean properties on or off
 $refresh | Will re-render the component without firing any action
+$emit('_event_', _...params_) | Will emit an event on the global event bus, with the provided params
+$event | A _special_ variable that holds the value of the event fired that triggered the action. Example usage: `wire:change="setSomeProperty($event.target.value)"`
 
 You can pass these as the value of an event listener to do special things in Livewire.
 

@@ -400,6 +400,14 @@
 <td>$refresh</td>
 <td>Will re-render the component without firing any action</td>
 </tr>
+<tr>
+<td>$emit('<em>event</em>', <em>...params</em>)</td>
+<td>Will emit an event on the global event bus, with the provided params</td>
+</tr>
+<tr>
+<td>$event</td>
+<td>A <em>special</em> variable that holds the value of the event fired that triggered the action. Example usage: <code>wire:change="setSomeProperty($event.target.value)"</code></td>
+</tr>
 </tbody>
 </table>
 <p>You can pass these as the value of an event listener to do special things in Livewire.</p>
