@@ -13,6 +13,7 @@
             @if ($page->docsearchApiKey && $page->docsearchIndexName)
                 @include('_nav.search-input')
             @endif
+            <a href="https://github.com/calebporzio/livewire" class="text-blue-800 underline">GitHub</a>
         </div>
     </div>
 
