@@ -14,6 +14,7 @@ return [
     'Events' => 'docs/events',
     'Nesting Components' => 'docs/nesting-components',
     'CSS Transitions' => 'docs/css-transitions',
+    'Security' => 'docs/security',
     'Testing' => 'docs/testing',
     'Custom JavaScript' => 'docs/custom-javascript',
     'SPA Mode' => 'docs/spa-mode',
