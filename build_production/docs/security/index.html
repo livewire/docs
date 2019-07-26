@@ -7,9 +7,9 @@
         <meta name="description" content="todo">
 
         <meta property="og:site_name" content="Livewire"/>
-        <meta property="og:title" content="Data Binding | Livewire"/>
+        <meta property="og:title" content="Security | Livewire"/>
         <meta property="og:description" content="todo"/>
-        <meta property="og:url" content="https://livewire-framework.com/docs/data-binding"/>
+        <meta property="og:url" content="https://livewire-framework.com/docs/security"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -18,7 +18,7 @@
         <meta name="twitter:card" content="summary">
 
         
-        <title>Data Binding | Livewire</title>
+        <title>Security | Livewire</title>
 
         <link rel="home" href="https://livewire-framework.com/">
         <link rel="icon" href="/favicon.ico">
@@ -153,7 +153,7 @@
             <li class="pl-4">
             
         <a href="/docs/data-binding"
-            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+            class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Data Binding
         </a>
@@ -234,7 +234,7 @@
             <li class="pl-4">
             
         <a href="/docs/security"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
             Security
         </a>
@@ -280,104 +280,46 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1>Data Binding</h1>
-<p>If you've used front-end frameworks like Angular, React, or Vue, you are already familiar with this concept. However, if you are new to this concept, allow me to demonstrate.</p>
+            <h1>Security</h1>
+<h2>Filtering Middleware</h2>
+<p>By default, Livewire request inherit the middleware of the page the component was loaded on. If there is middleware you'd like to exclude from subsequent Livewire requests, you can use the <code>filterMiddleware()</code> method like so:</p>
+<p>In the following example, we are excluding <code>LogAdminAreaAccessMiddleware</code> from being executed on livewire requests.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">MyNameIs</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class MyNameIs extends Component
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">App\Providers\AppServiceProvider</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">public function boot()
 {
-    public $name;
-
-    public function render()
-    {
-        return view('livewire.my-name-is');
-    }
+    // Only exclude LogAdminAreaAccessMiddleware
+    Livewire::filterMiddleware(function($middleware) {
+        return ! $middleware instanceof LogAdminAreaAccessMiddleware;
+    });
 }</code></pre>
     </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">my-name-is.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input type="text" wire:model="name"&gt;
-
-    Hi! My name is {{ $name }}
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<p>When the user types something into the text field, the value of the <code>$name</code> property will automatically update. Livewire knows to keep track of the provided name because of the <code>wire:model</code> directive.</p>
-<p>Internally, Livewire listens for &quot;input&quot; events on the element and updates the class property with the element's value. Therefore, you can apply <code>wire:model</code> to any element that emits <code>input</code> events.</p>
-<p><code>&lt;input type="text"&gt;</code></p>
+        </div>
 <div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
+    <div class="hidden md:block -ml-16 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-5xl">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
         </svg>
     </div>
 
-    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
-        By default, Livewire applies a 150ms debounce to text inputs. You can override this default like so: <code>&lt;input type="text" wire:model.debounce.0ms="name"&gt;</code>
+    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
+        Using closure middlewares is not supported on Livewire requests (because they have to be serialized), and an error is thrown.
+If you have any closure middleware in your application, you may consider moving them to a class middleware or use the `Livewire::filterMiddleware()` to exclude them.
     </div>
 </div>
-<p>Common elements to use <code>wire:model</code> on include:</p>
-<table>
-<thead>
-<tr>
-<th>Element Tag</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&lt;input type="input"&gt;</code></td>
-</tr>
-<tr>
-<td><code>&lt;input type="radio"&gt;</code></td>
-</tr>
-<tr>
-<td><code>&lt;input type="checkbox"&gt;</code></td>
-</tr>
-<tr>
-<td><code>&lt;select&gt;</code></td>
-</tr>
-<tr>
-<td><code>&lt;textarea&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Debouncing Input</h2>
-<p>Livewire offers a &quot;debounce&quot; modifier when using <code>wire:model</code>. If you want to apply a 1 second debounce to an input, you include the modifier like so:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input type="text" wire:model.debounce.1000ms="name"&gt;
-
-&lt;!-- You can also specify the time in seconds: --&gt;
-&lt;input type="text" wire:model.debounce.1s="name"&gt;</code></pre>
-</div>
-<h2>Lazily Updating</h2>
-<p>By default, Livewire sends a request to server after every &quot;input&quot; event. This is usually fine for things like <code>&lt;select&gt;</code> elements that don't update frequently, however, this is often unnecessary for text fields that update as the user types.</p>
-<p>In those cases, use the <code>lazy</code> directive modifier to listen for the native &quot;change&quot; event.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">MyNameIs</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class MyNameIs extends Component
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">App\Providers\AppServiceProvider</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">public function boot()
 {
-    public $name;
-
-    public function render()
-    {
-        return view('livewire.my-name-is');
-    }
+    // Exclude all closure middlewares
+    Livewire::filterMiddleware(function($middleware) {
+        return ! $middleware instanceof Closure;
+    });
 }</code></pre>
     </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">my-name-is.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input type="text" wire:model.lazy="name"&gt;
-
-    My name is chica-chica {{ $name }}
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<p>Now, the <code>$name</code> property will only be updated when the user clicks away from the input field.</p>        </div>
+        </div>        </div>
     </div>
 </section>
 </main>

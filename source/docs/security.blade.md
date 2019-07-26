@@ -7,11 +7,11 @@ section: content
 
 # Security
 
-## Filtering middlewares
-Handling livewire requests should be similar to handling regular requests via controllers, but in case you need to exclude one or many middlewares from being executed on a livewire request then you can define a filter callback to tell livewire what middlewares should be excluded.
-The filter callback will be executed on each of the defined middlewares and only the ones when `true` is returned will be executed on a livewire request.
+## Filtering Middleware
 
-In the following example we want to exclude the `LogAdminAreaAccessMiddleware` from being executed on livewire requests.
+By default, Livewire request inherit the middleware of the page the component was loaded on. If there is middleware you'd like to exclude from subsequent Livewire requests, you can use the `filterMiddleware()` method like so:
+
+In the following example, we are excluding `LogAdminAreaAccessMiddleware` from being executed on livewire requests.
 @codeComponent([
     'viewName' => 'app/Providers/AppServiceProvider.php',
     'className' => 'App\Providers\AppServiceProvider',
@@ -30,8 +30,8 @@ public function boot()
 @endcodeComponent
 
 @warning
-On the initial load page, the defined middlewares will be serialized for livewire requests. Using closure middlewares is not supported and an error is raised.
-If you have any defined closure middlewares in your application then you may consider moving them to a class middleware or use the `Livewire::filterMiddleware()` to exclude them as generally closure middlewares are defined within controller constructors and their action is limited to controllers. 
+Using closure middlewares is not supported on Livewire requests (because they have to be serialized), and an error is thrown.
+If you have any closure middleware in your application, you may consider moving them to a class middleware or use the `Livewire::filterMiddleware()` to exclude them.
 @endwarning
 
 @codeComponent([
