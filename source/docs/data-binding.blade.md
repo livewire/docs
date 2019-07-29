@@ -58,6 +58,14 @@ Element Tag |
 `<select>` |
 `<textarea>` |
 
+## Nested Data Binding
+
+Livewire supports nested data binding using dot notation:
+
+@code
+<input type="text" wire:model="form.name">
+@endcode
+
 ## Debouncing Input
 
 Livewire offers a "debounce" modifier when using `wire:model`. If you want to apply a 1 second debounce to an input, you include the modifier like so:
