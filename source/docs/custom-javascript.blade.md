@@ -37,7 +37,7 @@ That's it!
 
 @warning
 In order to use Livewire with Vue. A `window.Vue` object must be made available to Livewire.
-@endWarning
+@endwarning
 
 ### Binding data to Vue components
 We can even take this integration a step further and actually bind Livewire properties to Vue components.
