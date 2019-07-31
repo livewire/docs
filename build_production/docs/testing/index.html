@@ -337,6 +337,10 @@ class Counter extends Component
         $counter-&gt;decrement();
 
         $this-&gt;assertEquals(0, $counter-&gt;count);
+
+        $counter-&gt;count = 1;
+
+        $this-&gt;assertEquals(1, $counter-&gt;count);
     }
 }</code></pre>
 </div>
@@ -352,7 +356,9 @@ class Counter extends Component
             -&gt;call('increment')
             -&gt;assertSee(1)
             -&gt;call('decrement')
-            -&gt;assertSee(0);
+            -&gt;assertSee(0)
+            -&gt;set('count', 1);
+            -&gt;assertSee(1)
     }
 }</code></pre>
 </div>        </div>

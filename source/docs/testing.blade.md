@@ -72,6 +72,10 @@ class CounterTest extends TestCase
         $counter->decrement();
 
         $this->assertEquals(0, $counter->count);
+
+        $counter->count = 1;
+
+        $this->assertEquals(1, $counter->count);
     }
 }
 @endcode
@@ -89,7 +93,9 @@ class CounterTest extends TestCase
             ->call('increment')
             ->assertSee(1)
             ->call('decrement')
-            ->assertSee(0);
+            ->assertSee(0)
+            ->set('count', 1);
+            ->assertSee(1)
     }
 }
 @endcode
