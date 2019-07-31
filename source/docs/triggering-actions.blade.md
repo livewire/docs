@@ -38,7 +38,7 @@ Here are a few examples of each in HTML:
 @endcode
 
 @tip
-You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a custom event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
+You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
 @endtip
 
 ## Modifiers
