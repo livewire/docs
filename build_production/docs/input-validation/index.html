@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=2fa7d3428f8603ed8218">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=47b0b7ab7aa2e925a373">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -356,6 +356,7 @@ class ContactForm extends Component
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ContactForm</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+use Illuminate\Support\Facades\Validator;
 
 class ContactForm extends Component
 {
@@ -367,7 +368,7 @@ class ContactForm extends Component
             ['email' =&gt; $this-&gt;email],
             ['email' =&gt; 'required|email'],
             ['required' =&gt; 'The :attribute field is required'],
-        ])-&gt;validate();
+        )-&gt;validate();
 
         Contact::create($validatedData);
     }
