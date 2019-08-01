@@ -105,6 +105,7 @@ For example:
 @slot('class')
 @verbatim
 use Livewire\Component;
+use Illuminate\Support\Facades\Validator;
 
 class ContactForm extends Component
 {
@@ -116,7 +117,7 @@ class ContactForm extends Component
             ['email' => $this->email],
             ['email' => 'required|email'],
             ['required' => 'The :attribute field is required'],
-        ])->validate();
+        )->validate();
 
         Contact::create($validatedData);
     }
