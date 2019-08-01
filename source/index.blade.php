@@ -170,7 +170,7 @@ class Counter extends Component
 
         <h2>When can I use it in my projects?</h2>
 
-        <p>Right now, the repository is invite-only. Sign up for my email newsletter to get notified when I start letting people in.</p>
+        <p>Right now, the project is still in pre-release. Sign up for my email newsletter to get notified when It's ready for prime-time.</p>
 
         <style>
             .formkit-form[data-uid="2e197490cb"][min-width~="700"] [data-style="clean"],
