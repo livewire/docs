@@ -94,8 +94,10 @@ class CounterTest extends TestCase
             ->assertSee(1)
             ->call('decrement')
             ->assertSee(0)
-            ->set('count', 1);
+            ->set('count', 1)
             ->assertSee(1)
+            ->set(['count' => 2])
+            ->assertSee(2);
     }
 }
 @endcode

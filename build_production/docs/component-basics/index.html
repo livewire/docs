@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=47b0b7ab7aa2e925a373">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=2fa7d3428f8603ed8218">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -413,7 +413,42 @@ class HelloWorld extends Component
 &lt;/div&gt;</code></pre>
     </div>
     </div>
-<p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>        </div>
+<p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>
+<h2>Component Actions</h2>
+<p>Livewire allows components to perform logic and manipulate state with &quot;actions&quot;. These are methods on the component class, and can be triggered from UI hooks like the following:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click="sayHi"&gt;&lt;/button&gt;</code></pre>
+</div>
+<p>When the button is clicked, the &quot;sayHi&quot; action would be called:</p>
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
+        <div class="relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class HelloWorld extends Component
+{
+    public $message;
+
+    public function sayHi()
+    {
+        $this-&gt;message = 'Hi!';
+    }
+
+    public function render()
+    {
+        return view('livewire.hello-world');
+    }
+}</code></pre>
+    </div>
+        </div>
+<h3>Automatic Dependancy Injection</h3>
+<p>Component action methods can resolve dependancies out of Laravel's IoC container, similar to controller methods. For example:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">public function sayHi(Auth $auth) {
+    $this-&gt;message =  $auth-&gt;check()
+        ? 'Hi ' . $auth-&gt;user() . '!'
+        : 'Hi there!';
+}</code></pre>
+</div>        </div>
     </div>
 </section>
 </main>

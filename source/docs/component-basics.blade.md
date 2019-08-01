@@ -169,3 +169,46 @@ class HelloWorld extends Component
 @endcodeComponent
 
 You can think of `mount()` like you would the `boot()` method of a Laravel Model, or the `created()` method of a Vue component.
+
+## Component Actions
+
+Livewire allows components to perform logic and manipulate state with "actions". These are methods on the component class, and can be triggered from UI hooks like the following:
+
+@code
+<button wire:click="sayHi"></button>
+@endcode
+
+When the button is clicked, the "sayHi" action would be called:
+
+@codeComponent(['className' => 'HelloWorld.php'])
+@slot('class')
+use Livewire\Component;
+
+class HelloWorld extends Component
+{
+    public $message;
+
+    public function sayHi()
+    {
+        $this->message = 'Hi!';
+    }
+
+    public function render()
+    {
+        return view('livewire.hello-world');
+    }
+}
+@endslot
+@endcodeComponent
+
+### Automatic Dependancy Injection
+
+Component action methods can resolve dependancies out of Laravel's IoC container, similar to controller methods. For example:
+
+@code(['lang' => 'php'])
+public function sayHi(Auth $auth) {
+    $this->message =  $auth->check()
+        ? 'Hi ' . $auth->user() . '!'
+        : 'Hi there!';
+}
+@endcode
