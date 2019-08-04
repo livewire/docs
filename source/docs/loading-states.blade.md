@@ -68,7 +68,7 @@ Now, when the "Checkout" button is clicked, the loading indicator will load, but
 
 ## Toggling classes
 
-You can add or remove classes from an element during loading states, but adding the `.class` modifier to the `wire:loading` directive.
+You can add or remove classes from an element during loading states, by adding the `.class` modifier to the `wire:loading` directive.
 
 @code(['lang' => 'html'])
 <div>
