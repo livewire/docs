@@ -65,25 +65,6 @@ class ShowPosts extends Component
 @endslot
 @endcodeComponent
 
-@warning
-Although `render()` methods closely resemble controller methods, there are a few techniques you are used to using in controllers that aren't available in Livewire components.
-
-Here are some common things you might forget ARE NOT possible in Livewire:
-@endwarning
-
-@code(['lang' => 'php'])
-@verbatim
-public function render()
-{
-    return redirect()->to('/endpoint');
-    // Or
-    return back();
-    // Or
-    return ['some' => 'data'];
-}
-@endverbatim
-@endcode
-
 ## Component Properties
 
 Livewire components store and track state using class properties on the Component class. Here's what's important to know:
