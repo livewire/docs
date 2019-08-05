@@ -75,8 +75,6 @@ Here are some common things you might forget ARE NOT possible in Livewire:
 @verbatim
 public function render()
 {
-    return redirect()->to('/endpoint');
-    // Or
     return back();
     // Or
     return ['some' => 'data'];
