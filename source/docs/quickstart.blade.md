@@ -77,12 +77,12 @@ Let's add some text to the view so we can see something tangible in the browser.
 @endcodeComponent
 
 ## Include the component
-Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
+Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render. Just be sure that there is at least one parent element.
 
 @code(['lineHighlight' => 3])
 @verbatim
 <body>
-    <div>
+    <div> // ensures the component isn't the root node
         @livewire('counter')
     </div>
 
