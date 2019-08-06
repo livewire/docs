@@ -36,7 +36,7 @@ Let's say we have a `<loading-spinner>` Vue component, and we want to use it in 
 That's it!
 
 @warning
-In order to use Livewire with Vue. A `window.Vue` object must be made available to Livewire.
+In order to use Livewire with Vue. A <code>window.Vue</code> object must be made available to Livewire.
 @endwarning
 
 ### Binding data to Vue components

@@ -9,7 +9,7 @@ section: content
 
 ## Initial Parameters
 
-You can pass data into a component by passing additional parameters into the `@livewire` directive. For example, let's say we have an `ShowContact` Livewire component that needs to know which contact to show. Here's how you would pass in the contact id.
+You can pass data into a component by passing additional parameters into the `@livewire` directive. For example, let's say we have a `ShowContact` Livewire component that needs to know which contact to show. Here's how you would pass in the contact id.
 
 @code(['lang' => 'php'])
 @verbatim
