@@ -66,6 +66,8 @@ Notice, we've added a "Cancel" button to the checkout form. If the user clicks t
 
 Now, when the "Checkout" button is clicked, the loading indicator will load, but not when the "Cancel" button is clicked.
 
+Also note that `wire:target` can accept multiple `ref` arguments in a comma separated format like this: `wire:target="foo, bar"`.
+
 ## Toggling classes
 
 You can add or remove classes from an element during loading states, by adding the `.class` modifier to the `wire:loading` directive.
