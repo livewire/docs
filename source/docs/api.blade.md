@@ -18,6 +18,7 @@ Directive | Description
 `wire:model="foo"` | Assuming `$foo` is a public property on the component class, every time an input element with this directive is updated, the property will be updated.
 `wire:model.debounce.100ms="foo"` | Debounces the `input` events emitted by the element every 100 milliseconds
 `wire:poll.500ms="foo"` | Livewire will run the "foo" method on the component class every 500 milliseconds
+`wire:init="foo"` | Livewire will run the "foo" method on the component immediately after it renders on the page
 `wire:loading` | Assuming the element's CSS `display` property is `none`, this directive will set it to `block` while network requests are in transit
 `wire:loading.class="foo"` | Will add the `foo` class to the element while network requests are happening
 `wire:loading.class.remove="foo"` | Will remove the `foo` class while loading

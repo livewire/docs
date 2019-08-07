@@ -29,7 +29,7 @@ class HelloWorld extends Component
         //
     }
 
-    public function updating()
+    public function updating($name, $value)
     {
         //
     }
@@ -44,7 +44,7 @@ class HelloWorld extends Component
         //
     }
 
-    public function updated()
+    public function updated($name, $value)
     {
         //
     }
