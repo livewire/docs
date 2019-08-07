@@ -7,7 +7,7 @@ section: content
 
 # Redirecting
 
-You may want to redirect from inside a Livewire component to another route in your app. Livewire offers a simple `$this->redirect()` method to accomplish this:
+You may want to redirect from inside a Livewire component to another route in your app. Livewire offers two methods to achieve this; a builtin `$this->redirect()` method and support for Laravel redirects :
 
 @codeComponent([
     'className' => 'ContactForm.php',
@@ -26,6 +26,11 @@ class ContactForm extends Component
         Contact::create(['email' => $this->email]);
 
         $this->redirect('/contact-form-success');
+        
+        //OR
+        
+        return redirect()->to('/contact-form-success');
+            
     }
 
     public function render()
