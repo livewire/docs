@@ -8,8 +8,10 @@ section: content
 # Testing
 
 Livewire supports 2 styles of testing it's components:
-1. Unit testing
-2. End-to-end testing
+<ol class="list-inside">
+    <li>Unit testing</li>
+    <li>End-to-end testing</li>
+</ol>
 
 For these demonstrations, we will be using a simple Counter component like the following:
 

@@ -63,7 +63,7 @@ class HomeController extends Controller
 Route::livewire('/home', 'counter');
 @endcode
 
-Note: for this feature to work, Livewire assumes you have a layout stored in `resources/views/layouts/app.blade.php` that yields a "content" section (`@yield('content')`)
+Note: for this feature to work, Livewire assumes you have a layout stored in `resources/views/layouts/app.blade.php` that yields a "content" section (`@@yield('content')`)
 
 ### Custom Layout File
 If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:
@@ -73,7 +73,7 @@ If you use a different layout file or section name, you can configure these in t
 Route::livewire('/home', 'counter')
     ->layout('layouts.base');
 
-// Customizing section (@yield('body'))
+// Customizing section (@@yield('body'))
 Route::livewire('/home', 'counter')
     ->section('body');
 @endcode

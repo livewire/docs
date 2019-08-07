@@ -31,7 +31,7 @@ public function boot()
 
 @warning
 Using closure middlewares is not supported on Livewire requests (because they have to be serialized), and an error is thrown.
-If you have any closure middleware in your application, you may consider moving them to a class middleware or use the `Livewire::filterMiddleware()` to exclude them.
+If you have any closure middleware in your application, you may consider moving them to a class middleware or use the <code>Livewire::filterMiddleware()</code> to exclude them.
 @endwarning
 
 @codeComponent([
