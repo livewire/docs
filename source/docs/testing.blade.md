@@ -82,6 +82,12 @@ class CounterTest extends TestCase
 }
 @endcode
 
+You can pass data to `Livewire::test()` method to initialize your component properties like so:
+
+@code(['lang' => 'php'])
+$counter = Livewire::test(Counter::class, $param1, $param2 ...);
+@endcode
+
 ## End-to-end Testing
 
 @code(['lang' => 'php'])
