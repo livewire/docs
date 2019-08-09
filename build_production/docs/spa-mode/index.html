@@ -291,6 +291,7 @@
 document.addEventListener('turbolinks:load', () =&gt; {
     if (! window.livewire) {
         window.livewire = new Livewire()
+        window.livewire.start()
     } else {
         window.livewire.restart()
     }
