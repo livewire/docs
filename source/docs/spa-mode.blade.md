@@ -21,6 +21,7 @@ Turbolinks.start()
 document.addEventListener('turbolinks:load', () => {
     if (! window.livewire) {
         window.livewire = new Livewire()
+        window.livewire.start()
     } else {
         window.livewire.restart()
     }
