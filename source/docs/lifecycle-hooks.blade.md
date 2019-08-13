@@ -7,6 +7,8 @@ section: content
 
 # Lifecycle Hooks
 
+## PHP Hooks
+
 Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
 Hooks | Description
@@ -49,4 +51,31 @@ class HelloWorld extends Component
         //
     }
 }
+@endcode
+
+## Javascript Hooks
+
+Livewire gives you the opportunity to execute javascript before and after the DOM updates.
+
+Hooks | Description
+--- | ---
+beforeDomUpdate | Runs after the browser receives the request from the server, but before any DOM diffing takes place
+afterDomUpdate | Runs after livewire updates the DOM
+
+Add the following Javascript a blade template (not inside a livewire component). This code must be executed after `@livewireAssets` or after the DOM is initialized.
+
+@code(['lang' => 'js'])
+<script>
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    window.livewire.beforeDomUpdate(() => {
+        // Add your custom javascript here
+    });
+        
+    window.livewire.afterDomUpdate(() => {
+        // Add your custom javascript here
+    });
+});
+
+</script>
 @endcode
