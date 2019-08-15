@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=d89119b2b8995d8a227c">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=cbdafbc6824492d63160">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -290,6 +290,7 @@
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1>Lifecycle Hooks</h1>
+<h2>PHP Hooks</h2>
 <p>Each Livewire component undergoes a lifecycle (<code>mount</code>, <code>updating</code>, <code>updated</code>). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.</p>
 <table>
 <thead>
@@ -353,6 +354,42 @@ class HelloWorld extends Component
         //
     }
 }</code></pre>
+</div>
+<h2>Javascript Hooks</h2>
+<p>Livewire gives you the opportunity to execute javascript before and after the DOM updates.</p>
+<table>
+<thead>
+<tr>
+<th>Hooks</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beforeDomUpdate</td>
+<td>Runs after the browser receives the request from the server, but before any DOM diffing takes place</td>
+</tr>
+<tr>
+<td>afterDomUpdate</td>
+<td>Runs after livewire updates the DOM</td>
+</tr>
+</tbody>
+</table>
+<p>Add the following Javascript a blade template (not inside a livewire component). This code must be executed after <code>@livewireAssets</code> or after the DOM is initialized.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-js">&lt;script&gt;
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    window.livewire.beforeDomUpdate(() =&gt; {
+        // Add your custom javascript here
+    });
+
+    window.livewire.afterDomUpdate(() =&gt; {
+        // Add your custom javascript here
+    });
+});
+
+&lt;/script&gt;</code></pre>
 </div>        </div>
     </div>
 </section>

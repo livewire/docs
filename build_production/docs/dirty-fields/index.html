@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=d89119b2b8995d8a227c">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=cbdafbc6824492d63160">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -291,29 +291,29 @@
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1>Dirty Fields</h1>
 <p>Because not every action on the page will justify a roundtrip to the server, there are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end livewire component.</p>
-<p>The best examples is an input that uses wire:model with <code>lazy</code> or <code>debounce</code> directives, in which you may want to display that a field is 'dirty' until livewire has synced.</p>
+<p>The best examples is an input that uses wire:model with <code>lazy</code> or <code>debounce</code> modifiers, in which you may want to display that a field is 'dirty' until livewire has updated.</p>
 <h2>Toggling classes on &quot;dirty&quot; elements</h2>
-<p>Elements with the <code>wire:dirty</code> directive and the <code>wire:model</code> directive will be watched for differences between the front-end value, and the last returned livewire data value.</p>
+<p>Elements with the <code>wire:dirty</code> directive will watch for differences between the front-end value, and the last returned livewire data value.</p>
 <p>Adding the <code>class</code> modifier allows you to add a class to the element when dirty.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input wire:model.lazy="fullname" wire:dirty.class="border-2 border-red-500"&gt;
+    &lt;input wire:dirty.class="border-red-500" wire:model.lazy="fullname"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Now, when the user modifies the input value, the border will turn red until either the data is synced with the livewire component, or the input value is returned to where it started.</p>
+<p>Now, when the user modifies the input value, the input will receive the <code>border-red-500</code> class. The class will be removed again if the input value returns to its original state, or if the livewire component updates.</p>
 <p>You can also perform the inverse and remove classes by adding the <code>.remove</code> modifier.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input wire:model.lazy="fullname" class="bg-green-200" wire:dirty.class.remove="bg-green-200"&gt;
+    &lt;input wire:dirty.class.remove="bg-green-200" class="bg-green-200" wire:model.lazy="fullname"&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <p>Now the <code>bg-green-200</code> class will be removed from the input while dirty.</p>
-<h2>Toggling appearance of other elements</h2>
-<p>Much like loading states, the <code>dirty</code> directive can be used to manipulate other elements using <code>wire:ref</code> and <code>wire:target</code></p>
+<h2>Toggling appearance of elements</h2>
+<p>The default behaviour of the <code>wire:dirty</code> directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the <code>dirty</code> directive can be used to toggle the appearance of other elements using <code>wire:ref</code> and <code>wire:target</code></p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input wire:model.lazy="fullname" wire:dirty wire:ref="fullname-input"&gt;
     &lt;span wire:dirty wire:target="fullname-input"&gt;edited&lt;/span&gt;
+    &lt;input wire:model.lazy="fullname" wire:ref="fullname-input"&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <p>In this example, the <code>span</code> will be hidden by default, and only visible when the <code>fullname-input</code> is dirty.</p>
@@ -322,7 +322,7 @@
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;label wire:dirty.class="text-red-500" wire:target="fullname-input"&gt;Full Name&lt;/label&gt;
-    &lt;input wire:model.lazy="fullname" wire:dirty wire:ref="fullname-input"&gt;
+    &lt;input wire:model.lazy="fullname" wire:ref="fullname-input"&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <p>Now, when the <code>fullname-input</code> is dirty, the label text will receive the <code>text-red-500</code> class.</p>        </div>
