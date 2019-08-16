@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=cbdafbc6824492d63160">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=762cb1d9a43aeb677178">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -367,7 +367,7 @@ class HelloWorld extends Component
 <tbody>
 <tr>
 <td>beforeDomUpdate</td>
-<td>Runs after the browser receives the request from the server, but before any DOM diffing takes place</td>
+<td>Runs after Livewire receives a response from the server, but before any DOM diffing/patching takes place</td>
 </tr>
 <tr>
 <td>afterDomUpdate</td>
@@ -375,20 +375,17 @@ class HelloWorld extends Component
 </tr>
 </tbody>
 </table>
-<p>Add the following Javascript a blade template (not inside a livewire component). This code must be executed after <code>@livewireAssets</code> or after the DOM is initialized.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-js">&lt;script&gt;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        window.livewire.beforeDomUpdate(() =&gt; {
+            // Add your custom JavaScript here.
+        });
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    window.livewire.beforeDomUpdate(() =&gt; {
-        // Add your custom javascript here
+        window.livewire.afterDomUpdate(() =&gt; {
+            // Add your custom JavaScript here.
+        });
     });
-
-    window.livewire.afterDomUpdate(() =&gt; {
-        // Add your custom javascript here
-    });
-});
-
 &lt;/script&gt;</code></pre>
 </div>        </div>
     </div>
