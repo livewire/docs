@@ -9,6 +9,7 @@ return [
     'Triggering Actions' => 'docs/triggering-actions',
     'Input Validation' => 'docs/input-validation',
     'Loading States' => 'docs/loading-states',
+    'Dirty States' => 'docs/dirty-states',
     'Redirecting' => 'docs/redirecting',
     'Lifecycle Hooks' => 'docs/lifecycle-hooks',
     'Events' => 'docs/events',

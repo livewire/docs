@@ -7,9 +7,9 @@
         <meta name="description" content="todo">
 
         <meta property="og:site_name" content="Livewire"/>
-        <meta property="og:title" content="Triggering Actions | Livewire"/>
+        <meta property="og:title" content="Dirty States | Livewire"/>
         <meta property="og:description" content="todo"/>
-        <meta property="og:url" content="https://livewire-framework.com/docs/triggering-actions"/>
+        <meta property="og:url" content="https://livewire-framework.com/docs/dirty-states"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -18,7 +18,7 @@
         <meta name="twitter:card" content="summary">
 
         
-        <title>Triggering Actions | Livewire</title>
+        <title>Dirty States | Livewire</title>
 
         <link rel="home" href="https://livewire-framework.com/">
         <link rel="icon" href="/favicon.ico">
@@ -162,7 +162,7 @@
             <li class="pl-4">
             
         <a href="/docs/triggering-actions"
-            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+            class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Triggering Actions
         </a>
@@ -189,7 +189,7 @@
             <li class="pl-4">
             
         <a href="/docs/dirty-states"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
             Dirty States
         </a>
@@ -289,196 +289,43 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1>Triggering Actions</h1>
-<p>Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: <code>wire:[native event]="[action]"</code>.</p>
-<p>Here are some common events you may need to listen for:</p>
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>Directive</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>click</td>
-<td><code>wire:click</code></td>
-</tr>
-<tr>
-<td>keydown</td>
-<td><code>wire:keydown</code></td>
-</tr>
-<tr>
-<td>submit</td>
-<td><code>wire:submit</code></td>
-</tr>
-</tbody>
-</table>
-<p>Here are a few examples of each in HTML:</p>
-<p><strong>click</strong></p>
+            <h1>Dirty States</h1>
+<p>There are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end Livewire component.</p>
+<p>For input that uses <code>wire:model</code>, or <code>wire:model.lazy</code>, you may want to display that a field is 'dirty' until Livewire has fully updated.</p>
+<h2>Toggling classes on &quot;dirty&quot; elements</h2>
+<p>Elements with the <code>wire:dirty</code> directive will watch for differences between the front-end value, and the last returned Livewire data value.</p>
+<p>Adding the <code>class</code> modifier allows you to add a class to the element when dirty.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click="showModal"&gt;Show Modal&lt;/button&gt;</code></pre>
-</div>
-<p><strong>keydown</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input wire:keydown.enter="search"&gt;</code></pre>
-</div>
-<p><strong>submit</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit="addTodo"&gt;
-    &lt;input wire:model="title"&gt;
-    &lt;button&gt;Add Todo&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-</div>
-<div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-    </div>
-
-    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
-        You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
-    </div>
-</div>
-<h2>Modifiers</h2>
-<p>Like you saw in the <strong>keydown</strong> example, Livewire directives sometimes offer &quot;modifiers&quot; to add extra functionality to an event. Below are the available modifiers that can be used with any event:</p>
-<table>
-<thead>
-<tr>
-<th>Modifier</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stop</td>
-<td>Equivalent of <code>event.stopPropagation()</code></td>
-</tr>
-<tr>
-<td>prevent</td>
-<td>Equivalent of <code>event.preventDefault()</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Keydown Modifiers</h2>
-<p>To listen for specific keys on <strong>keydown</strong> events, you can pass the name of the key as a modifier. You can directly use any valid key names exposed via <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">KeyboardEvent.key</a> as modifiers by converting them to kebab-case.</p>
-<p>Here is a quick list of some common ones you may need:</p>
-<table>
-<thead>
-<tr>
-<th>Native Browser Event</th>
-<th>Livewire Modifier</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Backspace</td>
-<td>backspace</td>
-</tr>
-<tr>
-<td>Escape</td>
-<td>escape</td>
-</tr>
-<tr>
-<td>Shift</td>
-<td>shift</td>
-</tr>
-<tr>
-<td>Tab</td>
-<td>tab</td>
-</tr>
-<tr>
-<td>ArrowRight</td>
-<td>arrow-right</td>
-</tr>
-</tbody>
-</table>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input wire:keydown.page-down="foo"&gt;</code></pre>
-</div>
-<p>In the above example, the handler will only be called if <code>event.key</code> is equal to 'PageDown'.</p>
-<h2>Special Actions</h2>
-<p>In Livewire, there are some &quot;special&quot; actions that are usually prefixed with a &quot;$&quot; symbol:</p>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$set('<em>property</em>', <em>value</em>)</td>
-<td>Shortcut to update the value of a property</td>
-</tr>
-<tr>
-<td>$toggle('<em>property</em>')</td>
-<td>Shortcut to toggle boolean properties on or off</td>
-</tr>
-<tr>
-<td>$refresh</td>
-<td>Will re-render the component without firing any action</td>
-</tr>
-<tr>
-<td>$emit('<em>event</em>', <em>...params</em>)</td>
-<td>Will emit an event on the global event bus, with the provided params</td>
-</tr>
-<tr>
-<td>$event</td>
-<td>A <em>special</em> variable that holds the value of the event fired that triggered the action. Example usage: <code>wire:change="setSomeProperty($event.target.value)"</code></td>
-</tr>
-</tbody>
-</table>
-<p>You can pass these as the value of an event listener to do special things in Livewire.</p>
-<p>Let's take <code>$set()</code> for example. It can be used to manually set a component property's value. Consider the <code>Counter</code> component's view.</p>
-<p><strong>Before</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $message }}
-    &lt;button wire:click="setMessageToHello"&gt;Say Hi&lt;/button&gt;
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;input wire:dirty.class="border-red-500" wire:model.lazy="foo"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p><strong>After</strong></p>
+<p>Now, when a user modifies the input value, the element will receive the <code>border-red-500</code> class. The class will be removed again if the input value returns to its original state, or if the Livewire component updates.</p>
+<p>You can also perform the inverse, and remove classes by adding the <code>.remove</code> modifier, similar to how <code>wire:loading</code> works.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $message }}
-    &lt;button wire:click="$set('message', 'Hello')"&gt;Say Hi&lt;/button&gt;
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;input wire:dirty.class.remove="bg-green-200" class="bg-green-200" wire:model.lazy="foo"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Notice that we are no longer calling the <code>setMessageToHello</code> function, we are directly specifying, what we want data set to.</p>
-<div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-    </div>
-
-    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
-        This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
-    </div>
-</div>
-<h2>Polling Actions</h2>
-<p>Livewire offers a directive called <code>wire:poll="foo"</code> that, when added to an element, will fire <code>foo</code> to the Livewire component every <code>500ms</code>. You can customize the frequency by passing a directive modifier like <code>750ms</code>. For example:</p>
+<p>The <code>bg-green-200</code> class will be removed from the input while dirty.</p>
+<h2>Toggling elements</h2>
+<p>The default behaviour of the <code>wire:dirty</code> directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the <code>dirty</code> directive can be used to toggle the appearance of other elements using <code>wire:ref</code> and <code>wire:target</code></p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:poll.750ms="$refresh"&gt;
-    Current time: {{ now() }}
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;span wire:dirty wire:target="foo-input"&gt;Updating...&lt;/span&gt;
+    &lt;input wire:model.lazy="foo" wire:ref="foo-input"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<h2>Triggering Actions On Load</h2>
-<p>Livewire offers a <code>wire:init</code> directive to run an action as soon as the component is rendered. This can be helpful in cases where you don't want to hold up the entire page load, but want to load some data immediately after the page load.</p>
+<p>In this example, the <code>span</code> will be hidden by default, and only visible when the input element is dirty.</p>
+<h2>Toggling classes on other elements</h2>
+<p>The class and atribute modifiers can be used in the same way for referenced elements</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:init="loadTodos"&gt;
-    &lt;ul&gt;
-        @foreach ($todos as $todo)
-            &lt;li&gt;{{ $todo }}&lt;/li&gt;
-        @endforeach
-    &lt;/ul&gt;
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;label wire:dirty.class="text-red-500" wire:target="foo-input"&gt;Full Name&lt;/label&gt;
+    &lt;input wire:model.lazy="foo" wire:ref="foo-input"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>The <code>loadTodos</code> action will be run imediately after the Livewire component renders on the page.</p>        </div>
+<p>Now, when the <code>foo-input</code> is dirty, the label text will receive the <code>text-red-500</code> class.</p>        </div>
     </div>
 </section>
 </main>
