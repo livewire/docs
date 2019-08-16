@@ -59,23 +59,19 @@ Livewire gives you the opportunity to execute javascript before and after the DO
 
 Hooks | Description
 --- | ---
-beforeDomUpdate | Runs after the browser receives the request from the server, but before any DOM diffing takes place
+beforeDomUpdate | Runs after Livewire receives a response from the server, but before any DOM diffing/patching takes place
 afterDomUpdate | Runs after livewire updates the DOM
-
-Add the following Javascript a blade template (not inside a livewire component). This code must be executed after `@livewireAssets` or after the DOM is initialized.
 
 @code(['lang' => 'js'])
 <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        window.livewire.beforeDomUpdate(() => {
+            // Add your custom JavaScript here.
+        });
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    window.livewire.beforeDomUpdate(() => {
-        // Add your custom javascript here
+        window.livewire.afterDomUpdate(() => {
+            // Add your custom JavaScript here.
+        });
     });
-        
-    window.livewire.afterDomUpdate(() => {
-        // Add your custom javascript here
-    });
-});
-
 </script>
 @endcode
