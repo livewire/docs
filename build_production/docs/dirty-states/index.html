@@ -7,9 +7,9 @@
         <meta name="description" content="todo">
 
         <meta property="og:site_name" content="Livewire"/>
-        <meta property="og:title" content="Dirty Fields | Livewire"/>
+        <meta property="og:title" content="Dirty States | Livewire"/>
         <meta property="og:description" content="todo"/>
-        <meta property="og:url" content="https://livewire-framework.com/docs/dirty-fields"/>
+        <meta property="og:url" content="https://livewire-framework.com/docs/dirty-states"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -18,7 +18,7 @@
         <meta name="twitter:card" content="summary">
 
         
-        <title>Dirty Fields | Livewire</title>
+        <title>Dirty States | Livewire</title>
 
         <link rel="home" href="https://livewire-framework.com/">
         <link rel="icon" href="/favicon.ico">
@@ -188,10 +188,10 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/dirty-fields"
+        <a href="/docs/dirty-states"
             class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
-            Dirty Fields
+            Dirty States
         </a>
     
     </li>
@@ -289,43 +289,43 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1>Dirty Fields</h1>
-<p>Because not every action on the page will justify a roundtrip to the server, there are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end livewire component.</p>
-<p>The best examples is an input that uses wire:model with <code>lazy</code> or <code>debounce</code> modifiers, in which you may want to display that a field is 'dirty' until livewire has updated.</p>
+            <h1>Dirty States</h1>
+<p>There are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end Livewire component.</p>
+<p>For input that uses <code>wire:model</code>, or <code>wire:model.lazy</code>, you may want to display that a field is 'dirty' until Livewire has fully updated.</p>
 <h2>Toggling classes on &quot;dirty&quot; elements</h2>
-<p>Elements with the <code>wire:dirty</code> directive will watch for differences between the front-end value, and the last returned livewire data value.</p>
+<p>Elements with the <code>wire:dirty</code> directive will watch for differences between the front-end value, and the last returned Livewire data value.</p>
 <p>Adding the <code>class</code> modifier allows you to add a class to the element when dirty.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input wire:dirty.class="border-red-500" wire:model.lazy="fullname"&gt;
+    &lt;input wire:dirty.class="border-red-500" wire:model.lazy="foo"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Now, when the user modifies the input value, the input will receive the <code>border-red-500</code> class. The class will be removed again if the input value returns to its original state, or if the livewire component updates.</p>
-<p>You can also perform the inverse and remove classes by adding the <code>.remove</code> modifier.</p>
+<p>Now, when a user modifies the input value, the element will receive the <code>border-red-500</code> class. The class will be removed again if the input value returns to its original state, or if the Livewire component updates.</p>
+<p>You can also perform the inverse, and remove classes by adding the <code>.remove</code> modifier, similar to how <code>wire:loading</code> works.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input wire:dirty.class.remove="bg-green-200" class="bg-green-200" wire:model.lazy="fullname"&gt;
+    &lt;input wire:dirty.class.remove="bg-green-200" class="bg-green-200" wire:model.lazy="foo"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Now the <code>bg-green-200</code> class will be removed from the input while dirty.</p>
-<h2>Toggling appearance of elements</h2>
+<p>The <code>bg-green-200</code> class will be removed from the input while dirty.</p>
+<h2>Toggling elements</h2>
 <p>The default behaviour of the <code>wire:dirty</code> directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the <code>dirty</code> directive can be used to toggle the appearance of other elements using <code>wire:ref</code> and <code>wire:target</code></p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;span wire:dirty wire:target="fullname-input"&gt;edited&lt;/span&gt;
-    &lt;input wire:model.lazy="fullname" wire:ref="fullname-input"&gt;
+    &lt;span wire:dirty wire:target="foo-input"&gt;Updating...&lt;/span&gt;
+    &lt;input wire:model.lazy="foo" wire:ref="foo-input"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>In this example, the <code>span</code> will be hidden by default, and only visible when the <code>fullname-input</code> is dirty.</p>
+<p>In this example, the <code>span</code> will be hidden by default, and only visible when the input element is dirty.</p>
 <h2>Toggling classes on other elements</h2>
 <p>The class and atribute modifiers can be used in the same way for referenced elements</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;label wire:dirty.class="text-red-500" wire:target="fullname-input"&gt;Full Name&lt;/label&gt;
-    &lt;input wire:model.lazy="fullname" wire:ref="fullname-input"&gt;
+    &lt;label wire:dirty.class="text-red-500" wire:target="foo-input"&gt;Full Name&lt;/label&gt;
+    &lt;input wire:model.lazy="foo" wire:ref="foo-input"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Now, when the <code>fullname-input</code> is dirty, the label text will receive the <code>text-red-500</code> class.</p>        </div>
+<p>Now, when the <code>foo-input</code> is dirty, the label text will receive the <code>text-red-500</code> class.</p>        </div>
     </div>
 </section>
 </main>
