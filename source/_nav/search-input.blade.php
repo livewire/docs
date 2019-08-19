@@ -50,7 +50,7 @@
                     document.getElementById('docsearch-input').focus();
                     e.preventDefault()
                 }
-                if (e.keyCode == 91) {
+                if (e.keyCode == 27) {
                     document.getElementById('docsearch-input').blur();
                     e.preventDefault()
                 }
