@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=762cb1d9a43aeb677178">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=cbdafbc6824492d63160">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -292,7 +292,7 @@
             <h1>Events</h1>
 <p>Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.</p>
 <h2>Firing Events</h2>
-<p>There are two ways to fire events from Livewire components.</p>
+<p>There are multiple ways to fire events from Livewire components.</p>
 <h3>Method A: From The Template</h3>
 <p>This method is twice as fast as Method B, so it is the preferred usage.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -302,7 +302,13 @@
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">$this-&gt;emit('showModal');</code></pre>
 </div>
-<h2>Listening For Events</h2>
+<h3>Method C: From JavaScript</h3>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-javascript">&lt;script&gt;
+    window.livewire.emit('showModal')
+&lt;/script&gt;</code></pre>
+</div>
+<h2>Listening for events in PHP</h2>
 <p>Event listeners are registered in the <code>$listeners</code> property of your Livewire components.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
@@ -327,22 +333,12 @@ class Modal extends Component
     </div>
         </div>
 <p>Now when any other component on the page emits a <code>showModal</code> event, this component will pick it up and fire the <code>open</code> method on itself.</p>
-<h2>Listening for global events</h2>
-<p>Livewire allows you to register global event listeners in JavaScript.</p>
-<p>Let's say a Livewire component emitted an event like so:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">public function increment()
-{
-    $this-&gt;count++;
-
-    $this-&gt;emit('incremented', $this-&gt;count);
-}</code></pre>
-</div>
-<p>You could register a global listener for it in JavaScript.</p>
+<h2>Listening for events in JavaScript</h2>
+<p>Livewire allows you to register event listeners in JavaScript like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-javascript">&lt;script&gt;
-window.livewire.on('incremented', count =&gt; {
-    alert('The count was incremented to: ' + count);
+window.livewire.on('foo', param =&gt; {
+    alert('The foo event was called with the param: ' + param);
 })
 &lt;/script&gt;</code></pre>
 </div>

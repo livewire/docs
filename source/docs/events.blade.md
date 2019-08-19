@@ -11,7 +11,7 @@ Livewire components can communicate with each other through a global event syste
 
 ## Firing Events
 
-There are two ways to fire events from Livewire components.
+There are multiple ways to fire events from Livewire components.
 
 ### Method A: From The Template
 This method is twice as fast as Method B, so it is the preferred usage.
@@ -26,7 +26,15 @@ This method is twice as fast as Method B, so it is the preferred usage.
 $this->emit('showModal');
 @endcode
 
-## Listening For Events
+### Method C: From JavaScript
+
+@code(['lang' => 'javascript'])
+<script>
+    window.livewire.emit('showModal')
+</script>
+@endcode
+
+## Listening for events in PHP
 Event listeners are registered in the `$listeners` property of your Livewire components.
 
 @codeComponent(['className' => 'Modal'])
@@ -54,27 +62,14 @@ class Modal extends Component
 
 Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
 
-## Listening for global events
+## Listening for events in JavaScript
 
-Livewire allows you to register global event listeners in JavaScript.
-
-Let's say a Livewire component emitted an event like so:
-
-@code(['lang' => 'php'])
-public function increment()
-{
-    $this->count++;
-
-    $this->emit('incremented', $this->count);
-}
-@endcode
-
-You could register a global listener for it in JavaScript.
+Livewire allows you to register event listeners in JavaScript like so:
 
 @code(['lang' => 'javascript'])
 <script>
-window.livewire.on('incremented', count => {
-    alert('The count was incremented to: ' + count);
+window.livewire.on('foo', param => {
+    alert('The foo event was called with the param: ' + param);
 })
 </script>
 @endcode

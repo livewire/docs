@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=762cb1d9a43aeb677178">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=cbdafbc6824492d63160">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -421,6 +421,19 @@ class HelloWorld extends Component
     </div>
     </div>
 <p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-16 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-5xl">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
+        You may want to set an Eloquent model(s) as a public property. This is illegal in Livewire for securty reasons.
+    </div>
+</div>
 <h2>Component Actions</h2>
 <p>Livewire allows components to perform logic and manipulate state with &quot;actions&quot;. These are methods on the component class, and can be triggered from UI hooks like the following:</p>
 <div class="rounded-lg bg-gray-800 mb-12">

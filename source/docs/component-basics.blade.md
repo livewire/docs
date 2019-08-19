@@ -168,6 +168,10 @@ class HelloWorld extends Component
 
 You can think of `mount()` like you would the `boot()` method of a Laravel Model, or the `created()` method of a Vue component.
 
+@warning
+You may want to set an Eloquent model(s) as a public property. This is illegal in Livewire for securty reasons.
+@endwarning
+
 ## Component Actions
 
 Livewire allows components to perform logic and manipulate state with "actions". These are methods on the component class, and can be triggered from UI hooks like the following:

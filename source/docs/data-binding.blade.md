@@ -43,7 +43,6 @@ When the user types something into the text field, the value of the `$name` prop
 
 Internally, Livewire listens for "input" events on the element and updates the class property with the element's value. Therefore, you can apply `wire:model` to any element that emits `input` events.
 
-`<input type="text">`
 @tip
 By default, Livewire applies a 150ms debounce to text inputs. You can override this default like so: <code>&lt;input type="text" wire:model.debounce.0ms="name"&gt;</code>
 @endtip
@@ -52,7 +51,7 @@ Common elements to use `wire:model` on include:
 
 Element Tag |
 --- |
-`<input type="input">` |
+`<input type="text">` |
 `<input type="radio">` |
 `<input type="checkbox">` |
 `<select>` |

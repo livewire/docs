@@ -27,7 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=762cb1d9a43aeb677178">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=cbdafbc6824492d63160">
 
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
@@ -301,6 +301,10 @@
 </thead>
 <tbody>
 <tr>
+<td><code>wire:key="foo"</code></td>
+<td>Acts as a reference point for Livewire's DOM diffing system. Useful for adding/removing elements, and keeping track of lists.</td>
+</tr>
+<tr>
 <td><code>wire:click="foo"</code></td>
 <td>Listens for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
 </tr>
@@ -330,7 +334,7 @@
 </tr>
 <tr>
 <td><code>wire:loading</code></td>
-<td>Assuming the element's CSS <code>display</code> property is <code>none</code>, this directive will set it to <code>block</code> while network requests are in transit</td>
+<td>Will hide the element by default, but show it while network requests are in transit</td>
 </tr>
 <tr>
 <td><code>wire:loading.class="foo"</code></td>
@@ -345,12 +349,28 @@
 <td>Will add the <code>disabled="true"</code> attribute while loading</td>
 </tr>
 <tr>
+<td><code>wire:dirty</code></td>
+<td>Will hide the elemeny by default, but show it while the element's &quot;state&quot; is dirty (different from what exists on the backend)</td>
+</tr>
+<tr>
+<td><code>wire:dirty.class="foo"</code></td>
+<td>Will add the <code>foo</code> class to the element while element is dirty</td>
+</tr>
+<tr>
+<td><code>wire:dirty.class.remove="foo"</code></td>
+<td>Will remove the <code>foo</code> class while dirty</td>
+</tr>
+<tr>
+<td><code>wire:dirty.attr="disabled"</code></td>
+<td>Will add the <code>disabled="true"</code> attribute while dirty</td>
+</tr>
+<tr>
 <td><code>wire:target="foo"</code></td>
-<td>Will scope <code>wire:loading</code> functionality to the element that has <code>wire:ref="foo"</code></td>
+<td>Will scope <code>wire:loading</code> and <code>wire:dirty</code> functionality to the element that has <code>wire:ref="foo"</code></td>
 </tr>
 <tr>
 <td><code>wire:ref</code></td>
-<td>This directive is used as a way of referencing other elements from other directives (like <code>wire:loading</code>/<code>wire:target</code>)</td>
+<td>This directive is used as a way of referencing other elements from other directives (like <code>wire:loading</code>/<code>wire:dirty</code> and <code>wire:target</code>)</td>
 </tr>
 </tbody>
 </table>        </div>

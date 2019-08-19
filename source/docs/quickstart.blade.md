@@ -64,6 +64,10 @@ class Counter extends Component
 
 Let's add some text to the view so we can see something tangible in the browser.
 
+@tip
+Livewire components MUST have a single root element (just like you're used to in Vue).
+@endtip
+
 @codeComponent([
     'viewName' => 'resources/views/livewire/counter.blade.php',
 ])

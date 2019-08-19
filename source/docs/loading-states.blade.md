@@ -7,7 +7,7 @@ section: content
 
 # Loading States
 
-Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases where the page may not react immediately to a user event (like a click). It is up to you to determine when you should provide the user with some kind of loading state or not.
+Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases when the page may not react immediately to a user event (like a click). It is up to you to determine when you should provide the user with some kind of loading state or not.
 
 ## Toggling elements during "loading" states
 
@@ -18,18 +18,6 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
     <button wire:click="checkout">Checkout</button>
 
     <div wire:loading>
-        Processing Payment...
-    </div>
-</div>
-@endcode
-
-If you don't want to add the global style from above, you can declare `display: none` as an inline style like so:
-
-@code(['lang' => 'html'])
-<div>
-    <button wire:click="checkout">Checkout</button>
-
-    <div wire:loading style="display: none">
         Processing Payment...
     </div>
 </div>
