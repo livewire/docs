@@ -7,8 +7,8 @@ return [
     'siteDescription' => 'A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).',
 
     // Algolia DocSearch credentials
-    'docsearchApiKey' => '',
-    'docsearchIndexName' => '',
+    'docsearchApiKey' => 'cec0554d960fa30b4b0b610f372a8636',
+    'docsearchIndexName' => 'livewire-framework',
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
