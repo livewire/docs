@@ -14,6 +14,7 @@ Directive | Description
 --- | ---
 `wire:key="foo"` | Acts as a reference point for Livewire's DOM diffing system. Useful for adding/removing elements, and keeping track of lists.
 `wire:click="foo"` | Listens for a "click" event, and fires the "foo" method in the component for a "click" event, and fires the "foo" method in the component
+`wire:click.prefetch="foo"` | Listens for a "mouseenter" event, and "prefetches" the result of the "foo" method in the component. Then, if it is clicked, will swap in the "prefetched" result (without an extra request), if it's not clicked, will throw away the cached result.
 `wire:keydown.enter="foo"` | Listens for a keydown event with `Enter` as its key, and fires the "foo" method in the component for a "click" event, and fires the "foo" method in the component
 `wire:foo="bar"` | Listens for a browser event called "foo". (You can specify any browser DOM event (not Livewire events) you would like to listen for this way)
 `wire:model="foo"` | Assuming `$foo` is a public property on the component class, every time an input element with this directive is updated, the property will be updated.

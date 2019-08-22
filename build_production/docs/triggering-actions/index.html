@@ -398,6 +398,10 @@
 <td>prevent</td>
 <td>Equivalent of <code>event.preventDefault()</code></td>
 </tr>
+<tr>
+<td>prefetch</td>
+<td>Will &quot;prefetch&quot; and queue the result of an action (on mouseover), and display if the action is triggered</td>
+</tr>
 </tbody>
 </table>
 <h2>Keydown Modifiers</h2>
@@ -498,6 +502,17 @@
         This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
     </div>
 </div>
+<h2>Prefetching Actions</h2>
+<p>Livewire offers the ability to &quot;prefetch&quot; the result of an action on mouseover. This is useful for cases when an action DOES NOT perform side effects, and you want a little extra performance. Toggling content is a common use case.</p>
+<p>Add the <code>prefetch</code> modifier to an action to enable this behavior:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click.prefetch="toggleContent"&gt;Show Content&lt;/button&gt;
+
+@if ($contentIsVisible)
+    &lt;span&gt;Some Content...&lt;/span&gt;
+@endif</code></pre>
+</div>
+<p>Now, when the mouse enters the &quot;Show Content&quot; button, Livewire will fetch the result of the &quot;toggleContent&quot; action in the background. If the button is actually clicked, it will display the content on the page without sending another network request. If the button is NOT clicked, the prefetched response will be thrown away.</p>
 <h2>Polling Actions</h2>
 <p>Livewire offers a directive called <code>wire:poll="foo"</code> that, when added to an element, will fire <code>foo</code> to the Livewire component every <code>500ms</code>. You can customize the frequency by passing a directive modifier like <code>750ms</code>. For example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -510,8 +525,51 @@
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:init="loadTodos"&gt;
     &lt;ul&gt;
-        @foreach ($todos as $todo)
-            &lt;li&gt;{{ $todo }}&lt;/li&gt;
+        @foreach($todos as $todo)
+            &lt;li&gt;
+Notice: Undefined variable: todo in /Users/calebporzio/Documents/Code/sites/livewire-docs/cache/2c78e78d4e9f8fd11e27eb3fe94a2bc4d6ffbe07.php on line 152
+
+Call Stack:
+    0.0181     417976   1. {main}() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/jigsaw:0
+    0.0642    2991144   2. Symfony\Component\Console\Application-&gt;run() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/jigsaw:14
+    0.0882    3103888   3. Symfony\Component\Console\Application-&gt;doRun() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/symfony/console/Application.php:145
+    0.0898    3115840   4. Symfony\Component\Console\Application-&gt;doRunCommand() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/symfony/console/Application.php:269
+    0.0899    3115840   5. TightenCo\Jigsaw\Console\BuildCommand-&gt;run() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/symfony/console/Application.php:908
+    0.0903    3117240   6. TightenCo\Jigsaw\Console\BuildCommand-&gt;execute() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/symfony/console/Command/Command.php:255
+    0.0907    3129272   7. TightenCo\Jigsaw\Console\BuildCommand-&gt;fire() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Console/Command.php:21
+    0.1114    4752720   8. TightenCo\Jigsaw\Jigsaw-&gt;build() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Console/BuildCommand.php:59
+    0.1127    4806744   9. TightenCo\Jigsaw\Jigsaw-&gt;buildSite() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Jigsaw.php:33
+    0.1129    4806744  10. TightenCo\Jigsaw\SiteBuilder-&gt;build() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Jigsaw.php:54
+    0.1134    4806808  11. TightenCo\Jigsaw\SiteBuilder-&gt;generateFiles() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/SiteBuilder.php:36
+    0.1233    5080392  12. Illuminate\Support\Collection-&gt;flatMap() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/SiteBuilder.php:85
+    0.1233    5080392  13. Illuminate\Support\Collection-&gt;map() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/support/Collection.php:1215
+    0.1233    5083008  14. array_map() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/support/Collection.php:1120
+    0.7458    6453376  15. TightenCo\Jigsaw\SiteBuilder-&gt;TightenCo\Jigsaw\{closure:/Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/SiteBuilder.php:81-85}() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/support/Collection.php:1120
+    0.7458    6453376  16. TightenCo\Jigsaw\SiteBuilder-&gt;handle() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/SiteBuilder.php:84
+    0.7460    6455288  17. TightenCo\Jigsaw\Handlers\MarkdownHandler-&gt;handle() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/SiteBuilder.php:112
+    0.7464    6461184  18. TightenCo\Jigsaw\Handlers\MarkdownHandler-&gt;buildOutput() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Handlers/MarkdownHandler.php:38
+    0.7465    6462336  19. Illuminate\Support\Collection-&gt;map() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Handlers/MarkdownHandler.php:63
+    0.7465    6462712  20. array_map() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/support/Collection.php:1120
+    0.7465    6462808  21. TightenCo\Jigsaw\Handlers\MarkdownHandler-&gt;TightenCo\Jigsaw\Handlers\{closure:/Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Handlers/MarkdownHandler.php:49-63}() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/support/Collection.php:1120
+    0.7465    6463048  22. TightenCo\Jigsaw\Handlers\MarkdownHandler-&gt;render() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Handlers/MarkdownHandler.php:60
+    0.7466    6463208  23. TightenCo\Jigsaw\Handlers\MarkdownHandler-&gt;renderBladeMarkdownFile() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Handlers/MarkdownHandler.php:73
+    0.7471    6463528  24. TightenCo\Jigsaw\View\ViewRenderer-&gt;render() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/Handlers/MarkdownHandler.php:106
+    0.7473    6464064  25. Illuminate\View\View-&gt;render() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/View/ViewRenderer.php:39
+    0.7473    6464064  26. Illuminate\View\View-&gt;renderContents() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/View.php:90
+    0.7473    6464064  27. Illuminate\View\View-&gt;getContents() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/View.php:125
+    0.7473    6464440  28. Illuminate\View\Engines\CompilerEngine-&gt;get() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/View.php:142
+    0.7487    6465168  29. Illuminate\View\Engines\CompilerEngine-&gt;evaluatePath() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/Engines/CompilerEngine.php:59
+    0.7487    6485464  30. include('/Users/calebporzio/Documents/Code/sites/livewire-docs/cache/0d0e697c2ae7e8f9855f0b5ad2f78666a665a25d.php') /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/Engines/PhpEngine.php:43
+    0.7493    6503048  31. Illuminate\View\View-&gt;render() /Users/calebporzio/Documents/Code/sites/livewire-docs/cache/0d0e697c2ae7e8f9855f0b5ad2f78666a665a25d.php:2
+    0.7493    6503048  32. Illuminate\View\View-&gt;renderContents() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/View.php:90
+    0.7493    6503048  33. Illuminate\View\View-&gt;getContents() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/View.php:125
+    0.7493    6503424  34. TightenCo\Jigsaw\View\BladeMarkdownEngine-&gt;get() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/View.php:142
+    0.7493    6503424  35. TightenCo\Jigsaw\View\BladeMarkdownEngine-&gt;evaluateBlade() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/View/BladeMarkdownEngine.php:23
+    0.7493    6503424  36. Illuminate\View\Engines\CompilerEngine-&gt;get() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/tightenco/jigsaw/src/View/BladeMarkdownEngine.php:31
+    0.7531    6503016  37. Illuminate\View\Engines\CompilerEngine-&gt;evaluatePath() /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/Engines/CompilerEngine.php:59
+    0.7532    6536960  38. include('/Users/calebporzio/Documents/Code/sites/livewire-docs/cache/2c78e78d4e9f8fd11e27eb3fe94a2bc4d6ffbe07.php') /Users/calebporzio/Documents/Code/sites/livewire-docs/vendor/illuminate/view/Engines/PhpEngine.php:43
+
+&lt;/li&gt;
         @endforeach
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>

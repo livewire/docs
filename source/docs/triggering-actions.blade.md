@@ -49,6 +49,7 @@ Modifier | Description
 --- | ---
 stop | Equivalent of `event.stopPropagation()`
 prevent | Equivalent of `event.preventDefault()`
+prefetch | Will "prefetch" and queue the result of an action (on mouseover), and display if the action is triggered
 
 ## Keydown Modifiers
 
@@ -113,6 +114,23 @@ Notice that we are no longer calling the `setMessageToHello` function, we are di
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
 @endtip
 
+## Prefetching Actions
+Livewire offers the ability to "prefetch" the result of an action on mouseover. This is useful for cases when an action DOES NOT perform side effects, and you want a little extra performance. Toggling content is a common use case.
+
+Add the `prefetch` modifier to an action to enable this behavior:
+
+@code
+@verbatim
+<button wire:click.prefetch="toggleContent">Show Content</button>
+
+@if ($contentIsVisible)
+    <span>Some Content...</span>
+@endif
+@endverbatim
+@endcode
+
+Now, when the mouse enters the "Show Content" button, Livewire will fetch the result of the "toggleContent" action in the background. If the button is actually clicked, it will display the content on the page without sending another network request. If the button is NOT clicked, the prefetched response will be thrown away.
+
 ## Polling Actions
 Livewire offers a directive called `wire:poll="foo"` that, when added to an element, will fire `foo` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:
 
@@ -128,15 +146,13 @@ Livewire offers a directive called `wire:poll="foo"` that, when added to an elem
 Livewire offers a `wire:init` directive to run an action as soon as the component is rendered. This can be helpful in cases where you don't want to hold up the entire page load, but want to load some data immediately after the page load.
 
 @code
-@verbatim
 <div wire:init="loadTodos">
     <ul>
-        @foreach ($todos as $todo)
+        @@foreach ($todos as $todo)
             <li>{{ $todo }}</li>
-        @endforeach
+        @@endforeach
     </ul>
 </div>
-@endverbatim
 @endcode
 
 The `loadTodos` action will be run imediately after the Livewire component renders on the page.

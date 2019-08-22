@@ -347,6 +347,10 @@
 <td>Listens for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
 </tr>
 <tr>
+<td><code>wire:click.prefetch="foo"</code></td>
+<td>Listens for a &quot;mouseenter&quot; event, and &quot;prefetches&quot; the result of the &quot;foo&quot; method in the component. Then, if it is clicked, will swap in the &quot;prefetched&quot; result (without an extra request), if it's not clicked, will throw away the cached result.</td>
+</tr>
+<tr>
 <td><code>wire:keydown.enter="foo"</code></td>
 <td>Listens for a keydown event with <code>Enter</code> as its key, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
 </tr>
