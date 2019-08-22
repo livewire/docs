@@ -169,7 +169,7 @@ class HelloWorld extends Component
 You can think of `mount()` like you would the `boot()` method of a Laravel Model, or the `created()` method of a Vue component.
 
 @warning
-You may want to set an Eloquent model(s) as a public property. This is illegal in Livewire for securty reasons.
+You may want to set an Eloquent model(s) as a public property. This is illegal in Livewire for security reasons.
 @endwarning
 
 ## Component Actions
@@ -205,7 +205,7 @@ class HelloWorld extends Component
 
 ### Automatic Dependancy Injection
 
-Component action methods can resolve dependancies out of Laravel's IoC container, similar to controller methods. For example:
+Component action methods can resolve dependencies out of Laravel's IoC container, similar to controller methods. For example:
 
 @code(['lang' => 'php'])
 public function sayHi(Auth $auth) {
