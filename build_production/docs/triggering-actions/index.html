@@ -37,7 +37,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=13b7db1ef0548aa53502">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=e3b472e7cf6c7a95c937">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -380,7 +380,7 @@
         You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
     </div>
 </div>
-<h2>Modifiers</h2>
+<h2 id="modifiers">Modifiers</h2>
 <p>Like you saw in the <strong>keydown</strong> example, Livewire directives sometimes offer &quot;modifiers&quot; to add extra functionality to an event. Below are the available modifiers that can be used with any event:</p>
 <table>
 <thead>
@@ -404,7 +404,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Keydown Modifiers</h2>
+<h2 id="keydown-modifiers">Keydown Modifiers</h2>
 <p>To listen for specific keys on <strong>keydown</strong> events, you can pass the name of the key as a modifier. You can directly use any valid key names exposed via <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">KeyboardEvent.key</a> as modifiers by converting them to kebab-case.</p>
 <p>Here is a quick list of some common ones you may need:</p>
 <table>
@@ -441,7 +441,7 @@
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input wire:keydown.page-down="foo"&gt;</code></pre>
 </div>
 <p>In the above example, the handler will only be called if <code>event.key</code> is equal to 'PageDown'.</p>
-<h2>Special Actions</h2>
+<h2 id="special-actions">Special Actions</h2>
 <p>In Livewire, there are some &quot;special&quot; actions that are usually prefixed with a &quot;$&quot; symbol:</p>
 <table>
 <thead>
@@ -502,7 +502,7 @@
         This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
     </div>
 </div>
-<h2>Prefetching Actions</h2>
+<h2 id="prefetching-actions">Prefetching Actions</h2>
 <p>Livewire offers the ability to &quot;prefetch&quot; the result of an action on mouseover. This is useful for cases when an action DOES NOT perform side effects, and you want a little extra performance. Toggling content is a common use case.</p>
 <p>Add the <code>prefetch</code> modifier to an action to enable this behavior:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -513,14 +513,14 @@
 @endif</code></pre>
 </div>
 <p>Now, when the mouse enters the &quot;Show Content&quot; button, Livewire will fetch the result of the &quot;toggleContent&quot; action in the background. If the button is actually clicked, it will display the content on the page without sending another network request. If the button is NOT clicked, the prefetched response will be thrown away.</p>
-<h2>Polling Actions</h2>
+<h2 id="polling-actions">Polling Actions</h2>
 <p>Livewire offers a directive called <code>wire:poll="foo"</code> that, when added to an element, will fire <code>foo</code> to the Livewire component every <code>500ms</code>. You can customize the frequency by passing a directive modifier like <code>750ms</code>. For example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:poll.750ms="$refresh"&gt;
     Current time: {{ now() }}
 &lt;/div&gt;</code></pre>
 </div>
-<h2>Triggering Actions On Load</h2>
+<h2 id="triggering-actions">Triggering Actions On Load</h2>
 <p>Livewire offers a <code>wire:init</code> directive to run an action as soon as the component is rendered. This can be helpful in cases where you don't want to hold up the entire page load, but want to load some data immediately after the page load.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:init="loadTodos"&gt;
