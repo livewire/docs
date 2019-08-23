@@ -2,107 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
   <loc>https://livewire-framework.com/docs/api</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/component-basics</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/css-transitions</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/custom-javascript</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/data-binding</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/dirty-states</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/events</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.comdocs</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/input-validation</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/installation</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/lifecycle-hooks</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/loading-states</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/nesting-components</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/quickstart</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/redirecting</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/rendering-components</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/security</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/spa-mode</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/testing</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com/docs/triggering-actions</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://livewire-framework.com</loc>
-  <lastmod>2019-08-22T02:17:54+00:00</lastmod>
+  <lastmod>2019-08-23T13:54:43+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
 </urlset>

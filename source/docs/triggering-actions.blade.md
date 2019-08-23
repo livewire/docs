@@ -146,13 +146,15 @@ Livewire offers a directive called `wire:poll="foo"` that, when added to an elem
 Livewire offers a `wire:init` directive to run an action as soon as the component is rendered. This can be helpful in cases where you don't want to hold up the entire page load, but want to load some data immediately after the page load.
 
 @code
+@verbatim
 <div wire:init="loadTodos">
     <ul>
-        @@foreach ($todos as $todo)
+        @foreach ($todos as $todo)
             <li>{{ $todo }}</li>
-        @@endforeach
+        @endforeach
     </ul>
 </div>
+@endverbatim
 @endcode
 
 The `loadTodos` action will be run imediately after the Livewire component renders on the page.
