@@ -203,7 +203,7 @@ class HelloWorld extends Component
 @endslot
 @endcodeComponent
 
-### Automatic Dependancy Injection
+### Automatic Dependency Injection
 
 Component action methods can resolve dependencies out of Laravel's IoC container, similar to controller methods. For example:
 
