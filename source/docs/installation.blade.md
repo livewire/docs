@@ -28,7 +28,7 @@ Add the following Blade directive before the closing `body` tag in your template
 @endverbatim
 @endcode
 
-Livewire will load it's JavaScript assets from the "relative root". For example, here's the `<script>` tag this directive will generate by default:
+Livewire will load its JavaScript assets from the "relative root". For example, here's the `<script>` tag this directive will generate by default:
 
 `<script src="/livewire/livewire.js></script>`
 
