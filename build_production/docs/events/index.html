@@ -329,24 +329,24 @@
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1>Events</h1>
 <p>Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.</p>
-<h2>Firing Events</h2>
+<h2 id="firing-events">Firing Events</h2>
 <p>There are multiple ways to fire events from Livewire components.</p>
-<h3>Method A: From The Template</h3>
+<h3 id="from-template">Method A: From The Template</h3>
 <p>This method is twice as fast as Method B, so it is the preferred usage.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click="$emit('showModal')"&gt;</code></pre>
 </div>
-<h3>Method B: From The Component</h3>
+<h3 id="from-component">Method B: From The Component</h3>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">$this-&gt;emit('showModal');</code></pre>
 </div>
-<h3>Method C: From JavaScript</h3>
+<h3 id="from-javascript">Method C: From JavaScript</h3>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-javascript">&lt;script&gt;
     window.livewire.emit('showModal')
 &lt;/script&gt;</code></pre>
 </div>
-<h2>Listening for events in PHP</h2>
+<h2 id="in-php">Listening for events in PHP</h2>
 <p>Event listeners are registered in the <code>$listeners</code> property of your Livewire components.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
@@ -371,7 +371,7 @@ class Modal extends Component
     </div>
         </div>
 <p>Now when any other component on the page emits a <code>showModal</code> event, this component will pick it up and fire the <code>open</code> method on itself.</p>
-<h2>Listening for events in JavaScript</h2>
+<h2 id="in-js">Listening for events in JavaScript</h2>
 <p>Livewire allows you to register event listeners in JavaScript like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-javascript">&lt;script&gt;
@@ -392,7 +392,7 @@ window.livewire.on('foo', param =&gt; {
         This feature is actually incredibly powerful. It provides a bridge between Livewire and other JS inside your app. For example, if you had a JavaScript function to show a toaster (popup) inside your app to show notification messages, you could trigger them from inside your Livewire component with this feature.
     </div>
 </div>
-<h2>Listening for Laravel Echo events</h2>
+<h2 id="echo-events">Listening for Laravel Echo events</h2>
 <p>Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.</p>
 <div class="flex my-6 py-4 rounded-lg">
     <div class="hidden md:block -ml-16 absolute pr-4 text-red-500">

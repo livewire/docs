@@ -330,7 +330,7 @@
             <h1>Dirty States</h1>
 <p>There are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end Livewire component.</p>
 <p>For input that uses <code>wire:model</code>, or <code>wire:model.lazy</code>, you may want to display that a field is 'dirty' until Livewire has fully updated.</p>
-<h2>Toggling classes on &quot;dirty&quot; elements</h2>
+<h2 id="toggling-classes">Toggling classes on &quot;dirty&quot; elements</h2>
 <p>Elements with the <code>wire:dirty</code> directive will watch for differences between the front-end value, and the last returned Livewire data value.</p>
 <p>Adding the <code>class</code> modifier allows you to add a class to the element when dirty.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -346,7 +346,7 @@
 &lt;/div&gt;</code></pre>
 </div>
 <p>The <code>bg-green-200</code> class will be removed from the input while dirty.</p>
-<h2>Toggling elements</h2>
+<h2 id="toggling-elements">Toggling elements</h2>
 <p>The default behaviour of the <code>wire:dirty</code> directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the <code>dirty</code> directive can be used to toggle the appearance of other elements using <code>wire:ref</code> and <code>wire:target</code></p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
@@ -355,7 +355,7 @@
 &lt;/div&gt;</code></pre>
 </div>
 <p>In this example, the <code>span</code> will be hidden by default, and only visible when the input element is dirty.</p>
-<h2>Toggling classes on other elements</h2>
+<h2 id="toggling-classes">Toggling classes on other elements</h2>
 <p>The class and atribute modifiers can be used in the same way for referenced elements</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;

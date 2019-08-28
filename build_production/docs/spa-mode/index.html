@@ -345,7 +345,7 @@ document.addEventListener('turbolinks:load', () =&gt; {
 })</code></pre>
 </div>
 <p>And that's it! This little snippet tells Turbolinks to reload Livewire every time a new page is visited or returned to.</p>
-<h2>Render Component As Entire Page</h2>
+<h2 id="render-as-entire-page">Render Component As Entire Page</h2>
 <p>If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helpers to cut out the extra boilerplate code. Take a look at the following example:</p>
 <p><em>Before</em></p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -374,7 +374,7 @@ class HomeController extends Controller
 Route::livewire('/home', 'counter');</code></pre>
 </div>
 <p>Note: for this feature to work, Livewire assumes you have a layout stored in <code>resources/views/layouts/app.blade.php</code> that yields a &quot;content&quot; section (<code>@yield('content')</code>)</p>
-<h3>Custom Layout File</h3>
+<h3 id="custom-layout-file">Custom Layout File</h3>
 <p>If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">// Customizing layout
@@ -397,7 +397,7 @@ Route::livewire('/home', 'counter')
     //
 });</code></pre>
 </div>
-<h3>Route Parameters</h3>
+<h3 id="route-params">Route Parameters</h3>
 <p>Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's <code>mount</code> lifecycle hook. For example:</p>
 <p><strong>web.php</strong></p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -424,7 +424,7 @@ class ShowContact extends Component
 }</code></pre>
 </div>
 <p>As you can see, the <code>mount</code> method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit <code>/contact/123</code>, the <code>$id</code> variable passed into the <code>mount</code> method will contain the value <code>123</code>.</p>
-<h3>Route Model Binding</h3>
+<h3 id="route-model-binding">Route Model Binding</h3>
 <p>Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:</p>
 <p><strong>web.php</strong></p>
 <div class="rounded-lg bg-gray-800 mb-12">

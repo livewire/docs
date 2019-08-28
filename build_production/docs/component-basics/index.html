@@ -328,7 +328,7 @@
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1>Component Basics</h1>
-<h2>Generating components</h2>
+<h2 id="generating-components">Generating components</h2>
 <p>It is highly recommended that you use the <code>php artisan make:livewire</code> command for all new components.</p>
 <p>Here are a few examples of usage:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -341,7 +341,7 @@ php artisan make:livewire foo-bar
 # Creates Foo/Bar.php &amp; foo/bar.blade.php
 php artisan make:livewire foo.bar</code></pre>
 </div>
-<h2>The render() method</h2>
+<h2 id="render-method">The render() method</h2>
 <p>The following points are important to know:</p>
 <ul>
 <li><code>render()</code> should return a Blade view (like controllers do)</li>
@@ -395,7 +395,7 @@ Here are some common things you might forget ARE NOT possible in Livewire:
     return ['some' =&gt; 'data'];
 }</code></pre>
 </div>
-<h2>Component Properties</h2>
+<h2 id="component-properties">Component Properties</h2>
 <p>Livewire components store and track state using class properties on the Component class. Here's what's important to know:</p>
 <ul>
 <li>Properties MUST be public</li>
@@ -426,7 +426,7 @@ class HelloWorld extends Component
 &lt;/div&gt;</code></pre>
     </div>
     </div>
-<h3>Initializing Properties</h3>
+<h3 id="initializing-properties">Initializing Properties</h3>
 <p>Let's say you wanted to make the 'Hello World' message more specific, and greet the currently logged in user. You might try setting the message property to:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">public $message = 'Hello ' . auth()-&gt;user()-&gt;first_name;</code></pre>
@@ -472,7 +472,7 @@ class HelloWorld extends Component
         You may want to set an Eloquent model(s) as a public property. This is illegal in Livewire for security reasons.
     </div>
 </div>
-<h2>Component Actions</h2>
+<h2 id="component-actions">Component Actions</h2>
 <p>Livewire allows components to perform logic and manipulate state with &quot;actions&quot;. These are methods on the component class, and can be triggered from UI hooks like the following:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click="sayHi"&gt;&lt;/button&gt;</code></pre>
@@ -498,7 +498,7 @@ class HelloWorld extends Component
 }</code></pre>
     </div>
         </div>
-<h3>Automatic Dependency Injection</h3>
+<h3 id="dependancy-injection">Automatic Dependency Injection</h3>
 <p>Component action methods can resolve dependencies out of Laravel's IoC container, similar to controller methods. For example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">public function sayHi(Auth $auth) {

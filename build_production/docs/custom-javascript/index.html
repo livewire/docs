@@ -329,14 +329,14 @@
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1>Custom JavaScript</h1>
 <p>Although Livewire should reduce the amount of JavaScript you need to write in your applications, there are certain places where JavaScript is still very much necessary. Therefore, it is important that Livewire plays nice with modern JavaScript tools like Vue out-of-the-box.</p>
-<h2>Vanilla JavaScript</h2>
+<h2 id="vanilla-javascript">Vanilla JavaScript</h2>
 <p>To package JavaScript up with a component, just add a <code>&lt;script&gt;</code> tag inside the component's root div. For example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;script&gt;alert('Hello World');&lt;/script&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<h2>VueJs</h2>
+<h2 id="vue">VueJs</h2>
 <p>Livewire makes it extremely easy to use Vue components inside your Livewire components, and it even goes a step further and interfaces with them directly!</p>
 <p>Let's say we have a <code>&lt;loading-spinner&gt;</code> Vue component, and we want to use it in our Livewire component.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -360,7 +360,7 @@
         In order to use Livewire with Vue. A <code>window.Vue</code> object must be made available to Livewire.
     </div>
 </div>
-<h3>Binding data to Vue components</h3>
+<h3 id="binding-to-vue-components">Binding data to Vue components</h3>
 <p>We can even take this integration a step further and actually bind Livewire properties to Vue components.</p>
 <p>Let's assume we have a custom Vue component that we typically use for &quot;taggable&quot; input fields called <code>&lt;input-taggable&gt;&lt;/input-taggable&gt;</code>. Normally, inside Vue, you would bind data to this component like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -371,7 +371,7 @@
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input-taggable wire:model="names"&gt;&lt;/input-taggable&gt;</code></pre>
 </div>
 <p>Livewire will listen for &quot;input&quot; events emitted from the Vue component, and pass down &quot;value&quot; properties just like Vue does. It just works.</p>
-<h2>Web Components</h2>
+<h2 id="web-components">Web Components</h2>
 <p>Another great way to utilize JavaScript inside Livewire components is HTML5 Web Components. This strategy is preffered to most others because Web Components automatically scope JS and styles to each individual component, so there are no conflicts with Livewire.</p>
 <p>Building and using Web Components is outside the scope of this documentation, but the <a href="https://lit-element.polymer-project.org/guide">lit-element</a> project is a great starting point for writing and using web components easily.</p>        </div>
     </div>

@@ -329,11 +329,11 @@
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1>Installation</h1>
 <p>Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.</p>
-<h2>Step 1: Include the PHP</h2>
+<h2 id="include-php">Step 1: Include the PHP</h2>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-bash">composer require calebporzio/livewire</code></pre>
 </div>
-<h2>Step 2: Include the JavaScript</h2>
+<h2 id="include-js">Step 2: Include the JavaScript</h2>
 <p>Add the following Blade directive before the closing <code>body</code> tag in your template.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">...
@@ -341,7 +341,7 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
-<p>Livewire will load it's JavaScript assets from the &quot;relative root&quot;. For example, here's the <code>&lt;script&gt;</code> tag this directive will generate by default:</p>
+<p>Livewire will load its JavaScript assets from the &quot;relative root&quot;. For example, here's the <code>&lt;script&gt;</code> tag this directive will generate by default:</p>
 <p><code>&lt;script src="/livewire/livewire.js&gt;&lt;/script&gt;</code></p>
 <p>If your app's root isn't the domain root, for example <code>http://yourapp.com/admin</code>, the Livewire assets won't load because they would need the following script tag url:</p>
 <p><code>&lt;script src="http://yourapp.com/admin/livewire/livewire.js&gt;&lt;/script&gt;</code></p>
