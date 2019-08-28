@@ -57,7 +57,7 @@ Element Tag |
 `<select>` |
 `<textarea>` |
 
-## Nested Data Binding
+## Nested Data Binding {#nested-binding}
 
 Livewire supports nested data binding using dot notation:
 
@@ -65,7 +65,7 @@ Livewire supports nested data binding using dot notation:
 <input type="text" wire:model="form.name">
 @endcode
 
-## Debouncing Input
+## Debouncing Input {#debouncing}
 
 Livewire offers a "debounce" modifier when using `wire:model`. If you want to apply a 1 second debounce to an input, you include the modifier like so:
 
@@ -76,12 +76,11 @@ Livewire offers a "debounce" modifier when using `wire:model`. If you want to ap
 <input type="text" wire:model.debounce.1s="name">
 @endcode
 
-## Lazily Updating
+## Lazily Updating {#lazilly-updating}
 
 By default, Livewire sends a request to server after every "input" event. This is usually fine for things like `<select>` elements that don't update frequently, however, this is often unnecessary for text fields that update as the user types.
 
 In those cases, use the `lazy` directive modifier to listen for the native "change" event.
-
 
 @codeComponent([
     'className' => 'MyNameIs',

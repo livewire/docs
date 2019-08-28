@@ -93,7 +93,7 @@ class ContactForm extends Component
 
 > Note: Livewire exposes the same `$errors` object as Laravel, for more information, reference the [Laravel Docs](https://laravel.com/docs/5.8/validation#quick-displaying-the-validation-errors).
 
-## Custom validators
+## Custom validators {#custom-validators}
 
 If you wish to use your own validation system in Livewire, that isn't a problem. Livewire will catch `ValidationException` and provide the errors to the view just like using `$this->validate()`.
 

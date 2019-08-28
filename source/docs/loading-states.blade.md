@@ -9,7 +9,7 @@ section: content
 
 Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases when the page may not react immediately to a user event (like a click). It is up to you to determine when you should provide the user with some kind of loading state or not.
 
-## Toggling elements during "loading" states
+## Toggling elements during "loading" states {#toggling-elements}
 
 Elements with the `wire:loading` directive are only visible while waiting for actions to complete (network requests).
 
@@ -25,7 +25,7 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 
 When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disapear.
 
-## Targeting specific actions
+## Targeting specific actions {#targeting-actions}
 The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions. Consider the following example:
 
 @code(['lang' => 'html'])
@@ -56,7 +56,7 @@ Now, when the "Checkout" button is clicked, the loading indicator will load, but
 
 Also note that `wire:target` can accept multiple `ref` arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
-## Toggling classes
+## Toggling classes {#toggling-classes}
 
 You can add or remove classes from an element during loading states, by adding the `.class` modifier to the `wire:loading` directive.
 
@@ -82,7 +82,7 @@ You can also perform the inverse and remove classes by adding the `.remove` modi
 
 Now the `bg-blue` class will be removed from the button while loading.
 
-## Toggling attributes
+## Toggling attributes {#toggling-attributes}
 
 Similar to classes, HTML attributes can be added or removed from elements during loading states:
 

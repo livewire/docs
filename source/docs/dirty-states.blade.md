@@ -11,7 +11,7 @@ There are cases where it may be useful to provide feedback that content has chan
 
 For input that uses `wire:model`, or `wire:model.lazy`, you may want to display that a field is 'dirty' until Livewire has fully updated.
 
-## Toggling classes on "dirty" elements
+## Toggling classes on "dirty" elements {#toggling-classes}
 
 Elements with the `wire:dirty` directive will watch for differences between the front-end value, and the last returned Livewire data value.
 
@@ -35,7 +35,7 @@ You can also perform the inverse, and remove classes by adding the `.remove` mod
 
 The `bg-green-200` class will be removed from the input while dirty.
 
-## Toggling elements
+## Toggling elements {#toggling-elements}
 
 The default behaviour of the `wire:dirty` directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the `dirty` directive can be used to toggle the appearance of other elements using `wire:ref` and `wire:target`
 
@@ -48,7 +48,7 @@ The default behaviour of the `wire:dirty` directive without modifiers is that th
 
 In this example, the `span` will be hidden by default, and only visible when the input element is dirty.
 
-## Toggling classes on other elements
+## Toggling classes on other elements {#toggling-classes}
 
 The class and atribute modifiers can be used in the same way for referenced elements
 

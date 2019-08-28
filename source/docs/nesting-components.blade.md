@@ -27,7 +27,7 @@ Here is an example of a nested component:
 A common misconception is that properties passed into Livewire components is "reactive" (like Vue or React). Because of the way Livewire architects components, this is impossible. The data you pass into a nested component is set initially and not updated if the parent changes. For all component interactions, refer to the <a href="/docs/events">Events page.</a>
 @endwarning
 
-## Keyed Components
+## Keyed Components {#keyed-components}
 
 Similar to VueJs, if you render a component inside a loop, Livewire has trouble keeping track of changes made to those components. To remedy this, livewire offers a special "key" syntax:
 

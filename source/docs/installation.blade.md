@@ -9,14 +9,14 @@ section: content
 
 Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.
 
-## Step 1: Include the PHP
+## Step 1: Include the PHP {#include-php}
 @code(['lang' => 'bash'])
 @verbatim
 composer require calebporzio/livewire
 @endverbatim
 @endcode
 
-## Step 2: Include the JavaScript
+## Step 2: Include the JavaScript {#include-js}
 Add the following Blade directive before the closing `body` tag in your template.
 
 @code

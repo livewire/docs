@@ -7,7 +7,7 @@ section: content
 
 # Rendering Components
 
-## Initial Parameters
+## Initial Parameters {#initial-params}
 
 You can pass data into a component by passing additional parameters into the `@livewire` directive. For example, let's say we have a `ShowContact` Livewire component that needs to know which contact to show. Here's how you would pass in the contact id.
 

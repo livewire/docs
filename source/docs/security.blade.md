@@ -7,7 +7,7 @@ section: content
 
 # Security
 
-## Filtering Middleware
+## Filtering Middleware {#filtering-middleware}
 
 By default, Livewire request inherit the middleware of the page the component was loaded on. If there is middleware you'd like to exclude from subsequent Livewire requests, you can use the `filterMiddleware()` method like so:
 

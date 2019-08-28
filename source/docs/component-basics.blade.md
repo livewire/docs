@@ -7,7 +7,7 @@ section: content
 
 # Component Basics
 
-## Generating components
+## Generating components {#generating-components}
 
 It is highly recommended that you use the `php artisan make:livewire` command for all new components.
 
@@ -24,7 +24,7 @@ php artisan make:livewire foo-bar
 php artisan make:livewire foo.bar
 @endcode
 
-## The render() method
+## The render() method {#render-method}
 
 The following points are important to know:
 
@@ -82,7 +82,7 @@ public function render()
 @endverbatim
 @endcode
 
-## Component Properties
+## Component Properties {#component-properties}
 
 Livewire components store and track state using class properties on the Component class. Here's what's important to know:
 
@@ -124,7 +124,7 @@ class HelloWorld extends Component
 @endslot
 @endcodeComponent
 
-### Initializing Properties
+### Initializing Properties {#initializing-properties}
 
 Let's say you wanted to make the 'Hello World' message more specific, and greet the currently logged in user. You might try setting the message property to:
 
@@ -172,7 +172,7 @@ You can think of `mount()` like you would the `boot()` method of a Laravel Model
 You may want to set an Eloquent model(s) as a public property. This is illegal in Livewire for security reasons.
 @endwarning
 
-## Component Actions
+## Component Actions {#component-actions}
 
 Livewire allows components to perform logic and manipulate state with "actions". These are methods on the component class, and can be triggered from UI hooks like the following:
 
@@ -203,7 +203,7 @@ class HelloWorld extends Component
 @endslot
 @endcodeComponent
 
-### Automatic Dependency Injection
+### Automatic Dependency Injection {#dependancy-injection}
 
 Component action methods can resolve dependencies out of Laravel's IoC container, similar to controller methods. For example:
 

@@ -55,7 +55,7 @@ class Counter extends Component
 @endslot
 @endcodeComponent
 
-## Unit Testing
+## Unit Testing {#unit-testing}
 
 @code(['lang' => 'php'])
 class CounterTest extends TestCase
@@ -88,7 +88,7 @@ You can pass data to `Livewire::test()` method to initialize your component prop
 $counter = Livewire::test(Counter::class, $param1, $param2 ...);
 @endcode
 
-## End-to-end Testing
+## End-to-end Testing {#end-to-end-testing}
 
 @code(['lang' => 'php'])
 class CounterTest extends TestCase

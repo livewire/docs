@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
 
 And that's it! This little snippet tells Turbolinks to reload Livewire every time a new page is visited or returned to.
 
-## Render Component As Entire Page
+## Render Component As Entire Page {#render-as-entire-page}
 
 If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helpers to cut out the extra boilerplate code. Take a look at the following example:
 
@@ -66,7 +66,7 @@ Route::livewire('/home', 'counter');
 
 Note: for this feature to work, Livewire assumes you have a layout stored in `resources/views/layouts/app.blade.php` that yields a "content" section (`@@yield('content')`)
 
-### Custom Layout File
+### Custom Layout File {#custom-layout-file}
 If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:
 
 @code(['lang' => 'php'])
@@ -94,7 +94,7 @@ Route::layout('layouts.base')->section('body')->group(function () {
 });
 @endcode
 
-### Route Parameters
+### Route Parameters {#route-params}
 
 Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` lifecycle hook. For example:
 
@@ -126,7 +126,7 @@ class ShowContact extends Component
 
 As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
 
-### Route Model Binding
+### Route Model Binding {#route-model-binding}
 
 Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:
 

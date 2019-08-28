@@ -7,7 +7,7 @@ section: content
 
 # CSS Transitions
 
-## Simple fade transition
+## Simple fade transition {#simple-fade}
 One of the benefits of using Livewire is utilizing familiar backend functionality like Blade, while making smooth front-ends. Livewire provides a simple CSS Transition system to help achieve this effect.
 
 Livewire provides a basic "fade" transition out-of-the-box.
@@ -36,7 +36,7 @@ If your element isn't transitioning in and out as expected, it's possible Livewi
 <div wire:transition.fade key="unique-key">
 @endcode
 
-## Custom transitions
+## Custom transitions {#custom-transitions}
 
 Livewire provides a convenient system for performing more advanced transitions.
 

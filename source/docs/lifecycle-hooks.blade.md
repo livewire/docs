@@ -59,7 +59,7 @@ class HelloWorld extends Component
 }
 @endcode
 
-## Javascript Hooks
+## Javascript Hooks {#js-hooks}
 
 Livewire gives you the opportunity to execute javascript before and after the DOM updates.
 

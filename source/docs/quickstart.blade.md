@@ -23,8 +23,7 @@ Include the JavaScript (on every page that will be using Livewire)
 @endverbatim
 @endcomponent
 
-
-## Create a component
+## Create a component {#create-a-component}
 
 Run the following command to generate a new Livewire component called `counter`.
 
@@ -80,7 +79,7 @@ Livewire components MUST have a single root element (just like you're used to in
 @endslot
 @endcodeComponent
 
-## Include the component
+## Include the component {#include-the-component}
 Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
 
 @code(['lineHighlight' => 3])
@@ -96,11 +95,11 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 @endverbatim
 @endcomponent
 
-## View it in the browser
+## View it in the browser {#view-in-browser}
 
 Now load the page you included Livewire on in the browser. You should see "Hello World!".
 
-## Add "counter" functionality
+## Add "counter" functionality {#add-counter}
 
 Replace the generated content of the `counter` component class and view with the following:
 
@@ -144,6 +143,6 @@ class Counter extends Component
 @endslot
 @endcodeComponent
 
-## View it in the browser
+## View it in the browser {#view-in-browser-finally}
 
 Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.

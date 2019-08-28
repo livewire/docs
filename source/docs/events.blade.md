@@ -9,24 +9,24 @@ section: content
 
 Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.
 
-## Firing Events
+## Firing Events {#firing-events}
 
 There are multiple ways to fire events from Livewire components.
 
-### Method A: From The Template
+### Method A: From The Template {#from-template}
 This method is twice as fast as Method B, so it is the preferred usage.
 
 @code
 <button wire:click="$emit('showModal')">
 @endcode
 
-### Method B: From The Component
+### Method B: From The Component {#from-component}
 
 @code(['lang' => 'php'])
 $this->emit('showModal');
 @endcode
 
-### Method C: From JavaScript
+### Method C: From JavaScript {#from-javascript}
 
 @code(['lang' => 'javascript'])
 <script>
@@ -34,7 +34,7 @@ $this->emit('showModal');
 </script>
 @endcode
 
-## Listening for events in PHP
+## Listening for events in PHP {#in-php}
 Event listeners are registered in the `$listeners` property of your Livewire components.
 
 @codeComponent(['className' => 'Modal'])
@@ -62,7 +62,7 @@ class Modal extends Component
 
 Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
 
-## Listening for events in JavaScript
+## Listening for events in JavaScript {#in-js}
 
 Livewire allows you to register event listeners in JavaScript like so:
 
@@ -78,7 +78,7 @@ window.livewire.on('foo', param => {
 This feature is actually incredibly powerful. It provides a bridge between Livewire and other JS inside your app. For example, if you had a JavaScript function to show a toaster (popup) inside your app to show notification messages, you could trigger them from inside your Livewire component with this feature.
 @endtip
 
-## Listening for Laravel Echo events
+## Listening for Laravel Echo events {#echo-events}
 
 Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
 
