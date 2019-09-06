@@ -4,8 +4,13 @@
 <header class="flex items-center h-24 py-4 bg-white" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
-            <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
+            <!-- Desktop Logo -->
+            <a href="/" title="{{ $page->siteName }} home" class="hidden md:inline-flex items-center">
                 {!! file_get_contents(__DIR__ . "/../source/assets/img/logo.svg") !!}
+            </a>
+            <!-- Mobile Logo -->
+            <a href="/" title="{{ $page->siteName }} home" class="inline-flex md:hidden items-center">
+                {!! file_get_contents(__DIR__ . "/../source/assets/img/logo-small.svg") !!}
             </a>
         </div>
 

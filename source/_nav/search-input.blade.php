@@ -20,7 +20,7 @@
     >
 
     <button
-        class="md:hidden absolute pin-t pin-r h-full font-light text-3xl text-blue hover:text-blue-600 focus:outline-none -mt-px pr-7"
+        class="md:hidden absolute right-0 top-0 h-full font-light text-3xl text-blue-500 hover:text-blue-600 focus:outline-none -mt-1 pr-8"
         onclick="searchInput.toggle()"
     >&times;</button>
 </div>
