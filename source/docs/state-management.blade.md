@@ -21,7 +21,7 @@ Public Properties | Protected Properties
 --- | ---
 Automatically available inside the component's Blade view (similar to mailables). | Must be passed to Blade view via the `render` method.
 Can be used for data-binding (`public $foo;` can be bound via `wire:model="foo"`). | Cannot be referenced by `wire:model`.
-Are sent back and forth with every network request (increase network paylaod). | Are stored in your app's cache between requests (don't increase network payload).
+Are sent back and forth with every network request (increase network payload). | Are stored in your app's cache between requests (don't increase network payload).
 Cannot store sensitive data. (any information stored in them will be visible to JavaScript). | Can store sensitive data (Because data is stored in backend cache).
 They MUST be of PHP type: `null`, `string`, `numeric`, or `array` (because JavaScript has to be able to understand them) | Can be any type of data. Including Eloquent models and collections.
 
@@ -30,7 +30,7 @@ It's common to want to set Eloquent models as public properties. However, this i
 @endwarning
 
 @warning
-Because public properties are stored in your app's cache between Livewire requests, using a cache driver like `redis` in production is best. Livewire does it's best to garbage collect un-used data, but the more users you have using your app, the more your cache will grow because of Livewire.
+Because protected properties are stored in your app's cache between Livewire requests, using a cache driver like `redis` in production is best. Livewire does it's best to garbage collect un-used data, but the more users you have using your app, the more your cache will grow because of Livewire.
 @endwarning
 
 ### Initializing Properties {#initializing-properties}
