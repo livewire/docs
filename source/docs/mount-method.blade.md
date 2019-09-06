@@ -1,11 +1,8 @@
 ---
-title: Rendering Components
-description: todo
+title: The <code>mount()</code> method
 extends: _layouts.documentation
 section: content
 ---
-
-# Rendering Components
 
 ## Initial Parameters {#initial-params}
 

@@ -1,11 +1,8 @@
 ---
 title: Nesting Components
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Nesting Components
 
 Livewire supports nesting components. This feature, allows you to compose components from other components, which is an incredibly powerful architectural pattern.
 

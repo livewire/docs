@@ -1,11 +1,8 @@
 ---
 title: Security
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Security
 
 ## Filtering Middleware {#filtering-middleware}
 

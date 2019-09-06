@@ -1,11 +1,8 @@
 ---
 title: Input Validation
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Input Validation
 
 Consider the following Livewire component:
 

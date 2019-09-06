@@ -1,11 +1,8 @@
 ---
 title: Lifecycle Hooks
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Lifecycle Hooks
 
 ## PHP Hooks
 

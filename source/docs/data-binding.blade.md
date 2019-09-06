@@ -1,11 +1,8 @@
 ---
 title: Data Binding
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Data Binding
 
 If you've used front-end frameworks like Angular, React, or Vue, you are already familiar with this concept. However, if you are new to this concept, allow me to demonstrate.
 

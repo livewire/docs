@@ -1,11 +1,8 @@
 ---
 title: Dirty States
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Dirty States
 
 There are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end Livewire component.
 

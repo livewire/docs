@@ -2,22 +2,45 @@
 
 return [
     'Quickstart' => 'docs/quickstart',
-    'Installation' => 'docs/installation',
-    'Component Basics' => 'docs/component-basics',
-    'Rendering Components' => 'docs/rendering-components',
-    'Data Binding' => 'docs/data-binding',
-    'Triggering Actions' => 'docs/triggering-actions',
-    'Input Validation' => 'docs/input-validation',
-    'Loading States' => 'docs/loading-states',
-    'Dirty States' => 'docs/dirty-states',
-    'Redirecting' => 'docs/redirecting',
-    'Lifecycle Hooks' => 'docs/lifecycle-hooks',
-    'Events' => 'docs/events',
-    'Nesting Components' => 'docs/nesting-components',
-    'CSS Transitions' => 'docs/css-transitions',
-    'Security' => 'docs/security',
+    'The Livewire Developer' => 'docs/the-livewire-developer',
+    'Basics' => [
+        'children' => [
+            'Installation' => 'docs/installation',
+            'Making Components' => 'docs/making-components',
+            'The <code>render()</code> Method' => 'docs/render-method',
+            'State Management' => 'docs/state-management',
+            'The <code>mount()</code> Method' => 'docs/mount-method',
+            'Data Binding' => 'docs/data-binding',
+            'Triggering Actions' => 'docs/triggering-actions',
+            'Lifecycle Hooks' => 'docs/lifecycle-hooks',
+            'Events' => 'docs/events',
+        ],
+    ],
+    'Component Features' => [
+        'children' => [
+            'Input Validation' => 'docs/input-validation',
+            'Pagination' => 'docs/pagination',
+            'Redirecting' => 'docs/redirecting',
+            'Nesting Components' => 'docs/nesting-components',
+        ],
+    ],
+    'UI Niceties' => [
+        'children' => [
+            'Defer Loading' => 'docs/defer-loading',
+            'Prefetching' => 'docs/prefetching',
+            'Polling' => 'docs/polling',
+            'Loading States' => 'docs/loading-states',
+            'Dirty States' => 'docs/dirty-states',
+            'CSS Transitions' => 'docs/css-transitions',
+            'Custom JavaScript' => 'docs/custom-javascript',
+        ],
+    ],
     'Testing' => 'docs/testing',
-    'Custom JavaScript' => 'docs/custom-javascript',
-    'SPA Mode' => 'docs/spa-mode',
+    'Advanced' => [
+        'children' => [
+            'SPA Mode' => 'docs/spa-mode',
+            'Security' => 'docs/security',
+        ],
+    ],
     'API Reference' => 'docs/api',
 ];

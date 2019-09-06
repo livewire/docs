@@ -1,23 +1,26 @@
 ---
 title: Quickstart
-description: todo
 extends: _layouts.documentation
 section: content
 ---
 
 ## Install Livewire
 
-Include the PHP
+Include the PHP.
+
 @code(['lang' => 'bash'])
 composer require calebporzio/livewire
 @endcode
 
-Include the JavaScript (on every page that will be using Livewire)
+Include the JavaScript (on every page that will be using Livewire).
 
 @code
 @verbatim
     ...
     @livewireAssets
+</head>
+<body>
+    ...
 </body>
 </html>
 @endverbatim
@@ -64,7 +67,7 @@ class Counter extends Component
 Let's add some text to the view so we can see something tangible in the browser.
 
 @tip
-Livewire components MUST have a single root element (just like you're used to in Vue).
+Livewire components MUST have a single root element.
 @endtip
 
 @codeComponent([
@@ -82,14 +85,14 @@ Livewire components MUST have a single root element (just like you're used to in
 ## Include the component {#include-the-component}
 Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
 
-@code(['lineHighlight' => 3])
+@code(['lineHighlight' => 6])
 @verbatim
-<body>
-    <div>
-        @livewire('counter')
-    </div>
-
+<head>
+    ...
     @livewireAssets
+</head>
+<body>
+    @livewire('counter')
 </body>
 </html>
 @endverbatim
@@ -97,7 +100,7 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 
 ## View it in the browser {#view-in-browser}
 
-Now load the page you included Livewire on in the browser. You should see "Hello World!".
+Load the page you included Livewire on in the browser. You should see "Hello World!".
 
 ## Add "counter" functionality {#add-counter}
 
@@ -145,4 +148,4 @@ class Counter extends Component
 
 ## View it in the browser {#view-in-browser-finally}
 
-Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic.
+Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic 🧙‍♂.️

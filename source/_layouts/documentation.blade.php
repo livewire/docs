@@ -12,6 +12,8 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
+            <h1>{!! $page->title !!}</h1>
+
             @yield('content')
         </div>
     </div>

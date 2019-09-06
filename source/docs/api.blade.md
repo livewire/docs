@@ -1,11 +1,8 @@
 ---
 title: API Reference
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# API Reference
 
 ## Template API
 

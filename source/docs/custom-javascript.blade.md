@@ -1,11 +1,8 @@
 ---
 title: Custom JavaScript
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Custom JavaScript
 
 Although Livewire should reduce the amount of JavaScript you need to write in your applications, there are certain places where JavaScript is still very much necessary. Therefore, it is important that Livewire plays nice with modern JavaScript tools like Vue out-of-the-box.
 
