@@ -3,7 +3,7 @@
 return [
     'Quickstart' => 'docs/quickstart',
     'The Livewire Developer' => 'docs/the-livewire-developer',
-    'Basics' => [
+    'The Basics' => [
         'children' => [
             'Installation' => 'docs/installation',
             'Making Components' => 'docs/making-components',

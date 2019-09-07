@@ -67,7 +67,7 @@ afterDomUpdate | Runs after livewire updates the DOM
 
 @code(['lang' => 'js'])
 <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("livewire:load", function(event) {
         window.livewire.beforeDomUpdate(() => {
             // Add your custom JavaScript here.
         });
