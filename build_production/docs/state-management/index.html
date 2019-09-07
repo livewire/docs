@@ -37,7 +37,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=d321d5229a661d298051">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=37cbc9f6009104f78dc9">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -488,7 +488,7 @@
 <td>Cannot be referenced by <code>wire:model</code>.</td>
 </tr>
 <tr>
-<td>Are sent back and forth with every network request (increase network paylaod).</td>
+<td>Are sent back and forth with every network request (increase network payload).</td>
 <td>Are stored in your app's cache between requests (don't increase network payload).</td>
 </tr>
 <tr>
@@ -524,7 +524,7 @@
     </div>
 
     <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
-        Because public properties are stored in your app's cache between Livewire requests, using a cache driver like `redis` in production is best. Livewire does it's best to garbage collect un-used data, but the more users you have using your app, the more your cache will grow because of Livewire.
+        Because protected properties are stored in your app's cache between Livewire requests, using a cache driver like `redis` in production is best. Livewire does it's best to garbage collect un-used data, but the more users you have using your app, the more your cache will grow because of Livewire.
     </div>
 </div>
 <h3 id="initializing-properties">Initializing Properties</h3>
