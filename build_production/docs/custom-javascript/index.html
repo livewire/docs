@@ -464,12 +464,50 @@
 
             <p>Although Livewire should reduce the amount of JavaScript you need to write in your applications, there are certain places where JavaScript is still very much necessary. Therefore, it is important that Livewire plays nice with modern JavaScript tools like Vue out-of-the-box.</p>
 <h2 id="vanilla-javascript">Vanilla JavaScript</h2>
-<p>To package JavaScript up with a component, just add a <code>&lt;script&gt;</code> tag inside the component's root div. For example:</p>
+<p>The best way to write JavaScript in a livewire component, is using Blade <a href="https://laravel.com/docs/6.0/blade#stacks">stacks</a>. This way you won't block DOM rendering in the browser, because your JavaScript will be grouped and rendered in the proper place.</p>
+<h3 id="scripts-stack">Setting up a &quot;scripts&quot; stack</h3>
+<p>Declare a <code>@stack('scripts')</code> inside your Blade layout file.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">...
+    @livewireAssets
+    @stack('scripts')
+&lt;/head&gt;</code></pre>
+</div>
+<h3 id="push-to-scripts-stack">Pushing to the scripts stack</h3>
+<p>Now, from your component's Blade view, you can push to the <code>scripts</code> stack:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;script&gt;alert('Hello World');&lt;/script&gt;
-&lt;/div&gt;</code></pre>
+    &lt;!-- Your components HTML --&gt;
+&lt;/div&gt;
+
+@push('scripts')
+&lt;script type="text/javascript"&gt;
+    // Your JS here.
+&lt;/script&gt;
+@endpush</code></pre>
 </div>
+<h3>Accessing the JavaScript component instance</h3>
+<p>Because Livewire has both a PHP AND a JavaScript portion, each component also has a JavaScript object. You can access this object using the special <code>@this</code> blade directive in your component's view.</p>
+<p>Here's an example:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-javascript">...
+
+@push('scripts')
+&lt;script type="text/javascript"&gt;
+    // Get the value of the "count" property
+    var someValue = @this.get('count')
+
+    // Set the value of the "count" property
+    @this.set('count', 5)
+
+    // Call the increment component action
+    @this.call('increment')
+&lt;/script&gt;
+@endpush</code></pre>
+</div>
+<blockquote>
+<p>Note: the <code>@this</code> directive compiles to the following string for JavaScript to interpret: &quot;window.livewire.find([component-id])&quot;</p>
+</blockquote>
 <h2 id="vue">VueJs</h2>
 <p>Livewire makes it extremely easy to use Vue components inside your Livewire components, and it even goes a step further and interfaces with them directly!</p>
 <p>Let's say we have a <code>&lt;loading-spinner&gt;</code> Vue component, and we want to use it in our Livewire component.</p>
