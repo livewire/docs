@@ -23,7 +23,7 @@ Automatically available inside the component's Blade view (similar to mailables)
 Can be used for data-binding (`public $foo;` can be bound via `wire:model="foo"`). | Cannot be referenced by `wire:model`.
 Are sent back and forth with every network request (increase network payload). | Are stored in your app's cache between requests (don't increase network payload).
 Cannot store sensitive data. (any information stored in them will be visible to JavaScript). | Can store sensitive data (Because data is stored in backend cache).
-They MUST be of PHP type: `null`, `string`, `numeric`, or `array` (because JavaScript has to be able to understand them) | Can be any type of data. Including Eloquent models and collections.
+They MUST be of PHP type: `null`, `string`, `numeric`, `boolean`, or `array` (because JavaScript has to be able to understand them) | Can be any type of data. Including Eloquent models and collections.
 
 @warning
 It's common to want to set Eloquent models as public properties. However, this is not what public properties are intended for. It's much better to store them in protected properties.
