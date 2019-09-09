@@ -59,6 +59,39 @@ class Modal extends Component
 
 Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
 
+@tip
+You can also send parameters through the event bus.
+@endtip
+
+@code(['lang' => 'php'])
+$this->emit('showModal', 'My custom message for the modal');
+@endcode
+
+@codeComponent(['className' => 'Modal'])
+@slot('class')
+use Livewire\Component;
+
+class Modal extends Component
+{
+    public $message = null;
+    public $isOpen = false;
+
+    protected $listeners = ['showModal' => 'open'];
+
+    public function open($message)
+    {
+        $this->isOpen = true;
+        $this->message = $message; // Will be 'My custom message for the modal' 
+    }
+
+    public function render()
+    {
+        return view('livewire.modal');
+    }
+}
+@endslot
+@endcodeComponent
+
 ## Listening for events in JavaScript {#in-js}
 
 Livewire allows you to register event listeners in JavaScript like so:
