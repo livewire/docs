@@ -6,7 +6,7 @@ section: content
 
 Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.
 
-## Include the PHP {#include-php}
+## Install the package {#install-package}
 @code(['lang' => 'bash'])
 @verbatim
 composer require calebporzio/livewire
@@ -46,5 +46,31 @@ To fix this, you can optionally pass in a `base_url` option to the `@livewireAss
 @code(['lang' => 'php'])
 @verbatim
 @livewireAssets(['base_url' => 'http://yourapp.com/admin']);
+@endverbatim
+@endcode
+
+## Publishing assets {#publish-assets}
+
+If you prefer the JavaScript assets to be served by your web server not through Laravel, use the `vendor:publish` command:
+
+@code(['lang' => 'bash'])
+@verbatim
+php artisan vendor:publish --tag=livewire-assets
+@endverbatim
+@endcode
+
+To keep the assets up-to-date and avoid issues in future updates, **we highly recommend** adding the command to the `post-autoload-dump` scripts in your `composer.json` file:
+
+@code(['lang' => 'json'])
+@verbatim
+{
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire-assets --ansi"
+        ]
+    }
+}
 @endverbatim
 @endcode
