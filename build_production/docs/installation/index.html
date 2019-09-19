@@ -463,7 +463,7 @@
             <h1>Installation</h1>
 
             <p>Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.</p>
-<h2 id="include-php">Include the PHP</h2>
+<h2 id="install-package">Install the package</h2>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-bash">composer require calebporzio/livewire</code></pre>
 </div>
@@ -487,10 +487,60 @@
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;script src="http://yourapp.com/admin/livewire/livewire.js?id=123456789" defer&gt;&lt;/script&gt;</code></pre>
 </div>
-<p>To fix this, you can optionally pass in a <code>base_url</code> option to the <code>@livewireAssets</code> directive like so:</p>
+<p>To fix this, you can optionally pass in a <code>asset_url</code> option to the <code>@livewireAssets</code> directive like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewireAssets(['base_url' =&gt; 'http://yourapp.com/admin']);</code></pre>
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewireAssets(['asset_url' =&gt; 'http://yourapp.com/admin']);</code></pre>
 </div>
+<h2 id="publish-assets">Publishing assets</h2>
+<p>If you prefer the JavaScript assets to be served by your web server not through Laravel, use the <code>vendor:publish</code> command:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash">php artisan vendor:publish --tag=livewire:assets</code></pre>
+</div>
+<p>To keep the assets up-to-date and avoid issues in future updates, we <strong>highly recommend</strong> adding the command to the <code>post-autoload-dump</code> scripts in your <code>composer.json</code> file:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-json">{
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
+        ]
+    }
+}</code></pre>
+</div>
+<h2 id="publishing-config">Publishing the config file</h2>
+<p>Livewire aims for &quot;zero-configuration&quot; out-of-the-box, but some users require more configuration options.</p>
+<p>You can publish Livewire's config file with the following artisan command:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash">php artisan vendor:publish --tag=livewire:config</code></pre>
+</div>
+<p>Here are the configurable options contained in this config file:</p>
+<table>
+<thead>
+<tr>
+<th>Config Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;class_namespace&quot;</td>
+<td>&quot;App\Http\Livewire&quot;</td>
+<td>The folder to install Livewire classes and look for them.</td>
+</tr>
+<tr>
+<td>&quot;view_path&quot;</td>
+<td><code>resource_path('view')</code></td>
+<td>The folder to add Livewire component views to.</td>
+</tr>
+<tr>
+<td>&quot;asset_url&quot;</td>
+<td>null</td>
+<td>The url to load the Livewire JavaScript assets from.</td>
+</tr>
+</tbody>
+</table>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">
