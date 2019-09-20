@@ -9,7 +9,7 @@ Livewire has both a PHP component AND a Javascript component. You need to make s
 ## Install the package {#install-package}
 @code(['lang' => 'bash'])
 @verbatim
-composer require calebporzio/livewire
+composer require livewire/livewire
 @endverbatim
 @endcode
 

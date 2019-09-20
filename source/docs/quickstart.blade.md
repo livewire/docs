@@ -9,7 +9,7 @@ section: content
 Include the PHP.
 
 @code(['lang' => 'bash'])
-composer require calebporzio/livewire
+composer require livewire/livewire
 @endcode
 
 Include the JavaScript (on every page that will be using Livewire).
