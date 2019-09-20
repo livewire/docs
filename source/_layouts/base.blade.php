@@ -58,7 +58,7 @@
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
-                    &copy; <a href="https://livewire-framework.com" title="Livewire">Livewire</a> {{ date('Y') }}.
+                    &copy; <a href="https://laravel-livewire.com" title="Livewire">Livewire</a> {{ date('Y') }}.
                 </li>
 
                 <li>
