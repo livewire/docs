@@ -1,4 +1,4 @@
-window.docsearch = require('docsearch.js');
+// window.docsearch = require('docsearch.js');
 
 import Prism from 'prismjs'
 import animate from 'animateplus'

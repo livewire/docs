@@ -1,13 +1,10 @@
 ---
 title: CSS Transitions
-description: todo
 extends: _layouts.documentation
 section: content
 ---
 
-# CSS Transitions
-
-## Simple fade transition
+## Simple fade transition {#simple-fade}
 One of the benefits of using Livewire is utilizing familiar backend functionality like Blade, while making smooth front-ends. Livewire provides a simple CSS Transition system to help achieve this effect.
 
 Livewire provides a basic "fade" transition out-of-the-box.
@@ -36,22 +33,31 @@ If your element isn't transitioning in and out as expected, it's possible Livewi
 <div wire:transition.fade key="unique-key">
 @endcode
 
-## Custom transitions
+## Simple slide transition {#simple-slide}
+
+In addition to simple "fade" functionality. Livewire offers "slide" functionality.
+
+@code
+<div wire:transition.slide>Jerry</div>
+@endcode
+
+You can customize the direction of the slide by adding extra modifiers:
+
+@code
+<div wire:transition.slide.up>Jerry</div>
+<div wire:transition.slide.down>Jerry</div>
+<div wire:transition.slide.left>Jerry</div>
+<div wire:transition.slide.right>Jerry</div>
+@endcode
+
+## Custom transitions {#custom-transitions}
 
 Livewire provides a convenient system for performing more advanced transitions.
 
 Let's say we want to add a "fade in and out" transition to a confirmation modal in our component. To achieve this, we need to first declare the transition in our view using Livewire's `wire:transition` directive.
 
-@code(['lang' => 'php'])
-@verbatim
-<div>
-    @if($showConfirmationModal)
-        <div wire:transition="fade">
-            ...
-        </div>
-    @endif
-</div>
-@endverbatim
+@code
+<div wire:transition="fade">
 @endcode
 
 Now, we need to provide the appropriate CSS selectors in our app's stylesheet for this transition:

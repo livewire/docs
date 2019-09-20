@@ -1,32 +1,37 @@
 ---
 title: Events
-description: todo
 extends: _layouts.documentation
 section: content
 ---
 
-# Events
-
 Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.
 
-## Firing Events
+## Firing Events {#firing-events}
 
-There are two ways to fire events from Livewire components.
+There are multiple ways to fire events from Livewire components.
 
-### Method A: From The Template
+### Method A: From The Template {#from-template}
 This method is twice as fast as Method B, so it is the preferred usage.
 
 @code
 <button wire:click="$emit('showModal')">
 @endcode
 
-### Method B: From The Component
+### Method B: From The Component {#from-component}
 
 @code(['lang' => 'php'])
 $this->emit('showModal');
 @endcode
 
-## Listening For Events
+### Method C: From JavaScript {#from-javascript}
+
+@code(['lang' => 'javascript'])
+<script>
+    window.livewire.emit('showModal')
+</script>
+@endcode
+
+## Listening for events in PHP {#in-php}
 Event listeners are registered in the `$listeners` property of your Livewire components.
 
 @codeComponent(['className' => 'Modal'])
@@ -54,27 +59,47 @@ class Modal extends Component
 
 Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
 
-## Listening for global events
-
-Livewire allows you to register global event listeners in JavaScript.
-
-Let's say a Livewire component emitted an event like so:
+@tip
+You can also send parameters through the event bus.
+@endtip
 
 @code(['lang' => 'php'])
-public function increment()
-{
-    $this->count++;
-
-    $this->emit('incremented', $this->count);
-}
+$this->emit('showModal', 'My custom message for the modal');
 @endcode
 
-You could register a global listener for it in JavaScript.
+@codeComponent(['className' => 'Modal'])
+@slot('class')
+use Livewire\Component;
+
+class Modal extends Component
+{
+    public $message = null;
+    public $isOpen = false;
+
+    protected $listeners = ['showModal' => 'open'];
+
+    public function open($message)
+    {
+        $this->isOpen = true;
+        $this->message = $message; // Will be 'My custom message for the modal' 
+    }
+
+    public function render()
+    {
+        return view('livewire.modal');
+    }
+}
+@endslot
+@endcodeComponent
+
+## Listening for events in JavaScript {#in-js}
+
+Livewire allows you to register event listeners in JavaScript like so:
 
 @code(['lang' => 'javascript'])
 <script>
-window.livewire.on('incremented', count => {
-    alert('The count was incremented to: ' + count);
+window.livewire.on('foo', param => {
+    alert('The foo event was called with the param: ' + param);
 })
 </script>
 @endcode
@@ -83,7 +108,7 @@ window.livewire.on('incremented', count => {
 This feature is actually incredibly powerful. It provides a bridge between Livewire and other JS inside your app. For example, if you had a JavaScript function to show a toaster (popup) inside your app to show notification messages, you could trigger them from inside your Livewire component with this feature.
 @endtip
 
-## Listening for Laravel Echo events
+## Listening for Laravel Echo events {#echo-events}
 
 Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
 

@@ -1,13 +1,10 @@
 ---
 title: Redirecting
-description: todo
 extends: _layouts.documentation
 section: content
 ---
 
-# Redirecting
-
-You may want to redirect from inside a Livewire component to another route in your app. Livewire offers two methods to achieve this; a builtin `$this->redirect()` method and support for Laravel redirects :
+You may want to redirect from inside a Livewire component to another route in your app. Livewire offers two methods to achieve this; a built in `$this->redirect()` method and support for Laravel redirects:
 
 @codeComponent([
     'className' => 'ContactForm.php',
@@ -26,11 +23,10 @@ class ContactForm extends Component
         Contact::create(['email' => $this->email]);
 
         $this->redirect('/contact-form-success');
-        
-        //OR
-        
+
+        // Or
+
         return redirect()->to('/contact-form-success');
-            
     }
 
     public function render()
@@ -52,3 +48,7 @@ class ContactForm extends Component
 @endcodeComponent
 
 Now, after the user clicks "Submit" and their contact is added to the database, they will be redirected to the success page (`/contact-form-success`).
+
+@tip
+Because Livewire works with Laravel's redirection system, you can use any notation you are used to like <code>redirect('/foo')</code>, <code>redirect()->to('/foo')</code>, <code>redirect()->route('food')</code>.
+@endtip

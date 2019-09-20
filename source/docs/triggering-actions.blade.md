@@ -1,11 +1,8 @@
 ---
 title: Triggering Actions
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Triggering Actions
 
 Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: `wire:[native event]="[action]"`.
 
@@ -41,7 +38,7 @@ Here are a few examples of each in HTML:
 You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
 @endtip
 
-## Modifiers
+## Modifiers {#modifiers}
 
 Like you saw in the **keydown** example, Livewire directives sometimes offer "modifiers" to add extra functionality to an event. Below are the available modifiers that can be used with any event:
 
@@ -50,7 +47,7 @@ Modifier | Description
 stop | Equivalent of `event.stopPropagation()`
 prevent | Equivalent of `event.preventDefault()`
 
-## Keydown Modifiers
+## Keydown Modifiers {#keydown-modifiers}
 
 To listen for specific keys on **keydown** events, you can pass the name of the key as a modifier. You can directly use any valid key names exposed via [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
 
@@ -70,7 +67,7 @@ ArrowRight | arrow-right
 
 In the above example, the handler will only be called if `event.key` is equal to 'PageDown'.
 
-## Special Actions
+## Special Actions {#special-actions}
 In Livewire, there are some "special" actions that are usually prefixed with a "$" symbol:
 
 Function | Description
@@ -112,31 +109,3 @@ Notice that we are no longer calling the `setMessageToHello` function, we are di
 @tip
 This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
 @endtip
-
-## Polling Actions
-Livewire offers a directive called `wire:poll="foo"` that, when added to an element, will fire `foo` to the Livewire component every `500ms`. You can customize the frequency by passing a directive modifier like `750ms`. For example:
-
-@code
-@verbatim
-<div wire:poll.750ms="$refresh">
-    Current time: {{ now() }}
-</div>
-@endverbatim
-@endcode
-
-## Triggering Actions On Load
-Livewire offers a `wire:init` directive to run an action as soon as the component is rendered. This can be helpful in cases where you don't want to hold up the entire page load, but want to load some data immediately after the page load.
-
-@code
-@verbatim
-<div wire:init="loadTodos">
-    <ul>
-        @foreach ($todos as $todo)
-            <li>{{ $todo }}</li>
-        @endforeach
-    </ul>
-</div>
-@endverbatim
-@endcode
-
-The `loadTodos` action will be run imediately after the Livewire component renders on the page.

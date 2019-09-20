@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-41657217-15');
+        </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="todo">
+        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire"/>
         <meta property="og:title" content="Custom JavaScript | Livewire"/>
-        <meta property="og:description" content="todo"/>
-        <meta property="og:url" content="https://livewire-framework.com/docs/custom-javascript"/>
+        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/custom-javascript"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -17,24 +26,27 @@
         <meta name="twitter:image:alt" content="Livewire">
         <meta name="twitter:card" content="summary">
 
+                    <meta name="generator" content="tighten_jigsaw_doc">
         
         <title>Custom JavaScript | Livewire</title>
 
-        <link rel="home" href="https://livewire-framework.com/">
+        <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
         
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=f366033ca230a7a3a678">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=8c3984a779cb4cf49f47">
 
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
         <header class="flex items-center h-24 py-4 bg-white" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
-            <a href="/" title="Livewire home" class="inline-flex items-center">
+            <!-- Desktop Logo -->
+            <a href="/" title="Livewire home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -76,11 +88,75 @@
 </svg>
 
             </a>
+            <!-- Mobile Logo -->
+            <a href="/" title="Livewire home" class="inline-flex md:hidden items-center">
+                <?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M6.56412344,4.2010364 L6.56412344,14.3340262 C6.56412344,16.1466588 5.09469436,17.6160879 3.28206172,17.6160879 C1.46942908,17.6160879 -3.01424984e-14,16.1466588 -2.84217094e-14,14.3340262 L-2.84217094e-14,2.10303772 C0.612569366,0.975880585 1.31235016,1.09583399e-13 2.57395204,1.0658141e-13 C4.62770583,1.01694493e-13 5.34527592,2.58612065 6.56412344,4.2010364 Z M18.9630233,4.72854296 L18.9630233,20.7485589 C18.9630233,22.7625951 17.3303243,24.3952941 15.316288,24.3952941 C13.3022518,24.3952941 11.6695528,22.7625951 11.6695528,20.7485589 L11.6695528,2.61818622 C12.356281,1.29092604 13.0641104,1.0658141e-13 14.5151346,1.0658141e-13 C16.8123798,1.0658141e-13 17.4378258,3.2356888 18.9630233,4.72854296 Z M30.632576,4.43468127 L30.632576,16.0663988 C30.632576,17.8790315 29.163147,19.3484605 27.3505143,19.3484605 C25.5378817,19.3484605 24.0684526,17.8790315 24.0684526,16.0663988 L24.0684526,1.77158165 C24.6398942,0.79117772 25.3203625,1.0658141e-13 26.4563172,1.0658141e-13 C28.6123668,1.0658141e-13 29.2958092,2.85016194 30.632576,4.43468127 Z" id="hyrule"></path>
+        <path d="M6.56412344,7.30420719 C5.98192772,6.58960487 5.29276761,6.05932536 4.2960442,6.05932536 C1.92928391,6.05932536 1.49483765,9.04927637 9.43689571e-16,10.3972635 L0,-2.5074012 C6.66194944e-16,-4.32003383 1.46942908,-5.78946292 3.28206172,-5.78946292 C5.09469436,-5.78946292 6.56412344,-4.32003383 6.56412344,-2.5074012 L6.56412344,7.30420719 Z M18.9630233,7.53490866 C18.3420899,6.70676077 17.6162663,6.05932536 16.5149287,6.05932536 C13.8817737,6.05932536 13.640403,9.76023394 11.6695528,10.7834271 L11.6695528,5.07109342 C11.6695528,3.05705716 13.3022518,1.42435818 15.316288,1.42435818 C17.3303243,1.42435818 18.9630233,3.05705716 18.9630233,5.07109342 L18.9630233,7.53490866 Z M30.632576,6.89483648 C30.127336,6.39622707 29.5282765,6.05932536 28.7338132,6.05932536 C26.1830333,6.05932536 25.8767302,9.53229907 24.0684526,10.6797325 L24.0684526,-0.904329842 C24.0684526,-2.71696248 25.5378817,-4.18639156 27.3505143,-4.18639156 C29.163147,-4.18639156 30.632576,-2.71696248 30.632576,-0.904329842 L30.632576,6.89483648 Z" id="path3"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Custom-Preset-3-Copy" transform="translate(-113.000000, -111.000000)">
+            <g id="NotJelly" transform="translate(108.000000, 111.000000)">
+                <path d="M49.3930984,35.2026072 C48.53136,36.5085756 47.8766542,38.1176471 46.1246402,38.1176471 C43.1760436,38.1176471 43.0166173,33.5601023 40.0664421,33.5601023 C37.116267,33.5601023 37.2756933,38.1176471 34.3270966,38.1176471 C31.3784999,38.1176471 31.2190737,33.5601023 28.2688985,33.5601023 C25.3187234,33.5601023 25.4781496,38.1176471 22.529553,38.1176471 C19.5809563,38.1176471 19.42153,33.5601023 16.4713549,33.5601023 C13.5211797,33.5601023 13.680606,38.1176471 10.7320093,38.1176471 C9.80532556,38.1176471 9.15413279,37.6674908 8.60521963,37.0501281 C6.49531545,33.369494 5.28147863,29.0563664 5.28147863,24.4450128 C5.28147863,10.944405 15.6857121,0 28.5199846,0 C41.3542571,0 51.7584906,10.944405 51.7584906,24.4450128 C51.7584906,28.3052214 50.9078913,31.9564475 49.3930984,35.2026072 Z" id="Body-Copy-2" fill="#FB70A9"></path>
+                <g id="Legs" transform="translate(12.675549, 28.588235)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#hyrule"></use>
+                    </mask>
+                    <use id="Combined-Shape" fill="#4E56A6" xlink:href="#hyrule"></use>
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path3"></use>
+                    </mask>
+                    <use id="Combined-Shape" fill-opacity="0.298513986" fill="#000000" xlink:href="#path3"></use>
+                </g>
+                <path d="M49.3930984,35.2026072 C48.53136,36.5085756 47.8766542,38.1176471 46.1246402,38.1176471 C43.1760436,38.1176471 43.0166173,33.5601023 40.0664421,33.5601023 C37.116267,33.5601023 37.2756933,38.1176471 34.3270966,38.1176471 C31.3784999,38.1176471 31.2190737,33.5601023 28.2688985,33.5601023 C25.3187234,33.5601023 25.4781496,38.1176471 22.529553,38.1176471 C19.5809563,38.1176471 19.42153,33.5601023 16.4713549,33.5601023 C13.5211797,33.5601023 13.680606,38.1176471 10.7320093,38.1176471 C9.80532556,38.1176471 9.15413279,37.6674908 8.60521963,37.0501281 C6.49531545,33.369494 5.28147863,29.0563664 5.28147863,24.4450128 C5.28147863,10.944405 15.6857121,0 28.5199846,0 C41.3542571,0 51.7584906,10.944405 51.7584906,24.4450128 C51.7584906,28.3052214 50.9078913,31.9564475 49.3930984,35.2026072 Z" id="Body-Copy-4" fill="#FB70A9"></path>
+                <path d="M44.3644205,37.6306868 C50.4542062,28.5496076 50.6115652,18.4766335 44.8364974,7.41176471 C49.1172048,11.8076686 51.7584906,17.8402256 51.7584906,24.4965033 C51.7584906,28.3421746 50.8768393,31.9796503 49.3067473,35.2135851 C48.4135502,36.5146353 47.7349437,38.1176471 45.9189706,38.1176471 C45.297438,38.1176471 44.7954693,37.9298686 44.3644205,37.6306868 Z" id="Combined-Shape" fill="#E24CA6"></path>
+                <g id="Eyes-Copy-2" transform="translate(0.000000, 6.352941)">
+                    <path d="M27.2740973,24.1900452 C35.3553114,24.1900452 38.7579278,19.4907103 38.7579278,12.8169478 C38.7579278,6.14318519 33.6164418,0 27.2740973,0 C20.9317529,0 15.7902669,6.14318519 15.7902669,12.8169478 C15.7902669,19.4907103 19.1928833,24.1900452 27.2740973,24.1900452 Z" id="Oval" fill="#FFFFFF"></path>
+                    <g id="Pupil" transform="translate(19.880027, 3.665158)">
+                        <ellipse id="Oval" fill="#030776" cx="4.30643642" cy="4.76470588" rx="4.30643642" ry="4.76470588"></ellipse>
+                        <ellipse id="Oval" fill="#FFFFFF" cx="3.58869702" cy="3.66515837" rx="2.15321821" ry="2.19909502"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+
+            </a>
         </div>
 
         <div class="flex flex-1 justify-end items-center text-right md:pl-10">
-                        <a href="https://github.com/calebporzio/livewire">
-                <svg class="fill-current text-blue-800 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+                            <button
+    title="Start searching"
+    type="button"
+    class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center border border-gray rounded-full focus:outline-none h-10 px-3"
+    onclick="searchInput.toggle()"
+>
+    <img src="/assets/img/magnifying-glass.svg" alt="search icon" class="h-4 w-4 max-w-none">
+</button>
+
+<div id="js-search-input" class="docsearch-input__wrapper hidden md:block">
+    <label for="search" class="hidden">Search</label>
+
+    <input
+        id="docsearch-input"
+        class="docsearch-input relative block h-10 w-full lg:w-1/2 xl:w-1/3 bg-gray-100 outline-none rounded-full text-gray-700 border border-gray focus:border-blue-400 ml-auto px-4 pb-0"
+        style="transition: width .2s;"
+        name="docsearch"
+        type="text"
+        placeholder="Search"
+    >
+
+    <button
+        class="md:hidden absolute right-0 top-0 h-full font-light text-3xl text-blue-500 hover:text-blue-600 focus:outline-none -mt-1 pr-8"
+        onclick="searchInput.toggle()"
+    >&times;</button>
+</div>
+
+                        <a href="https://github.com/livewire/livewire">
+                <svg class="fill-current text-blue-800 w-8 ml-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
             </a>
         </div>
     </div>
@@ -125,8 +201,23 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/installation"
+        <a href="/docs/the-livewire-developer"
             class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            The Livewire Developer
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/installation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Installation
         </a>
@@ -134,26 +225,44 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/component-basics"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+        <a href="/docs/making-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Component Basics
+            Making Components
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/rendering-components"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+        <a href="/docs/render-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Rendering Components
+            The <code>render()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/state-management"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            State Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/mount-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>mount()</code> Method
         </a>
     
     </li>
             <li class="pl-4">
             
         <a href="/docs/data-binding"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Data Binding
         </a>
@@ -162,7 +271,7 @@
             <li class="pl-4">
             
         <a href="/docs/triggering-actions"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Triggering Actions
         </a>
@@ -170,35 +279,8 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/input-validation"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Input Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
         <a href="/docs/lifecycle-hooks"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Lifecycle Hooks
         </a>
@@ -207,25 +289,113 @@
             <li class="pl-4">
             
         <a href="/docs/events"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Events
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/input-validation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Input Validation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/pagination"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Pagination
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/redirecting"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Redirecting
         </a>
     
     </li>
             <li class="pl-4">
             
         <a href="/docs/nesting-components"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Nesting Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/defer-loading"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Defer Loading
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/prefetching"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Prefetching
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/polling"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Polling
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/loading-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Loading States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/dirty-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Dirty States
         </a>
     
     </li>
             <li class="pl-4">
             
         <a href="/docs/css-transitions"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
             CSS Transitions
         </a>
@@ -233,12 +403,14 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/security"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+        <a href="/docs/custom-javascript"
+            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
-            Security
+            Custom JavaScript
         </a>
     
+    </li>
+    </ul>
     </li>
             <li class="pl-4">
             
@@ -251,21 +423,29 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/custom-javascript"
-            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/spa-mode"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Custom JavaScript
+            SPA Mode
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/spa-mode"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+        <a href="/docs/security"
+            class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            SPA Mode
+            Security
         </a>
     
+    </li>
+    </ul>
     </li>
             <li class="pl-4">
             
@@ -279,17 +459,56 @@
     </ul>
         </nav>
 
-        <div class="w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
+        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
             <h1>Custom JavaScript</h1>
-<p>Although Livewire should reduce the amount of JavaScript you need to write in your applications, there are certain places where JavaScript is still very much necessary. Therefore, it is important that Livewire plays nice with modern JavaScript tools like Vue out-of-the-box.</p>
-<h2>Vanilla JavaScript</h2>
-<p>To package JavaScript up with a component, just add a <code>&lt;script&gt;</code> tag inside the component's root div. For example:</p>
+
+            <p>Although Livewire should reduce the amount of JavaScript you need to write in your applications, there are certain places where JavaScript is still very much necessary. Therefore, it is important that Livewire plays nice with modern JavaScript tools like Vue out-of-the-box.</p>
+<h2 id="vanilla-javascript">Vanilla JavaScript</h2>
+<p>The best way to write JavaScript in a livewire component, is using Blade <a href="https://laravel.com/docs/6.0/blade#stacks">stacks</a>. This way you won't block DOM rendering in the browser, because your JavaScript will be grouped and rendered in the proper place.</p>
+<h3 id="scripts-stack">Setting up a &quot;scripts&quot; stack</h3>
+<p>Declare a <code>@stack('scripts')</code> inside your Blade layout file.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">...
+    @livewireAssets
+    @stack('scripts')
+&lt;/head&gt;</code></pre>
+</div>
+<h3 id="push-to-scripts-stack">Pushing to the scripts stack</h3>
+<p>Now, from your component's Blade view, you can push to the <code>scripts</code> stack:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;script&gt;alert('Hello World');&lt;/script&gt;
-&lt;/div&gt;</code></pre>
+    &lt;!-- Your components HTML --&gt;
+&lt;/div&gt;
+
+@push('scripts')
+&lt;script type="text/javascript"&gt;
+    // Your JS here.
+&lt;/script&gt;
+@endpush</code></pre>
 </div>
-<h2>VueJs</h2>
+<h3>Accessing the JavaScript component instance</h3>
+<p>Because Livewire has both a PHP AND a JavaScript portion, each component also has a JavaScript object. You can access this object using the special <code>@this</code> blade directive in your component's view.</p>
+<p>Here's an example:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-javascript">...
+
+@push('scripts')
+&lt;script type="text/javascript"&gt;
+    // Get the value of the "count" property
+    var someValue = @this.get('count')
+
+    // Set the value of the "count" property
+    @this.set('count', 5)
+
+    // Call the increment component action
+    @this.call('increment')
+&lt;/script&gt;
+@endpush</code></pre>
+</div>
+<blockquote>
+<p>Note: the <code>@this</code> directive compiles to the following string for JavaScript to interpret: &quot;window.livewire.find([component-id])&quot;</p>
+</blockquote>
+<h2 id="vue">VueJs</h2>
 <p>Livewire makes it extremely easy to use Vue components inside your Livewire components, and it even goes a step further and interfaces with them directly!</p>
 <p>Let's say we have a <code>&lt;loading-spinner&gt;</code> Vue component, and we want to use it in our Livewire component.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -310,10 +529,10 @@
     </div>
 
     <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
-        In order to use Livewire with Vue. A <code>window.Vue</code> object must be made available to Livewire.
+        In order to use Livewire with Vue a <code>window.Vue</code> object must be made available to Livewire.
     </div>
 </div>
-<h3>Binding data to Vue components</h3>
+<h3 id="binding-to-vue-components">Binding data to Vue components</h3>
 <p>We can even take this integration a step further and actually bind Livewire properties to Vue components.</p>
 <p>Let's assume we have a custom Vue component that we typically use for &quot;taggable&quot; input fields called <code>&lt;input-taggable&gt;&lt;/input-taggable&gt;</code>. Normally, inside Vue, you would bind data to this component like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -324,14 +543,31 @@
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input-taggable wire:model="names"&gt;&lt;/input-taggable&gt;</code></pre>
 </div>
 <p>Livewire will listen for &quot;input&quot; events emitted from the Vue component, and pass down &quot;value&quot; properties just like Vue does. It just works.</p>
-<h2>Web Components</h2>
+<h2 id="web-components">Web Components</h2>
 <p>Another great way to utilize JavaScript inside Livewire components is HTML5 Web Components. This strategy is preffered to most others because Web Components automatically scope JS and styles to each individual component, so there are no conflicts with Livewire.</p>
-<p>Building and using Web Components is outside the scope of this documentation, but the <a href="https://lit-element.polymer-project.org/guide">lit-element</a> project is a great starting point for writing and using web components easily.</p>        </div>
+<p>Building and using Web Components is outside the scope of this documentation, but the <a href="https://lit-element.polymer-project.org/guide">lit-element</a> project is a great starting point for writing and using web components easily.</p>
+            <div class="mt-12 pt-8 pb-6 border-t-2">
+                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+    <div class="flex flex-col items-center md:items-start">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/css-transitions">CSS Transitions</a>
+            </h4>
+            </div>
+    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/testing">Testing</a>
+            </h4>
+            </div>
+</div>
+            </div>
+        </div>
     </div>
 </section>
 </main>
 
-        <script src="/assets/build/js/main.js?id=e75538a6aa0fbf33046f"></script>
+        <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
         <script>
     const navMenu = {
@@ -352,11 +588,40 @@
         })
     })
 </script>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        <script type="text/javascript">
+            window.something = docsearch({
+                apiKey: 'cec0554d960fa30b4b0b610f372a8636',
+                indexName: 'livewire-framework',
+                inputSelector: '#docsearch-input',
+                debug: false // Set debug to true if you want to inspect the dropdown
+            });
 
-        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            const searchInput = {
+                toggle() {
+                    const menu = document.getElementById('js-search-input');
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('md:block');
+                    document.getElementById('docsearch-input').focus();
+                },
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (e.keyCode == 191) {
+                    document.getElementById('docsearch-input').focus();
+                    e.preventDefault()
+                }
+                if (e.keyCode == 27) {
+                    document.getElementById('docsearch-input').blur();
+                    e.preventDefault()
+                }
+            })
+        </script>
+    
+        <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
-                    &copy; <a href="https://livewire-framework.com" title="Livewire">Livewire</a> 2019.
+                    &copy; <a href="https://laravel-livewire.com" title="Livewire">Livewire</a> 2019.
                 </li>
 
                 <li>

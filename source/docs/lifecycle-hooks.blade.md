@@ -1,11 +1,8 @@
 ---
 title: Lifecycle Hooks
-description: todo
 extends: _layouts.documentation
 section: content
 ---
-
-# Lifecycle Hooks
 
 ## PHP Hooks
 
@@ -13,7 +10,8 @@ Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). 
 
 Hooks | Description
 --- | ---
-mount | Runs immediately after the component is instantiated, but before `render()` is called
+mount | Runs once, immediately after the component is instantiated, but before `render()` is called
+hydrate | Runs on every request, immediately after the component is hydrated, but before an action is performed, or `render()` is called
 updating | Runs before any update to the Livewire component
 updated | Runs after any update to the Livewire component
 updatingFoo | Runs before a property called `$foo` is updated
@@ -27,6 +25,11 @@ class HelloWorld extends Component
     public $foo;
 
     public function mount()
+    {
+        //
+    }
+
+    public function hydrate()
     {
         //
     }
@@ -53,29 +56,25 @@ class HelloWorld extends Component
 }
 @endcode
 
-## Javascript Hooks
+## Javascript Hooks {#js-hooks}
 
 Livewire gives you the opportunity to execute javascript before and after the DOM updates.
 
 Hooks | Description
 --- | ---
-beforeDomUpdate | Runs after the browser receives the request from the server, but before any DOM diffing takes place
+beforeDomUpdate | Runs after Livewire receives a response from the server, but before any DOM diffing/patching takes place
 afterDomUpdate | Runs after livewire updates the DOM
-
-Add the following Javascript a blade template (not inside a livewire component). This code must be executed after `@livewireAssets` or after the DOM is initialized.
 
 @code(['lang' => 'js'])
 <script>
+    document.addEventListener("livewire:load", function(event) {
+        window.livewire.beforeDomUpdate(() => {
+            // Add your custom JavaScript here.
+        });
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    window.livewire.beforeDomUpdate(() => {
-        // Add your custom javascript here
+        window.livewire.afterDomUpdate(() => {
+            // Add your custom JavaScript here.
+        });
     });
-        
-    window.livewire.afterDomUpdate(() => {
-        // Add your custom javascript here
-    });
-});
-
 </script>
 @endcode

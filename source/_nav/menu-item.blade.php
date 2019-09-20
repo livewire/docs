@@ -4,11 +4,11 @@
         <a href="{{ $page->url($url) }}"
             class="{{ 'lvl' . $level }} {{ $page->isActiveParent($item) ? 'lvl' . $level . '-active' : '' }} {{ $page->isActive($url) ? 'active font-semibold text-blue-600' : '' }} nav-menu__item hover:text-blue-600"
         >
-            {{ $label }}
+            {!! $label !!}
         </a>
     @else
         {{-- Menu item without URL--}}
-        <p class="nav-menu__item text-gray-dark">{{ $label }}</p>
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">{{ $label }}</p>
     @endif
 
     @if (! is_string($item) && $item->children)

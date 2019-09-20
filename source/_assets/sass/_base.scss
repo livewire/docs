@@ -47,7 +47,7 @@ code {
     @apply .px-1;
     @apply .py-px;
     @apply .rounded;
-    @apply .text-sm;
+    font-size: 0.85em;
 }
 
 code.hljs {
