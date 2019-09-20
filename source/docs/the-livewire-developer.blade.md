@@ -6,7 +6,7 @@ section: content
 
 The Livewire developer is primarily concerned with building clean, reliable software.
 
-The Livewire developer is undoubtedly a fan of the Laravel framework. They are drawn to the proiority of simplicity, aesthetics, and convention over configuration of the framework. The magic doesn't scare them, it empowers them.
+The Livewire developer is undoubtedly a fan of the Laravel framework. They are drawn to the priority of simplicity, aesthetics, and convention over configuration of the framework. The magic doesn't scare them, it empowers them.
 
 The Livewire developer scours CodePen for pure CSS solutions to common UI problems, and occasionally sprinkles a little vanilla JavaScript to give CSS that extra boost.
 
