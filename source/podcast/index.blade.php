@@ -8,7 +8,7 @@
 <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
     <div class="container mx-auto px-12 pt-12 text-xl flex justify-between" style="max-width: 900px">
         <div class="w-1/2 py-16">
-            <img class="mb-2" src="/assets/img/podcast-title.svg" alt="Building Livewire Podcast Title">
+            <img class="mb-2" src="/assets/img/podcast-artwork.svg" alt="Building Livewire Podcast Title">
             <div class="text-white text-base">
                 Follow along on the Livewire journey. We'll talk about where the project came from, where it's going, and all the fun problems to solve along the way!
             </div>
