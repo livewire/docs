@@ -1,10 +1,43 @@
 <?php
 
+use Illuminate\Support\Str;
+
 return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'Livewire',
     'siteDescription' => 'A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).',
+
+    'collections' => [
+        'podcasts' => [
+            'extends' => '_layouts.podcast',
+            'sort' => '-number',
+            'items' => function () {
+                $simplecast = Simplecast\ClientFactory::factory([
+                    'apiKey' => env('SIMPLECAST_API_KEY'),
+                ]);
+
+                return collect($simplecast->podcastEpisodes([
+                    'podcast_id' => 10939, // Id for "Building Livewire".
+                ]))->map(function ($ep) {
+                    $idFromSharingUrl = Str::after($ep['sharing_url'], 'https://simplecast.com/s/');
+
+                    return [
+                        'number' => $ep['number'],
+                        'filename' => 'ep'.$ep['number'].'-'.Str::slug($ep['title']),
+                        'title' => $ep['title'],
+                        'duration_in_minutes' => date('i:s', $ep['duration']),
+                        'published' => $ep['published'],
+                        'description' => $ep['description'],
+                        'long_description' => $ep['long_description'],
+                        'published_on' => Str::before(Carbon\Carbon::parse($ep['published_at'])->format('M d, Y'), ', 2019'),
+                        'sharing_url' => $ep['sharing_url'],
+                        'iframe_markup' => "<iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/{$idFromSharingUrl}?color=f5f5f5' width='100%'></iframe>"
+                    ];
+                });
+            },
+        ],
+    ],
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => 'cec0554d960fa30b4b0b610f372a8636',

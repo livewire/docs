@@ -1,17 +1,7 @@
-@extends('_layouts.base')
+@extends('_layouts.master')
 
 @section('content')
 <div class="bg-white">
-    <div class="px-8 p-4 flex justify-between items-center flex-col sm:flex-row">
-        <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
-            {!! file_get_contents(__DIR__ . "/../source/assets/img/logo.svg") !!}
-        </a>
-
-        <div>
-            <a href="/docs/quickstart" class="text-blue-800 underline">Read The Docs</a>
-        </div>
-    </div>
-
     <div style="max-width: 600px; margin: auto" class="pt-16 pb-16 px-12 text-2xl">
         <p>
             <strong class="underline">JavaScript is crazy these days.</strong> We pull heaps of code and complexity into a project for simple things like modals and loading spinners. <strong>It doesn’t have to be this way...</strong>
