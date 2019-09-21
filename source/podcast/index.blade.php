@@ -8,7 +8,7 @@
 <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
     <div class="container mx-auto px-12 pt-12 text-xl flex justify-between" style="max-width: 900px">
         <div class="w-1/2 py-16">
-            <img class="mb-2" src="/assets/img/podcast-artwork.svg" alt="Building Livewire Podcast Title">
+            <img class="mb-2" src="/assets/img/podcast-title.svg" alt="Building Livewire Podcast Title">
             <div class="text-white text-base">
                 Follow along on the Livewire journey. We'll talk about where the project came from, where it's going, and all the fun problems to solve along the way!
             </div>
@@ -24,7 +24,7 @@
 <div class="container mx-auto py-8" style="max-width: 760px;">
     @foreach ($podcasts as $podcast)
         <div class="flex mb-8 border-b pb-6">
-            <div class="w-32 flex-shrink-0"><img src="/assets/img/podcast-artwork.png"></div>
+            <div class="w-32 flex-shrink-0"><img src="/assets/img/podcast-artwork.svg"></div>
             <div class="pl-12">
                 <h2 class="text-2xl m-0"><a class="text-blue-800" href="/podcasts/{{ $podcast->filename }}">{{ $podcast->title }}</a></h2>
                 <div class="font-bold mb-3 text-gray-500 text-sm">
