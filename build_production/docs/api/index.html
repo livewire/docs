@@ -37,7 +37,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=afee795fd7ae62c7e246">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=cca44bb9728706ae2240">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -405,12 +405,47 @@
         </a>
     
     </li>
+    </ul>
+    </li>
             <li class="pl-4">
             
-        <a href="/docs/custom-javascript"
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/inline-scripts"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Custom JavaScript
+            Inline Scripts
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/vuejs"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            VueJs
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/third-party-libraries"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Third-Party Libraries
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/web-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Web Components
         </a>
     
     </li>
@@ -551,6 +586,14 @@
 <tr>
 <td><code>wire:ref</code></td>
 <td>This directive is used as a way of referencing other elements from other directives (like <code>wire:loading</code>/<code>wire:dirty</code> and <code>wire:target</code>)</td>
+</tr>
+<tr>
+<td><code>wire:ignore</code></td>
+<td>Adding this directive to an element will tell Livewire to not update it or it's children when updating the DOM from a server request. Useful when using Third-party javascript libraries in Livewire components.</td>
+</tr>
+<tr>
+<td><code>wire:ignore.self</code></td>
+<td>The &quot;self&quot; modifier ignores updates to the element itself, but allows modifications to children.</td>
 </tr>
 </tbody>
 </table>

@@ -13,12 +13,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Naming things is really hard. Livewire is no exception. Today we&#039;ll talk about where the name came from, how it&#039;s evolved, and how it is still evolving.">
+        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire"/>
-        <meta property="og:title" content="The Name | Livewire"/>
-        <meta property="og:description" content="Naming things is really hard. Livewire is no exception. Today we&#039;ll talk about where the name came from, how it&#039;s evolved, and how it is still evolving."/>
-        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep3-the-name"/>
+        <meta property="og:title" content="Web Components | Livewire"/>
+        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/web-components"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -28,7 +28,7 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>The Name | Livewire</title>
+        <title>Web Components | Livewire</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
@@ -163,7 +163,23 @@
         </div>
     </div>
 
-    
+        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -174,82 +190,362 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
-    <div class="container mx-auto px-12 py-12 text-xl flex justify-between items-center" style="max-width: 900px">
-        <div class="w-1/2 py-16">
-                <h2 class="text-5xl m-0 text-white">The Name</h2>
-                <div class="font-bold mb-3 text-white text-base opacity-75">
-                    <span>
-                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Sep 20
-                    </span>
-                    <span class="ml-3">
-                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        10:03
-                    </span>
-                </div>
-                <p class="m-0 text-base text-white">Naming things is really hard. Livewire is no exception. Today we&#039;ll talk about where the name came from, how it&#039;s evolved, and how it is still evolving.</p>
-        </div>
+    <section class="container mx-auto px-6 md:px-8 py-12">
+    <div class="flex flex-col lg:flex-row">
+        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
+            <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/quickstart"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/the-livewire-developer"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            The Livewire Developer
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/installation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/making-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Making Components
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/render-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>render()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/state-management"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            State Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/mount-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>mount()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/data-binding"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Data Binding
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/triggering-actions"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Triggering Actions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/lifecycle-hooks"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Lifecycle Hooks
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/events"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Events
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/input-validation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Input Validation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/pagination"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Pagination
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/redirecting"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Redirecting
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/nesting-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Nesting Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/defer-loading"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Defer Loading
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/prefetching"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Prefetching
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/polling"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Polling
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/loading-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Loading States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/dirty-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Dirty States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/css-transitions"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            CSS Transitions
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/inline-scripts"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Inline Scripts
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/vuejs"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            VueJs
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/third-party-libraries"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Third-Party Libraries
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/web-components"
+            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+        >
+            Web Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/testing"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Testing
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/spa-mode"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            SPA Mode
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/security"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Security
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/api"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            API Reference
+        </a>
+    
+    </li>
+    </ul>
+        </nav>
 
-        <div class="">
-            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/e22fb0c0?color=f5f5f5' width='100%'></iframe>
+        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
+            <h1>Web Components</h1>
+
+            <p>Another great way to utilize JavaScript inside Livewire components is HTML5 Web Components. This strategy is preffered to most others because Web Components automatically scope JS and styles to each individual component, so there are no conflicts with Livewire.</p>
+<p>Building and using Web Components is outside the scope of this documentation, but the <a href="https://lit-element.polymer-project.org/guide">lit-element</a> project is a great starting point for writing and using web components easily.</p>
+            <div class="mt-12 pt-8 pb-6 border-t-2">
+                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+    <div class="flex flex-col items-center md:items-start">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/third-party-libraries">Third-Party Libraries</a>
+            </h4>
+            </div>
+    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/testing">Testing</a>
+            </h4>
+            </div>
+</div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="container mx-auto py-8" style="max-width: 760px;">
-<h3>Transcript:</h3>
-<p>[00:00:00] Caleb: Okay. Today. We&#039;re going to talk about Livewire the name. Where did it come from? How did how did we get here? What what changed along the way and what are some of the problems that I&#039;m still coming across? So Livewire as you know, it was inspired by a package called Phoenix live. So Phoenix is a framework like laravel for the language Elixir like laravel is to PHP and Chris McCord the author of Phoenix.
-He demoed this new tool these working on called live view Phoenix live view and I saw the blog post for this my mind blew up and I spent the next eight months building live where and it started out being really similar to the live view and now it&#039;s become something different but similar in some ways and definitely took inspiration from so.
-
-So the first name that Livewire had was Phoenix light was a phoenix live view laravel proof-of-concept not an official name, but that was the first thing I called. [00:01:00] It was just a proof of concept for Phoenix live view inside laravel and I thought that I might just call it laravel live view but I wasn&#039;t sure like I thought that might be kind of lame to just steal someone&#039;s name for another for a package in another Community.
-Like if it was like, I don&#039;t know view redox or something instead of view acts like kind of. On spin on it. So that&#039;s what it was out of the gate. The first the first name I came up with kind of off the cuff. I think was lightwire so light wire and basically the my goal was I wanted to convey something like electroluminescence electroluminescence.
-
-I don&#039;t know like luminescent electric but not I don&#039;t know. So I like what I wanted wire. I don&#039;t know why I came up with wire. But I wanted wire and because it connects things and it&#039;s you know, I want to basically I wanted live where it&#039;s funny because I can&#039;t think of why I wouldn&#039;t pick a live wire but I definitely struggled with it for a while.
-
-I [00:02:00] had tons and tons of names written down on envelopes and paper and whatever like what am I going to call this thing? I just didn&#039;t love light. And I think maybe part of why I didn&#039;t love it as people kept like Miss stating it. I think they were saying I think maybe they were saying Livewire by accident.
-Maybe that was my cue. I forgot the process. Basically it was this process of me like sitting with an idea and brainstorming a bunch and then after a while the right the right name sort of emerges because it&#039;s the one with the fewest surprises. It&#039;s like the principle of least surprise. It&#039;s one of the few surprises.
-It meets all the criteria. Is best is anyone else would and probably more so that&#039;s kind of how I made the decision. It wasn&#039;t an obvious like oh, this is Livewire. It was like it took some tumbling, you know to get there to that point. So I called it live where then the next step is. So live view is capital L and capital V.
-And so the question is is it live wire with a capital? W? Or is it just live where one word [00:03:00] and so this is something I struggled with and still do struggle with because people do write it as live where with a capital W from time to time because I think that and that&#039;s just kind of tells me like that&#039;s what at least some people assume.
-
-It&#039;s how you would spell it and I would probably assume that too but here&#039;s the reason why I&#039;m sort of sticking with Livewire lowercase. W this is kind of crazy, but it&#039;s one of those things that actually matters to me. I&#039;m trying to think of an example. There&#039;s other examples of packages sort of named like this like maybe sigh shell the thing under Artisan Tinker.
-
-There&#039;s definitely other packages that have how man I can&#039;t think of a good one. There are definitely good ones though. Shoot. Anyway when you are if you live where is going to have a classes? It&#039;s going to be a namespace in PHP, right and when you import that namespace, is it going to be live?
-Capital W wire like if it&#039;s if it&#039;s live wire in the same way, like if you have HTML a class called literally you want [00:04:00] to call it HTML. Is it going to be all capitals for your acronyms or is going to be Capital H lowercase T. Ml I would do Capital H lowercase T. Ml I think there&#039;s some standard somewhere that says that&#039;s what you should do.
-
-I don&#039;t know but I treat acronyms as word. When I&#039;m studly casing them for classes, so kind of naturally I think I would do live wire with all lowercase and not do the the capital W and a class name space because then it&#039;s sort of like when you make a like a hashing, you know how like encryption if you encrypt something.
-You can decrypt it. It&#039;s like to way if you hash it&#039;s one way you have something and you can never you can never make it back to its original form. I felt like the Livewire capital W name for class importing was a similar idea that if you just saw a used statement in PHP that said use capital L IV E capital W IR e you wouldn&#039;t know if it&#039;s two words or if it&#039;s [00:05:00] one word with that capital W.
-
-It&#039;s ambiguous. It doesn&#039;t work the other way around and something about that just hurts my brain. It adds a little bit of friction. That&#039;s like oh this if you do this weird thing where you have. Word that has multiple capitals You Now enter the world of confusion. So I thought I would make it not confusing and live.
-Where is one word one word, and I think I really sort of came to this when I was writing the. My composure dot Json file where I&#039;m autoloading the root Source namespace. What am I going to Auto load that route class and it&#039;s and it&#039;s live wire with one word and that&#039;s kind of what I suck with. So that&#039;s that that&#039;s part one of the naming story.
-
-Oh man. We&#039;re already at five minutes and forty. I&#039;ll have to rush part 2, so I need to make a so GitHub. What am I going to make GitHub? So GitHub live where / live wires. Sorry the live just get up / live wires taken. What am I going to do? There is a live where well, I don&#039;t know because I don&#039;t want [00:06:00] it to necessarily just be like laravel this I wanted to be its own thing and Taylor has publicly stated that people should not prefix their packages with laravel because people get confused and think their official and Taylor like LLC laravel like it&#039;s trademarked.
-
-You can&#039;t just use it. So I tried to avoid that. So I was like, all right. Well forget whole organization. Maybe I&#039;ll have live boy or PHP Live Wire PHP is also it&#039;s actually mostly JavaScript like it&#039;s written mostly in JavaScript and it&#039;s a kind of like a JavaScript framework. So would it be live where JS know, it would be you know, well, okay be live where laravel yeah, but that&#039;s kind of weird so you can see the weirdness in the domain name.
-Live where framework.com is what I landed on for the domain name because the suffix to something like well, I&#039;m not going to do live where PHP and I&#039;m not going to do live or JSL do live where framework.com that felt. Okay, but I don&#039;t even know what I was thinking when I made the Twitter handle live where it was taken, of course, so I did live wire laravel reads horribly.
-
-It always bugged [00:07:00] me every time I saw it. I needed a different name. It couldn&#039;t just be Live Wire. And I liked the laravel context. It was later live where Larry Bell and I didn&#039;t feel as bad about using laravel my name if it was a weird suffix, you know, but that&#039;s really annoying. And every time I saw her wrote it, I just felt gross about it.
-
-So all of this was just sort of culminating into just this kind of bad feeling about the name that it just wasn&#039;t settled yet. So I was on an airplane to go fly fishing recently. And and on the way there I started writing down. Basically, I&#039;d like mine dumped everything in my brain about the direction of live where and one of the area&#039;s is naming.
-
-I really wanted to settle on a name and get it off of Caleb or zo / Live Wire because that just feels like kind of like immature to me. Like it&#039;s an immature project. So I wrote here. I have the note right here. It was one of those things where I just sat down and I finally had time alone to think without the internet or any distractions and I had the solution just pretty much [00:08:00] came to me immediately was like.
-So am I going to call layer of a live wire or Live Wire? Well, I guess I still don&#039;t know but it&#039;s going to be Live Wire because I don&#039;t want to infringe on Taylor&#039;s laravel trademark. So but I realized the perfect domain name is laravel - live wire.com and the perfect Twitter name is at laravel live where those are the two things that I know then there was a question of do I make the GitHub or.
-
-Organization laravel - live where / live wire or just live wire / live where anyway, I wrote down no matter what I have to ask Taylor about this. So Taylor in my mind. I&#039;m thinking well, you know, I know Taylor personally, so maybe he&#039;ll you know, I don&#039;t also want to take advantage of him and I don&#039;t want to put pressure on him, but it is like a pretty popular package like it&#039;s something I&#039;ve pretty much dedicated like my life to at the moment.
-
-So it&#039;s not like I&#039;m just kind of offhandedly creating a packet at something. Probably going to be around for a long time and hopefully be pretty like popular. And so maybe it&#039;s warranted here and I&#039;m sure he&#039;d empathize that the domain [00:09:00] names are really hard to get anything that feels natural and I figured I&#039;ll just tell them that I&#039;m not going to use like laravel in like logo and The Branding at all.
-
-So anyway reached out to him like yesterday or two days ago and he said fine by me and so that that&#039;s it. I change the domain name last night at like 10:00 p.m. Two layer of a live where.com. I change the GitHub organization to just live wire / live where I don&#039;t know if that&#039;s the best move I had to this is actually legal don&#039;t come at me, but I had to like pay a guy in Bitcoin to get that organization.
-
-He was just squatting on it. So yeah, but I feel I feel good about the name finally. It&#039;s Livewire capital L. I&#039;m going to change the logo at some point capital L live wire at laravel live where layer of alive where.com. And GitHub / Libor / Libor because I want to do composer require live. We&#039;re live.
-
-We&#039;re not composer require layer of alive or / live where I want you to be able to remember it and so you can just because that&#039;s the most natural thing as composer require live our special ever. Okay, we are at time. Thanks for listening as always [00:10:00] TTYL.</p>
-</div>
+</section>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -278,15 +574,7 @@ We&#039;re not composer require layer of alive or / live where I want you to be 
                 }
             })
         </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-
+    
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
