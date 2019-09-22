@@ -32,8 +32,15 @@ return [
             'Loading States' => 'docs/loading-states',
             'Dirty States' => 'docs/dirty-states',
             'CSS Transitions' => 'docs/css-transitions',
-            'Custom JavaScript' => 'docs/custom-javascript',
         ],
+    ],
+    'JavaScript' => [
+        'children' => [
+            'Inline Scripts' => 'docs/inline-scripts',
+            'VueJs' => 'docs/vuejs',
+            'Third-Party Libraries' => 'docs/third-party-libraries',
+            'Web Components' => 'docs/web-components',
+        ]
     ],
     'Testing' => 'docs/testing',
     'Advanced' => [

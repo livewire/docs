@@ -30,3 +30,4 @@ Directive | Description
 `wire:ref` | This directive is used as a way of referencing other elements from other directives (like `wire:loading`/`wire:dirty` and `wire:target`)
 `wire:ignore` | Adding this directive to an element will tell Livewire to not update it or it's children when updating the DOM from a server request. Useful when using Third-party javascript libraries in Livewire components.
 `wire:ignore.self` | The "self" modifier ignores updates to the element itself, but allows modifications to children.
+<?php /**PATH /Users/calebporzio/Documents/Code/sites/livewire-docs/cache/280f8c14691a46dbcb82ab5506128e87b460170e.blade.md ENDPATH**/ ?>
