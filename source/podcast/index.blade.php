@@ -4,7 +4,7 @@
 $page->title = '';
 $page->social_image = 'https://laravel-livewire.com/assets/img/podcast_artwork.png';
 $page->siteName = 'Building Livewire Podcast';
-$page->description = 'Follow along on the Livewire journey. We'll talk about where the project came from, where it's going, and all the fun problems to solve along the way!';
+$page->description = 'Follow along on the Livewire journey. We\'ll talk about where the project came from, where it\'s going, and all the fun problems to solve along the way!';
 @endphp
 
 @push('meta')
