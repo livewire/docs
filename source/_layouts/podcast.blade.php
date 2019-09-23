@@ -2,7 +2,7 @@
 
 @php
 $page->siteName = 'Building Livewire Podcast';
-$page->social_image = 'https://laravel-livewire.com/assets/img/podcast_artwork.png';
+$page->social_image = 'https://laravel-livewire.com/assets/img/podcast-artwork.png';
 @endphp
 
 @section('content')
