@@ -1,5 +1,12 @@
 @extends('_layouts.master')
 
+@php
+$page->title = ''
+$page->social_image = 'https://laravel-livewire.com/assets/img/podcast_artwork.png'
+$page->siteName = 'Building Livewire Podcast'
+$page->description = 'Follow along on the Livewire journey. We'll talk about where the project came from, where it's going, and all the fun problems to solve along the way!'
+@endphp
+
 @push('meta')
 <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 @endpush
@@ -10,7 +17,7 @@
         <div class="w-1/2 py-16">
             <img class="mb-2" src="/assets/img/podcast-title.svg" alt="Building Livewire Podcast Title">
             <div class="text-white text-base">
-                Follow along on the Livewire journey. We'll talk about where the project came from, where it's going, and all the fun problems to solve along the way!
+                {{ $page->description }}
             </div>
         </div>
 

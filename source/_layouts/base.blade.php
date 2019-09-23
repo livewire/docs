@@ -19,10 +19,10 @@
         <meta property="og:title" content="{{ $page->title ?  $page->title . ' | ' : '' }}{{ $page->siteName }}"/>
         <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}"/>
         <meta property="og:url" content="{{ $page->getUrl() }}"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:image" content="{{ $page->social_image ?: 'https://laravel-livewire.com/assets/img/twitter.png' }}"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
+        <meta name="twitter:image" content="{{ $page->social_image ?: 'https://laravel-livewire.com/assets/img/twitter.png' }}">
         <meta name="twitter:image:alt" content="{{ $page->siteName }}">
         <meta name="twitter:card" content="summary">
 
