@@ -19,10 +19,10 @@
         <meta property="og:title" content="<?php echo e($page->title ?  $page->title . ' | ' : ''); ?><?php echo e($page->siteName); ?>"/>
         <meta property="og:description" content="<?php echo e($page->description ?? $page->siteDescription); ?>"/>
         <meta property="og:url" content="<?php echo e($page->getUrl()); ?>"/>
-        <meta property="og:image" content="<?php echo e($page->social_image ?: 'https://laravel-livewire.com/assets/img/twitter.png'); ?>"/>
+        <meta property="og:image" content="<?php echo e($page->social_image ?? 'https://laravel-livewire.com/assets/img/twitter.png'); ?>"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="<?php echo e($page->social_image ?: 'https://laravel-livewire.com/assets/img/twitter.png'); ?>">
+        <meta name="twitter:image" content="<?php echo e($page->social_image ?? 'https://laravel-livewire.com/assets/img/twitter.png'); ?>">
         <meta name="twitter:image:alt" content="<?php echo e($page->siteName); ?>">
         <meta name="twitter:card" content="summary">
 

@@ -1,7 +1,7 @@
 @extends('_layouts.master')
 
 @php
-$page->siteName = 'Livewire Documentation'
+$page->siteName = 'Livewire Documentation';
 @endphp
 
 @section('nav-toggle')

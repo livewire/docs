@@ -1,6 +1,6 @@
 <?php
-$page->siteName = 'Building Livewire Podcast'
-$page->social_image = 'https://laravel-livewire.com/assets/img/podcast_artwork.png'
+$page->siteName = 'Building Livewire Podcast';
+$page->social_image = 'https://laravel-livewire.com/assets/img/podcast_artwork.png';
 ?>
 
 <?php $__env->startSection('content'); ?>
