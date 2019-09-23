@@ -13,8 +13,8 @@ $page->description = 'Follow along on the Livewire journey. We\'ll talk about wh
 
 @section('content')
 <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
-    <div class="container mx-auto px-12 pt-12 text-xl flex justify-between" style="max-width: 900px">
-        <div class="w-1/2 py-16">
+    <div class="container mx-auto px-12 pt-12 text-xl flex-col md:flex-row flex justify-between" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
             <img class="mb-2" src="/assets/img/podcast-title.svg" alt="Building Livewire Podcast Title">
             <div class="text-white text-base">
                 {{ $page->description }}
@@ -28,11 +28,11 @@ $page->description = 'Follow along on the Livewire journey. We\'ll talk about wh
     </div>
 </div>
 
-<div class="container mx-auto py-8" style="max-width: 760px;">
+<div class="container mx-auto py-8 px-4" style="max-width: 760px;">
     @foreach ($podcasts as $podcast)
         <div class="flex mb-8 border-b pb-6">
-            <div class="w-32 flex-shrink-0"><img src="/assets/img/podcast-artwork.svg"></div>
-            <div class="pl-12">
+            <div class="w-16 md:w-32 flex-shrink-0"><img src="/assets/img/podcast-artwork.svg"></div>
+            <div class="pl-4 md:pl-12">
                 <h2 class="text-2xl m-0"><a class="text-blue-800" href="/podcasts/{{ $podcast->filename }}">{{ $podcast->title }}</a></h2>
                 <div class="font-bold mb-3 text-gray-500 text-sm">
                     <span>
