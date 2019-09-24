@@ -5,6 +5,10 @@ $page->siteName = 'Building Livewire Podcast';
 $page->social_image = 'https://laravel-livewire.com/assets/img/podcast-artwork.png';
 @endphp
 
+@push('meta')
+<link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+@endpush
+
 @section('content')
 <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
     <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
