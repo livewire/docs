@@ -1,158 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
+  <loc>https://laravel-livewire.com/podcasts/ep1-intro</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep2-but-does-it-scale</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep3-the-name</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep4-the-evolution-of-the-make-command</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep5-the-evolution-of-validation</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep6-not-on-npm</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep7-smart-polling</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/podcasts/ep8-new-design-pattern-the-plugin-pattern</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
   <loc>https://laravel-livewire.com/docs/api</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/component-basics</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/css-transitions</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/custom-javascript</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/data-binding</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/defer-loading</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/dirty-states</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/events</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.comdocs</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/docs/inline-scripts</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/input-validation</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/installation</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/lifecycle-hooks</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/loading-states</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/making-components</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/mount-method</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/nesting-components</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/pagination</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/polling</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/prefetching</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/quickstart</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/redirecting</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/render-method</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/rendering-components</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/security</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/spa-mode</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/state-management</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/testing</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/the-livewire-developer</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/docs/third-party-libraries</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/triggering-actions</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com/docs/unit-testing</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/docs/vuejs</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.com/docs/web-components</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://laravel-livewire.com</loc>
-  <lastmod>2019-09-20T09:27:22+00:00</lastmod>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://laravel-livewire.compodcast</loc>
+  <lastmod>2019-09-24T12:39:16+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
 </urlset>

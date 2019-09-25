@@ -15,20 +15,20 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
-        <meta property="og:site_name" content="Livewire"/>
-        <meta property="og:title" content="Testing | Livewire"/>
+        <meta property="og:site_name" content="Livewire Documentation"/>
+        <meta property="og:title" content="Testing | Livewire Documentation"/>
         <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
         <meta property="og:url" content="https://laravel-livewire.com/docs/testing"/>
-        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="/assets/img/logo.png">
-        <meta name="twitter:image:alt" content="Livewire">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
+        <meta name="twitter:image:alt" content="Livewire Documentation">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Testing | Livewire</title>
+        <title>Testing | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
@@ -37,16 +37,16 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=bcab2a60d7283db74a20">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=5b56cafeb5378d7372d2">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <header class="flex items-center h-24 py-4 bg-white" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -89,7 +89,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -155,7 +155,9 @@
     >&times;</button>
 </div>
 
-                        <a href="https://github.com/livewire/livewire">
+                        <a href="/docs/quickstart" class="ml-6 text-blue-800">Docs</a>
+            <a href="/podcast" class="ml-6 text-blue-800">Podcast</a>
+            <a href="https://github.com/livewire/livewire">
                 <svg class="fill-current text-blue-800 w-8 ml-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
             </a>
         </div>
@@ -177,16 +179,18 @@
     </svg>
 </button>
 
+
+    <div class="mb-6 absolute bottom-0 w-full" style="
+        background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
+        background-repeat-y: no-repeat;
+        background-position-y: bottom;
+        height: 12px;
+        margin-bottom: -12px;
+    "></div>
 </header>
-<div class="mb-6" style="
-    background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
-    background-repeat-y: no-repeat;
-    background-position-y: bottom;
-    height: 12px;
-"></div>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-4">
+    <section class="container mx-auto px-6 md:px-8 py-12">
     <div class="flex flex-col lg:flex-row">
         <nav id="js-nav-menu" class="nav-menu hidden lg:block">
             <ul class="list-none my-0">
@@ -401,12 +405,47 @@
         </a>
     
     </li>
+    </ul>
+    </li>
             <li class="pl-4">
             
-        <a href="/docs/custom-javascript"
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/inline-scripts"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Custom JavaScript
+            Inline Scripts
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/vuejs"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            VueJs
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/third-party-libraries"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Third-Party Libraries
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/web-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Web Components
         </a>
     
     </li>
@@ -554,7 +593,7 @@ class Counter extends Component
     <div class="flex flex-col items-center md:items-start">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/custom-javascript">Custom JavaScript</a>
+                <a href="/docs/web-components">Web Components</a>
             </h4>
             </div>
     <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">

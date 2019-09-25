@@ -1,11 +1,15 @@
 @extends('_layouts.master')
 
+@php
+$page->siteName = 'Livewire Documentation';
+@endphp
+
 @section('nav-toggle')
     @include('_nav.menu-toggle')
 @endsection
 
 @section('content')
-<section class="container mx-auto px-6 md:px-8 py-4">
+<section class="container mx-auto px-6 md:px-8 py-12">
     <div class="flex flex-col lg:flex-row">
         <nav id="js-nav-menu" class="nav-menu hidden lg:block">
             @include('_nav.menu', ['items' => $page->navigation])
