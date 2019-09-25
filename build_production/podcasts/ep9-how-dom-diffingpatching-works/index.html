@@ -13,12 +13,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Welcome to the new podcast. This episode is a quick intro to the project.">
+        <meta name="description" content="Words like &quot;virtual dom&quot;, &quot;dom diffing and patching&quot;, &quot;vDom&quot;, and &quot;render functions&quot; are all intimidating (spoiler: they&#039;re not actually). However, they are a HUGE part of any front-end framework, and Livewire is no exception. Therefore, we will be diving into what they mean, and how Livewire uses them, so we can lay a foundation for future episodes.">
 
         <meta property="og:site_name" content="Building Livewire Podcast"/>
-        <meta property="og:title" content="Intro | Building Livewire Podcast"/>
-        <meta property="og:description" content="Welcome to the new podcast. This episode is a quick intro to the project."/>
-        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep1-intro"/>
+        <meta property="og:title" content="How DOM Diffing/Patching Works | Building Livewire Podcast"/>
+        <meta property="og:description" content="Words like &quot;virtual dom&quot;, &quot;dom diffing and patching&quot;, &quot;vDom&quot;, and &quot;render functions&quot; are all intimidating (spoiler: they&#039;re not actually). However, they are a HUGE part of any front-end framework, and Livewire is no exception. Therefore, we will be diving into what they mean, and how Livewire uses them, so we can lay a foundation for future episodes."/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep9-how-dom-diffingpatching-works"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
@@ -28,7 +28,7 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Intro | Building Livewire Podcast</title>
+        <title>How DOM Diffing/Patching Works | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
@@ -178,31 +178,53 @@
     <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
     <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
         <div class="md:w-1/2 py-16">
-                <h2 class="text-3xl md:text-5xl m-0 text-white">Intro</h2>
+                <h2 class="text-3xl md:text-5xl m-0 text-white">How DOM Diffing/Patching Works</h2>
                 <div class="font-bold mb-3 text-white text-base opacity-75">
                     <span>
                         <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Sep 20
+                        Sep 25
                     </span>
                     <span class="ml-3">
                         <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        00:57
+                        09:58
                     </span>
                 </div>
-                <p class="m-0 text-base text-white">Welcome to the new podcast. This episode is a quick intro to the project.</p>
+                <p class="m-0 text-base text-white">Words like &quot;virtual dom&quot;, &quot;dom diffing and patching&quot;, &quot;vDom&quot;, and &quot;render functions&quot; are all intimidating (spoiler: they&#039;re not actually). However, they are a HUGE part of any front-end framework, and Livewire is no exception. Therefore, we will be diving into what they mean, and how Livewire uses them, so we can lay a foundation for future episodes.</p>
         </div>
 
         <div class="">
-            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/ef127364?color=f5f5f5' width='100%'></iframe>
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/458f258e?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
 </div>
 
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
-<p><p>[00:00:00] Caleb: Hey there, friends Caleb Porzio here with a new podcast called building Livewire and my goal with this podcast is to share a little bite-size Snippets of problems that I'm solving just building Livewire and that could be. Deep Tech like coding problems. It could be business problems branding problems writing anything.
-Anything I'm coming across, I want a platform to talk about because honestly there would just be too many blog posts and that would be too much work so and yeah, so this is just I guess easier for me and I can throw a little tiny bite-size size things at you. So I'm pretty excited about it because  Livewire is definitely like produced the most interesting problems of my entire career.
-And I think it'd be really cool to talk about some of those things. So thanks for tuning in. I'm going to try to keep these episodes under 10 minutes and keep them interesting. I hope you like it.</p></p>
+<p><p>Hey there today. I want to talk about Dom diffing so and my dom different woes first. What what is dumb diffing? So Live Wire is a front-end framework. What am I even saying? It's not even useful knowledge. You know, it's a front-end framework. Let's jump in so view JS when you make a component in Judea.</p>
+<p>It takes your template. There's a machine that takes your Dom template that template tag and turns it into a Json representation of that Dom tree. So understanding a Dom tree is like step one and all this process and it's actually way simpler than you think a Dom tree is. Up basically nodes and their children and that's how its represented, you know, an HTML or XML you have something a node in this case with an opening tag and a closing tag and anything inside of it is a child of that node.</p>
+<p>So each node has three properties. This is all you need to know about Dom trees and dipping and tree walking. It's the key to understanding dipping and walking each Dom node has three properties one is its name? And that's the tag name. So if it's a div that's div if it's a button is button to it's the attributes the attributes on it are href class on click whatever and the third is its children, which is just an array of more Dom nodes.</p>
+<p>So if you followed what I said right there, you understand virtual Dom's you understand the normal Dom you understand render functions render methods inside of. Inside a few JSU understand jsx and what it compiles to and you might not even realize it but you understand all that now because that's really as simple as it is when you write a template in vue.js and compiles all that to a render method which basically returns a Json representation of that Dom tree that you just wrote into Json.</p>
+<p>So with UJS when you make a change you click on something the template is re-rendered. I think I'm as I'm saying this I'm questioning myself. Let's just pretend it's that way when you click on something the render function re-renders. Yeah, the render function re-renders regenerating a new Json representation of the Dom Tree View JS Compares that representation to the old representation or the one that's currently on the page and it does a diff and it's so how does the diff is picture?</p>
+<p>Both it's just to Json objects side by side starts at the top one and it compares the two it says hey, are you the same? Okay, you're the same are your children the same? They're the same. Alright, let's move on. Are you the same? No, you're different. Okay, so I either need to. I then need to decide if I'm going to update if they are the same.</p>
+<p>They're just a little bit different and I need to update the old one or if they're totally different. I need to add this to to the new tree. So it does its own decision making process walking down this tree to figure out if an element needs to be updated or added or removed. Those are the three things that can happen in element can be added updated or removed and it compares the to Json representations.</p>
+<p>So. The plug-in that it actually uses view uses. It's called Snap. Damn. It was a it's a package. That is I think no longer really popular because it's basically been absorbed into vue.js score. I think there is another JavaScript framework that uses it but you can actually dive the ajaces core and you'll find that it's not a package dependency.</p>
+<p>They like pulled it into the project like the files are just there and they wrote a little shout-out to it. Like this is, you know jacked from snap dumb. We changed a few things. So that was all black box me for a long time, but that's actually how vue.js works. And that's it's not that complex jsx does the same thing Deus Ex is not anything specific to react it can be but the idea of jsx is that it takes the special syntax and turns it into some sort of virtual Dom and all of virtual Dom is is a Json object with things and those things are nodes or you can call them nodes, whatever they're just item.</p>
+<p>In the in the Json tree and they have three things. They have the name the attributes and their children. Okay. So, how does Live Wire fit into all this? So Live Wire is it's another front-end framework. Like I told you in the beginning and when you make an update to it instead of it, you know, just rerun during re running some render method like vue.js would it calls out to the server to get the Dom it calls up to the server blade runs gives us our Dom.</p>
+<p>We know that. And it takes the difference of the two, so there is no there is no virtual Dom representation in theory. I could keep a virtual Dom representation. I could convert the Dom from the server into Json and then I can use that to compare and patch and are different patch. That's what people say when they're talking about virtual Dums so I could do that and I actually spent a weekend hacking on that to see if I could get that to work and I did get it to work.</p>
+<p>But it's kind of weird because it's an intermediate step and whatever but what it actually does is I use a package called morph Dom so morph time is unique in this space because it takes existing Dom and does all this logic. It's the same fundamental concept of snap Dom or any virtual Dom dipping Library.</p>
+<p>It just uses actual Dom elements instead of using Json. It uses a Dom tree like the kind of tree you get when you do document dot query selector something. That you get an element and then you get it, you know, you can do dot children and everything. It uses that so it actually touts itself as being faster than most virtual Dom libraries because the Dom is just really fast or certain operations on the dumb are really fast.</p>
+<p>Some are really slow and it sort of has this white list of like, here's all the things that are really fast operations to execute on the dumbly children or sibling or appendchild stuff like that so or get attributes and whatnot. So that's morph Tom and live where uses more of dumb one of the reasons.</p>
+<p>I reached for morph down because Phoenix live view uses morph Dom and I knew that from day one and I went. Oh, I'll just use this morphe down because then I don't have to deal with virtual Dom and Json. I can literally just morph down here. Let me break this down if this is sounding all like pie-in-the-sky type deal morph Dom is a function.</p>
+<p>It's actually like three files. That's the whole package. It's one of them's a pretty nasty big file. It's a function called morph Dom and what you do is you pass in a Dom element into as the first the first parameter and the second one you pass in either a string of dumb like an HTML string or another Dom element and what it will do is it will take the first Dom element that you gave it and it will morph it into what you pass in as a second argument.</p>
+<p>That is literally. How morph Tom how you use more of them? It's one function with two parameters granted. There's a bunch of config options and basically a bunch of lifecycle hooks. You can hook into like on before update on before remove that sort of thing. So getting an understanding of morph down and how it works is actually just SuperDuper useful to you understanding my woes and my problem isn't with the front end of Livewire.</p>
+<p>Morphed seems amazing. It seems like the Silver Bullet but I've struggled with it since day one and I've had these these problems there's a bunch of them and it's hard to get into all of them. But what I've decided to do is pull in my own version of morph dumb. So instead of forking it and managing a fork, I'd literally just like copy the files and put it in my my project.</p>
+<p>This may be bad practice in open-source land. I'm sure it is I it is known that it's morphed. I'm. If you were Source diving you it's not like I pretend it's my code. I think I even wrote a little shout-out to morph them. But either way that is that's what's going on. And I've had to make in line edits.</p>
+<p>I try to tag them with at Livewire update or something like that like some little comment. That's just like hey I had to hack this thing so that if we ever need to upgrade morph dumb, we can not just like remove changes I made and there's certain things that morph Dom is just actually sucks out of the box that I can't.</p>
+<p>I can't believe certain things are the way they are and I've talked about it on the GitHub repository Scott. Scott newcomers actually really great. He stepped in and he's been maintaining the project and there's just it's just an application that a bunch of people use differently and it's hard to get a consensus on how to use it, but it's a struggle of mine right now and that's what I'm here to tell you about.</p>
+<p>So, I think this episode is just going to be a how Dom dipping works. And then in the future, maybe I'll let you in on my woes but that's what I started to do right now is I deal with lots of bugs if people saying like just weird functionality just stuff that's weird and live wire and a lot of times it's because morph Dom thinks that you've liked made a massive update to the dominant wipes all the elements and rebuilds them all when really it just failed to recognize that you've changed one thing.</p>
+<p>Or that you added an element in the middle. The most common place to shows up is when people are conditionally showing validation messages and it div appears in the middle of the Dom tree and morph Tom things. Hey a new div appeared the div and everything after it needs to be destroyed and recreated.</p>
+<p>So I'm dealing with that right now and I have a sort of a fork in the road that I was going to tell you about. But let's just keep this episode to how Dom different. Thanks for listening along. Oh, yeah, this is like the first episode I'm recording after launching the podcast. Thanks for listening people seem to really like it and I hope you do too hit me up with feedback on Twitter if at larvae live where I kill a boar zero just hit me up and let me know what you think about it.</p>
+<p>I'm really interested to hear that stuff. So thanks a lot. Enjoy your drive or your coffee or whatever you're doing right now. See ya.</p></p>
 </div>
 </main>
 

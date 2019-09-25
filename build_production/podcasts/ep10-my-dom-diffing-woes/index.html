@@ -13,12 +13,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Welcome to the new podcast. This episode is a quick intro to the project.">
+        <meta name="description" content="Now that you understand DOM diffing, you can commiserate with me, and help brainstorm a fork in the road I&#039;m dealing with. Do I keep improving an existing package? Or REWRITE!!!">
 
         <meta property="og:site_name" content="Building Livewire Podcast"/>
-        <meta property="og:title" content="Intro | Building Livewire Podcast"/>
-        <meta property="og:description" content="Welcome to the new podcast. This episode is a quick intro to the project."/>
-        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep1-intro"/>
+        <meta property="og:title" content="My DOM Diffing Woes | Building Livewire Podcast"/>
+        <meta property="og:description" content="Now that you understand DOM diffing, you can commiserate with me, and help brainstorm a fork in the road I&#039;m dealing with. Do I keep improving an existing package? Or REWRITE!!!"/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep10-my-dom-diffing-woes"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
@@ -28,7 +28,7 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Intro | Building Livewire Podcast</title>
+        <title>My DOM Diffing Woes | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
@@ -178,31 +178,44 @@
     <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
     <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
         <div class="md:w-1/2 py-16">
-                <h2 class="text-3xl md:text-5xl m-0 text-white">Intro</h2>
+                <h2 class="text-3xl md:text-5xl m-0 text-white">My DOM Diffing Woes</h2>
                 <div class="font-bold mb-3 text-white text-base opacity-75">
                     <span>
                         <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Sep 20
+                        Sep 25
                     </span>
                     <span class="ml-3">
                         <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        00:57
+                        06:05
                     </span>
                 </div>
-                <p class="m-0 text-base text-white">Welcome to the new podcast. This episode is a quick intro to the project.</p>
+                <p class="m-0 text-base text-white">Now that you understand DOM diffing, you can commiserate with me, and help brainstorm a fork in the road I&#039;m dealing with. Do I keep improving an existing package? Or REWRITE!!!</p>
         </div>
 
         <div class="">
-            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/ef127364?color=f5f5f5' width='100%'></iframe>
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/2b9c32e0?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
 </div>
 
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
-<p><p>[00:00:00] Caleb: Hey there, friends Caleb Porzio here with a new podcast called building Livewire and my goal with this podcast is to share a little bite-size Snippets of problems that I'm solving just building Livewire and that could be. Deep Tech like coding problems. It could be business problems branding problems writing anything.
-Anything I'm coming across, I want a platform to talk about because honestly there would just be too many blog posts and that would be too much work so and yeah, so this is just I guess easier for me and I can throw a little tiny bite-size size things at you. So I'm pretty excited about it because  Livewire is definitely like produced the most interesting problems of my entire career.
-And I think it'd be really cool to talk about some of those things. So thanks for tuning in. I'm going to try to keep these episodes under 10 minutes and keep them interesting. I hope you like it.</p></p>
+<p><p>Okay. So this episode is going to be the one where I actually talk to you about what I came here to talk to you about. Hopefully listen to episode 9 about how Dom different works. So I'm at a fork in the road. I'm getting all these issues not a ton. You know, it's not like doesn't seem to be breaking everything for everybody.</p>
+<p>But this you know how I said the final piece of the puzzle was the backend caching thing, which if you haven't been following the project closely don't even know what I'm talking about, but I thought that was the final piece of the puzzle. This is the final piece of the puzzle in terms of what's the word Soul like reliability.</p>
+<p>This is the thing. This is the one part of Live Wire that gives me a little bit of the heebie-jeebies. It's a hard part. It's hard to understand. It's hard. It's just kind of a beast how Livewire does down dipping using morph dumb. Like I said, I've made updates to morph Dom like tons of them. So more Stones become a little bit of a Frankenstein inside Live Wire, but this is the piece of the puzzle that they're still it's still the cause of a lot of random issues on GitHub and I want it to be really.</p>
+<p>And UJS is Dom dipping stuff is really good. Like you almost never run into issues. And then when they make you do that key thing where if you have a loop like a V4 and you add: key you feel like oh that's really weird because you're not used to dealing you're not used to worrying about the Dom dipping that view JS is doing it just works.</p>
+<p>So I want to have that feeling out of the box and morph time just isn't cutting it. So I have this decision to make Dua a. Like really roll up my sleeves and grok morph down which I feel I've tried to do multiple times, but do I really roll up my sleeves and like manhandle morph Dom like understand it to the core write notes make, you know actual refactor it to make it more readable.</p>
+<p>It's insanely unreadable. Like if you try maybe just for fun go to the GitHub morph down repository. Look at morph Dom dot J's that big file and try to understand it. I dare you. It's a massive procedure. File and it's really hard to understand. So do I do that that's option A where I take more of them and I just make it my.</p>
+<p>Insert word that we shouldn't say here. So back on track. Yeah. Do I do that that's option A or option b is I switch to a virtual Dom strategy like I talked about before that has the benefit of I could literally Use SNAP dumb or any of these dumb different libraries that reactor view use, that would be great.</p>
+<p>That would be super easy. And sorry it was that part would be easy the part of like making something work beautifully, but getting it to work. I would have to translate all of the Dom into the virtual Dom and then do the dipping and translate it back whatever it be a lot of weirdness and I'm just not sure if that's something I want to do because I attempted it before I gave it a weekend and I ended up just killing that.</p>
+<p>So that's option be an option C is there's always the rewrite in the sky option C is do I write my own Dom differ like like more of them, but for exactly what I need. So option A is the most realistic one. It's the one I've been doing. I just keep hacking morph Dom until I get it to do. What I wanted to do.</p>
+<p>The pros of option AR is probably the least work and it's the least disruptive. But the cons of it are morph times hard to understand. It's very hard to understand and I don't even know if I'll be able to make it do what I want without almost rewriting it anyway option b where I switch to a virtual Dom strategy the pro is that I can rely on somebody else maintaining.</p>
+<p>Sorry, the pro of of option A another huge probe. The biggest Pro is that there's a whole group of people on GitHub that are constantly making sure that it works for everybody meaning it's been out there for a long time. There's lots of weird little if statements that detect stuff for certain browsers.</p>
+<p>Like if I were to write my own starting from scratch, I would be basically just Reinventing the wheel and all those areas. So option b is starting with a, you know, implementing a virtual Dom. Like Snap down that vue.js uses and if I do that the pro is like I said I get to use basically the hardened beautiful solid core that vue.js uses.</p>
+<p>The con is to adapt my strategy to that strategy would be a lot of heavy lifting and might result in just as much weird errors as I'm getting right now. Option C is the most enticing to me because I would get to understand and own every bit of it. And if I wrote that I would I would have written an understand every single nook and cranny of live wire from Back to Front I would have.</p>
+<p>Ownership of it and what understand all of it and it would all be in my brain and intentional and within my domain this is a pro and a con it's a pro because I totally understand it. It's a con because I have widened the codebase significantly and I would be Reinventing the wheel like I said before so it's a tough one, and I don't actually I'm not going to come to an answer right here on this call on this call.</p>
+<p>Like we're just kind you know, me and you were talking and I don't know what I'm going to do. So I'm just here to sort of vent and tell you my dom dipping woes. This is the last nasty part of Live Wire and if I can overcome this then Live Wire in my brain Live Wire will be clean and efficient on the front end and it's getting there.</p>
+<p>But this is kind of a missing piece. So you understand how Dom dipping works now and you understand the crossroads that I'm at in terms of strategies for the front end. I will hopefully do a follow-up post where I tell you what I decided to do and how it went right or wrong. But until then enjoy your hike and thank you for listening.</p></p>
 </div>
 </main>
 
