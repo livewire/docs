@@ -31,6 +31,7 @@ return [
             'Polling' => 'docs/polling',
             'Loading States' => 'docs/loading-states',
             'Dirty States' => 'docs/dirty-states',
+            'Offline State' => 'docs/offline-state',
             'CSS Transitions' => 'docs/css-transitions',
         ],
     ],
