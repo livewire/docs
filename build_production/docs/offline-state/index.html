@@ -13,28 +13,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="I&#039;m sitting in my office, about to make a decent size refactor to Livewire&#039;s core, and thought I&#039;d tell you about it!">
+        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
-        <meta property="og:site_name" content="Building Livewire Podcast"/>
-        <meta property="og:title" content="New Design Pattern: The Plugin Pattern | Building Livewire Podcast"/>
-        <meta property="og:description" content="I&#039;m sitting in my office, about to make a decent size refactor to Livewire&#039;s core, and thought I&#039;d tell you about it!"/>
-        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep8-new-design-pattern-the-plugin-pattern"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
+        <meta property="og:site_name" content="Livewire Documentation"/>
+        <meta property="og:title" content="Offline State | Livewire Documentation"/>
+        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/offline-state"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
-        <meta name="twitter:image:alt" content="Building Livewire Podcast">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
+        <meta name="twitter:image:alt" content="Livewire Documentation">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>New Design Pattern: The Plugin Pattern | Building Livewire Podcast</title>
+        <title>Offline State | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
-
+        
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
@@ -47,7 +46,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -90,7 +89,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -164,7 +163,23 @@
         </div>
     </div>
 
-    
+        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -175,64 +190,396 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
-    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
-        <div class="md:w-1/2 py-16">
-                <h2 class="text-3xl md:text-5xl m-0 text-white">New Design Pattern: The Plugin Pattern</h2>
-                <div class="font-bold mb-3 text-white text-base opacity-75">
-                    <span>
-                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Sep 23
-                    </span>
-                    <span class="ml-3">
-                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        10:02
-                    </span>
-                </div>
-                <p class="m-0 text-base text-white">I&#039;m sitting in my office, about to make a decent size refactor to Livewire&#039;s core, and thought I&#039;d tell you about it!</p>
-        </div>
+    <section class="container mx-auto px-6 md:px-8 py-12">
+    <div class="flex flex-col lg:flex-row">
+        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
+            <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/quickstart"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/the-livewire-developer"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            The Livewire Developer
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/installation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/making-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Making Components
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/render-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>render()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/state-management"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            State Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/mount-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>mount()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/data-binding"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Data Binding
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/triggering-actions"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Triggering Actions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/lifecycle-hooks"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Lifecycle Hooks
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/events"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Events
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/input-validation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Input Validation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/pagination"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Pagination
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/redirecting"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Redirecting
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/nesting-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Nesting Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/defer-loading"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Defer Loading
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/prefetching"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Prefetching
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/polling"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Polling
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/loading-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Loading States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/dirty-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Dirty States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/offline-state"
+            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+        >
+            Offline State
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/css-transitions"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            CSS Transitions
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/inline-scripts"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Inline Scripts
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/vuejs"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            VueJs
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/third-party-libraries"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Third-Party Libraries
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/web-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Web Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/testing"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Testing
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/spa-mode"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            SPA Mode
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/security"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Security
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/api"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            API Reference
+        </a>
+    
+    </li>
+    </ul>
+        </nav>
 
-        <div class="">
-            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/ae1e91d7?color=f5f5f5' width='100%'></iframe>
+        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
+            <h1>Offline State</h1>
+
+            <p>It's sometimes important to notify a user if they have lost their internet connection. Livewire provides helpful utilities to perform actions based on a user's &quot;offline&quot; state.</p>
+<h2 id="toggling-elements">Toggling elements</h2>
+<p>You can show an element on the page when the user goes &quot;offline&quot;, by adding the <code>wire:offline</code> attribute.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:offline&gt;
+    You are now offline.
+&lt;/div&gt;</code></pre>
+</div>
+<p>This <code>&lt;div&gt;</code> will automatically be hidden by default, and shown to the user when the browser goes offline.</p>
+<h2 id="toggling-classes">Toggling classes</h2>
+<p>Adding the <code>class</code> modifier allows you to add a class to an element when &quot;offline&quot;.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:offline.class="bg-red-300"&gt;&lt;/div&gt;</code></pre>
+</div>
+<p>Now, when the browser goes offline, the element will receive the <code>bg-red-300</code> class. The class will be removed again once the user is back online.</p>
+<p>You can also perform the inverse, and remove classes by adding the <code>.remove</code> modifier, similar to how <code>wire:loading</code> works.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:offline.class.remove="bg-green-300" class="bg-green-300"&gt;&lt;/div&gt;</code></pre>
+</div>
+<p>The <code>bg-green-300</code> class will be removed from the <code>&lt;div&gt;</code> while offline.</p>
+<h2 id="toggling-attributes">Toggling attributes</h2>
+<p>Adding the <code>attr</code> modifier allows you to add an attribute to an element when &quot;offline&quot;.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:offline.attr="disabled"&gt;Submit&lt;/button&gt;</code></pre>
+</div>
+<p>Now, when the browser goes offline, the button will be disabled.</p>
+<p>You can also perform the inverse, and remove attributes by adding the <code>.remove</code> modifier.</p>
+            <div class="mt-12 pt-8 pb-6 border-t-2">
+                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+    <div class="flex flex-col items-center md:items-start">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/dirty-states">Dirty States</a>
+            </h4>
+            </div>
+    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/css-transitions">CSS Transitions</a>
+            </h4>
+            </div>
+</div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
-<h3>Transcript:</h3>
-<p><p>Hey everybody, right now. It is pouring rain outside my window in my office and I just love that so much. I love the sound. It makes me feel like I'm in a cozy shelter like a fort when your kid anyway. So I titled this new design pattern the plug-in pattern so this may exist or not or whatever.</p>
-<p>But basically it's something that I've been pondering about this new way of writing code that I want to move the live work or two. And I think it'll be interesting and useful for really any project but probably more open source projects, who knows. So the idea is I'm actually coming up with this off the cuff.</p>
-<p>So it's going to sound like like it's well thought out but it's not the idea. That all or as much functionality as you can for a core four core features inside of a plug-in or package. You should write as plug-ins for for that package what I mean by that is so Livewire offers all these directives.</p>
-<p>So wire: click while your colon pole, you know, anything like that. I eventually would like to allow the user to register their own hooks so that you could make wire: funada Ledoux. I don't know and and the syntax might be something like Livewire dot directive register the name and then some call back or something like that.</p>
-<p>Well, what if. Even the internal hooks. Sorry the internal directives what if they used the exact same system so that if your Source diving you're not, you know, it's not like I guess userland and whatever the opposite of that is core core software land feels. The same so an example of this in laravel would be lets say so when you register a custom blade directive and laravel.</p>
-<p>So blade directive is the at whatever so a diff is a blade directive if you want to register a custom one, it's Blade the blade facade:: directive you pass in a name and then you pass in a callback that you know that you return the rendered HTML from when you Source dive laravel, you'll find it's not as simple like you don't find any place in laravel core that all the.</p>
-<p>Are registered that way they're inside of these compiler traits and they're like the it or the like let's say the unless directive is a method called compiled unless and there's magic happening and do that which I think you know isn't a great experience as a source diver. Maybe it makes sense for somebody writing the laravel framework, but how cool would it be if even the core laravel?</p>
-<p>Directives were where actual you know, custom register directed. So somewhere in their vocal cords, he played:: directive so this this could apply to so many different areas of Livewire the obvious one. The one that I the one that I sort of came to this with was custom directives, but I start to think about it how I could apply it in all sorts of different ways.</p>
-<p>So there's custom directives. There's custom actual blade directives inside Livewire that I'd like to offer where you can register blade directives that only. Run within a live wire request. So you're not, you know messing with the global blade namespace. So there's actually only one right now that exists the at this directive for JavaScript stuff.</p>
-<p>But but I want to make those extensible and actual plugins like right now. I have a trait called use pagination. I think that basically makes a Livewire component all. It adds functionality for for pagination. It kind of hijacks levels default pagination. So maybe there's a way that I could make this more extensible and use it in the core.</p>
-<p>Another thought I had was data tables that's going to be something that a really common use case for Livewire at some point. I really want to sink my teeth into it and make a data tables implementation like a first-class API that you can use to make data tables in your apps with Livewire. And I think this is the kind of thing that maybe I wouldn't want in core.</p>
-<p>Maybe I would want it to be like a composer require Livewire / data tables and it all just kind of works. So anyway, this is kind of where my brain is going and one of the founding motivations behind. This is the make more things the same principle. I think this is a Sandi Metz thing. I don't really remember exactly but I think it is Sandi Metz.</p>
-<p>I'm probably just paraphrasing but I love this piece of coding wisdom make more things the same and this is a perfect example the things that were different before so in in registering blade directives in laravel to use that example, there's the. The way that it's used in the core. Where is this custom these custom traits with these methods and then there's the way that users can use and user land like blade colon colon directive to register your custom directives to apply the make more things the same pattern is too.</p>
-<p>Make one unified interface for registering blade directives whether it's user register our developer registering a blade directive or Taylor creating a new blade direct at this way. So that that sort of the the plug-in pattern here's another place that I want to apply it. This is a little bit more zoomed in and a lower level.</p>
-<p>Detail so Livewire is kind of like vue.js in that it does Dom dipping. So when live where calls out to the server, it renders blade or start renders some Dom gets the HTML back it Compares it with what's on the page and it uses a plug-in called morph Dom that walks through the Dom tree and decides if things are the same or if they're different and if they're different it only updates what's different.</p>
-<p>So this way you're not wiping out big parts of your Dom and you know, losing focus stayed and input values and all. Stuff like that. It's really efficient, and it's really fast and this is all great. But there's lots of things I have to do so morph down provides hooks itself for things like on before L update which is like before an element is updated by morph Dom you can do stuff to it or decide to disable that behavior.</p>
-<p>So there's these hooks that morphed I'm offers and there's all sorts of like it's really hard to just jump into this without explaining live where Corbett. Basically there's lots of places where an element is created updated or destroyed Live Wire is the thing that's doing that. And I have to hook hook things unto their and to those those places in the life cycle for everything to work.</p>
-<p>So one example is wire: loading when you add that directive to an element, it's hidden by default, but then when live wires loading, it adds like display block or something to the elements so that it shows. So there's I have this loading manager. It's a class that basically keeps track of all the elements that have that directive attached so that I can toggle them and and toggle them all I can type of them on and off.</p>
-<p>So this pattern if I move to this pattern instead of having these these little like Livewire or sorry loading manager dot register loading or something scattered throughout the code base if I had a unified interface that was like on before element destroyed. And a user and user land so you and you're using live where you can hook into this yourself if you want to do stuff and I can hook into it for all sorts of core functionality.</p>
-<p>So that's a little bit hard to explain without giving specific code examples or without you seeing the code base. But just know that there's tons of instances where this would be super useful. The reason this all came about is because I'm reading Sebastian to dyn's. I never know if I pronounce his name, right?</p>
-<p>I really should ask him that Sebastian to dyn's blog post. You just did a blog post on like using vanilla J's to solve a simple problem instead of reaching for view right up my alley. I love it. I love what he did. Forget about Livewire. He did the right thing. It's great. It's a great post. You should check it out, but I can't help but read it and think oh my gosh, this would be so much easier in Livewire.</p>
-<p>But one thing that it was missing that he had was offline state. So he added a little indicator in the top right that shows when the connection is offline because it's okay to give you the gist. It's a status page for Flair that new era tracking app that shows I think it's just the the flare app status page.</p>
-<p>It's like if flare is working if the flare servers are up or down I don't even. And it gives some sort of indication like red or green and he's just pulling like we talked about in the last episode where he's just hitting Ajax hitting the server swapping in HTML every so often but he listens to an online or offline event that browsers fire when computer goes offline and if that's the case, he shows a little off line indicator in the top, right so, you know that you're not getting a live update and I think that's really cool live where doesn't have anything like that people have asked in the GitHub.</p>
-<p>So I thought well I should add a wire: And to an element so that I can toggle. So let's just say it works like while you're loading if if the thing is online than whatever that element is its just doesn't show if the app goes offline then those elements that have a wire: offline will show so I went to add this and I thought oh man, I'm gonna have to register this just like I did the loading indicator.</p>
-<p>So everywhere. I handle wire loading. I have to handle wire offline. I thought if I moved to this make everything a plug-in make everything extensible make everything hooks that I could make one hook. That that is just like, you know, I could just hook in. Okay, I can have one file that's just in charge of the offline functionality and hook into the places.</p>
-<p>I need to hook into them. So maybe this is called the hooking pattern or whatever. There's probably a million different things here. But the way I see it, we're all so it's all skirting around this principle of like make everything extensible make everything lifecycle hooks so that the users can register their own things in a custom unified way and you can too and it's all founded on the.</p>
-<p>Support of make more things the same. I hope this was interesting for you. I'm literally about to go right this refactor. I just wanted to let you know what I was doing before I get to it. So thanks for listening as always some outro music that doesn't exist now then identity.</p></p>
-</div>
+</section>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -261,15 +608,7 @@
                 }
             })
         </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-
+    
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">

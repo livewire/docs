@@ -37,7 +37,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5b56cafeb5378d7372d2">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=611ad2991b4143299a7a">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -398,6 +398,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/offline-state"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Offline State
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/css-transitions"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -513,6 +522,82 @@ php artisan make:livewire foo-bar
 
 # Creates Foo/Bar.php &amp; foo/bar.blade.php
 php artisan make:livewire foo.bar</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        For convenience, <code>make:livewire</code> is aliased to <code>livewire:make</code> and <code>livewire:touch</code>
+    </div>
+</div>
+<h2 id="move-command">The <code>move</code> Command</h2>
+<p>The <code>php artisan livewire:move</code> command will move/rename the component class and blade view, taking care of namespaces and paths</p>
+<p>Here is an example of usage:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash"># Moves Foo.php &amp; foo.blade.php to Bar/Baz.php and bar/baz.blade.php
+php artisan livewire:move foo bar.baz</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        For convenience, <code>livewire:move</code> is aliased to <code>livewire:mv</code>
+    </div>
+</div>
+<h2 id="copy-command">The <code>copy</code> Command</h2>
+<p>The <code>php artisan livewire:copy</code> command will create copies of the component class and blade view, taking care of namespaces and paths</p>
+<p>Here are a few examples of usage:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash"># Copies Foo.php &amp; foo.blade.php to Bar/Baz.php and bar/baz.blade.php
+php artisan livewire:copy foo bar.baz
+
+# Copies Foo.php &amp; foo.blade.php to Bar.php and bar.blade.php
+# (overwriting existing Bar.php and bar.blade.php)
+php artisan livewire:copy foo bar --force</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        For convenience, <code>livewire:copy</code> is aliased to <code>livewire:cp</code>
+    </div>
+</div>
+<h2 id="delete-command">The <code>delete</code> Command</h2>
+<p>The <code>php artisan livewire:delete</code> command will remove the component class and blade view.</p>
+<p>Here are a few examples of usage:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash"># Removes Foo.php &amp; foo.blade.php (with confirmation prompt)
+php artisan livewire:delete foo
+
+# Removes Foo.php &amp; foo.blade.php (without confirmation prompt)
+php artisan livewire:delete foo --force</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        For convenience, <code>livewire:delete</code> is aliased to <code>livewire:rm</code>
+    </div>
 </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
