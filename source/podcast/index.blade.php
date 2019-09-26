@@ -23,7 +23,7 @@ $page->description = 'Follow along on the Livewire journey. We\'ll talk about wh
 
         <div class="flex flex-col-reverse items-center">
             <img class="w-48 pt-8" src="/assets/img/podcast-head.svg" alt="Building Livewire Podcast Logo">
-            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/2a95f4c5?color=f5f5f5' width='100%'></iframe>
+            {!! $podcasts->first()->iframe_markup !!}
         </div>
     </div>
 </div>
