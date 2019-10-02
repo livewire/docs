@@ -10,18 +10,11 @@ Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's wa
 
 Checkout the [Turbolinks documentation](https://github.com/turbolinks/turbolinks) for installation instructions.
 
-Now, add the following JS in a script tag at the bottom of the page, or in your `app.js` file.
+Now, add the following JS in a script tag on the page, or in your `app.js` file.
 
 @code(['lang' => 'js'])
-Turbolinks.start()
-
 document.addEventListener('turbolinks:load', () => {
-    if (! window.livewire) {
-        window.livewire = new Livewire()
-        window.livewire.start()
-    } else {
-        window.livewire.restart()
-    }
+    window.livewire.rescan()
 })
 @endcode
 

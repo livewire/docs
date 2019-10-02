@@ -513,17 +513,10 @@
             <p>While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.</p>
 <p>Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's walk through it.</p>
 <p>Checkout the <a href="https://github.com/turbolinks/turbolinks">Turbolinks documentation</a> for installation instructions.</p>
-<p>Now, add the following JS in a script tag at the bottom of the page, or in your <code>app.js</code> file.</p>
+<p>Now, add the following JS in a script tag on the page, or in your <code>app.js</code> file.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-js">Turbolinks.start()
-
-document.addEventListener('turbolinks:load', () =&gt; {
-    if (! window.livewire) {
-        window.livewire = new Livewire()
-        window.livewire.start()
-    } else {
-        window.livewire.restart()
-    }
+    <pre class="scrollbar-none"><code class="scrolling-touch language-js">document.addEventListener('turbolinks:load', () =&gt; {
+    window.livewire.rescan()
 })</code></pre>
 </div>
 <p>And that's it! This little snippet tells Turbolinks to reload Livewire every time a new page is visited or returned to.</p>
