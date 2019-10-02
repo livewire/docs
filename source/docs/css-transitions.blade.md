@@ -35,7 +35,7 @@ If your element isn't transitioning in and out as expected, it's possible Livewi
 
 ## Simple slide transition {#simple-slide}
 
-In addition to simple "fade" functionality. Livewire offers "slide" functionality.
+In addition to simple "fade" functionality, Livewire offers "slide" functionality.
 
 @code
 <div wire:transition.slide>Jerry</div>
