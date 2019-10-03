@@ -18,7 +18,8 @@ return [
     ],
     'Component Features' => [
         'children' => [
-            'Input Validation' => 'docs/input-validation',
+            'Validation' => 'docs/input-validation',
+            'Authorization' => 'docs/authorization',
             'Pagination' => 'docs/pagination',
             'Redirecting' => 'docs/redirecting',
             'Nesting Components' => 'docs/nesting-components',

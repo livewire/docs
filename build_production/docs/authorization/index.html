@@ -13,28 +13,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Sometimes, you just have to do the hard thing, put your thinking cap on, and open the black box. In my case, I had to really sit down and understand how Livewire&#039;s DOM-diffing algorithm works, and THEN I was able to clear my head and move forward.">
+        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
-        <meta property="og:site_name" content="Building Livewire Podcast"/>
-        <meta property="og:title" content="Open The Black Box (The Solution To My DOM Diffing Woes) | Building Livewire Podcast"/>
-        <meta property="og:description" content="Sometimes, you just have to do the hard thing, put your thinking cap on, and open the black box. In my case, I had to really sit down and understand how Livewire&#039;s DOM-diffing algorithm works, and THEN I was able to clear my head and move forward."/>
-        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep12-open-the-black-box-the-solution-to-my-dom-diffing-woes"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
+        <meta property="og:site_name" content="Livewire Documentation"/>
+        <meta property="og:title" content="Authorization | Livewire Documentation"/>
+        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/authorization"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
-        <meta name="twitter:image:alt" content="Building Livewire Podcast">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
+        <meta name="twitter:image:alt" content="Livewire Documentation">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Open The Black Box (The Solution To My DOM Diffing Woes) | Building Livewire Podcast</title>
+        <title>Authorization | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
-
+        
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
@@ -47,7 +46,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -90,7 +89,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -164,7 +163,23 @@
         </div>
     </div>
 
-    
+        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -175,65 +190,403 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
-    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
-        <div class="md:w-1/2 py-16">
-                <h2 class="text-3xl md:text-5xl m-0 text-white">Open The Black Box (The Solution To My DOM Diffing Woes)</h2>
-                <div class="font-bold mb-3 text-white text-base opacity-75">
-                    <span>
-                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Oct 03
-                    </span>
-                    <span class="ml-3">
-                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        09:59
-                    </span>
-                </div>
-                <p class="m-0 text-base text-white">Sometimes, you just have to do the hard thing, put your thinking cap on, and open the black box. In my case, I had to really sit down and understand how Livewire&#039;s DOM-diffing algorithm works, and THEN I was able to clear my head and move forward.</p>
-        </div>
+    <section class="container mx-auto px-6 md:px-8 py-12">
+    <div class="flex flex-col lg:flex-row">
+        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
+            <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/quickstart"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/the-livewire-developer"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            The Livewire Developer
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/installation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/making-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Making Components
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/render-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>render()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/state-management"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            State Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/mount-method"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            The <code>mount()</code> Method
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/data-binding"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Data Binding
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/triggering-actions"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Triggering Actions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/lifecycle-hooks"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Lifecycle Hooks
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/events"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Events
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/input-validation"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Validation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/authorization"
+            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+        >
+            Authorization
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/pagination"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Pagination
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/redirecting"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Redirecting
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/nesting-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Nesting Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/defer-loading"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Defer Loading
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/prefetching"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Prefetching
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/polling"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Polling
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/loading-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Loading States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/dirty-states"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Dirty States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/offline-state"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Offline State
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/css-transitions"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            CSS Transitions
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/inline-scripts"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Inline Scripts
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/vuejs"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            VueJs
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/third-party-libraries"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Third-Party Libraries
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/web-components"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Web Components
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/testing"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            Testing
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
+    
+            
+        <ul class="list-none my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/spa-mode"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            SPA Mode
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/security"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Security
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/api"
+            class="lvl0   nav-menu__item hover:text-blue-600"
+        >
+            API Reference
+        </a>
+    
+    </li>
+    </ul>
+        </nav>
 
-        <div class="">
-            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/4e10ef8b?color=f5f5f5' width='100%'></iframe>
+        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
+            <h1>Authorization</h1>
+
+            <p>To authorize actions in Livewire, you can use the <code>AuthorizesRequests</code> trait in any component, then call <code>$this-&gt;authorize()</code> like you normally would inside a controller. For example:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+class EditPost extends \Livewire\Component
+{
+    use AuthorizesRequests;
+
+    public $title;
+
+    protected $post;
+
+    public function mount(Post $post)
+    {
+        $this-&gt;post = $post;
+    }
+
+    public function save()
+    {
+        $this-&gt;authorize('update', $this-&gt;post);
+
+        $post-&gt;update(['title' =&gt; $this-&gt;title]);
+    }
+}</code></pre>
+</div>
+            <div class="mt-12 pt-8 pb-6 border-t-2">
+                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+    <div class="flex flex-col items-center md:items-start">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/input-validation">Validation</a>
+            </h4>
+            </div>
+    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/pagination">Pagination</a>
+            </h4>
+            </div>
+</div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
-<h3>Transcript:</h3>
-<p><p>So last time we chatted well two  times ago talked about my dom diffing  woes. Why dom diffing matters in Livewire why it's not perfect why it's super frustrating. Well, I have good news. We're through the woods a little bit and I feel a lot better about where where I'm at with the whole situation in Livewire.</p>
-<p>So I want to talk about how I got there. Where to begin so I had mentioned that there's a fork in the road right now. I'm using a package called morph Dom. It's the same package that Phoenix live view uses for Dom diffing and it works. Okay out of the box. I had to do some tweaking I found some bugs right away, but I've encountered a few nebulous bugs that just kind of reveal that morphdom isn't the most advanced Dom differ.</p>
-<p>Maybe another way of putting this it I guess the more specific way of putting this it doesn't it doesn't look ahead. So it does Dom diffing but it doesn't predict the future like other Dom differs do and they can basically more intelligently figure out what the actual diff is. It's kind of hard to describe.</p>
-<p>But anyway, I don't want to get into like implementation details here. I want to talk about the big picture. So I. Morph time sort of because it's the thing that I've been using and I've been hacking on it. Like I have like duct tape around it and things like that. I've actually, you know pulled it into the project and change specific lines in the code base.</p>
-<p>So I kind of own it in my project and their gives you there's like a certain feeling about. About a package that you haven't written about really any code that you haven't written. It doesn't always feel good and your judgements usually clouded. I think a lot of there's like a lot of biases there.</p>
-<p>A lot of people think that the code is more poorly written than it actually is if they didn't write it there's all that sort of stuff and it really is hard to reason about there's like one giant while loop with a while loop nested inside of it and a ton of conditionals like probably like eight layers of nesting really hard to follow.</p>
-<p>So I definitely feel that way about this code base. I don't understand it makes me feel bad. So of course, there's always the rewrite in the sky well for talk about the rewrite in the sky. There's always new plugins that you can try and I've tried them before I wasted a couple weekends on you trying to switch to a virtual Dom diffing Library.</p>
-<p>So I went back to the internet and. Try to see you know, what's out there. What are the alternatives to morphdom morphdom is specific in some specific ways for for a tool like Livewire that I can't just use any Dom differ because a lot of them work with virtual dumbs which live where doesn't use and if that doesn't make sense to you don't worry about it, but there's kind of this niche of Dom differs that work with actual Dom in the browser, which is what Livewire needs so I found an alternative that I don't know if I have some wood across before which is kind of crazy.</p>
-<p>Decently popular, you know, the first thing I look at is GitHub Stars. It's funny. It's kind of an arbitrary metric but really it's like it's kind of like on Amazon when you look at. Like sometimes I just look at the amount of reviews and that is that like Swayze my decision, you know. Yeah, so I look at GitHub stars and I go all right.</p>
-<p>Is this something that is just Niche somebody started a year ago or two years ago and they're not going to continue keeping up or whatever. So I look at GitHub stars and I look at the last commit date. Those are two things I look at when I open up a GitHub repository. The last commit date was an August that's not bad.</p>
-<p>And there's like 500 something GitHub Stars. That's also not bad. I think morph Tom has like 2,000 now, but when I started using it, it was more like a thousand so. So this all looks good to me. I'm like, okay this could work. And so I pull it down. I open a new branch and I pull it down just to do a proof of concept.</p>
-<p>This is really important as well as like to basically for any stuff like this. I mean this is kind of obvious stuff, but but it is a good reminder that don't don't start rewriting something like it's it doesn't take that much effort to try something. The problem is when you don't know when to stop trying and we'll talk about that in a minute, but it doesn't take that much effort to try something.</p>
-<p>It's good to try. Things near the next time you're in like a meeting or whatever like a Sprint planning or something and there's people talking Ad nauseam about what Solutions might work and what effort they might take take, you know an hour and pull the freaking thing down and actually use it for 5 minutes and it'll actually inform your decision in a huge way.</p>
-<p>So I decided to just pull it down and start just hacking on it seeing if I could retrofit into Live Wire and make it work. So that part didn't take me too long. But like I said the risk in that is that you think it's going to work and so you you go down the road and it's it can be a long road and you have to decide when enough is enough.</p>
-<p>If you keep going you push forward you fix the bugs you make it match the old behavior and give it and get the new Behavior or you punt on it. And you say you know. But this is too involved. There's too many unknowns here. This is going to take too long. I'm not going to chase this right now.</p>
-<p>That's a really really hard decision to make potentially the most difficult decision to make in development. But one of the most important decisions to make so. I did what I wanted it to do right away. Like the thing that morphdom didn't do if Dom did like it's a smart dom differ. Oh, it's more advanced than morphdom in some ways, but there was some other Hang-Ups and so I just started fixing them like one by one and a basically I've read the whole source code.</p>
-<p>I've grabbed everything, you know, I went really deep down the whole probably took me a day and a half two days. And I came up and was basically frustrated because I couldn't get it to work. Right? So I went and found another library and did sort of the same thing and then I contemplated. Well, maybe I just get an actual virtual Dom differ like the one vue.js uses pull that in that way.</p>
-<p>My basically my virtual Dom diffing will be Rock Solid because it's views core, but but I'll have to do some weird tinkering to get it to work with dhamma in the browser. So I thought about that and basically it all left me in this place. We're just feeling down this this is you know, it's all like a if you picture it like like a hike or something.</p>
-<p>It's this is the well maybe a Hikes not the right word. But you're at the bottom of the pit. This is the part where you're you're just you're alone and you're at the bottom of the pit and you don't have any good solution in front of you you feel bad about what's happening. What exists right? Now you start to get that imposter syndrome you start to look at other people and think everybody's better than you everybody's projects better than you and just not feel good about yourself.</p>
-<p>And that's pretty much where I was for a handful of days and I didn't know the right way forward. So yesterday I thought you know what I think what I need to do is just do the hard work do the hard work of really owning morph dumb like understand it. Understand every line of it. I've walked it line by line before but I mean really like I mean sit down and read through morphed them until I feel like I know how it works completely to a point that I can change it, you know, like sit down and do that.</p>
-<p>So I did and guess what it didn't take me that long. It like it's crazy how that happens. But I'm sure you can relate to this experience where you wear something seems sort of Out Of Reach so you avoid it but when you look it in the eye it's you know, 10 minutes away. I'm thinking of another story where I tried to write a recursive function to solve some really complicated math problem spent hours and hours and hours on it.</p>
-<p>I eventually realized that I was too far down the hole and there the whole would continue to be too far I punted on it and I solved it manually by hand with a pen and paper and it took me I think 15 minutes. There's so many so many stories like that. When sometimes the right thing to do is just to do the hard laborious work.</p>
-<p>Yeah, so that that's what. Decided to do and I sat down and I dropped morphdom and then after that because I understood exactly what was happening. I was able to basically solve my the first original problem that sent me on this Rabbit Trail in 10 minutes. I added four lines of code to the core of morphdom.</p>
-<p>And it fixed my problem and then so I then I looked at another issue that I heading to haven't even looked at a GitHub issue dealing with dom diffing hold it down. It's a different problem that's core to morphdom and I solved it in another probably 15 minutes and I have tests for. It's perfect now.</p>
-<p>So now I feel good about it. I feel good about the project. I feel like I own this piece of technology. It's still an open source project. I didn't write it myself. So I still get the benefit of all all of it the open-source NE sandpeople hardening it by fire over time. But I feel good about it. I feel like I own it and the answer was opening the Black Box morphed on was a black box to me.</p>
-<p>Dom diffing was a black box. It was the last black box and black boxes feel they're intimidating their mountains to climb. You think you're not smart enough. You think that it's out of your a range of expertise whatever at the end of the day. I mean if it's a if it's a code base its code, you know, you know code you can read code I can read while loops and for statements and whatever and I can sit there.</p>
-<p>And figure out how it works and I underestimated myself and it's not that difficult to understand and I feel like I fully understand it now. So the answer was opening the black box go right into the challenge do the hard thing. It makes the rest of the things easier. I'm happy now. My time different woes are over for the meantime, and when I encounter new problems, I now have a lasting solution because I understand how the thing works so I can change it and make it behave the way I want it to behave.</p>
-<p>So let this little Saga be an inspiration to you. Thanks for following along. Enjoy your day.</p></p>
-</div>
+</section>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -262,15 +615,7 @@
                 }
             })
         </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-
+    
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
