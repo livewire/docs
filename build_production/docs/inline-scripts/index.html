@@ -37,7 +37,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=e179ce7cc66f57b43045">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=a8e66a565d8eccf2e0fa">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -541,6 +541,19 @@
     // Your JS here.
 &lt;/script&gt;
 @endpush</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-16 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-5xl">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
+        Please note that your scripts will be run only once upon the first render of the component. If you need to run a JavaScript function later - emit the event from the component and listen to it in JavaScript as described [here](https://laravel-livewire.com/docs/events/)
+    </div>
 </div>
 <h3>Accessing the JavaScript component instance</h3>
 <p>Because Livewire has both a PHP AND a JavaScript portion, each component also has a JavaScript object. You can access this object using the special <code>@this</code> blade directive in your component's view.</p>

@@ -13,27 +13,28 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
+        <meta name="description" content="Today, I talk about a significant change I made to my life: unfollow everyone on Twitter.">
 
-        <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Testing | Livewire Documentation"/>
-        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/unit-testing"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:site_name" content="Building Livewire Podcast"/>
+        <meta property="og:title" content="Change Your Environment (On Silencing Twitter) | Building Livewire Podcast"/>
+        <meta property="og:description" content="Today, I talk about a significant change I made to my life: unfollow everyone on Twitter."/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep13-change-your-environment-on-silencing-twitter"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
-        <meta name="twitter:image:alt" content="Livewire Documentation">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
+        <meta name="twitter:image:alt" content="Building Livewire Podcast">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Testing | Livewire Documentation</title>
+        <title>Change Your Environment (On Silencing Twitter) | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        
+        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
@@ -46,7 +47,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -89,7 +90,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -163,23 +164,7 @@
         </div>
     </div>
 
-        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
-    onclick="navMenu.toggle()"
->
-    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
-    >
-        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-    </svg>
-
-    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
-    >
-        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
-    </svg>
-</button>
-
-
+    
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -190,461 +175,63 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
-            <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/quickstart"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/installation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/making-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Making Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/render-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>render()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/state-management"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/mount-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>mount()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/data-binding"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Data Binding
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/triggering-actions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/events"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Events
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/authorization"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Authorization
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/pagination"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Pagination
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/nesting-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/defer-loading"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/polling"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Polling
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/offline-state"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Offline State
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/css-transitions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            CSS Transitions
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/inline-scripts"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Inline Scripts
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/vuejs"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/testing"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/spa-mode"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/security"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Security
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            API Reference
-        </a>
-    
-    </li>
-    </ul>
-        </nav>
+    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
+    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
+                <h2 class="text-3xl md:text-5xl m-0 text-white">Change Your Environment (On Silencing Twitter)</h2>
+                <div class="font-bold mb-3 text-white text-base opacity-75">
+                    <span>
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Oct 07
+                    </span>
+                    <span class="ml-3">
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        09:20
+                    </span>
+                </div>
+                <p class="m-0 text-base text-white">Today, I talk about a significant change I made to my life: unfollow everyone on Twitter.</p>
+        </div>
 
-        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Testing</h1>
-
-            <p>Livewire supports 2 styles of testing it's components:</p>
-<ol class="list-inside">
-    <li>Unit testing</li>
-    <li>End-to-end testing</li>
-</ol>
-<p>For these demonstrations, we will be using a simple Counter component like the following:</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">Counter.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class Counter extends Component
-{
-    public $count = 0;
-
-    public function increment()
-    {
-        $this-&gt;count++;
-    }
-
-    public function decrement()
-    {
-        $this-&gt;count--;
-    }
-
-    public function render()
-    {
-        return view('livewire.counter');
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">counter.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div style="text-align: center"&gt;
-    &lt;button wire:click="increment"&gt;+&lt;/button&gt;
-    &lt;h1&gt;{{ $count }}&lt;/h1&gt;
-    &lt;button wire:click="decrement"&gt;-&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<h2 id="unit-testing">Unit Testing</h2>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        $counter = Livewire::test(Counter::class);
-
-        $this-&gt;assertEquals(0, $counter-&gt;count);
-
-        $counter-&gt;increment();
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-
-        $counter-&gt;decrement();
-
-        $this-&gt;assertEquals(0, $counter-&gt;count);
-
-        $counter-&gt;count = 1;
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-    }
-}</code></pre>
-</div>
-<p>You can pass data to <code>Livewire::test()</code> method to initialize your component properties like so:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">$counter = Livewire::test(Counter::class, $param1, $param2 ...);</code></pre>
-</div>
-<h2 id="end-to-end-testing">End-to-end Testing</h2>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        Livewire::test(Counter::class)
-            -&gt;assertSee(0)
-            -&gt;call('increment')
-            -&gt;assertSee(1)
-            -&gt;call('decrement')
-            -&gt;assertSee(0)
-            -&gt;set('count', 1)
-            -&gt;assertSee(1)
-            -&gt;set(['count' =&gt; 2])
-            -&gt;assertSee(2);
-    }
-}</code></pre>
-</div>
-            <div class="mt-12 pt-8 pb-6 border-t-2">
-                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="flex flex-col items-center md:items-start">
-            </div>
-    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/the-livewire-developer">The Livewire Developer</a>
-            </h4>
-            </div>
-</div>
-            </div>
+        <div class="">
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/db5dcc1b?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
+<h3>Transcript:</h3>
+<p><p>So yesterday I'm standing on my porch waiting for a ride and I pull out my phone and I start scrolling through Twitter and I read something that this isn't necessarily anything out of the ordinary, but I read a tweet from a friend who let's just say did something good like. Insert good thing here that a developer does on Twitter has a hot tip tweet launches course is a sap a blog post you name it and I immediately felt bad about myself just a little bit not anything crazy, but just a tiny bit of bad and I recognized it and I took action.</p>
+<p>I changed my environment and I opened up. My followers on sorry the people I'm following on Twitter and I unfollowed every single person that I follow on Twitter close my phone put it back in my pocket and things have been a little bit different since that time. So let me unpack all of that. What led to this?</p>
+<p>Why did I do it? What does it have to do with Livewire?  That kind of stuff. So I've been feeling let's say in a slump. I've been in a bit of a development slum. You know, I'm working on Livewire I'm slogging through issues not glamorous work dealing with Muddy issues and people around me my friends.</p>
+<p>My peers are launching things and it seems like more than ever. Does that feel like that to you like this, especially the spots you guys and some of those I think of them as the Europeans, Because they're European but all of those guys Frakes Frank screw his Entourage, they're all launching things like every other day and every time that happens, I feel I'm happy for them.</p>
+<p>And I should say I should be happy for them. But I feel a little bit shittier about myself. Not a lot but a little bit sometimes it's worse than other times and when I'm feeling good about myself when I'm launching things. I can handle it better, you know that stuff happens and I'm fine with it. I feel good about it.</p>
+<p>The hard part is when it's your friends. So people closer to me recently have launched some things and it has it. Just kind of weighs on me in this odd way and we know this this is how social media works. We all share the best of what we have to offer we see that we compared it to ourselves.  And we feel bad about ourselves and that's what it's just kind of been for me and that's been weighing on me, and I've actually been noticing it.</p>
+<p>That I've been feeling less good about Livewire. I've been feeling less good about my development skills about my ability to focus the things I've been putting out all sorts of things are just sort of picture start to sometimes I know what it's like when I'm in a good Zone and I know what it's like when I'm in a mad Zone and this is the bad Zone and I think most of it is caused by Twitter.</p>
+<p>Honestly, it's caused by me watching my friends and people around me. Doing better than me, at least it seems that way and I should be able to cope with this and you know, I do and a lot of times, you know, there's a lot of ways to get over pumps like this one every life just happens for me and waves and I know that they'll be another hi.</p>
+<p>But I can do things to mitigate that I can meditate I can intentionally. I can remove the Twitter app for my phone. I've done that a bunch of times and I can intentionally go on Twitter last so I can you know, whatever I can meditate on why I should be happy for these people and you can get all crazy and Buddhist about it and recognize that the only person.</p>
+<p>The only thing that recognizes any difference and has any need to compare as your ego, and that doesn't actually exist. So if anybody's looking for some heady stuff, that's that's a that's a tactic of mine. But in reality what I needed to do was change my environment. So this is what this episode is about is changing your environment making things happen in your life.</p>
+<p>Easily by changing your environment. This is this is all wrapped up in the like make the change easy then make these you change it's one of those deep fundamental truths in life that I've arrived to honestly in the sense that I had didn't take it from The Mountaintop or a stone tablet. I've just experienced this in my life.</p>
+<p>So clearly that it's one of those keys. It's a key to life for me is changing environment. I first came across this Zen habits. I have been a longtime reader of Zen habits. I don't know if anybody. Read that I don't really read it anymore. But Leo, you know, he's all about this sort of thing.</p>
+<p>Anybody who's all about habit-forming is has encountered this. I mean, this is such a common common tool quitting smoking, you know, I'd really hard to quit smoking when everybody around you smokes hard to quit smoking when you work at a cigarette stand or at a restaurant where you get a break and it becomes a ritual and all your friends smoke.</p>
+<p>It's a lot easier to quit smoking when you don't have those things when your environment is changed so you can change your environment and make behavioral changes really really really easy. So in this case, I needed to change my environment. It's like if I want to this is, you know a real thing. I wanted to stop watching TV at night before bed.</p>
+<p>For all the reasons that mess with your sleep, you know, I should be talking with my wife all of these things. It's just not good and it's a lot of it is me escaping my own brain that type of thing is me escaping my own brain not wanting to just lay there in silence putting on the TV. It's the easy thing to do so I could just discipline myself.</p>
+<p>I could just decide I'm not going to do this. It's gonna be very hard and I'm likely going to fail maybe I'll succeed for a little bit but then I'll fail a way to guarantee that that happens is to change my environment and what that looks like is. You could you could throw your TV out of the window of a 7-story building and that will guarantee success for you.</p>
+<p>In my case changing my environment was moving my TV in the living room. It's too much work for me to get out of bed. Go unplug the TV and lug it back in move a shelf put it on. That's that's it. That's enough work that it deters me from ever really thinking to do that. And now I don't watch TV before bed so that behavior was changed because I change my environment.</p>
+<p>So in this instance, I needed to change my environment and what that looked like is. Unfollowing every single person on Twitter because now I don't have a timeline anymore. It's been one day and it's actually really interesting I go to my computer and my my muscle memory is to just go twitter.com, but I don't do that.</p>
+<p>I didn't do that the past, you know day and a half I guess because there's nothing waiting for me, you know, there's nothing there. I haven't tweeted so there's probably no notifications and there's no timeline with anything on it. So there's nothing for me to read. So I guess a couple caveats here.</p>
+<p>I've avoided doing this for a long time. I thought about this before because I could see how it would be so would bring such Clarity it would remove so much noise for my life and I've known that but one it's how I engage in the community and talk with my friends and read about what they're doing and stuff like that.</p>
+<p>To it's kind of a golden rule thing like do unto others as you would have them do unto you I don't like follow unto others as you would want them to follow you sort of thing. So I. Try to not be super stingy with following people. I know what it means to be followed by somebody. You respect if I'm that person.</p>
+<p>I want to be that person at least but I know what it's like to be on the other end of that Daniel and I used to at Titan we would like it was kind of this friendly competition who could get the four pack of followers who could get Adam Jeffrey Taylor and Matt, I think and and every time we got one we would take a picture and send it to each other and immense it meant a lot.</p>
+<p>Um, Chris coil followed me and I was like, I took a picture and put it I took a screenshot and put it in like my archives folder where I put like accomplishments in life, and that was one of them so I know what it I know what it means and I don't take that really lightly. So I'm not just flippantly removing all of my my followers if that's what you want to do do it.</p>
+<p>Whatever I'd I'm not the boss of you are. I don't really have anything super well thought out here but but yeah, so for me it I had to do it. I'm going to I'm going to follow people again at some point for sure. I'll re-engage in the community. But for now I needed to turn the noise off. I needed to hit the mute button on that source of.</p>
+<p>Negative emotion things like that. So I did it and I feel great and now I have no Twitter option. So I either have to do work or do something else and that's what I intend to do. So hopefully this has been an inspiration for you me just kind of my musings on. This topic, you know, it's an ongoing topic social media.</p>
+<p>We know is pretty toxic at times. So there you go. Thanks for following Along on your car ride to you to go fishing to go steelhead fishing in your local stream, and I hope you catch that big one. Thanks.</p></p>
+</div>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -673,7 +260,15 @@ class Counter extends Component
                 }
             })
         </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">

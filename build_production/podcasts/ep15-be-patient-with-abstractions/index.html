@@ -13,27 +13,28 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
+        <meta name="description" content="There is a file in the Livewire codebase FULL of duplication. There certainly is an abstraction just begging to be made. Why can&#039;t I find it? What do I do about that?">
 
-        <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Testing | Livewire Documentation"/>
-        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/unit-testing"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:site_name" content="Building Livewire Podcast"/>
+        <meta property="og:title" content="Be Patient With Abstractions | Building Livewire Podcast"/>
+        <meta property="og:description" content="There is a file in the Livewire codebase FULL of duplication. There certainly is an abstraction just begging to be made. Why can&#039;t I find it? What do I do about that?"/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep15-be-patient-with-abstractions"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
-        <meta name="twitter:image:alt" content="Livewire Documentation">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
+        <meta name="twitter:image:alt" content="Building Livewire Podcast">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Testing | Livewire Documentation</title>
+        <title>Be Patient With Abstractions | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        
+        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
@@ -46,7 +47,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -89,7 +90,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -163,23 +164,7 @@
         </div>
     </div>
 
-        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
-    onclick="navMenu.toggle()"
->
-    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
-    >
-        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-    </svg>
-
-    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
-    >
-        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
-    </svg>
-</button>
-
-
+    
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -190,461 +175,50 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
-            <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/quickstart"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/installation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/making-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Making Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/render-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>render()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/state-management"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/mount-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>mount()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/data-binding"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Data Binding
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/triggering-actions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/events"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Events
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/authorization"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Authorization
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/pagination"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Pagination
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/nesting-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/defer-loading"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/polling"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Polling
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/offline-state"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Offline State
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/css-transitions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            CSS Transitions
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/inline-scripts"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Inline Scripts
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/vuejs"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/testing"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/spa-mode"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/security"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Security
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            API Reference
-        </a>
-    
-    </li>
-    </ul>
-        </nav>
+    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
+    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
+                <h2 class="text-3xl md:text-5xl m-0 text-white">Be Patient With Abstractions</h2>
+                <div class="font-bold mb-3 text-white text-base opacity-75">
+                    <span>
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Oct 10
+                    </span>
+                    <span class="ml-3">
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        04:26
+                    </span>
+                </div>
+                <p class="m-0 text-base text-white">There is a file in the Livewire codebase FULL of duplication. There certainly is an abstraction just begging to be made. Why can&#039;t I find it? What do I do about that?</p>
+        </div>
 
-        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Testing</h1>
-
-            <p>Livewire supports 2 styles of testing it's components:</p>
-<ol class="list-inside">
-    <li>Unit testing</li>
-    <li>End-to-end testing</li>
-</ol>
-<p>For these demonstrations, we will be using a simple Counter component like the following:</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">Counter.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class Counter extends Component
-{
-    public $count = 0;
-
-    public function increment()
-    {
-        $this-&gt;count++;
-    }
-
-    public function decrement()
-    {
-        $this-&gt;count--;
-    }
-
-    public function render()
-    {
-        return view('livewire.counter');
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">counter.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div style="text-align: center"&gt;
-    &lt;button wire:click="increment"&gt;+&lt;/button&gt;
-    &lt;h1&gt;{{ $count }}&lt;/h1&gt;
-    &lt;button wire:click="decrement"&gt;-&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<h2 id="unit-testing">Unit Testing</h2>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        $counter = Livewire::test(Counter::class);
-
-        $this-&gt;assertEquals(0, $counter-&gt;count);
-
-        $counter-&gt;increment();
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-
-        $counter-&gt;decrement();
-
-        $this-&gt;assertEquals(0, $counter-&gt;count);
-
-        $counter-&gt;count = 1;
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-    }
-}</code></pre>
-</div>
-<p>You can pass data to <code>Livewire::test()</code> method to initialize your component properties like so:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">$counter = Livewire::test(Counter::class, $param1, $param2 ...);</code></pre>
-</div>
-<h2 id="end-to-end-testing">End-to-end Testing</h2>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        Livewire::test(Counter::class)
-            -&gt;assertSee(0)
-            -&gt;call('increment')
-            -&gt;assertSee(1)
-            -&gt;call('decrement')
-            -&gt;assertSee(0)
-            -&gt;set('count', 1)
-            -&gt;assertSee(1)
-            -&gt;set(['count' =&gt; 2])
-            -&gt;assertSee(2);
-    }
-}</code></pre>
-</div>
-            <div class="mt-12 pt-8 pb-6 border-t-2">
-                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="flex flex-col items-center md:items-start">
-            </div>
-    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/the-livewire-developer">The Livewire Developer</a>
-            </h4>
-            </div>
-</div>
-            </div>
+        <div class="">
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/d369f1ac?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
+<h3>Transcript:</h3>
+<p><p>Okay, so I'm writing a test a JavaScript test in Livewire and I am about to use a testing utility that I've created. So I have this utils dot J's file inside my testing folder for JavaScript and it's where I have all of my testing helpers and they're all in charge of the same thing. They're in charge of mounting Livewire.</p>
+<p>Making Live Wire breathing Live Wire into existence in JavaScript and usually you pass in there for a component. So I think the basic function I have is called Mount and you pass in HTML the HTML of the component and that's it. And then once you've done that you can say Mount and then you pass the HTML now you can do stuff with it.</p>
+<p>You can you know document that query selector get a button that has wire click on it click and then you can assert that, you know some payload was sent. So there's a bunch of these Mount helpers started out as one called Mount and I tried to make it do too many things in a star to get gross. So I just duplicated it and called the next one mount with data may be so I have a bunch of them and there's mount mount as root Mount is Route and return mount with a vent mount in return.</p>
+<p>Mount and error mount with data there's tons of them and they all have the almost the exact same structure slightly different parameters, but the basic structure inside of them and they all just do something slightly different. So I know that there is an abstraction waiting here someday, it will occur to me, but it is not it hasn't occurred to me yet and I'm just being patient with it.</p>
+<p>So I'm speaking this out to you. As a reminder as a thought piece, whatever that sometimes you just have to be patient with abstractions. So here I want to write a test and I realized I need a new one. I could try to retrofit and another one but really I need a new one and it's going to be a very specific one.</p>
+<p>And I know and that's a little bit of pain like I'm experiencing pain because I'm copying pasting a bunch of code. And I've had to change things that I've missed and changing another ones and I've experienced issues and pain because of that. So this is not ideal and I'm doing it and I recognize that I know it's not ideal.</p>
+<p>It's not good, but it's an ideal on ideal scenario because this is all scope to one file. It's one big file and they're just. A ton of basically the same method with a different name different parameters in slightly different implementation, but they're all in one file. So it's not like I have it's not spread across different files this kind of goes back to the single file principal like my tolerance for nastiness is a little bit higher when it's all scope to one file.</p>
+<p>And in this case it is but anyway, I went to add this thing and I just kind of realized that it's painful and I thought for a second. Is there any abstraction emerging yet? And no it's not. But at some point it will maybe it's just me being a little bit lazy and just wanting to copy and paste instead of roll up my sleeves and really figure something out that works for everything.</p>
+<p>But really it's not it's not causing big problems in my app and the abstraction hasn't prevented it presented itself. So I'm just going to be patient with it. Being patient with abstractions can one first thought was being patient with abstractions can be a little bit more dangerous when there's no trigger set up and by trigger, I mean something that's going to remind you that you need an abstraction in this case.</p>
+<p>My trigger is having to add a new function. That's a pain Point triggers me to think about abstractions if that didn't exist. Then I could let bad abstractions or unobstructed code lie dormant my next thought with that was well if I construct a code is lying dormant and being harmless and there's no trigger that makes you feel pain then maybe it's fine.</p>
+<p>Maybe you don't need the abstraction because abstractions are meant to serve us. We're not there to serve abstractions. So anyway, there is an abstraction waiting here. That would serve me. I know it. I know it would make my tests more flexible. I know I know there's something there's some implementation.</p>
+<p>That allows the developer the flexibility to do what they want to do without needing all these different methods, but for now, I'm going to copy and paste one of these methods and add yet another method called Mount and return listener or something like that, whatever. I'm about to do it, and that's all I wanted to tell you.</p>
+<p>Sometimes you have to be patient with abstractions. Don't rush it. Hopefully it presents itself to you, but don't force it if it's not ready yet. So, thanks.</p></p>
+</div>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -673,7 +247,15 @@ class Counter extends Component
                 }
             })
         </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
