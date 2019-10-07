@@ -59,6 +59,9 @@ Here's an example:
 
     // Call the increment component action
     @this.call('increment')
+
+    // Run a callback when an event ("foo") is emitted from this component
+    @this.on('foo', () => {})
 </script>
 @endpush
 @endverbatim

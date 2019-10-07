@@ -558,6 +558,9 @@
 
     // Call the increment component action
     @this.call('increment')
+
+    // Run a callback when an event ("foo") is emitted from this component
+    @this.on('foo', () =&gt; {})
 &lt;/script&gt;
 @endpush</code></pre>
 </div>
