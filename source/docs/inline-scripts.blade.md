@@ -39,6 +39,10 @@ Now, from your component's Blade view, you can push to the `scripts` stack:
 @endverbatim
 @endcode
 
+@warning
+Please note that your scripts will be run only once upon the first render of the component. If you need to run a JavaScript function later - emit the event from the component and listen to it in JavaScript as described [here](https://laravel-livewire.com/docs/events/)
+@endwarning
+
 ### Accessing the JavaScript component instance
 
 Because Livewire has both a PHP AND a JavaScript portion, each component also has a JavaScript object. You can access this object using the special `@@this` blade directive in your component's view.
