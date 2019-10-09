@@ -40,7 +40,7 @@ Now, from your component's Blade view, you can push to the `scripts` stack:
 @endcode
 
 @warning
-Please note that your scripts will be run only once upon the first render of the component. If you need to run a JavaScript function later - emit the event from the component and listen to it in JavaScript as described [here](https://laravel-livewire.com/docs/events/)
+Please note that your scripts will be run only once upon the first render of the component. If you need to run a JavaScript function later - emit the event from the component and listen to it in JavaScript as described <a href="https://laravel-livewire.com/docs/events/">here</a>)
 @endwarning
 
 ### Accessing the JavaScript component instance
