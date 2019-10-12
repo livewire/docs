@@ -25,6 +25,7 @@ $events->beforeBuild(function (Jigsaw $jigsaw) {
     $compiler->component('_partials.code-component', 'codeComponent');
     $compiler->component('_partials.warning', 'warning');
     $compiler->component('_partials.tip', 'tip');
+    $compiler->component('_partials.table', 'table');
 });
 
 $events->afterBuild(GenerateSitemap::class);

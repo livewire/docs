@@ -8,6 +8,7 @@ section: content
 
 Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
+@table
 Hooks | Description
 --- | ---
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
@@ -16,6 +17,7 @@ updating | Runs before any update to the Livewire component
 updated | Runs after any update to the Livewire component
 updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
+@endtable
 
 @code(['lang' => 'php'])
 use Livewire\Component;
@@ -60,10 +62,12 @@ class HelloWorld extends Component
 
 Livewire gives you the opportunity to execute javascript before and after the DOM updates.
 
+@table
 Hooks | Description
 --- | ---
 beforeDomUpdate | Runs after Livewire receives a response from the server, but before any DOM diffing/patching takes place
 afterDomUpdate | Runs after livewire updates the DOM
+@endtable
 
 @code(['lang' => 'js'])
 <script>

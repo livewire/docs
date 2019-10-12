@@ -74,9 +74,11 @@ Now, we need to provide the appropriate CSS selectors in our app's stylesheet fo
 
 As you can see, Livewire applies the following four classes to the component at different times before adding or removing the element from the page:
 
+@table
 Class | Description
 --- | ---
 .[transition]-enter | is added at the beginning of the transition-in phase, and removed one frame after
 .[transition]-enter-active | is added during the entire transition-in phase
 .[transition]-leave-active | is added during the entire transition-out phase
 .[transition]-leave-to | is added one frame after the transition-out phase begins
+@endtable
