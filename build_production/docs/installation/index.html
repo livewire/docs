@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+                    <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-            gtag('config', 'UA-41657217-15');
-        </script>
-        <meta charset="utf-8">
+                gtag('config', 'UA-41657217-15');
+            </script>
+                <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
@@ -34,10 +34,8 @@
         <link rel="icon" href="/favicon.ico">
 
         
-                    <!-- Insert analytics code here -->
-        
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a8e66a565d8eccf2e0fa">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=52f2fb2ad9dbb6fd3b2f">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -572,6 +570,7 @@
     <pre class="scrollbar-none"><code class="scrolling-touch language-bash">php artisan vendor:publish --tag=livewire:config</code></pre>
 </div>
 <p>Here are the configurable options contained in this config file:</p>
+<div class="max-w-full overflow-x-auto">
 <table>
 <thead>
 <tr>
@@ -582,22 +581,28 @@
 </thead>
 <tbody>
 <tr>
-<td>&quot;class_namespace&quot;</td>
-<td>&quot;App\Http\Livewire&quot;</td>
-<td>The folder to install Livewire classes and look for them.</td>
+<td>class_namespace</td>
+<td><code>'App\\Http\\Livewire'</code></td>
+<td>The folder to look for Livewire classes.</td>
 </tr>
 <tr>
-<td>&quot;view_path&quot;</td>
-<td><code>resource_path('view')</code></td>
-<td>The folder to add Livewire component views to.</td>
+<td>view_path</td>
+<td><code>resource_path('views/livewire')</code></td>
+<td>The folder to look for Livewire component views.</td>
 </tr>
 <tr>
-<td>&quot;asset_url&quot;</td>
-<td>null</td>
+<td>asset_url</td>
+<td><code>null</code></td>
 <td>The url to load the Livewire JavaScript assets from.</td>
+</tr>
+<tr>
+<td>middleware_group</td>
+<td><code>'web'</code></td>
+<td>The middleware group that is applied every time a Livewire component is updated.</td>
 </tr>
 </tbody>
 </table>
+</div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">

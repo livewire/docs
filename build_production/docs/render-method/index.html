@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+                    <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-            gtag('config', 'UA-41657217-15');
-        </script>
-        <meta charset="utf-8">
+                gtag('config', 'UA-41657217-15');
+            </script>
+                <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="The &lt;code&gt;render()&lt;/code&gt; method | Livewire Documentation"/>
+        <meta property="og:title" content="The render() method | Livewire Documentation"/>
         <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
         <meta property="og:url" content="https://laravel-livewire.com/docs/render-method"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
@@ -28,16 +28,14 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>The &lt;code&gt;render()&lt;/code&gt; method | Livewire Documentation</title>
+        <title>The render() method | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
         
-                    <!-- Insert analytics code here -->
-        
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a8e66a565d8eccf2e0fa">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=52f2fb2ad9dbb6fd3b2f">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -520,10 +518,8 @@
             <h1>The <code>render()</code> method</h1>
 
             <p>A Livewire component class needs only one method to function properly: <code>render()</code>. This method fires on every component update and is in charge of returning the Blade view to be rendered.</p>
-<h3 id="returning-blade">Returning Blade</h3>
-<p>The <code>render()</code> method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:</p>
 <div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
@@ -531,6 +527,21 @@
     </div>
 
     <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        In simple components, you don't need to define a `render` method yourself. The base Livewire component class has a dynamic `render` method included.
+    </div>
+</div>
+<h3 id="returning-blade">Returning Blade</h3>
+<p>The <code>render()</code> method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:</p>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
         Make sure your Blade views have only ONE root HTML element.
     </div>
 </div>
@@ -557,8 +568,8 @@ class ShowPosts extends Component
     </div>
     </div>
 <div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-red-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-5xl">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="12" y1="8" x2="12" y2="12"></line>
             <line x1="12" y1="16" x2="12" y2="16"></line>

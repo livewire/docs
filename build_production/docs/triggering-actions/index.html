@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+                    <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41657217-15"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-            gtag('config', 'UA-41657217-15');
-        </script>
-        <meta charset="utf-8">
+                gtag('config', 'UA-41657217-15');
+            </script>
+                <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
@@ -34,10 +34,8 @@
         <link rel="icon" href="/favicon.ico">
 
         
-                    <!-- Insert analytics code here -->
-        
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a8e66a565d8eccf2e0fa">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=52f2fb2ad9dbb6fd3b2f">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -521,6 +519,7 @@
 
             <p>Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: <code>wire:[native event]="[action]"</code>.</p>
 <p>Here are some common events you may need to listen for:</p>
+<div class="max-w-full overflow-x-auto">
 <table>
 <thead>
 <tr>
@@ -543,6 +542,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Here are a few examples of each in HTML:</p>
 <p><strong>click</strong></p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -560,7 +560,7 @@
 &lt;/form&gt;</code></pre>
 </div>
 <div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
@@ -573,6 +573,7 @@
 </div>
 <h2 id="modifiers">Modifiers</h2>
 <p>Like you saw in the <strong>keydown</strong> example, Livewire directives sometimes offer &quot;modifiers&quot; to add extra functionality to an event. Below are the available modifiers that can be used with any event:</p>
+<div class="max-w-full overflow-x-auto">
 <table>
 <thead>
 <tr>
@@ -591,9 +592,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="keydown-modifiers">Keydown Modifiers</h2>
 <p>To listen for specific keys on <strong>keydown</strong> events, you can pass the name of the key as a modifier. You can directly use any valid key names exposed via <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">KeyboardEvent.key</a> as modifiers by converting them to kebab-case.</p>
 <p>Here is a quick list of some common ones you may need:</p>
+<div class="max-w-full overflow-x-auto">
 <table>
 <thead>
 <tr>
@@ -624,12 +627,14 @@
 </tr>
 </tbody>
 </table>
+</div>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input wire:keydown.page-down="foo"&gt;</code></pre>
 </div>
 <p>In the above example, the handler will only be called if <code>event.key</code> is equal to 'PageDown'.</p>
 <h2 id="special-actions">Special Actions</h2>
 <p>In Livewire, there are some &quot;special&quot; actions that are usually prefixed with a &quot;$&quot; symbol:</p>
+<div class="max-w-full overflow-x-auto">
 <table>
 <thead>
 <tr>
@@ -660,6 +665,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>You can pass these as the value of an event listener to do special things in Livewire.</p>
 <p>Let's take <code>$set()</code> for example. It can be used to manually set a component property's value. Consider the <code>Counter</code> component's view.</p>
 <p><strong>Before</strong></p>
@@ -678,7 +684,7 @@
 </div>
 <p>Notice that we are no longer calling the <code>setMessageToHello</code> function, we are directly specifying, what we want data set to.</p>
 <div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>

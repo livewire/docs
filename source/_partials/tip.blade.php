@@ -1,5 +1,5 @@
 <div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-16 absolute pr-4 text-blue-500">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

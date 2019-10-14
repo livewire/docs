@@ -6,12 +6,16 @@ section: content
 
 A Livewire component class needs only one method to function properly: `render()`. This method fires on every component update and is in charge of returning the Blade view to be rendered.
 
+@tip
+In simple components, you don't need to define a `render` method yourself. The base Livewire component class has a dynamic `render` method included.
+@endtip
+
 ### Returning Blade {#returning-blade}
 The `render()` method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:
 
-@tip
+@warning
 Make sure your Blade views have only ONE root HTML element.
-@endtip
+@endwarning
 
 @codeComponent([
     'className' => 'ShowPosts.php',
@@ -59,20 +63,3 @@ public function render()
 }
 @endverbatim
 @endcode
-
-### Default `render()` method {#default-render-method}
-
-For simple components that use the default convention of naming, you don't even need to define your own `render()` method. This is because the parent `Livewire\Component` returns a view based on the components name:
-
-@codeComponent([
-    'className' => 'Livewire\Component.php',
-])
-@slot('class')
-@verbatim
-public function render()
-{
-    return view("livewire.{$this->getName()}");
-}
-@endverbatim
-@endslot
-@endcodeComponent
