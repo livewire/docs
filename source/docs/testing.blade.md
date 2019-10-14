@@ -72,7 +72,7 @@ class CounterTest extends TestCase
 
         $this->assertEquals(0, $counter->count);
 
-        $counter->count = 1;
+        $counter->set('count',1);
 
         $this->assertEquals(1, $counter->count);
     }
