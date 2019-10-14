@@ -34,6 +34,8 @@ return [
                         'sharing_url' => $ep['sharing_url'],
                         'iframe_markup' => "<iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/{$idFromSharingUrl}?color=f5f5f5' width='100%'></iframe>"
                     ];
+                })->filter(function ($ep) {
+                    return $ep['published'] == true;
                 });
             },
         ],
