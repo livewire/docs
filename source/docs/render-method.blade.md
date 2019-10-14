@@ -59,3 +59,20 @@ public function render()
 }
 @endverbatim
 @endcode
+
+### Default `render()` method {#default-render-method}
+
+For simple components that use the default convention of naming, you don't even need to define your own `render()` method. This is because the parent `Livewire\Component` returns a view based on the components name:
+
+@codeComponent([
+    'className' => 'Livewire\Component.php',
+])
+@slot('class')
+@verbatim
+public function render()
+{
+    return view("livewire.{$this->getName()}");
+}
+@endverbatim
+@endslot
+@endcodeComponent
