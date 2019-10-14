@@ -16,7 +16,7 @@
         <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
 
         <meta property="og:site_name" content="{{ $page->siteName }}"/>
-        <meta property="og:title" content="{{ $page->title ?  $page->title . ' | ' : '' }}{{ $page->siteName }}"/>
+        <meta property="og:title" content="{{ $page->title ? strip_tags($page->title) . ' | ' : '' }}{{ $page->siteName }}"/>
         <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}"/>
         <meta property="og:url" content="{{ $page->getUrl() }}"/>
         <meta property="og:image" content="{{ $page->social_image ?? 'https://laravel-livewire.com/assets/img/twitter.png' }}"/>
@@ -30,7 +30,7 @@
             <meta name="generator" content="tighten_jigsaw_doc">
         @endif
 
-        <title>{{ $page->title ?  $page->title . ' | ' : '' }}{{ $page->siteName }}</title>
+        <title>{{ $page->title ? strip_tags($page->title) . ' | ' : '' }}{{ $page->siteName }}</title>
 
         <link rel="home" href="{{ $page->baseUrl }}">
         <link rel="icon" href="/favicon.ico">
