@@ -89,9 +89,11 @@ php artisan vendor:publish --tag=livewire:config
 
 Here are the configurable options contained in this config file:
 
+@table
 Config Name | Default Value | Description
 --- | --- | ---
 class_namespace | `'App\\Http\\Livewire'` | The folder to look for Livewire classes.
 view_path | `resource_path('views/livewire')` | The folder to look for Livewire component views.
 asset_url | `null` | The url to load the Livewire JavaScript assets from.
 middleware_group | `'web'` | The middleware group that is applied every time a Livewire component is updated.
+@endtable

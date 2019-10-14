@@ -7,6 +7,7 @@ section: content
 ## Template API
 
 ### Directives
+@table
 Directive | Description
 --- | ---
 `wire:key="foo"` | Acts as a reference point for Livewire's DOM diffing system. Useful for adding/removing elements, and keeping track of lists.
@@ -30,3 +31,4 @@ Directive | Description
 `wire:ref` | This directive is used as a way of referencing other elements from other directives (like `wire:loading`/`wire:dirty` and `wire:target`)
 `wire:ignore` | Adding this directive to an element will tell Livewire to not update it or it's children when updating the DOM from a server request. Useful when using Third-party javascript libraries in Livewire components.
 `wire:ignore.self` | The "self" modifier ignores updates to the element itself, but allows modifications to children.
+@endtable
