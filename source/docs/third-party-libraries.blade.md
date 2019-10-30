@@ -67,7 +67,7 @@ When you initialize a `<select>` element with Select2, Select2 will hijack the e
 
 Now that we've triggered a Livewire update, Livewire will get HTML back from the server, compare it to the Select2 DOM manipulations on the page, see the difference, and remove all the changes Select2 made.
 
-To get around this, we must tell Livevwire to ignore DOM changes made by the library.
+To get around this, we must tell Livewire to ignore DOM changes made by the library.
 
 ### Ignoring DOM-changes (using `wire:ignore`)
 
