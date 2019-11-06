@@ -100,5 +100,5 @@ We can tell Livewire to skip the DOM-diffing for certain parts of the DOM with t
 @endcode
 
 @tip
-Also, note that sometimes it's useful to ingore changes to an element, but not it's children. If this is the case, you can add the <code>self</code> modifier to the <code>wire:ignore</code> directive, like so: <code>wire:ignore.self</code>.
+Also, note that sometimes it's useful to ignore changes to an element, but not it's children. If this is the case, you can add the <code>self</code> modifier to the <code>wire:ignore</code> directive, like so: <code>wire:ignore.self</code>.
 @endtip
