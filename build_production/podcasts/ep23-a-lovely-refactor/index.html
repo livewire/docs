@@ -13,27 +13,28 @@
                 <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
+        <meta name="description" content="After being away for the Livewire codebase for a while, coming back to it was kind of painstaking. Instead of slogging through it, I decided to &quot;make the change easy&quot;. Here&#039;s the story of a fun refactor I just made.">
 
-        <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Pagination | Livewire Documentation"/>
-        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/pagination"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:site_name" content="Building Livewire Podcast"/>
+        <meta property="og:title" content="A Lovely Refactor | Building Livewire Podcast"/>
+        <meta property="og:description" content="After being away for the Livewire codebase for a while, coming back to it was kind of painstaking. Instead of slogging through it, I decided to &quot;make the change easy&quot;. Here&#039;s the story of a fun refactor I just made."/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep23-a-lovely-refactor"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
-        <meta name="twitter:image:alt" content="Livewire Documentation">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
+        <meta name="twitter:image:alt" content="Building Livewire Podcast">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Pagination | Livewire Documentation</title>
+        <title>A Lovely Refactor | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        
+        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="/assets/build/css/main.css?id=6297554fcd9815c8268d">
 
@@ -44,7 +45,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -87,7 +88,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -161,23 +162,7 @@
         </div>
     </div>
 
-        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
-    onclick="navMenu.toggle()"
->
-    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
-    >
-        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-    </svg>
-
-    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
-    >
-        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
-    </svg>
-</button>
-
-
+    
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -188,410 +173,68 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
-            <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/quickstart"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/installation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/making-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Making Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/render-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>render()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/state-management"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/mount-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>mount()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/data-binding"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Data Binding
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/triggering-actions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/events"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Events
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/authorization"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Authorization
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/pagination"
-            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
-        >
-            Pagination
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/nesting-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/defer-loading"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/polling"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Polling
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/offline-state"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Offline State
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/css-transitions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            CSS Transitions
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/inline-scripts"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Inline Scripts
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/vuejs"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/testing"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/spa-mode"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/security"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Security
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            API Reference
-        </a>
-    
-    </li>
-    </ul>
-        </nav>
+    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
+    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
+                <h2 class="text-3xl md:text-5xl m-0 text-white">A Lovely Refactor</h2>
+                <div class="font-bold mb-3 text-white text-base opacity-75">
+                    <span>
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Nov 08
+                    </span>
+                    <span class="ml-3">
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        09:56
+                    </span>
+                </div>
+                <p class="m-0 text-base text-white">After being away for the Livewire codebase for a while, coming back to it was kind of painstaking. Instead of slogging through it, I decided to &quot;make the change easy&quot;. Here&#039;s the story of a fun refactor I just made.</p>
+        </div>
 
-        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Pagination</h1>
-
-            <p>Livewire offers the ability to paginate results within a component. This feature hooks into Laravel's native pagination features, so it should feel like an invisible feature to you.</p>
-<h2>Paginating Data</h2>
-<p>Let's say you have a <code>show-posts</code> component, but you want to limit the results to 10 posts per page.</p>
-<p>You can paginate the results by using the <code>WithPagination</code> trait provided by Laravel.</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">app/Http/Livewire/ShowPosts.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-use Livewire\WithPagination;
-
-class ShowPosts extends Component
-{
-    use WithPagination;
-
-    public function render()
-    {
-        return view('livewire.show-posts', [
-            'posts' =&gt; Post::paginate(10),
-        ]);
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">resources/views/livewire/show-posts.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    @foreach ($posts as $post)
-        ...
-    @endforeach
-
-    {{ $posts-&gt;links() }}
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<p>Now there will be rendered HTML links for the different pages at the bottom of your posts, and the results will be paginated.</p>
-            <div class="mt-12 pt-8 pb-6 border-t-2">
-                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="flex flex-col items-center md:items-start">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/authorization">Authorization</a>
-            </h4>
-            </div>
-    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/redirecting">Redirecting</a>
-            </h4>
-            </div>
-</div>
-            </div>
+        <div class="">
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/3d5e3769?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
+<h3>Transcript:</h3>
+<p><p>Okay. I am recording this podcast right after a while. I'm kinda in the midst of a really, really fun refactor. One of those refactors that's just been building for awhile. Something I've been thinking about in the back of my mind. No, I've known that the architecture is wrong, uh, for this specific thing.</p>
+<p>And I've just been sitting with the problem thinking about it, trying to come up with the. Trying to understand the problem well enough, come with the solution, yada, yada, yada. Finally did it. And I feel freaking great about it. And it's really, really, really improving the code base, like as we speak.</p>
+<p>So let me walk you through it because this is a, it's another one of those refactors like the ones, it actually looks almost exactly like the ones we've talked about before on here where I started talking about like the hooks pattern, the, a single file pattern, like all these things, um, are all culminating for yet another refactor.</p>
+<p>So let me walk you through it. It's a, it's fairly simple. So live wire. And you click a, you click something on the front end and instead of it just changing data and rerender during the front end, like few JS does, it goes back to the server and it changes the data. Rerender is a template on the back end.</p>
+<p>It comes back to the browser changes the front end, right? That's how live view works. Phoenix live view. That's how Livewire works. Uh, so the difference between Phoenix live view and Livewire is that Phoenix live view keeps a background instance running. So. Where in VJs you have a component that's alive and it exists in the JavaScript runtime over time and live view.</p>
+<p>There's a component that exists in the backend, and so Phoenix uses WebSockets to connect to that component and you can make calls to it and all sorts of stuff, and that makes it really fast and it's great. And yada, yada. Livewire version zero, zero one, uh, worked exactly like that, but then I moved away from WebSockets and now live voyeurs, stateless and uses Ajax requests to go back and forth.</p>
+<p>So there's no long running instance. Um, because of that, I have to hydrate and dehydrate Livewire components on the back end. So every request that the browser makes, so you click a button in a live wire component, like you have wire click, and then some action. It sends a request off to the server and says, Hey, here's the idea of the component, here's the name of the component, here's the data the component has, and then a bunch of other stuff says, build up that component from all of this, from this state, because the front end stores the state, build up the component from this state.</p>
+<p>Then run this action. Whatever you decided on the wire, click that after. Dehydrate the component back into a Jason array of state that I can store because I'm the front end and I have a run time, so I can keep track of the state here, and then the back end is completely stateless. So that's kind of a fundamental, how live wire works.</p>
+<p>Little explanation. So I, I decided to explain it again because I know this is the kind of thing that seems, um, obvious to me, but if you're not building live warrior, then you're probably not totally aware of how it works. So that's kind of the ketchup. Okay. So in the back end, there's this concept of hydrating and dehydrating, but when I was programming it, like that concept was never really clear to me.</p>
+<p>Um, like I said, it's been an evolution and I'm just sort of updating the code as I go. Um, so there's this, this kind of, this file that I actually like this file. It's one of the most powerful files in the whole system. It's called connection handler. And it's the thing that takes the incoming requests from the browser and it builds up a Livewire instance.</p>
+<p>It calls the stuff on it, it gets the new render dominant, sends it back out all in one method. Um, it calls to a couple of different methods, but it's pretty tight. It's pretty clean. And it's, I like it because it, you can get a really good bird's eye view of the backend of Livewire. Well, this class has been growing over time because features get added and bugs get fixed and security holes get patched and all of those things.</p>
+<p>And, and the easiest place, uh, to add them oftentimes is right in this connection handler file. So it's starting to grow and there's lots of extra little bits and pieces added to it. So there was a pull request recently too, in live wire protected properties. Tune, tune this part out. If you're not familiar with protected properties in Livewire but protected properties, everything else is dehydrated into Jason.</p>
+<p>That gets passed back and forth in the front end and back end. Well protected properties because they're sensitive data. They get dehydrated into the backend cash, uh, and then rehydrate it out of the cash on every request so it behaves differently than the rest of Livewire. So somebody said, Hey, I want to make a pull request so that I can opt into not caching protected properties and encrypting them and sending them with a payload to have a truly stateless Livewire.</p>
+<p>So let's say you're using vapor, well, I guess vapor has a cache built into it. Okay, well, so you just want to have a stateless Livewire, then you could do that. Um. So they made the pull request, the pull requests overwhelmed. To me, it's, this is one of those difficult things. Um, I really appreciate that.</p>
+<p>I get so many more GitHub issues than I do pull requests. So when I get a pull request, I, I want to be helpful and I want to work with it and pull it in. But it's honestly just a lot of mental overhead for code that I didn't write. So I have to pull it down. I have to read through the pull request.</p>
+<p>I have to understand what it's doing. Under and I not only just to say, okay, this works, we'll pull it in, um, to understand what it's doing. So that enough that I can change it if it's not ideal. So I have to really, really understand the code so that I can see areas where, Oh, you know what, maybe a better way to do it is this or that.</p>
+<p>And then I almost feel like I'm kind of rewriting the code. Um, I do really, really appreciate pull requests if you're getting the wrong idea. That's not what I'm communicating. But there's a lot of mental overhead, so I'm pretty lazy with them. This one in particular, because it's so big, it touches a lot of files and I realized that I was frustrated and enough that I thought, okay, this is a good opportunity to make the change easy.</p>
+<p>So instead of putting my energy into understanding this pull request and making sure and implementing it and making sure that it's right or wrong, whatever, I'll, I'll make the change easy. I'll refactor the code base so that a pull request like this will be. Not many changes to files will be very brief.</p>
+<p>Um, then I'll, you know, post back to the, the contributor and say, Hey, I refactored the code base, take a look at it. And, you know, maybe I'll do the work every factoring and whatever I do, I'll give him credit for the pull request. But. Well, basically it's a classic case of make the change easy, then make the easy change.</p>
+<p>And this is, as I've said, a thousand times, maybe one of my favorite coding principles ever. Um, so I rolled up my sleeves and I decided to do it. And what emerged was pretty much the hook pattern that I described before, but in a little bit different way. So there is a backend life cycle and I pretty much described it to you.</p>
+<p>The back end life cycle of a Livewire component is it gets, I'm going to have to map this out and put it in the doc somewhere. Like if you go to VJs docs, you can see the whole life cycle of a view component. I'll need to map it out for everybody in the doc so that you can kind of understand, um, but live where's a little more complex?</p>
+<p>Cause there's a front end lifecycle and a back end life cycle for each component. And I've paid. You know, attention in the front end lifecycle lately, and that's what all those episodes are about, about the hooks pattern and everything. But I haven't really paid attention to the backend life cycle.</p>
+<p>So that's, that's where this comes in. The change that I made was basically creating the process of a hydrating and dehydrating a component like I described, where you go from adjacent payload from the browser, and you basically create a component at the state. It was the last time there was a request made and then dehydrate it.</p>
+<p>Okay. So I was doing functionality in different places, and basically the pattern that emerged was middleware. So I took a ton of functionality and put it into middleware. I created a little middleware system for hydrating and dehydrating a component. So here's how it works. I'm trying. I tried, this is how I, how I started the refactor.</p>
+<p>I know I'm throwing a lot at you, but there's a lot of good nuggets in here. I started the refactor with my second favorite principal, maybe first, I don't know, whatever. Another awesome design code, coding, design principle, um, designed by wishful thinking. This is something I really learned from Adam  and I'm sure he learned it somewhere else.</p>
+<p>Design D, you know, write the code that you want to use. So that's what I started. I started with just a file. I thought, okay, he's pull requesting this functionality. He should just have a file. He should be able to just pull request one file. So again, maybe another favorite principle is that I talked about is the single file principle.</p>
+<p>Um, he should be able to pull, request this with one file that has two methods, hydrate and dehydrate, and the hydrate method. He has access to the on hydrated instance of the component and the whole request payload from the browser. In the dehydrate, he has access to the instance that's already been used and the response that goes back to the browser, and he can pull stuff out of the request and manipulate the instance, and then he can change the incidents and change the response on the backend.</p>
+<p>So he gets a slice. It's a middleware. So I did that and I refactored a ton of functionality a ton into these middlewares and now they're well-named and they work like layers of an onion. So like it's an array of just classes that have these hydrate and dehydrate methods and starting from top to bottom.</p>
+<p>They get the uh, instance and requests gets passed through them and they can mutate the request and instance as you go through. And this is interesting because, uh, I'm using and leveraging mutability and usually I try any, like good design in my mind is immutable. Like I generally tend towards immutability, but this is an example where with these middlewares it's kind of beautiful.</p>
+<p>Like I can have them each mutate the things going through them, um, and then mutate the things coming back out of them. And it works like a shell. I reverse the order when I'm dehydrating back up. Okay. We're at the end of the show. I hope you follow that and thought it was cool, but I'm super duper happy with this refactor.</p>
+<p>It abides by all the things I love. Keep more things the same single file principal designed by wishful thinking and make the change easy, then make the easy change. Uh, so thanks for listening.</p></p>
+</div>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -620,7 +263,15 @@ class ShowPosts extends Component
                 }
             })
         </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">

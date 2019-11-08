@@ -13,27 +13,28 @@
                 <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
+        <meta name="description" content="I&#039;ve recently hit a BIG milestone in my life: I&#039;m currently not afraid to speak in front of large groups of people. It&#039;s been a long road, but here&#039;s how I got there.">
 
-        <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Pagination | Livewire Documentation"/>
-        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/pagination"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:site_name" content="Building Livewire Podcast"/>
+        <meta property="og:title" content="How I Cured My Fear Of Public Speaking | Building Livewire Podcast"/>
+        <meta property="og:description" content="I&#039;ve recently hit a BIG milestone in my life: I&#039;m currently not afraid to speak in front of large groups of people. It&#039;s been a long road, but here&#039;s how I got there."/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep21-how-i-cured-my-fear-of-public-speaking"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
-        <meta name="twitter:image:alt" content="Livewire Documentation">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
+        <meta name="twitter:image:alt" content="Building Livewire Podcast">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Pagination | Livewire Documentation</title>
+        <title>How I Cured My Fear Of Public Speaking | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        
+        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="/assets/build/css/main.css?id=6297554fcd9815c8268d">
 
@@ -44,7 +45,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -87,7 +88,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -161,23 +162,7 @@
         </div>
     </div>
 
-        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
-    onclick="navMenu.toggle()"
->
-    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
-    >
-        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-    </svg>
-
-    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
-    >
-        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
-    </svg>
-</button>
-
-
+    
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -188,410 +173,64 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
-            <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/quickstart"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/installation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/making-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Making Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/render-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>render()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/state-management"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/mount-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>mount()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/data-binding"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Data Binding
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/triggering-actions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/events"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Events
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/authorization"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Authorization
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/pagination"
-            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
-        >
-            Pagination
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/nesting-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/defer-loading"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/polling"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Polling
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/offline-state"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Offline State
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/css-transitions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            CSS Transitions
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/inline-scripts"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Inline Scripts
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/vuejs"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/testing"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/spa-mode"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/security"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Security
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            API Reference
-        </a>
-    
-    </li>
-    </ul>
-        </nav>
+    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
+    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
+                <h2 class="text-3xl md:text-5xl m-0 text-white">How I Cured My Fear Of Public Speaking</h2>
+                <div class="font-bold mb-3 text-white text-base opacity-75">
+                    <span>
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Nov 08
+                    </span>
+                    <span class="ml-3">
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        09:42
+                    </span>
+                </div>
+                <p class="m-0 text-base text-white">I&#039;ve recently hit a BIG milestone in my life: I&#039;m currently not afraid to speak in front of large groups of people. It&#039;s been a long road, but here&#039;s how I got there.</p>
+        </div>
 
-        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Pagination</h1>
-
-            <p>Livewire offers the ability to paginate results within a component. This feature hooks into Laravel's native pagination features, so it should feel like an invisible feature to you.</p>
-<h2>Paginating Data</h2>
-<p>Let's say you have a <code>show-posts</code> component, but you want to limit the results to 10 posts per page.</p>
-<p>You can paginate the results by using the <code>WithPagination</code> trait provided by Laravel.</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">app/Http/Livewire/ShowPosts.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-use Livewire\WithPagination;
-
-class ShowPosts extends Component
-{
-    use WithPagination;
-
-    public function render()
-    {
-        return view('livewire.show-posts', [
-            'posts' =&gt; Post::paginate(10),
-        ]);
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">resources/views/livewire/show-posts.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    @foreach ($posts as $post)
-        ...
-    @endforeach
-
-    {{ $posts-&gt;links() }}
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<p>Now there will be rendered HTML links for the different pages at the bottom of your posts, and the results will be paginated.</p>
-            <div class="mt-12 pt-8 pb-6 border-t-2">
-                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="flex flex-col items-center md:items-start">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/authorization">Authorization</a>
-            </h4>
-            </div>
-    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/redirecting">Redirecting</a>
-            </h4>
-            </div>
-</div>
-            </div>
+        <div class="">
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/f476c123?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
+<h3>Transcript:</h3>
+<p><p>Alright. So like I said in the last episode, I am cured of the fear of public speaking or so I think I'll say that I have one experience that is the last talk I gave at full psyche. You were, it wasn't the normal rinse repeat that I talked about last episode where it's like you agree to something because you're hopeful about life and you know, you sign yourself up, you sign your future self up for the pain, and then.</p>
+<p>You fear it, hate, it gets worse, worse, worse, worse, worse. You do the thing, you're relieved and you say, I could do that. That was easy, and then you do it again. This was the first experience I had where that didn't happen, where I gave the last talk I gave, I felt fine after and I agreed to the next one and I actually felt fine the whole time until I gave the talk and I felt fine.</p>
+<p>And I still feel fine, and I didn't have that giant spike of like that giant mountain to climb. It was more just like a road to walk with maybe a little Hill. Um, that's it. So I feel like I have, I don't have a whole a year or two of these experiences, but I have one experience and, uh, that's after many, many, many, many, many, many of the all other type of bad experience.</p>
+<p>So. How did I curate? Um, I'll, I'll give kind of a preview of the three things I'm going to talk about. The first thing, you know, the disclaimer, two disclaimers. One, uh, there is no, you know, quick, easy cure of course. Um. The second thing is that I think I, this may not work for everybody, like some of it's my temperament.</p>
+<p>I can't remember if I talked about this in the last episode, but I have a good stage presence by nature, like I was just kind of born with. It doesn't mean that I'm not nervous at all for these engagements. Like I think I'm just as nervous if not more nervous than other people, but for some reason when I get on stage in front of people, I like say funny things and I'm a little witty and I am, I appear to be very happy and comfortable.</p>
+<p>That is not the case. Uh, I am not comfortable now. I think I am more, but definitely appear far more confident and comfortable than I am inside. And that's kind of a common thing, I think. I, I think for people like me, um, and that goes for social situations in general, but, okay, so here's the three things.</p>
+<p>First thing is, um. I need. Well, we'll cover the basics. That's the first thing. It's like, make sure you prepare the talk. Well, like that's, um, I'm not the first step to not being afraid of speaking is making sure that all the bases are covered. That I know the content well, that I know the talk well, that I've rehearsed it well.</p>
+<p>That all of those basic things that you have to do to deliver a talk, well, forget about Fear and whatever. It's like just excellence. Like get that part down. That's, that's like the bare minimum unfortunately. Cause that's really hard work. But that's the bare minimum. I have to have that first, then I, it's funny cause I know like the, uh, two talks ago, lexicon, I, I practiced a ton.</p>
+<p>I had it all set up. I'll say last year I was. It was all set up. I practiced a ton. I rehearsed it a ton. I prepared a ton. I rehearsed it in front of a ton of people, and I thought that it was good to go, but I still couldn't shake the crippling nerves. And I think a, and the reason is I think there's a very practical, the reason is I needed my subconscious needs sample sets.</p>
+<p>My subconscious needs a bigger sample set. My subconscious needs to know that I have enough experiences under my belt where I don't throw up on stage where I don't, uh, whatever die. You know, I have to have enough experiences where I don't choke on my words or feel sick or whatever. Under my belt and I just didn't have those.</p>
+<p>So like no amount of anything people could tell me would get me past that. So unfortunately, this one is like, you just have to do it a lot. You have to collect experiences, and hopefully you create a nice on-ramp for yourself so that you do it at, you know, gradually introduced yourself to this, like do meetups and then small conferences and big conferences and whatever.</p>
+<p>But, um, but yeah, you need to just do it. That's the, that's the hard one. That's, that's the, the true. But, um. Not hard, not easy answer is do it a lot. And that is a sure cure for public speaking. So that's something I've always tried to remember is like, make sure that I'm, I always have speaking engagements so that I, I don't, um, I don't know, get away from doing it long enough that I undo some of the confidence I've gained, but I think I'm passed some of that.</p>
+<p>So that's the second thing. And then the third thing is the easy one. It's the magical. The magical spiritual confidence. A story I'm going to give you where like, you know, Mufasa came down from the clouds and told me something that just like cured me of, of the fear. And I did have a little experience like that.</p>
+<p>Um. So we can talk about that, but all right, so I talked about the first two things. I guess let's just jump into that. So last, uh, last layer con this, this year, the talk I gave, I again, like I gave a talk at, um, in eerie like a couple months before. And I felt great about it and I gave like a, I was a best man in a wedding and I, I was nervous for both of those things and I gave the talks and they went really well, so I had good data, but still for lyric on, I was freaking nervous, like, so nervous and anxious, just that really obnoxious, you know, nerves not as bad as last year, but still pretty bad.</p>
+<p>Um, and I'm standing there on stage, side stage, so off to the side, getting wired up and I kind of lean over. And I see the podium, I see everybody there. And just that there was a defined moment where it hit me like a wave and I was, and I like, I didn't hear these words, but these are the words that kind of rattled around my head was be in this moment.</p>
+<p>So this is some bullshit, like a self-help mumbo jumbo, but for real, like that's what resonated with me in that moment was like. You don't have to press the play button on a prerecorded a demonstration. You don't have to. It's not like dance monkey dance. It's like you can own this moment, whatever that means.</p>
+<p>You can walk out there and look at these people and take a breath and own it. You can engage with them in a real way. You can actually be there and it's really hard to explain, but it just, it shook me like all of a sudden I was not nervous at all. And, and I had like two minutes before actually walking out on stage and I just wasn't nervous and people were talking to me.</p>
+<p>But backstage I was fine and I walked on stage and I was fine. I was not nervous and I gave the talk and I was not nervous. And then that carried through until this entire next talk and trip to Europe and everything was not nervous. Like 20% of the nerves the day that I gave the talk. So anyway, that, that's the kind of magical piece that, that maybe that translates.</p>
+<p>Maybe I can speak that in your ears and you can get some of that and maybe that'll help you. Uh, or maybe you just have to have a, your own little like Mufasa cloud's moment. Um. Hopefully you do. So anyway. Yeah. So that's, that's kinda my story, how I cured the fear of public speaking. I mean, it's pretty simple, but, uh, but yeah, I guess some reminders there, like, I wanted to bail on this year's Lira con or something.</p>
+<p>I don't know. Like I wanted to not do some talk. I forget what it was, but I wanted to not apply for it or reject the opportunity to do something. Because I was just so overcome with nerves, and I'm just, I, I'm an anxious person. No doubt. I have definitely probably GAD, general anxiety disorder.</p>
+<p>I'm sure I have that, whatever. I've just get anxious about like irrational things. Um, but, but here is my philosophy in life is if I don't do the things that I'm anxious about, they will only get bigger. So I remember having this like binary decision moments like, okay, I can not do this, but then I've just given it more power over me.</p>
+<p>Then it's only harder the next time and then what am I going to live my life in? Fear of this thing? No, no, no, no, no. I'm going to charge ahead and destroy it and make it smaller. And that is, um, I mean, it's inspirational stuff, but it's so true that, that, that, uh, goes right along with the, make the change easy, make the easy change programming philosophy of like, make the change easy.</p>
+<p>Then make the easy changes, making the change easy, make it make speaking easy, uh, by doing it a lot. Then. Then speaking's easy. Another thing that's been rattling around my head that I heard somewhere, I totally forgot where on Twitter probably. It's like, ah, easy, easy choices, hard life, hard choices, easy life.</p>
+<p>And the idea is like, do the, take the easy route and you're gonna have a hard life. You know, don't refuse the opera. Don't do the things that make you nervous or anxious, and you're gonna have a hard life because eventually you might have to do one of those things and it's going to be horrible, or you're going to dread doing them and whatever.</p>
+<p>Make the hard choices. Do the hard thing, and you'll have an easy life because now you're confident and you're capable and able and strong. And that is kind of my life philosophy. Make these, make the change easy, then make the easy change or hard choices, easy life. Um, so this is an example of that is just charging forward, doing the thing.</p>
+<p>Yeah. So I don't know, this probably wasn't as practical as you might've hoped that you could listen to this podcast and be cured of the fear of public speaking. But hopefully I gave you a light at the end of the tunnel. If you can relate to these fears like I have, um, maybe I demonstrated to you that there actually is a way out and I've experienced it.</p>
+<p>A tangible way, and those are the three things that went into it. So hopefully that helped you and yeah. TTFN.</p></p>
+</div>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -620,7 +259,15 @@ class ShowPosts extends Component
                 }
             })
         </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
