@@ -13,27 +13,28 @@
                 <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
+        <meta name="description" content="Today, I reflect on the value of having a good developer reputation, and how at times I lose sight of that. If Livewire never makes a penny, it won&#039;t be at all a loss.">
 
-        <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Triggering Actions | Livewire Documentation"/>
-        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/triggering-actions"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:site_name" content="Building Livewire Podcast"/>
+        <meta property="og:title" content="The Value Of A Reputation | Building Livewire Podcast"/>
+        <meta property="og:description" content="Today, I reflect on the value of having a good developer reputation, and how at times I lose sight of that. If Livewire never makes a penny, it won&#039;t be at all a loss."/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep19-the-value-of-a-reputation"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
-        <meta name="twitter:image:alt" content="Livewire Documentation">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
+        <meta name="twitter:image:alt" content="Building Livewire Podcast">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Triggering Actions | Livewire Documentation</title>
+        <title>The Value Of A Reputation | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        
+        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="/assets/build/css/main.css?id=52f2fb2ad9dbb6fd3b2f">
 
@@ -44,7 +45,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -87,7 +88,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -161,23 +162,7 @@
         </div>
     </div>
 
-        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
-    onclick="navMenu.toggle()"
->
-    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
-    >
-        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-    </svg>
-
-    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
-    >
-        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
-    </svg>
-</button>
-
-
+    
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -188,560 +173,62 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
-            <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/quickstart"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/installation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/making-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Making Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/render-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>render()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/state-management"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/mount-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>mount()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/data-binding"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Data Binding
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/triggering-actions"
-            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
-        >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/events"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Events
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/authorization"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Authorization
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/pagination"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Pagination
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/nesting-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/defer-loading"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/polling"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Polling
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/offline-state"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Offline State
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/css-transitions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            CSS Transitions
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/inline-scripts"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Inline Scripts
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/vuejs"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/testing"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/spa-mode"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/security"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Security
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            API Reference
-        </a>
-    
-    </li>
-    </ul>
-        </nav>
+    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
+    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
+                <h2 class="text-3xl md:text-5xl m-0 text-white">The Value Of A Reputation</h2>
+                <div class="font-bold mb-3 text-white text-base opacity-75">
+                    <span>
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Oct 28
+                    </span>
+                    <span class="ml-3">
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        08:48
+                    </span>
+                </div>
+                <p class="m-0 text-base text-white">Today, I reflect on the value of having a good developer reputation, and how at times I lose sight of that. If Livewire never makes a penny, it won&#039;t be at all a loss.</p>
+        </div>
 
-        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Triggering Actions</h1>
-
-            <p>Livewire currently offers a handful of directives to make listening to browser events trivial. The common format for all of them is: <code>wire:[native event]="[action]"</code>.</p>
-<p>Here are some common events you may need to listen for:</p>
-<div class="max-w-full overflow-x-auto">
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>Directive</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>click</td>
-<td><code>wire:click</code></td>
-</tr>
-<tr>
-<td>keydown</td>
-<td><code>wire:keydown</code></td>
-</tr>
-<tr>
-<td>submit</td>
-<td><code>wire:submit</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Here are a few examples of each in HTML:</p>
-<p><strong>click</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click="showModal"&gt;Show Modal&lt;/button&gt;</code></pre>
-</div>
-<p><strong>keydown</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input wire:keydown.enter="search"&gt;</code></pre>
-</div>
-<p><strong>submit</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit="addTodo"&gt;
-    &lt;input wire:model="title"&gt;
-    &lt;button&gt;Add Todo&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-</div>
-<div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-    </div>
-
-    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
-        You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
-    </div>
-</div>
-<h2 id="modifiers">Modifiers</h2>
-<p>Like you saw in the <strong>keydown</strong> example, Livewire directives sometimes offer &quot;modifiers&quot; to add extra functionality to an event. Below are the available modifiers that can be used with any event:</p>
-<div class="max-w-full overflow-x-auto">
-<table>
-<thead>
-<tr>
-<th>Modifier</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stop</td>
-<td>Equivalent of <code>event.stopPropagation()</code></td>
-</tr>
-<tr>
-<td>prevent</td>
-<td>Equivalent of <code>event.preventDefault()</code></td>
-</tr>
-<tr>
-<td>self</td>
-<td>Only triggers an action if the event was triggered on itself. This prevents outer elements from catching events that were triggered from a child element. (Like often in the case of registering a listener on a modal backdrop)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="keydown-modifiers">Keydown Modifiers</h2>
-<p>To listen for specific keys on <strong>keydown</strong> events, you can pass the name of the key as a modifier. You can directly use any valid key names exposed via <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">KeyboardEvent.key</a> as modifiers by converting them to kebab-case.</p>
-<p>Here is a quick list of some common ones you may need:</p>
-<div class="max-w-full overflow-x-auto">
-<table>
-<thead>
-<tr>
-<th>Native Browser Event</th>
-<th>Livewire Modifier</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Backspace</td>
-<td>backspace</td>
-</tr>
-<tr>
-<td>Escape</td>
-<td>escape</td>
-</tr>
-<tr>
-<td>Shift</td>
-<td>shift</td>
-</tr>
-<tr>
-<td>Tab</td>
-<td>tab</td>
-</tr>
-<tr>
-<td>ArrowRight</td>
-<td>arrow-right</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input wire:keydown.page-down="foo"&gt;</code></pre>
-</div>
-<p>In the above example, the handler will only be called if <code>event.key</code> is equal to 'PageDown'.</p>
-<h2 id="special-actions">Special Actions</h2>
-<p>In Livewire, there are some &quot;special&quot; actions that are usually prefixed with a &quot;$&quot; symbol:</p>
-<div class="max-w-full overflow-x-auto">
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$set('<em>property</em>', <em>value</em>)</td>
-<td>Shortcut to update the value of a property</td>
-</tr>
-<tr>
-<td>$toggle('<em>property</em>')</td>
-<td>Shortcut to toggle boolean properties on or off</td>
-</tr>
-<tr>
-<td>$refresh</td>
-<td>Will re-render the component without firing any action</td>
-</tr>
-<tr>
-<td>$emit('<em>event</em>', <em>...params</em>)</td>
-<td>Will emit an event on the global event bus, with the provided params</td>
-</tr>
-<tr>
-<td>$event</td>
-<td>A <em>special</em> variable that holds the value of the event fired that triggered the action. Example usage: <code>wire:change="setSomeProperty($event.target.value)"</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>You can pass these as the value of an event listener to do special things in Livewire.</p>
-<p>Let's take <code>$set()</code> for example. It can be used to manually set a component property's value. Consider the <code>Counter</code> component's view.</p>
-<p><strong>Before</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $message }}
-    &lt;button wire:click="setMessageToHello"&gt;Say Hi&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</div>
-<p><strong>After</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $message }}
-    &lt;button wire:click="$set('message', 'Hello')"&gt;Say Hi&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</div>
-<p>Notice that we are no longer calling the <code>setMessageToHello</code> function, we are directly specifying, what we want data set to.</p>
-<div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-    </div>
-
-    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
-        This can save on lots of redundant, one-line component methods that only exist to set, or toggle the value of component property.
-    </div>
-</div>
-            <div class="mt-12 pt-8 pb-6 border-t-2">
-                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="flex flex-col items-center md:items-start">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/data-binding">Data Binding</a>
-            </h4>
-            </div>
-    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/lifecycle-hooks">Lifecycle Hooks</a>
-            </h4>
-            </div>
-</div>
-            </div>
+        <div class="">
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/cda93d9b?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
+<h3>Transcript:</h3>
+<p><p>So funny thing at one point I was actually going to charge for Livewire. That's funny to hear me say that right now, but you've not even that long before larrikin. I mean way before larrikin, but even right before Larrick on I was like really running the numbers and thinking, you know, all right, how much can I make on this thing?</p>
+<p>Like put a lot of work into this basically quit my job and haven't worked in like four or five months. I've like to make some money redeem some of this value. Okay, I'll charge for live or that's the thing. I'm not going to try to like raise a board or do patreon stuff. Like that doesn't work. I'm just going to charge for it, you know charging for software.</p>
+<p>That's the thing people do so I messaged Adam Ladd and I basically had this plan and I really believe I stood to make like 15 grand. I think I could have maybe. Now in hindsight, I probably definitely couldn't anybody know I would have been 15 grand. And you know, I even knew that myself like 15 grand is not worth it for the work.</p>
+<p>I put into it 15 grand. No way. I'd rather just not have that money and has something that everybody can use and grow it's an open-source, you know project I mentioned I asked a couple people for advice and one of those people was mr. Adam wave and and he gave it to me straight. Like I knew he would you said something like.</p>
+<p>Dude, you're going to make like $200 to something. Like I don't know what he said maybe more than that. I think that's what he was saying about patreon. He's like, yeah, if you pay trying to make $200 if you charge for it, you know, whatever basically somewhere in this this midst of him, like giving it to me straight was like but don't underestimate the value of you know, your reputation of like building building.</p>
+<p>Your reputation is like a open-source maintainer contributor person who created something pretty big. That stuck with me. Those are not his words, but sort of kind of that's what he was saying and that stuck with me for sure big time that that yeah, right. I mean this seems so obvious, but I had to be reminded that like.</p>
+<p>that. This is this is a big step for me like this is this is a real contribution something that if I execute well, if I if it's if it's as useful as I think it could be and I execute it. Well could be something that most layer of elapsed use, you know, that would be crazy and it's kind of it's not just like a little like package, you know, it's a it's a way of developing it's a system.</p>
+<p>It's a framework unto itself. That's pretty big deal. So. This could kind of open some doors for me. And I don't know he reminded me of that and that that just was a good reminder for me. That's all I needed now is like yeah, you're right. You know what? Yeah reputation is a thing. I guess. I'm my mind.</p>
+<p>I felt like I sort of had that reputation of felt like it's like sort of I don't know if. If you're putting like laravel celebrities and tears, I'm probably like a second or third-tier celebrity and that's what I feel like, you know in terms. I don't know for using my follower can be like screw humility.</p>
+<p>This is like how I picture myself based on Twitter followers, and I don't know just general like my connections with people in the community whatever but I think I'm at that level and I just sort of felt like that was. Heil a high enough level or something, I don't know but. He reminded me that there's you know, there's more to be had there's more to be reputed for I don't know there's more of a reputation to have more doors will open if I contribute something of value to the community more than just my little tip tweets and blog posts and stuff like that.</p>
+<p>So anyway, I'm saying all this because I'm reflecting on this. I'm about to travel to Europe for full-stack EU and this is funny because there's like lots of people. But first I've never been to Europe and a lot of my family. My mom is never been in Europe. My dad has never been in Europe Brothers never been in Europe.</p>
+<p>My sisters have been here, you know, there's. I don't know. It's like it's kind of a big deal for me, even though I travel a lot. I been a lot of places and I imagined that I would go here whether or not I was speaking somewhere. But you know, there's somebody who's paying for my flights and a couple nights in a hotel to go to Europe and talk about not actually about Livewire but stuff like it like like Frank asked me to talk about live organized like well, they're not all PHP developers.</p>
+<p>Maybe I shouldn't but but this is in some way in some indirect Way live where open the door for me to go talk about this. And next year I'm going to shoot for you know, the other conference is laravel EU or Larrick on EU and stuff like that. And those are doors. You know, that's sort of like this is the kind of thing that I feel funny saying to the laravel community because a lot of community members do this sort of thing this traveling and whatever.</p>
+<p>But you know what? I tell my family about this they're like to like what like this thing that you're working on is take you around the world, like people are paying, you know, whatever a thousand dollars for you to fly over and hundreds more to stay in a hotel and whatever and talk about this thing for help for 30 minutes what that's insane.</p>
+<p>Like, you know, people are just like dump on my dad. He's so funny. He's like, you know, he's so proud and just like can't believe this you know, which is really funny. It's again funny saying to this crowd because I think this you know, I don't know if it's I don't know just definitely not as big of a deal than it is to my parents.</p>
+<p>And anyway, so so going to Europe and then I get an email. The other day, I don't know about a week ago from somebody who works for a company called Prisma Kai got to look into it. I think it's Prismatic and and this guy's like Hey, we're starting a new YouTube video on YouTube channel, where were interviewing like open-source maintainers.</p>
+<p>We've had West boss on we've had named a couple other big names and he's like. So and I you know, I follow you on Twitter and I heard that you're going to be in Belgium. Would you be up for flying to Paris and US interviewing you you know for our YouTube channel and I'm like well hell, yeah, like that's super cool and you know that they offer to like sponsor my travel to Paris from Belgium.</p>
+<p>Like that's insane just for a YouTube interview. I don't know so it's for me that like I'm being transparent here like. These are kind of big moments. These are moments where I go home and like this is something like this is more than nothing. This is somebody who's follows me on Twitter and wants to fly me somewhere to hear me talk like they're big moments and I guess I take pride in them and I feel good about them and I'm humbled by them or whatever, you know.</p>
+<p>Yeah, so so it feels pretty good. And that's why I'm reflecting on this and I'm like, you know, a lot of this is because of Livewire and. I think I could have maybe shot for some of these things without it. But live wires. The thing is the thing that that I guess I'm most known for at the moment and hopefully will become more known for as it becomes more valuable and and whatever so, I don't know I'm saying here.</p>
+<p>I guess what I'm saying though is like I underestimated the value of the reputation of it. I didn't really think of it like that. I thought of it first it was like just fun and a really useful tool and then I started to get my sights set on like maybe I could actually fund. My life with this tool and I think that maybe was a lofty goal at the time maybe eventually down the road.</p>
+<p>But but then I sort of shifted my sites to this is about my reputation. Like I want to build something. I want to make it really good as good as I can possibly make it really useful do a really good job on the docks and educational materials and everything just make it a really valuable tool for laravel developers and and I'll be recognized for that, you know, and that'll build their reputation and then it'll be kind of like a tool in my.</p>
+<p>Tool, I don't know like like a Resume Builder, you know something that that that I'll be able to any job I go to like I'm going to point a live wire. I'm gonna be like, hey, yeah, I spent a ton of time working on this open source project and you can see all the code. I wrote here and all the people you can see how I managed a how to Big open source project, you know, so it's been a wild ride and really good time and.</p>
+<p>Yeah, so that's that I think now is maybe a good it's pretty late and I got to go to bed these last three episodes. You can probably hear I have a cold and it's late at night. And so I'm really like quiet right now, but I was just in the reflective mood and I'm about to leave for Europe for two weeks and I'm putting the pen down.</p>
+<p>I'm not going to be on the computer too much. I will be at full stack you but outside of that will be traveling and doing whatever else so I'm going to be a little bit quiet. I'll release these. Maybe over the next two weeks, but but things will be a little quiet. I won't be really around much, but I'm but when I get back I'm going to be hitting it hard.</p>
+<p>So so there's definitely some exciting stuff to come in the Live Wire front that I can't wait to talk about and work on it. Whatever so stay tuned. Thanks for listening to Lon. Enjoy your cab ride by.</p></p>
+</div>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -770,7 +257,15 @@
                 }
             })
         </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">

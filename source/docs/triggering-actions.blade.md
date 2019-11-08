@@ -49,6 +49,7 @@ Modifier | Description
 --- | ---
 stop | Equivalent of `event.stopPropagation()`
 prevent | Equivalent of `event.preventDefault()`
+self | Only triggers an action if the event was triggered on itself. This prevents outer elements from catching events that were triggered from a child element. (Like often in the case of registering a listener on a modal backdrop)
 @endtable
 
 ## Keydown Modifiers {#keydown-modifiers}
