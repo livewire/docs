@@ -10,7 +10,7 @@ Livewire offers the ability to paginate results within a component. This feature
 
 Let's say you have a `show-posts` component, but you want to limit the results to 10 posts per page.
 
-You can paginate the results by using the `WithPagination` trait provided by Laravel.
+You can paginate the results by using the `WithPagination` trait provided by Livewire.
 
 @codeComponent([
     'className' => 'app/Http/Livewire/ShowPosts.php',
