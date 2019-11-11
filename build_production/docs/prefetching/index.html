@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=6297554fcd9815c8268d">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=46299849f403e27e7340">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -518,6 +518,19 @@
             <h1>Prefetching</h1>
 
             <p>Livewire offers the ability to &quot;prefetch&quot; the result of an action on mouseover. This is useful for cases when an action DOES NOT perform side effects, and you want a little extra performance. Toggling content is a common use case.</p>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
+        Note: If you manipulate protected properties in the action that is prefetched, those changes are considered "side-effects" and will persist across prefetches. Currently prefecting only works when changing public data.
+    </div>
+</div>
 <p>Add the <code>prefetch</code> modifier to an action to enable this behavior:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click.prefetch="toggleContent"&gt;Show Content&lt;/button&gt;

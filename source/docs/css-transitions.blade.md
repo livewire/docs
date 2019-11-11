@@ -26,11 +26,11 @@ You can control the length of this fade by adding an additional time modifier. T
 `wire:transition.fade.1s` or `wire:transition.fade.1000ms`
 
 @warning
-If your element isn't transitioning in and out as expected, it's possible Livewire is having a hard time keeping track of it. In those cases, add a unique `key` attribute to the element like so:
+If your element isn't transitioning in and out as expected, it's possible Livewire is having a hard time keeping track of it. In those cases, add a unique `wire:key` attribute to the element like so:
 @endwarning
 
 @code
-<div wire:transition.fade key="unique-key">
+<div wire:transition.fade wire:key="unique-key">
 @endcode
 
 ## Simple slide transition {#simple-slide}
