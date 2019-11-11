@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=46299849f403e27e7340">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=6297554fcd9815c8268d">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -518,7 +518,7 @@
             <h1>Third-Party Libraries</h1>
 
             <p>It's common to use third-party JavaScript libraries for small UI components like date-pickers and wysiwyg text editors.</p>
-<p>It is outside the scope of this documentation to provide info for specific libraries, however, the techiques for adapting Livewire to other libraries generally similar. Therefore, we'll just use one common example as a teaching point:</p>
+<p>It is outside the scope of this documentation to provide info for specific libraries; however, the techniques for adapting Livewire to other libraries are generally similar. Therefore, we'll just use one common example as a teaching point:</p>
 <h2 id="select2">Select2</h2>
 <p>Let's say you are using a package like <a href="https://select2.org">Select2</a> in your component's template to sync a data property called <code>$foo</code>. You might think it's as simple as the following:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -563,7 +563,7 @@
 <p>Now, you'll notice when you change the element, it updates the value, but the Select2 element is destroyed and replaced with an un-reactive native <code>&lt;select&gt;</code> element.</p>
 <p>When you initialize a <code>&lt;select&gt;</code> element with Select2, Select2 will hijack the element and add it's own dom as a sibling.</p>
 <p>Now that we've triggered a Livewire update, Livewire will get HTML back from the server, compare it to the Select2 DOM manipulations on the page, see the difference, and remove all the changes Select2 made.</p>
-<p>To get around this, we must tell Livevwire to ignore DOM changes made by the library.</p>
+<p>To get around this, we must tell Livewire to ignore DOM changes made by the library.</p>
 <h3>Ignoring DOM-changes (using <code>wire:ignore</code>)</h3>
 <p>We can tell Livewire to skip the DOM-diffing for certain parts of the DOM with the <code>wire:ignore</code> directive. Here is a working implementation of Select2:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
@@ -598,7 +598,7 @@
     </div>
 
     <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
-        Also, note that sometimes it's useful to ingore changes to an element, but not it's children. If this is the case, you can add the <code>self</code> modifier to the <code>wire:ignore</code> directive, like so: <code>wire:ignore.self</code>.
+        Also, note that sometimes it's useful to ignore changes to an element, but not it's children. If this is the case, you can add the <code>self</code> modifier to the <code>wire:ignore</code> directive, like so: <code>wire:ignore.self</code>.
     </div>
 </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
