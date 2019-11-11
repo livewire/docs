@@ -102,7 +102,15 @@ class CounterTest extends TestCase
             ->set('count', 1)
             ->assertSee(1)
             ->set(['count' => 2])
-            ->assertSee(2);
+            ->assertSee(2)
+            ->call('emitFoo')
+            ->assertEmitted('foo')
+            ->call('emitFooWithParam', 'bar')
+            ->assertEmitted('foo', 'bar')
+            ->call('emitFooWithParam', 'bar')
+            ->assertEmitted('foo', function ($event, $params) {
+                return $event === 'foo' && $params === ['bar'];
+            });
     }
 }
 @endcode
