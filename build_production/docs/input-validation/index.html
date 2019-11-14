@@ -16,7 +16,7 @@
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Input Validation | Livewire Documentation"/>
+        <meta property="og:title" content="Form Validation | Livewire Documentation"/>
         <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
         <meta property="og:url" content="https://laravel-livewire.com/docs/input-validation"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
@@ -28,14 +28,14 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Input Validation | Livewire Documentation</title>
+        <title>Form Validation | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=6297554fcd9815c8268d">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=52f2fb2ad9dbb6fd3b2f">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -515,20 +515,32 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Input Validation</h1>
+            <h1>Form Validation</h1>
 
-            <p>Consider the following Livewire component:</p>
+            <p>Validation in Livewire should feel similar to standard form validation in Laravel.</p>
+<p>Here's a simple example of a form in Livewire being validated.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ContactForm</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
 
 class ContactForm extends Component
 {
+    public $name;
     public $email;
 
-    public function saveContact()
+    public function submit()
     {
-        Contact::create(['email' =&gt; $this-&gt;email]);
+        $this-&gt;validate([
+            'name' =&gt; 'required|min:6',
+            'email' =&gt; 'required|email',
+        ]);
+
+        // Execution doesn't reach here if validation fails.
+
+        Contact::create([
+            'name' =&gt; $this-&gt;name,
+            'email' =&gt; $this-&gt;email,
+        ]);
     }
 
     public function render()
@@ -538,29 +550,44 @@ class ContactForm extends Component
 }</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">contact-form.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    Email: &lt;input wire:model.lazy="email"&gt;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">contact-form.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit="submit"&gt;
+    &lt;input type="text" wire:model="name"&gt;
+    @error('name') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
 
-    &lt;button wire:click="saveContact"&gt;Save Contact&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+    &lt;input type="text" wire:model="email"&gt;
+    @error('email') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
+
+    &lt;button type="submit"&gt;Save Contact&lt;/button&gt;
+&lt;/form&gt;</code></pre>
     </div>
     </div>
-<p>We can add validation to this form almost exactly how you would in a controller. Take a look:</p>
+<p>If validation fails, a standard <code>ValidationException</code> is thrown (and caught by Livewire), and the standard <code>$errors</code> object is available inside the component's view. Because of this, any existing code you have, likely a Blade include, for handling validation in the rest of your application will apply here as well.</p>
+<h2 id="real-time-validation">Real-time Validation</h2>
+<p>Sometimes it's useful to validate a form field as a user types into it. Livewire makes &quot;real-time&quot; validation simple with the <code>$this-&gt;validateOnly()</code> method.</p>
+<p>To validate an input field after every update, we can use Livewire's <code>updated</code> hook:</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ContactForm</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
 
 class ContactForm extends Component
 {
+    public $name;
     public $email;
+
+    public function updated($field)
+    {
+        $this-&gt;validateOnly($field, [
+            'name' =&gt; 'min:6',
+            'email' =&gt; 'email',
+        ]);
+    }
 
     public function saveContact()
     {
         $validatedData = $this-&gt;validate([
+            'name' =&gt; 'required|min:6',
             'email' =&gt; 'required|email',
         ]);
-
-        // Execution doesn't reach here if validation fails.
 
         Contact::create($validatedData);
     }
@@ -572,20 +599,64 @@ class ContactForm extends Component
 }</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">contact-form.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    Email: &lt;input wire:model.lazy="email"&gt;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">contact-form.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit="submit"&gt;
+    &lt;input type="text" wire:model="name"&gt;
+    @error('name') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
 
-    @if($errors-&gt;has('email'))
-        &lt;span&gt;{{ $errors-&gt;first('email') }}&lt;/span&gt;
-    @endif
+    &lt;input type="text" wire:model="email"&gt;
+    @error('email') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
 
-    &lt;button wire:click="saveContact"&gt;Save Contact&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+    &lt;button type="submit"&gt;Save Contact&lt;/button&gt;
+&lt;/form&gt;</code></pre>
     </div>
     </div>
-<blockquote>
-<p>Note: Livewire exposes the same <code>$errors</code> object as Laravel, for more information, reference the <a href="https://laravel.com/docs/5.8/validation#quick-displaying-the-validation-errors">Laravel Docs</a>.</p>
-</blockquote>
+<p>Let's break down exactly what is happening in this example:</p>
+<ul>
+<li>The user types into the &quot;name&quot; field</li>
+<li>As the user types in their name, a validation message is shown if it's less than 6 characters</li>
+<li>The user can switch to entering their email, and the validation message for the name still shows</li>
+<li>When the user submits the form, there is a final validation check, and the data is persisted.</li>
+</ul>
+<p>If you are wondering, &quot;why do I need <code>validateOnly</code>? Can't I just use <code>validate</code>?&quot;. The reason is because otherwise, every single update to any field would validate ALL of the fields. This can be a jarring user experience. Imagine if you typed one character into the first field of a form, and all of a sudden every single field had a validation message. <code>validateOnly</code> prevents that, and only validates the current field being updated.</p>
+<h2 id="testing-validation">Testing Validation</h2>
+<p>Livewire provides useful testing utilities for validation scenarios. Let's a write a simple test for the original &quot;Contact Form&quot; component.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">/** @test  */
+public function name_and_email_fields_are_required_for_saving_a_contact()
+{
+    Livewire::test('contact-form')
+        -&gt;set('name', '')
+        -&gt;set('email', '')
+        -&gt;assertHasErrors(['name', 'email']);
+}</code></pre>
+</div>
+<p>This is useful, but we can take it one step further and actually test against specific validation rules:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">/** @test  */
+public function name_and_email_fields_are_required_for_saving_a_contact()
+{
+    Livewire::test('contact-form')
+        -&gt;set('name', '')
+        -&gt;set('email', '')
+        -&gt;assertHasErrors([
+            'name' =&gt; 'required',
+            'email' =&gt; 'required',
+        ]);
+}</code></pre>
+</div>
+<p>Livewire also offers the inverse of <code>assertHasErrors</code> -&gt; <code>assertHasNoErrors()</code>:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">/** @test  */
+public function name_field_is_required_for_saving_a_contact()
+{
+    Livewire::test('contact-form')
+        -&gt;set('name', '')
+        -&gt;set('email', 'foo')
+        -&gt;assertHasErrors(['name' =&gt; 'required'])
+        -&gt;assertHasNoErrors(['email' =&gt; 'required']);
+}</code></pre>
+</div>
+<p>For more examples of supported syntax for these two methods, take a look at the <a href="/docs/testing">Testing Docs</a>.</p>
 <h2 id="custom-validators">Custom validators</h2>
 <p>If you wish to use your own validation system in Livewire, that isn't a problem. Livewire will catch <code>ValidationException</code> and provide the errors to the view just like using <code>$this-&gt;validate()</code>.</p>
 <p>For example:</p>

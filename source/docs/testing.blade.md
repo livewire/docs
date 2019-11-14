@@ -114,3 +114,47 @@ class CounterTest extends TestCase
     }
 }
 @endcode
+
+## All Available Test Methods {#all-testing-methods}
+
+@code(['lang' => 'php'])
+$this->set('foo', 'bar');
+// Set the "foo" property (`public $foo`) to the value: "bar"
+
+$this->call('foo');
+// Call the "foo" method
+
+$this->call('foo', 'bar', 'baz');
+// Call the "foo" method, and pass in the parameter "bar", and "baz"
+
+$this->assertSet('foo', 'bar');
+// Asserts that the "foo" property is set to the value "bar"
+
+$this->assertNotSet('foo', 'bar');
+// Asserts that the "foo" property is NOT set to the value "bar"
+
+$this->assertSee('foo');
+// Assert that the string "foo" exists in the currently rendered HTML of the component
+
+$this->assertDontSee('foo');
+// Assert that the string "foo" DOES NOT exist in the HTML
+
+$this->assertEmitted('foo');
+// Assert that the "foo" event was emitted
+
+$this->assertEmitted('foo', 'bar', 'baz');
+// Assert that the "foo" event was emitted with the "bar" and "baz" parameters
+
+$this->assertHasErrors('foo');
+// Assert that the "foo" property has validation errors
+
+$this->assertHasErrors(['foo', 'bar']);
+// Assert that the "foo" AND "bar" properties have validation errors
+
+$this->assertHasErrors(['foo' => 'required']);
+// Assert that the "foo" property has a "required" validation rule error
+
+$this->assertHasErrors(['foo' => ['required', 'min']]);
+// Assert that the "foo" property has a "required" AND "min" validation rule error
+
+@endcode

@@ -13,27 +13,28 @@
                 <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
+        <meta name="description" content="Today we talk about decisions where I choose the &quot;invisible&quot; option (the option that feels invisible to the user). Along the way, I discover a trade-off between &quot;invisibility&quot; and &quot;transparency&quot;. It&#039;s good times.">
 
-        <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="SPA Mode | Livewire Documentation"/>
-        <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/spa-mode"/>
-        <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
+        <meta property="og:site_name" content="Building Livewire Podcast"/>
+        <meta property="og:title" content="Choose Invisibility | Building Livewire Podcast"/>
+        <meta property="og:description" content="Today we talk about decisions where I choose the &quot;invisible&quot; option (the option that feels invisible to the user). Along the way, I discover a trade-off between &quot;invisibility&quot; and &quot;transparency&quot;. It&#039;s good times."/>
+        <meta property="og:url" content="https://laravel-livewire.com/podcasts/ep26-choose-invisibility"/>
+        <meta property="og:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/twitter.png">
-        <meta name="twitter:image:alt" content="Livewire Documentation">
+        <meta name="twitter:image" content="https://laravel-livewire.com/assets/img/podcast-artwork.png">
+        <meta name="twitter:image:alt" content="Building Livewire Podcast">
         <meta name="twitter:card" content="summary">
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>SPA Mode | Livewire Documentation</title>
+        <title>Choose Invisibility | Building Livewire Podcast</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
-        
+        <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
+
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="/assets/build/css/main.css?id=52f2fb2ad9dbb6fd3b2f">
 
@@ -44,7 +45,7 @@
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Livewire Documentation home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -87,7 +88,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Livewire Documentation home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -161,23 +162,7 @@
         </div>
     </div>
 
-        <button class="flex justify-center items-center bg-blue border border-blue h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
-    onclick="navMenu.toggle()"
->
-    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
-        class="fill-current text-blue-900 h-9 w-4" viewBox="0 0 32 32"
-    >
-        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-    </svg>
-
-    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
-        class="hidden fill-current text-blue-900 h-9 w-4" viewBox="0 0 36 30"
-    >
-        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
-    </svg>
-</button>
-
-
+    
     <div class="mb-6 absolute bottom-0 w-full" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
@@ -188,488 +173,69 @@
 </header>
 
 <main role="main" class="w-full flex-auto">
-    <section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
-            <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/quickstart"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/installation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/making-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Making Components
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/render-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>render()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/state-management"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/mount-method"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            The <code>mount()</code> Method
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/data-binding"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Data Binding
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/triggering-actions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/events"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Events
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Component Features</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/input-validation"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Validation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/authorization"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Authorization
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/pagination"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Pagination
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/redirecting"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Redirecting
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/nesting-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Nesting Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">UI Niceties</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/defer-loading"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/polling"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Polling
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/loading-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/offline-state"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Offline State
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/css-transitions"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            CSS Transitions
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">JavaScript</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/inline-scripts"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Inline Scripts
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/vuejs"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/testing"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">Advanced</p>
-    
-            
-        <ul class="list-none my-0">
-            <li class="pl-4">
-            
-        <a href="/docs/spa-mode"
-            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/security"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Security
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/api"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            API Reference
-        </a>
-    
-    </li>
-    </ul>
-        </nav>
+    <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
+    <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
+        <div class="md:w-1/2 py-16">
+                <h2 class="text-3xl md:text-5xl m-0 text-white">Choose Invisibility</h2>
+                <div class="font-bold mb-3 text-white text-base opacity-75">
+                    <span>
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Nov 13
+                    </span>
+                    <span class="ml-3">
+                        <svg class="svg inline-block" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        10:09
+                    </span>
+                </div>
+                <p class="m-0 text-base text-white">Today we talk about decisions where I choose the &quot;invisible&quot; option (the option that feels invisible to the user). Along the way, I discover a trade-off between &quot;invisibility&quot; and &quot;transparency&quot;. It&#039;s good times.</p>
+        </div>
 
-        <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>SPA Mode</h1>
-
-            <p>While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.</p>
-<p>Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's walk through it.</p>
-<p>Checkout the <a href="https://github.com/turbolinks/turbolinks">Turbolinks documentation</a> for installation instructions.</p>
-<p>Now, add the following JS in a script tag on the page, or in your <code>app.js</code> file.</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-js">document.addEventListener('turbolinks:load', () =&gt; {
-    window.livewire.rescan()
-})</code></pre>
-</div>
-<p>And that's it! This little snippet tells Turbolinks to reload Livewire every time a new page is visited or returned to.</p>
-<h2 id="render-as-entire-page">Render Component As Entire Page</h2>
-<p>If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helpers to cut out the extra boilerplate code. Take a look at the following example:</p>
-<p><em>Before</em></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">// Route
-Route::get('/home', 'HomeController@show');
-
-// Controller
-class HomeController extends Controller
-{
-    public function show()
-    {
-        return view('home');
-    }
-}
-
-// View
-@extends('layouts.app')
-
-@section('content')
-    @livewire('counter')
-@endsection</code></pre>
-</div>
-<p><strong>After</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">// Route
-Route::livewire('/home', 'counter');</code></pre>
-</div>
-<p>Note: for this feature to work, Livewire assumes you have a layout stored in <code>resources/views/layouts/app.blade.php</code> that yields a &quot;content&quot; section (<code>@yield('content')</code>)</p>
-<h3 id="custom-layout-file">Custom Layout File</h3>
-<p>If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">// Customizing layout
-Route::livewire('/home', 'counter')
-    -&gt;layout('layouts.base');
-
-// Customizing section (@yield('body'))
-Route::livewire('/home', 'counter')
-    -&gt;section('body');</code></pre>
-</div>
-<p>You can also configure these settings for an entire route group using the group option array syntax:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">Route::group(['layout' =&gt; 'layouts.base', 'section' =&gt; 'body'], function () {
-    //
-});</code></pre>
-</div>
-<p>Or the fluent alternative:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">Route::layout('layouts.base')-&gt;section('body')-&gt;group(function () {
-    //
-});</code></pre>
-</div>
-<h3 id="route-params">Route Parameters</h3>
-<p>Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's <code>mount</code> lifecycle hook. For example:</p>
-<p><strong>web.php</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">Route::livewire('/contact/{id}', 'show-contact');</code></pre>
-</div>
-<p><strong>App\Http\Livewire\ShowContact.php</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class ShowContact extends Component
-{
-    public $name;
-    public $email;
-
-    public function mount($id)
-    {
-        $contact = User::find($id);
-
-        $this-&gt;name = $contact-&gt;name;
-        $this-&gt;email = $contact-&gt;email;
-    }
-
-    ...
-}</code></pre>
-</div>
-<p>As you can see, the <code>mount</code> method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit <code>/contact/123</code>, the <code>$id</code> variable passed into the <code>mount</code> method will contain the value <code>123</code>.</p>
-<h3 id="route-model-binding">Route Model Binding</h3>
-<p>Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:</p>
-<p><strong>web.php</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">Route::livewire('/contact/{user}', 'show-contact');</code></pre>
-</div>
-<p><strong>App\Http\Livewire\ShowContact.php</strong></p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class ShowContact extends Component
-{
-    public $contact;
-
-    public function mount(User $user)
-    {
-        $this-&gt;contact = $user;
-    }
-}</code></pre>
-</div>
-<p>Now, after visiting <code>/contact/123</code>, the value passed into <code>mount</code> will be an instance of the <code>User</code> model with id <code>123</code>.</p>
-            <div class="mt-12 pt-8 pb-6 border-t-2">
-                <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="flex flex-col items-center md:items-start">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/testing">Testing</a>
-            </h4>
-            </div>
-    <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
-            <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/security">Security</a>
-            </h4>
-            </div>
-</div>
-            </div>
+        <div class="">
+            <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/03edc066?color=f5f5f5' width='100%'></iframe>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
+<h3>Transcript:</h3>
+<p><p>Hello again. Uh, this is a serial episode, so I'm recording this one second after I just recorded the last one. So the last episode, we talked about these hard validation problems, and hopefully I illustrated to you some of the issues that really STEM from a difference that I wasn't aware of that I wasn't really, that I hadn't formalized, but I cleared up the difference that there's two types of valid two types of things people are trying to do in an app.</p>
+<p>Then I was able to solve it. When I separated out into two separate methods, validate and validate only, and I think it's going to be intuitive. I'm going to document it up and I think everybody is just going to think it. Uh, it works the way it should work and I'm, I'm so happy with it. Half. So happy with it.</p>
+<p>Like I finally, this has been. Something nagging in the back of my mind that's not perfect. And now in my mind, it's perfect in my mind. Maybe it's not in reality, but I think it's perfect. So I'm putting it to bed, um, and I can move on with my life. Uh, but this brings me to a bit of a bigger discussion.</p>
+<p>Um. This problem I, there's two ways I could have approached this. So, you know, the way I did approach it, um, I also could have approached it a different way, which is actually how I started approaching it. I. You get an a get hub issue where somebody says, Hey, it would be cool if the validation persisted from request to request, you know?</p>
+<p>Oh, yeah, yeah. Okay. We should make that available. Well, how do we do that? Maybe we'll add a config option. Maybe we'll add someone. How would we configure that ability? Okay, well, what if we have a trait called persists validation that maybe you just add used, persists validation. We document it.</p>
+<p>Okay. Right, right. So that's fine. And I actually started that way. I actually have a trait in a sample app called persist validation that I was messing with, and then, okay, that real time validation, they want maybe have a thing called persist validation and only validates specific fields or whatever.</p>
+<p>Okay. Maybe we have used real time validation, whatever. You just keep adding in these options. That describe the functionality, but they don't describe the use case. Um, and this was the road I was starting down, but it felt fuzzy to me, and I just hate adding more documentation for specific functionality that you have to now understand and know you have to understand everything that I understand and, and it's hard for me to understand this stuff.</p>
+<p>So why would I burden every user with that? So basically I had a choice. And I've had this choice a hundred times in Livewire, and every time I come across this choice, I don't realize it. It is that choice right away. But when I do realize that it's a choice between an invisible feature and a visible feature, and by that I mean an invisible feature is something that user will never notice.</p>
+<p>A visible feature is like them looking up how to do a specific thing and adding a trait and whatever. Once I realized that it's, that, that, that, uh, that fork in the road, I just. Choose the invisible, the invisibility route. I just go with the invisible. Um, and that, that's been my path with this whole Livewire thing is like, find the way that people expect it should work, which is so hard.</p>
+<p>And it takes like, user testing is super value. Interviewing people, using it yourself, dogfooding it, thinking about it a lot. Um, those are all the things I employ to anticipate how a user. Would expect it to work and then make it work the way they expect it to work. So basically I picture, like I picture a cartoon character, like walking in space and the road is like filling in as they walk, you know, like, it's like.</p>
+<p>The road is maybe it's like a brick road and the bricks are floating up from the abyss and just kind of assembling in front of them and maybe their eyes are closed in, they're whistling a happy tune, and they have no idea that if the road stops building itself, they'll fall to their death. But it's just magically happening as they go.</p>
+<p>I think that's the, the, and now I literally just came up with that right now. Um, it's pretty off the wall, but, uh, I think it's actually kind of. I think it's kind of accurate. That's what I want Livewire to be. I want it to be a road that assembles in front of you and you have no idea. You think you're just walking and whistling and happy tune.</p>
+<p>But underneath the hood there's like crazy stuff happening, you know, to make this happen. Um, and from an implementation perspective, I tend towards the simple implementation. I tend towards wanting it to be a simple tool with a bare set of, that's another balance. I'm, everything in life is balances, but that's another balance that competes with this value of invisibility.</p>
+<p>The value of a simple implementation, a simple set of tools that the user understands and can manipulate. I think of it kind of like the react versus view dichotomy where VJs has a lot of, um, it has a wider API because it caters to specific use cases with specific API APIs where react is more like a bare set of tools.</p>
+<p>And for those use cases, you can use a, that set of tools to accomplish what you need to accomplish. Um, and certain people like. There's differences in both of them, and there's different things to like with view. It might cater to specific things really well, but because you don't, I actually think that this, this is not an all encompassing.</p>
+<p>This is a reduction of view in react. I'm just saying that, but let's just go with the metaphor and let's just, uh, um, turn these two tools into characatures with view. With a wider API that is more specific for specific use cases for use cases, it, um, it fits the needs really well for those things.</p>
+<p>But then when there's needs outside of it, you feel like you're hacking something, um, or you're doing something that's unintended because it's more opinionated, where react is less opinionated and it's more of a bare bones set of tools. You, uh, when you, it has a slimmer API, so you have to employ more mojo to figure out how to do something and you run the risk of doing it in a not ideal way because.</p>
+<p>You don't understand it that well, the learning curve is higher, but when you run across something that you don't know how it solves you, you pretty much already do that for everything else. So you'll feel okay, you know, I'm mixing and matching techniques to get the job done. Okay, so that's a competing, those are competing values.</p>
+<p>This like, I want to, I want live wear to feel invisible. And also I want live where to fear, feel like a bare bones set of tools that's implemented in a simple way and is a transparent tool. I think that, and that's where react is moving towards with this hooks thing. This like a, you know, this hooks reveal the nature, the true nature of react or whatever, and it.</p>
+<p>Totally steepen the learning curve and a lot of people, it just kind of boggles their mind. Um, it's very confusing. They use effect hook specifically. Um, and it's something in that people talk about a lot. And this, I think this is an example of like maybe Dan AB off and I, I don't know that much about react.</p>
+<p>So again, just go with the metaphor or analogy. So like Dan Habermas was saying, well, I'm going to, let's reveal what, let's provide an API that reveals the way react works. Then. People can use it too. It's two. It's op most optimal. You know, they, you know, I, it makes sense. I understand that temptation.</p>
+<p>Um, where I imagine Avenue has a different approach to his tool, um, view. So anyway, so it's a competing thing where I want live, where to feel invisible. I also want it to feel like you understand how it works so that you can mix and match and be creative with it. It's a very, very hard thing to balance, but I'll say that in general, I choose in visibility as much as I can.</p>
+<p>Yeah. It's funny. That is, that is something intention because now that I'm saying it, the more I choose invisibility, often the, the more complex I'm making the inner workings of Livewire. And there's so many examples of this, but I guess I'll just give you two examples in the past two days. So I paired with my buddy Mark yesterday.</p>
+<p>Um, he's Mark salmon, shout out to him. He's, he's an awesome guy, is using live wire in a project. And so I just called them up to pair with him, um, and sort of get, you know, like what are the problems he's facing and whatnot. And so we talked about, um, what did we talk about? We talked about a specific.</p>
+<p>Holy crap. I don't even remember right now. Well, let's just say that it'll hit me as I'm talking about it, but it was a feature and, and I was sort of saying, well, yeah, we could add this, this option, this like. Config option or we could just handle this automatically. And he was like, well, maybe we could add a config option.</p>
+<p>And, and, and it quickly, it was apparent to me again, Oh, this is the choosing visibility thing. Now we have to make it invisible. We have to do it the way that you'd expect it to work. And so the validation thing is the same way. I chose invisibility. I chose to work really hard to understand how people expect it to work.</p>
+<p>It anticipate their use cases. And then build the road right in front of them so that they don't worry about it. They're not thinking, you know, when they use this arrow validate and the validation just works in persist across requests, they'll go, Oh yeah, that's how it's supposed to work. They won't even say that.</p>
+<p>It'll just work the way they think it should work. They have no idea what's going on under the hood. And the pains that I went through to like deal with message bags and persisting message bags and merging message bags and persisting only specific fields and message bags and, and detecting if it's a validation error.</p>
+<p>From, that was like thrown inside the component or if it, you already added a with errors onto the view that the render function returns like, ah, the story goes on and on and on, and there's a hundred examples of this in live where I chose the route of invisibility, even though it means making the app a little bit more complex and, but that's, that's just what I want live where to be.</p>
+<p>I don't know. I want it to be something that, that, that just feels like scary, easy to use an install. Like the installation steps are still two steps. You don't have to publish a config file, you don't have to configure anything. You're just composer require add the little assets and you're off to the races.</p>
+<p>So anyway, that's, that's my, that's my labor on a, on Livewire is making it feel. Completely invisible, hopefully, and seamless. Yeah, but who knows? Maybe one day I'll want to reveal the nature of Livewire and add hooks and make it really hard to use, except for really smart people, and then they'll all feel superior and talk about our conferences and everybody will feel inferior and decide that it's definitely the way to go because whatever.</p>
+<p>Bye.</p></p>
+</div>
 </main>
 
         <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
 
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Animate the Jellyfish logo because why not?
-        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
-            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
-        })
-    })
-</script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
             window.something = docsearch({
                 apiKey: 'cec0554d960fa30b4b0b610f372a8636',
@@ -698,7 +264,15 @@ class ShowContact extends Component
                 }
             })
         </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the Jellyfish logo because why not?
+        animate({elements: '#Jelly', transform: ['translateY(0%)', 'translateY(-3%)'], easing: 'in-out-cubic'}).then(() => {
+            animate({elements: '#Jelly', transform: ['translateY(-3%)', 'translateY(3%)'], loop: true, direction: 'alternate', easing: 'in-out-cubic', duration: 2000})
+        })
+    })
+</script>
+
         <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
             <ul class="list-none flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
