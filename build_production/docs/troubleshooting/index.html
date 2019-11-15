@@ -16,9 +16,9 @@
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="API Reference | Livewire Documentation"/>
+        <meta property="og:title" content="Troubleshooting | Livewire Documentation"/>
         <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/api"/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/troubleshooting"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
         <meta property="og:type" content="website"/>
 
@@ -28,7 +28,7 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>API Reference | Livewire Documentation</title>
+        <title>Troubleshooting | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
@@ -479,7 +479,7 @@
             <li class="pl-4">
             
         <a href="/docs/troubleshooting"
-            class="lvl0   nav-menu__item hover:text-blue-600"
+            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
             Troubleshooting
         </a>
@@ -506,7 +506,7 @@
             <li class="pl-4">
             
         <a href="/docs/api"
-            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+            class="lvl0   nav-menu__item hover:text-blue-600"
         >
             API Reference
         </a>
@@ -516,115 +516,68 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>API Reference</h1>
+            <h1>Troubleshooting</h1>
 
-            <h2>Template API</h2>
-<h3>Directives</h3>
-<div class="max-w-full overflow-x-auto">
-<table>
-<thead>
-<tr>
-<th>Directive</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>wire:key="foo"</code></td>
-<td>Acts as a reference point for Livewire's DOM diffing system. Useful for adding/removing elements, and keeping track of lists.</td>
-</tr>
-<tr>
-<td><code>wire:click="foo"</code></td>
-<td>Listens for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
-</tr>
-<tr>
-<td><code>wire:click.prefetch="foo"</code></td>
-<td>Listens for a &quot;mouseenter&quot; event, and &quot;prefetches&quot; the result of the &quot;foo&quot; method in the component. Then, if it is clicked, will swap in the &quot;prefetched&quot; result (without an extra request), if it's not clicked, will throw away the cached result.</td>
-</tr>
-<tr>
-<td><code>wire:keydown.enter="foo"</code></td>
-<td>Listens for a keydown event with <code>Enter</code> as its key, and fires the &quot;foo&quot; method in the component for a &quot;click&quot; event, and fires the &quot;foo&quot; method in the component</td>
-</tr>
-<tr>
-<td><code>wire:foo="bar"</code></td>
-<td>Listens for a browser event called &quot;foo&quot;. (You can specify any browser DOM event (not Livewire events) you would like to listen for this way)</td>
-</tr>
-<tr>
-<td><code>wire:model="foo"</code></td>
-<td>Assuming <code>$foo</code> is a public property on the component class, every time an input element with this directive is updated, the property will be updated.</td>
-</tr>
-<tr>
-<td><code>wire:model.debounce.100ms="foo"</code></td>
-<td>Debounces the <code>input</code> events emitted by the element every 100 milliseconds</td>
-</tr>
-<tr>
-<td><code>wire:poll.500ms="foo"</code></td>
-<td>Livewire will run the &quot;foo&quot; method on the component class every 500 milliseconds</td>
-</tr>
-<tr>
-<td><code>wire:init="foo"</code></td>
-<td>Livewire will run the &quot;foo&quot; method on the component immediately after it renders on the page</td>
-</tr>
-<tr>
-<td><code>wire:loading</code></td>
-<td>Will hide the element by default, but show it while network requests are in transit</td>
-</tr>
-<tr>
-<td><code>wire:loading.class="foo"</code></td>
-<td>Will add the <code>foo</code> class to the element while network requests are happening</td>
-</tr>
-<tr>
-<td><code>wire:loading.class.remove="foo"</code></td>
-<td>Will remove the <code>foo</code> class while loading</td>
-</tr>
-<tr>
-<td><code>wire:loading.attr="disabled"</code></td>
-<td>Will add the <code>disabled="true"</code> attribute while loading</td>
-</tr>
-<tr>
-<td><code>wire:dirty</code></td>
-<td>Will hide the elemeny by default, but show it while the element's &quot;state&quot; is dirty (different from what exists on the backend)</td>
-</tr>
-<tr>
-<td><code>wire:dirty.class="foo"</code></td>
-<td>Will add the <code>foo</code> class to the element while element is dirty</td>
-</tr>
-<tr>
-<td><code>wire:dirty.class.remove="foo"</code></td>
-<td>Will remove the <code>foo</code> class while dirty</td>
-</tr>
-<tr>
-<td><code>wire:dirty.attr="disabled"</code></td>
-<td>Will add the <code>disabled="true"</code> attribute while dirty</td>
-</tr>
-<tr>
-<td><code>wire:target="foo"</code></td>
-<td>Will scope <code>wire:loading</code> and <code>wire:dirty</code> functionality to the element that has <code>wire:ref="foo"</code></td>
-</tr>
-<tr>
-<td><code>wire:ref</code></td>
-<td>This directive is used as a way of referencing other elements from other directives (like <code>wire:loading</code>/<code>wire:dirty</code> and <code>wire:target</code>)</td>
-</tr>
-<tr>
-<td><code>wire:ignore</code></td>
-<td>Adding this directive to an element will tell Livewire to not update it or it's children when updating the DOM from a server request. Useful when using Third-party javascript libraries in Livewire components.</td>
-</tr>
-<tr>
-<td><code>wire:ignore.self</code></td>
-<td>The &quot;self&quot; modifier ignores updates to the element itself, but allows modifications to children.</td>
-</tr>
-</tbody>
-</table>
+            <h2>Dom Diffing Issues</h2>
+<p>The most common issues encountered by Livewire users has to do with Livewire's DOM diffing/patching system. This is the system that selectively updates elements that been changed, added, or removed after every component update.</p>
+<p>For the most part, this system is reliable, but there are certain cases where it is hard for it to keep track of things. When this happens, weird things happen to the component in the Browser.</p>
+<h3>Symptoms;</h3>
+<ul>
+<li>An input element looses focus</li>
+<li>A loading indicator mis-fires</li>
+<li>A previously interactive element becomes stale</li>
+<li>Transitions aren't applied to appropriate elements</li>
+</ul>
+<h3>Cures:</h3>
+<ul>
+<li>
+<p>Add <code>wire:key</code> to elements inside loops:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+<pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;ul&gt;
+@foreach ($items as $item)
+    &lt;li wire:key="{{ $loop-&gt;index }}"&gt;{{ $item }}&lt;/li&gt;
+@endforeach
+&lt;/ul&gt;</code></pre>
 </div>
+</li>
+<li>
+<p>Add <code>key()</code> to nested components in a loop</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+<pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;ul&gt;
+@foreach ($items as $item)
+    @livewire('view-item', $item, key($loop-&gt;index))
+@endforeach
+&lt;/ul&gt;</code></pre>
+</div>
+</li>
+<li>
+<p>Wrap Blade conditionals (<code>@if</code>, <code>@error</code>, <code>@auth</code>) in an element</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+<pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;input type="text" wire:model="name"&gt;
+&lt;div&gt; @error('name'){{ $message }}@enderror &lt;/div&gt;</code></pre>
+</div>
+</li>
+<li>
+<p>Add <code>wire:key</code>. As a final measure, adding <code>wire:key</code> will directly tell Livewire how to keep track of a DOM element. Over-using this attribute is a smell, but it is very useful and powerful for problems of this nature.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+<pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div wire:key="foo"&gt;...&lt;/div&gt;
+&lt;div wire:key="bar"&gt;...&lt;/div&gt;</code></pre>
+</div>
+</li>
+</ul>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/security">Security</a>
+                <a href="/docs/testing">Testing</a>
             </h4>
             </div>
     <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                    <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+            <h4 class="font-bold underline m-0 text-blue-700">
+                <a href="/docs/spa-mode">SPA Mode</a>
+            </h4>
             </div>
 </div>
             </div>

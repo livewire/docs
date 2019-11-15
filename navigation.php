@@ -45,11 +45,8 @@ return [
         ]
     ],
     'Testing' => 'docs/testing',
-    'Advanced' => [
-        'children' => [
-            'SPA Mode' => 'docs/spa-mode',
-            'Security' => 'docs/security',
-        ],
-    ],
+    'Troubleshooting' => 'docs/troubleshooting',
+    'SPA Mode' => 'docs/spa-mode',
+    'Security' => 'docs/security',
     'API Reference' => 'docs/api',
 ];
