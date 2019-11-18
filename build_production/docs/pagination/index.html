@@ -550,6 +550,47 @@ class ShowPosts extends Component
     </div>
     </div>
 <p>Now there will be rendered HTML links for the different pages at the bottom of your posts, and the results will be paginated.</p>
+<h2 id="custom-pagination-view">Using A Custom Pagination View</h2>
+<p>Livewire provides 2 ways to customize the pagination links Blade view, rendered when calling <code>$results-&gt;links()</code>.</p>
+<p><strong>Method A</strong>: Pass view name directly to the <code>-&gt;links()</code> method.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    @foreach ($posts as $post)
+        ...
+    @endforeach
+
+    {{ $posts-&gt;links('custom-pagination-links-view') }}
+&lt;/div&gt;</code></pre>
+</div>
+<p><strong>Method B</strong>: Override the <code>paginationView()</code> method in your component.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class ShowPosts extends Component
+{
+    use WithPagination;
+
+    ...
+
+    public function paginationView()
+    {
+        return 'custom-pagination-links-view';
+    }
+
+    ...
+}</code></pre>
+</div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12" y2="16"></line>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
+        Unfortunately, Livewire will overwrite a custom view you have defined inside a service provider using: <code>Paginator::defaultView()</code>.
+    </div>
+</div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">

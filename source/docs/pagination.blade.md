@@ -48,3 +48,45 @@ class ShowPosts extends Component
 @endcodeComponent
 
 Now there will be rendered HTML links for the different pages at the bottom of your posts, and the results will be paginated.
+
+## Using A Custom Pagination View {#custom-pagination-view}
+
+Livewire provides 2 ways to customize the pagination links Blade view, rendered when calling `$results->links()`.
+
+**Method A**: Pass view name directly to the `->links()` method.
+
+@code
+@verbatim
+<div>
+    @foreach ($posts as $post)
+        ...
+    @endforeach
+
+    {{ $posts->links('custom-pagination-links-view') }}
+</div>
+@endverbatim
+@endcode
+
+**Method B**: Override the `paginationView()` method in your component.
+
+@code(['lang' => 'php'])
+@verbatim
+class ShowPosts extends Component
+{
+    use WithPagination;
+
+    ...
+
+    public function paginationView()
+    {
+        return 'custom-pagination-links-view';
+    }
+
+    ...
+}
+@endverbatim
+@endcode
+
+@warning
+Unfortunately, Livewire will overwrite a custom view you have defined inside a service provider using: <code>Paginator::defaultView()</code>.
+@endwarning
