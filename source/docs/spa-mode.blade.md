@@ -131,7 +131,7 @@ use Livewire\Component;
 
 class ShowContact extends Component
 {
-    public $contact;
+    protected $contact;
 
     public function mount(User $user)
     {
