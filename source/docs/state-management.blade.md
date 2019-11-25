@@ -4,7 +4,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-Livewire components store and track state using class properties on the Component class. Public properties and protected properties serve very different purposes and are treated very differently.
+Livewire components store and track state using public class properties on the Component class.
 
 @code(['lang' => 'php'])
 @verbatim
@@ -12,27 +12,23 @@ class FooComponent extends Component
 {
     // Public Property
     public $foo;
-    // Protected Property
-    protected $bar;
 @endverbatim
 @endcode
 
+Here are some helpful points about public properties in Livewire.
+
 @table
-Public Properties | Protected Properties
---- | ---
-Automatically available inside the component's Blade view (similar to mailables). | Must be passed to Blade view via the `render` method.
-Can be used for data-binding (`public $foo;` can be bound via `wire:model="foo"`). | Cannot be referenced by `wire:model`.
-Are sent back and forth with every network request (increase network payload). | Are stored in your app's cache between requests (don't increase network payload).
-Cannot store sensitive data. (any information stored in them will be visible to JavaScript). | Can store sensitive data (Because data is stored in backend cache).
-They MUST be of PHP type: `null`, `string`, `numeric`, `boolean`, or `array` (because JavaScript has to be able to understand them) | Can be any type of data. Including Eloquent models and collections.
+Public Properties |
+--- |
+Automatically available inside the component's Blade view (similar to mailables). |
+Can be used for data-binding (`public $foo;` can be bound via `wire:model="foo"`). |
+Are sent back and forth with every network request (increase network payload). |
+Cannot store sensitive data. (any information stored in them will be visible to JavaScript). |
+They MUST be of PHP type: `null`, `string`, `numeric`, `boolean`, or `array` (because JavaScript has to be able to understand them) |
 @endtable
 
 @warning
-It's common to want to set Eloquent models as public properties. However, this is not what public properties are intended for. It's much better to store them in protected properties.
-@endwarning
-
-@warning
-Because protected properties are stored in your app's cache between Livewire requests, using a cache driver like `redis` in production is best. Livewire does it's best to garbage collect un-used data, but the more users you have using your app, the more your cache will grow because of Livewire.
+It's common to want to set Eloquent models as public properties. However, this is not what public properties are intended for. It's much better to store the model's ID and fetch it from the database in the places you need it.
 @endwarning
 
 ### Initializing Properties {#initializing-properties}
@@ -43,7 +39,7 @@ Let's say you wanted to make the 'Hello World' message more specific, and greet 
 public $message = 'Hello ' . auth()->user()->first_name;
 @endcode
 
-Unfortunately, this is illegal in PHP. However, you can initialize properties at run-time using the `mount` method/hook in Livewire. For example:
+Unfortunately, this is invalid PHP (you can't assign the result of an expression to a property directly). However, you can initialize properties using the `mount` method/hook in Livewire. For example:
 
 @codeComponent([
     'className' => 'HelloWorld.php',
@@ -55,19 +51,15 @@ use Livewire\Component;
 class HelloWorld extends Component
 {
     public $message;
-    protected $user;
 
     public function mount()
     {
         $this->message = 'Hello ' . auth()->user()->first_name;
-        $this->user = auth()->user();
     }
 
     public function render()
     {
-        return view('livewire.hello-world', [
-            'user' => $this->user,
-        ]);
+        return view('livewire.hello-world');
     }
 }
 @endslot
@@ -75,11 +67,60 @@ class HelloWorld extends Component
 @verbatim
 <div>
     <h1>{{ $message }}</h1>
-    <!-- "Hello Alex" -->
-    <span>Your last login was on: {{ $user->last_login_at }}</span>
 </div>
 @endverbatim
 @endslot
 @endcodeComponent
 
 You can think of `mount()` like you would the `boot()` method of a Laravel Model, or the `created()` method of a Vue component.
+
+### Storing/Referencing Eloquent Models {#storing-eloquent-models}
+
+As mentioned earlier, it is common to want to set an Eloquent model (like `App\User`) as a public property (`public $user`), HOWEVER, this is not allowed. Public properties can only be set as non-object values (arrays, integers, strings, booleans).
+
+Here's the best way to deal with Eloquent model's inside a Livewire component.
+
+@codeComponent([
+    'className' => 'HelloWorld.php',
+    'viewName' => 'hello-world.blade.php',
+])
+@slot('class')
+use Livewire\Component;
+
+class ShowUser extends Component
+{
+    public $userId;
+
+    public function mount($user)
+    {
+        $this->userId = $user->id;
+    }
+
+    public function user($user)
+    {
+        return \App\User::find($this->userId);
+    }
+
+    public function executeSomeActionOnTheUser()
+    {
+        $this->user()->someAction();
+    }
+
+    public function render()
+    {
+        return view('livewire.show-user', [
+            'user' => $this->user(),
+        ]);
+    }
+}
+@endslot
+@slot('view')
+@verbatim
+<div>
+    <h1>Hi {{ $user->name }}!</h1>
+
+    <button type="button" wire:click="executeSomeActionOnTheUser">Do Something</button>
+</div>
+@endverbatim
+@endslot
+@endcodeComponent

@@ -518,43 +518,36 @@
         <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
             <h1>State Management</h1>
 
-            <p>Livewire components store and track state using class properties on the Component class. Public properties and protected properties serve very different purposes and are treated very differently.</p>
+            <p>Livewire components store and track state using public class properties on the Component class.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">class FooComponent extends Component
 {
     // Public Property
-    public $foo;
-    // Protected Property
-    protected $bar;</code></pre>
+    public $foo;</code></pre>
 </div>
+<p>Here are some helpful points about public properties in Livewire.</p>
 <div class="max-w-full overflow-x-auto">
 <table>
 <thead>
 <tr>
 <th>Public Properties</th>
-<th>Protected Properties</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Automatically available inside the component's Blade view (similar to mailables).</td>
-<td>Must be passed to Blade view via the <code>render</code> method.</td>
 </tr>
 <tr>
 <td>Can be used for data-binding (<code>public $foo;</code> can be bound via <code>wire:model="foo"</code>).</td>
-<td>Cannot be referenced by <code>wire:model</code>.</td>
 </tr>
 <tr>
 <td>Are sent back and forth with every network request (increase network payload).</td>
-<td>Are stored in your app's cache between requests (don't increase network payload).</td>
 </tr>
 <tr>
 <td>Cannot store sensitive data. (any information stored in them will be visible to JavaScript).</td>
-<td>Can store sensitive data (Because data is stored in backend cache).</td>
 </tr>
 <tr>
 <td>They MUST be of PHP type: <code>null</code>, <code>string</code>, <code>numeric</code>, <code>boolean</code>, or <code>array</code> (because JavaScript has to be able to understand them)</td>
-<td>Can be any type of data. Including Eloquent models and collections.</td>
 </tr>
 </tbody>
 </table>
@@ -569,20 +562,7 @@
     </div>
 
     <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
-        It's common to want to set Eloquent models as public properties. However, this is not what public properties are intended for. It's much better to store them in protected properties.
-    </div>
-</div>
-<div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-12 absolute pr-4 text-red-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12" y2="16"></line>
-        </svg>
-    </div>
-
-    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
-        Because protected properties are stored in your app's cache between Livewire requests, using a cache driver like `redis` in production is best. Livewire does it's best to garbage collect un-used data, but the more users you have using your app, the more your cache will grow because of Livewire.
+        It's common to want to set Eloquent models as public properties. However, this is not what public properties are intended for. It's much better to store the model's ID and fetch it from the database in the places you need it.
     </div>
 </div>
 <h3 id="initializing-properties">Initializing Properties</h3>
@@ -590,7 +570,7 @@
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">public $message = 'Hello ' . auth()-&gt;user()-&gt;first_name;</code></pre>
 </div>
-<p>Unfortunately, this is illegal in PHP. However, you can initialize properties at run-time using the <code>mount</code> method/hook in Livewire. For example:</p>
+<p>Unfortunately, this is invalid PHP (you can't assign the result of an expression to a property directly). However, you can initialize properties using the <code>mount</code> method/hook in Livewire. For example:</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
@@ -598,31 +578,67 @@
 class HelloWorld extends Component
 {
     public $message;
-    protected $user;
 
     public function mount()
     {
         $this-&gt;message = 'Hello ' . auth()-&gt;user()-&gt;first_name;
-        $this-&gt;user = auth()-&gt;user();
     }
 
     public function render()
     {
-        return view('livewire.hello-world', [
-            'user' =&gt; $this-&gt;user,
-        ]);
+        return view('livewire.hello-world');
     }
 }</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">hello-world.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;h1&gt;{{ $message }}&lt;/h1&gt;
-    &lt;!-- "Hello Alex" --&gt;
-    &lt;span&gt;Your last login was on: {{ $user-&gt;last_login_at }}&lt;/span&gt;
 &lt;/div&gt;</code></pre>
     </div>
     </div>
 <p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>
+<h3 id="storing-eloquent-models">Storing/Referencing Eloquent Models</h3>
+<p>As mentioned earlier, it is common to want to set an Eloquent model (like <code>App\User</code>) as a public property (<code>public $user</code>), HOWEVER, this is not allowed. Public properties can only be set as non-object values (arrays, integers, strings, booleans).</p>
+<p>Here's the best way to deal with Eloquent model's inside a Livewire component.</p>
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
+        <div class="relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class ShowUser extends Component
+{
+    public $userId;
+
+    public function mount($user)
+    {
+        $this-&gt;userId = $user-&gt;id;
+    }
+
+    public function user($user)
+    {
+        return \App\User::find($this-&gt;userId);
+    }
+
+    public function executeSomeActionOnTheUser()
+    {
+        $this-&gt;user()-&gt;someAction();
+    }
+
+    public function render()
+    {
+        return view('livewire.show-user', [
+            'user' =&gt; $this-&gt;user(),
+        ]);
+    }
+}</code></pre>
+    </div>
+            <div class="border-gray-700 border-t-2 relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">hello-world.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;h1&gt;Hi {{ $user-&gt;name }}!&lt;/h1&gt;
+
+    &lt;button type="button" wire:click="executeSomeActionOnTheUser"&gt;Do Something&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">
