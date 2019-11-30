@@ -51,6 +51,27 @@ Notice, we've added a "Cancel" button to the checkout form. If the user clicks t
 
 Now, when the "Checkout" button is clicked, the loading indicator will load, but not when the "Cancel" button is clicked.
 
+To isolate loading state to an individual component `wire:loading` and `wire:ref` can be used together. In the below example we have some buttons that each trigger their own long running background process. When you click a button, only that button will trigger its loading state.
+
+@code(['lang' => 'html'])
+```
+<div>
+    <button wire:click="executeProcess(1)" wire:ref="process-btn-1" wire:target="process-btn-1" wire:loading.class="bg-red">
+        Run 1
+    </button>
+    <button wire:click="executeProcess(2)" wire:ref="process-btn-2" wire:target="process-btn-2" wire:loading.class="bg-red">
+        Run 2
+    </button>
+    <button wire:click="executeProcess(3)" wire:ref="process-btn-3" wire:target="process-btn-3" wire:loading.class="bg-red">
+        Run 3
+    </button>
+    <button wire:click="executeProcess(4)" wire:ref="process-btn-4" wire:target="process-btn-4" wire:loading.class="bg-red">
+        Run 4
+    </button>
+</div>
+```
+@endcode
+
 Also note that `wire:target` can accept multiple `ref` arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
 ## Toggling classes {#toggling-classes}
