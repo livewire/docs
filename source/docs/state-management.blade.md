@@ -96,7 +96,7 @@ class ShowUser extends Component
         $this->userId = $user->id;
     }
 
-    public function user($user)
+    public function user()
     {
         return \App\User::find($this->userId);
     }
