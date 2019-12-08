@@ -130,7 +130,9 @@ class Counter extends Component
 
     public function render()
     {
-        return view('livewire.counter');
+        return view('livewire.counter', [
+            'count' => $this->count,
+        ]);
     }
 }
 @endverbatim
