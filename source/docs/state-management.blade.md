@@ -96,20 +96,20 @@ class ShowUser extends Component
         $this->userId = $user->id;
     }
 
-    public function user()
+    public function getUserProperty()
     {
         return \App\User::findOrFail($this->userId);
     }
 
     public function executeSomeActionOnTheUser()
     {
-        $this->user()->someAction();
+        $this->user->someAction();
     }
 
     public function render()
     {
         return view('livewire.show-user', [
-            'user' => $this->user(),
+            'user' => $this->user,
         ]);
     }
 }
