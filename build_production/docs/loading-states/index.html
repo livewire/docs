@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -544,19 +553,19 @@
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 </div>
-<p>Notice, we've added a &quot;Cancel&quot; button to the checkout form. If the user clicks the &quot;Cancel&quot; button, the &quot;Processing Payment...&quot; message will show briefly. This is clearly undesirable, therefore Livewire offers two directives. You can add <code>wire:target</code> to the loading indicator, and pass in the name of a <code>ref</code> you define by attaching <code>wire:ref</code> to the target. Let's look at the adapted example:</p>
+<p>Notice, we've added a &quot;Cancel&quot; button to the checkout form. If the user clicks the &quot;Cancel&quot; button, the &quot;Processing Payment...&quot; message will show briefly. This is clearly undesirable, therefore Livewire offers a <code>wire:target</code> directive. It allows you to attach a component's loading state to a specific component action. Let's look at the adapted example:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;button wire:click="checkout" wire:ref="checkout-button"&gt;Checkout&lt;/button&gt;
+    &lt;button wire:click="checkout"&gt;Checkout&lt;/button&gt;
     &lt;button wire:click="cancel"&gt;Cancel&lt;/button&gt;
 
-    &lt;div wire:loading wire:target="checkout-button"&gt;
+    &lt;div wire:loading wire:target="checkout"&gt;
         Processing Payment...
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <p>Now, when the &quot;Checkout&quot; button is clicked, the loading indicator will load, but not when the &quot;Cancel&quot; button is clicked.</p>
-<p>Also note that <code>wire:target</code> can accept multiple <code>ref</code> arguments in a comma separated format like this: <code>wire:target="foo, bar"</code>.</p>
+<p>Also note that <code>wire:target</code> can accept multiple arguments in a comma separated format like this: <code>wire:target="foo, bar"</code>.</p>
 <h2 id="toggling-classes">Toggling classes</h2>
 <p>You can add or remove classes from an element during loading states, by adding the <code>.class</code> modifier to the <code>wire:loading</code> directive.</p>
 <div class="rounded-lg bg-gray-800 mb-12">

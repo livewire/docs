@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -536,7 +545,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Automatically available inside the component's Blade view (similar to mailables).</td>
+<td>Automatically available via the <code>$this</code> object inside the component's Blade view.</td>
 </tr>
 <tr>
 <td>Can be used for data-binding (<code>public $foo;</code> can be bound via <code>wire:model="foo"</code>).</td>
@@ -545,7 +554,7 @@
 <td>Are sent back and forth with every network request (increase network payload).</td>
 </tr>
 <tr>
-<td>Cannot store sensitive data. (any information stored in them will be visible to JavaScript).</td>
+<td>Should not store sensitive data. (any information stored in them will be visible to JavaScript).</td>
 </tr>
 <tr>
 <td>They MUST be of PHP type: <code>null</code>, <code>string</code>, <code>numeric</code>, <code>boolean</code>, or <code>array</code> (because JavaScript has to be able to understand them)</td>
@@ -563,8 +572,58 @@
     </div>
 
     <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
-        It's common to want to set Eloquent models as public properties. However, this is not what public properties are intended for. It's much better to store the model's ID and fetch it from the database in the places you need it.
+        <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
     </div>
+</div>
+<h3 id="casting-properties">Casting Properties</h3>
+<p>Livewire offers an api to &quot;cast&quot; public properties to a more usable data type. Two common use-cases for this are working with date objects like <code>Carbon</code> instances, and dealing with Laravel collections:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CastedComponent extends Component
+{
+    public $options = ['foo', 'bar', 'bar'];
+    public $expiresAt = 'tomorrow';
+
+    protected $casts = [
+        'options' =&gt; 'collection',
+        'expiresAt' =&gt; 'date',
+    ];
+
+    public function getUniqueOptions()
+    {
+        return $this-&gt;options-&gt;unique();
+    }
+
+    public function getExpirationDateForHumans()
+    {
+        return $this-&gt;expiresAt-&gt;format('m/d/Y');
+    }
+
+    ...</code></pre>
+</div>
+<h4 id="custom-casters">Custom Casters</h4>
+<p>Livewire allows you to build your own custom casters for custom use-cases. Implement the <code>Livewire\Castable</code> interface in a class and reference it in the <code>$casts</code> property:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class FooComponent extends Component
+{
+    public $foo = ['bar', 'baz'];
+
+    protected $casts = ['foo' =&gt; CollectionCaster::class];
+
+    ...</code></pre>
+</div>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CollectionCaster implements Castable
+{
+    public function cast($value)
+    {
+        return collect($value);
+    }
+
+    public function uncast($value)
+    {
+        return $value-&gt;all();
+    }
+}</code></pre>
 </div>
 <h3 id="initializing-properties">Initializing Properties</h3>
 <p>Let's say you wanted to make the 'Hello World' message more specific, and greet the currently logged in user. You might try setting the message property to:</p>
@@ -599,42 +658,40 @@ class HelloWorld extends Component
     </div>
 <p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>
 <h3 id="storing-eloquent-models">Storing/Referencing Eloquent Models</h3>
-<p>As mentioned earlier, it is common to want to set an Eloquent model (like <code>App\User</code>) as a public property (<code>public $user</code>), HOWEVER, this is not allowed. Public properties can only be set as non-object values (arrays, integers, strings, booleans).</p>
-<p>Here's the best way to deal with Eloquent model's inside a Livewire component.</p>
+<p>It is common to want to set an Eloquent model (like <code>App\User</code>) as a public property (<code>public $user</code>), HOWEVER, this is not allowed. Public properties can only be set as non-object values (arrays, integers, strings, booleans).</p>
+<p>The idiomatic way to store/retrieve Eloquent model's inside a Livewire component, is to use computed properties. <a href="/docs/computed-properties">Learn more about them here</a>.</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ShowUser.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
 
 class ShowUser extends Component
 {
     public $userId;
 
-    public function mount($user)
+    public function mount($userId)
     {
-        $this-&gt;userId = $user-&gt;id;
+        $this-&gt;userId = $userId;
     }
 
-    public function user($user)
+    public function getUserProperty()
     {
         return \App\User::find($this-&gt;userId);
     }
 
     public function executeSomeActionOnTheUser()
     {
-        $this-&gt;user()-&gt;someAction();
+        $this-&gt;user-&gt;someAction();
     }
 
     public function render()
     {
-        return view('livewire.show-user', [
-            'user' =&gt; $this-&gt;user(),
-        ]);
+        return view('livewire.show-user');
     }
 }</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">hello-world.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;h1&gt;Hi {{ $user-&gt;name }}!&lt;/h1&gt;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">show-user.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;h1&gt;Hi {{ $this-&gt;user-&gt;name }}!&lt;/h1&gt;
 
     &lt;button type="button" wire:click="executeSomeActionOnTheUser"&gt;Do Something&lt;/button&gt;
 &lt;/div&gt;</code></pre>
@@ -651,7 +708,7 @@ class ShowUser extends Component
     <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/mount-method">The <code>mount()</code> Method</a>
+                <a href="/docs/computed-properties">Computed Properties</a>
             </h4>
             </div>
 </div>

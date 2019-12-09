@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -524,19 +533,21 @@
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">app/Http/Livewire/ShowPosts.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
 
-class ShowPosts extends Component
+class ShowPost extends Component
 {
-    protected $posts = [];
+    public $readyToLoad = false;
 
     public function loadPosts()
     {
-        $this-&gt;posts = Post::all();
+        $this-&gt;readyToLoad = true;
     }
 
     public function render()
     {
         return view('livewire.show-posts', [
-            'posts' =&gt; $this-&gt;posts,
+            'posts' =&gt; $this-&gt;readyToLoad
+                ? Post::all()
+                : [],
         ]);
     }
 }</code></pre>

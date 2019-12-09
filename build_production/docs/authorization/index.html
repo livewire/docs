@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -527,18 +536,18 @@ class EditPost extends \Livewire\Component
 {
     use AuthorizesRequests;
 
-    public $title;
+    public $postId;
 
-    protected $post;
-
-    public function mount(Post $post)
+    public function mount(Post $postId)
     {
-        $this-&gt;post = $post;
+        $this-&gt;postId = $postId;
     }
 
     public function save()
     {
-        $this-&gt;authorize('update', $this-&gt;post);
+        $post = Post::find($this-&gt;postId);
+
+        $this-&gt;authorize('update', $post);
 
         $post-&gt;update(['title' =&gt; $this-&gt;title]);
     }

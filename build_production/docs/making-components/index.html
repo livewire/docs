@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -543,6 +552,25 @@ php artisan make:livewire foo.bar</code></pre>
     <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
         For convenience, <code>make:livewire</code> is aliased to <code>livewire:make</code> and <code>livewire:touch</code>
     </div>
+</div>
+<h3 id="making-from-stubs">Making Components From Stubs</h3>
+<p>You can customize the stubs (templates) that Livewire uses to create new component classes and views using the <code>livewire:stub</code> command.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash">php artisan livewire:stub</code></pre>
+</div>
+<p>The above command will create two files:</p>
+<ul>
+<li><code>app\Livewire\Http\Stubs\Default.stub</code></li>
+<li><code>resources\views\livewire\stubs\default.stub</code></li>
+</ul>
+<p>Now, when you run the <code>make:livewire</code> command, Livewire will use the above stub files as the template.</p>
+<p>You can create custom stubs with the following command:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash">php artisan livewire:stub foo</code></pre>
+</div>
+<p>And you can tell Livewire to reference it when making a component by adding the <code>--stub</code> option to the make command:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-bash">php artisan make:livewire --stub=foo</code></pre>
 </div>
 <h2 id="move-command">The <code>move</code> Command</h2>
 <p>The <code>php artisan livewire:move</code> command will move/rename the component class and blade view, taking care of namespaces and paths</p>

@@ -16,9 +16,9 @@
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="Security | Livewire Documentation"/>
+        <meta property="og:title" content="Computed Properties | Livewire Documentation"/>
         <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/security"/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/computed-properties"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
         <meta property="og:type" content="website"/>
 
@@ -28,7 +28,7 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>Security | Livewire Documentation</title>
+        <title>Computed Properties | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
@@ -256,7 +256,7 @@
             <li class="pl-4">
             
         <a href="/docs/computed-properties"
-            class="lvl1   nav-menu__item hover:text-blue-600"
+            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
         >
             Computed Properties
         </a>
@@ -507,7 +507,7 @@
             <li class="pl-4">
             
         <a href="/docs/security"
-            class="lvl0  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+            class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Security
         </a>
@@ -526,22 +526,80 @@
         </nav>
 
         <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>Security</h1>
+            <h1>Computed Properties</h1>
 
-            <p>To prevent users from tampering with Livewire requests between component dehydration and rehydration, Livewire passes a &quot;checksum&quot; along with every request, that ensures all the data, the component name, and id haven't been tampered with.</p>
-<p>Outside of that measure, Livewire uses normal Laravel requests, so CSRF, Sanitization, etc... will all be the exact same as a normal AJAX request.</p>
+            <p>Livewire offers an api for accessing dynamic properties. This is especially helpful for deriving properties from the database or another persistent store like a cache.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class FooComponent extends Component
+{
+    // Computed Property
+    public function getFooProperty()
+    {
+        return 'foo';
+    }</code></pre>
+</div>
+<p>Now, you can access <code>$this-&gt;foo</code> from either the component's class or Blade view:</p>
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
+        <div class="relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ShowPost.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class ShowPost extends Component
+{
+    public $postId;
+
+    public function mount($postId)
+    {
+        $this-&gt;postId;
+    }
+
+    public function getPostProperty()
+    {
+        return Post::find($this-&gt;postId);
+    }
+
+    public function deletePost()
+    {
+        $this-&gt;post-&gt;delete();
+    }
+
+    public function render()
+    {
+        return view('livewire.show-post');
+    }
+}</code></pre>
+    </div>
+            <div class="border-gray-700 border-t-2 relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">show-post.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;h1&gt;{{ $this-&gt;post-&gt;title }}&lt;/h1&gt;
+    ...
+    &lt;button wire:click="deletePost"&gt;Delete Post&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        Computed properties are cached for an individual Livewire request lifecycle. Meaning, if you call `$this-&gt;post` 5 times in a component's blade view, it won't make a seperate database query every time.
+    </div>
+</div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/spa-mode">SPA Mode</a>
+                <a href="/docs/state-management">State Management</a>
             </h4>
             </div>
     <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/api">API Reference</a>
+                <a href="/docs/mount-method">The <code>mount()</code> Method</a>
             </h4>
             </div>
 </div>

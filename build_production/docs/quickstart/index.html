@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -623,7 +632,7 @@ class Counter extends Component
             <div class="border-gray-700 border-t-2 relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">resources/views/livewire/counter.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div style="text-align: center"&gt;
     &lt;button wire:click="increment"&gt;+&lt;/button&gt;
-    &lt;h1&gt;{{ $count }}&lt;/h1&gt;
+    &lt;h1&gt;{{ $this-&gt;count }}&lt;/h1&gt;
     &lt;button wire:click="decrement"&gt;-&lt;/button&gt;
 &lt;/div&gt;</code></pre>
     </div>

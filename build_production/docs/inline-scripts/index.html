@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -538,7 +547,9 @@
 
 @push('scripts')
 &lt;script type="text/javascript"&gt;
-    // Your JS here.
+    document.addEventListener('DOMContentLoaded', function () {
+        // Your JS here.
+    })
 &lt;/script&gt;
 @endpush</code></pre>
 </div>
@@ -563,17 +574,19 @@
 
 @push('scripts')
 &lt;script type="text/javascript"&gt;
-    // Get the value of the "count" property
-    var someValue = @this.get('count')
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the value of the "count" property
+        var someValue = @this.get('count')
 
-    // Set the value of the "count" property
-    @this.set('count', 5)
+        // Set the value of the "count" property
+        @this.set('count', 5)
 
-    // Call the increment component action
-    @this.call('increment')
+        // Call the increment component action
+        @this.call('increment')
 
-    // Run a callback when an event ("foo") is emitted from this component
-    @this.on('foo', () =&gt; {})
+        // Run a callback when an event ("foo") is emitted from this component
+        @this.on('foo', () =&gt; {})
+    })
 &lt;/script&gt;
 @endpush</code></pre>
 </div>

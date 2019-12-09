@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -538,7 +547,7 @@ class MyNameIs extends Component
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">my-name-is.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;input type="text" wire:model="name"&gt;
 
-    Hi! My name is {{ $name }}
+    Hi! My name is {{ $this-&gt;name }}
 &lt;/div&gt;</code></pre>
     </div>
     </div>
@@ -615,7 +624,7 @@ class MyNameIs extends Component
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">my-name-is.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;input type="text" wire:model.lazy="name"&gt;
 
-    My name is chica-chica {{ $name }}
+    My name is chica-chica {{ $this-&gt;name }}
 &lt;/div&gt;</code></pre>
     </div>
     </div>

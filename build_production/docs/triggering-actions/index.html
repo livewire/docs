@@ -255,6 +255,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/computed-properties"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Computed Properties
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -556,7 +565,7 @@
 </div>
 <p><strong>submit</strong></p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit="addTodo"&gt;
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit.prevent="addTodo"&gt;
     &lt;input wire:model="title"&gt;
     &lt;button&gt;Add Todo&lt;/button&gt;
 &lt;/form&gt;</code></pre>
@@ -677,14 +686,14 @@
 <p><strong>Before</strong></p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $message }}
+    {{ $this-&gt;message }}
     &lt;button wire:click="setMessageToHello"&gt;Say Hi&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <p><strong>After</strong></p>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">&lt;div&gt;
-    {{ $message }}
+    {{ $this-&gt;message }}
     &lt;button wire:click="$set('message', 'Hello')"&gt;Say Hi&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 </div>
