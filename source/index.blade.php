@@ -123,7 +123,7 @@ class Counter extends Component
     <button wire:click="increment">+</button>
     <button wire:click="decrement">-</button>
 
-    <span>{{ $count }}</span>
+    <span>{{ $this->count }}</span>
 </div>
 @endverbatim @endslot @endcodeComponent
         </div>
@@ -154,7 +154,7 @@ class Counter extends Component
 
         <h2>Can I replace all my Vue components with Livewire components now?</h2>
 
-        <p>Not exactly. Livewire will hopefully replace a bunch of them, but because every interaction requires a roundtrip to the server, it's better to use JavaScript for things that need to be instant (like animations).</p>
+        <p>Not exactly. Livewire will hopefully replace a bunch of them, but because every interaction requires a roundtrip to the server, it's better to use JavaScript for things that need to be instant (like animations, or toggling a dropdown).</p>
 
         <p>A good rule of thumb is: any JavaScript components that rely on ajax for server communication, will be better off as Livewire components. There's lots of other good use cases, but this gives you a basic idea of where to start.</p>
 

@@ -33,7 +33,9 @@ Now, from your component's Blade view, you can push to the `scripts` stack:
 
 @push('scripts')
 <script type="text/javascript">
-    // Your JS here.
+    document.addEventListener('DOMContentLoaded', function () {
+        // Your JS here.
+    })
 </script>
 @endpush
 @endverbatim
@@ -55,17 +57,19 @@ Here's an example:
 
 @push('scripts')
 <script type="text/javascript">
-    // Get the value of the "count" property
-    var someValue = @this.get('count')
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the value of the "count" property
+        var someValue = @this.get('count')
 
-    // Set the value of the "count" property
-    @this.set('count', 5)
+        // Set the value of the "count" property
+        @this.set('count', 5)
 
-    // Call the increment component action
-    @this.call('increment')
+        // Call the increment component action
+        @this.call('increment')
 
-    // Run a callback when an event ("foo") is emitted from this component
-    @this.on('foo', () => {})
+        // Run a callback when an event ("foo") is emitted from this component
+        @this.on('foo', () => {})
+    })
 </script>
 @endpush
 @endverbatim

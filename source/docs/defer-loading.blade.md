@@ -14,19 +14,21 @@ Livewire offers a `wire:init` directive to run an action as soon as the componen
 @verbatim
 use Livewire\Component;
 
-class ShowPosts extends Component
+class ShowPost extends Component
 {
-    protected $posts = [];
+    public $readyToLoad = false;
 
     public function loadPosts()
     {
-        $this->posts = Post::all();
+        $this->readyToLoad = true;
     }
 
     public function render()
     {
         return view('livewire.show-posts', [
-            'posts' => $this->posts,
+            'posts' => $this->readyToLoad
+                ? Post::all()
+                : [],
         ]);
     }
 }

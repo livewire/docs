@@ -25,6 +25,30 @@ php artisan make:livewire foo.bar
 For convenience, <code>make:livewire</code> is aliased to <code>livewire:make</code> and <code>livewire:touch</code>
 @endtip
 
+### Making Components From Stubs {#making-from-stubs}
+
+You can customize the stubs (templates) that Livewire uses to create new component classes and views using the `livewire:stub` command.
+
+@code(['lang' => 'bash'])
+php artisan livewire:stub
+@endcode
+
+The above command will create two files:
+* `app\Livewire\Http\Stubs\Default.stub`
+* `resources\views\livewire\stubs\default.stub`
+
+Now, when you run the `make:livewire` command, Livewire will use the above stub files as the template.
+
+You can create custom stubs with the following command:
+@code(['lang' => 'bash'])
+php artisan livewire:stub foo
+@endcode
+
+And you can tell Livewire to reference it when making a component by adding the `--stub` option to the make command:
+@code(['lang' => 'bash'])
+php artisan make:livewire --stub=foo
+@endcode
+
 ## The `move` Command {#move-command}
 
 The `php artisan livewire:move` command will move/rename the component class and blade view, taking care of namespaces and paths

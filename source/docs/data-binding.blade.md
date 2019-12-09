@@ -30,7 +30,7 @@ class MyNameIs extends Component
 <div>
     <input type="text" wire:model="name">
 
-    Hi! My name is {{ $name }}
+    Hi! My name is {{ $this->name }}
 </div>
 @endverbatim
 @endslot
@@ -103,7 +103,7 @@ class MyNameIs extends Component
 <div>
     <input type="text" wire:model.lazy="name">
 
-    My name is chica-chica {{ $name }}
+    My name is chica-chica {{ $this->name }}
 </div>
 @endverbatim
 @endslot

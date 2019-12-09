@@ -30,7 +30,7 @@ Here are a few examples of each in HTML:
 
 **submit**
 @code
-<form wire:submit="addTodo">
+<form wire:submit.prevent="addTodo">
     <input wire:model="title">
     <button>Add Todo</button>
 </form>
@@ -96,7 +96,7 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    {{ $message }}
+    {{ $this->message }}
     <button wire:click="setMessageToHello">Say Hi</button>
 </div>
 @endverbatim
@@ -107,7 +107,7 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    {{ $message }}
+    {{ $this->message }}
     <button wire:click="$set('message', 'Hello')">Say Hi</button>
 </div>
 @endverbatim

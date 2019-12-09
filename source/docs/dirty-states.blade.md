@@ -34,12 +34,12 @@ The `bg-green-200` class will be removed from the input while dirty.
 
 ## Toggling elements {#toggling-elements}
 
-The default behaviour of the `wire:dirty` directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the `dirty` directive can be used to toggle the appearance of other elements using `wire:ref` and `wire:target`
+The default behaviour of the `wire:dirty` directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the `dirty` directive can be used to toggle the appearance of other elements using `wire:target`
 
 @code(['lang' => 'html'])
 <div>
-    <span wire:dirty wire:target="foo-input">Updating...</span>
-    <input wire:model.lazy="foo" wire:ref="foo-input">
+    <span wire:dirty wire:target="foo">Updating...</span>
+    <input wire:model.lazy="foo">
 </div>
 @endcode
 
@@ -51,9 +51,9 @@ The class and atribute modifiers can be used in the same way for referenced elem
 
 @code(['lang' => 'html'])
 <div>
-    <label wire:dirty.class="text-red-500" wire:target="foo-input">Full Name</label>
-    <input wire:model.lazy="foo" wire:ref="foo-input">
+    <label wire:dirty.class="text-red-500" wire:target="foo">Full Name</label>
+    <input wire:model.lazy="foo">
 </div>
 @endcode
 
-Now, when the `foo-input` is dirty, the label text will receive the `text-red-500` class.
+Now, when the `input` is dirty, the label text will receive the `text-red-500` class.

@@ -9,6 +9,7 @@ return [
             'Making Components' => 'docs/making-components',
             'The <code>render()</code> Method' => 'docs/render-method',
             'State Management' => 'docs/state-management',
+            'Computed Properties' => 'docs/computed-properties',
             'The <code>mount()</code> Method' => 'docs/mount-method',
             'Data Binding' => 'docs/data-binding',
             'Triggering Actions' => 'docs/triggering-actions',

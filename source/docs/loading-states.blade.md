@@ -36,14 +36,14 @@ The method outlined above works great for simple components, however, it's commo
 </div>
 @endcode
 
-Notice, we've added a "Cancel" button to the checkout form. If the user clicks the "Cancel" button, the "Processing Payment..." message will show briefly. This is clearly undesirable, therefore Livewire offers two directives. You can add `wire:target` to the loading indicator, and pass in the name of a `ref` you define by attaching `wire:ref` to the target. Let's look at the adapted example:
+Notice, we've added a "Cancel" button to the checkout form. If the user clicks the "Cancel" button, the "Processing Payment..." message will show briefly. This is clearly undesirable, therefore Livewire offers a `wire:target` directive. It allows you to attach a component's loading state to a specific component action. Let's look at the adapted example:
 
 @code(['lang' => 'html'])
 <div>
-    <button wire:click="checkout" wire:ref="checkout-button">Checkout</button>
+    <button wire:click="checkout">Checkout</button>
     <button wire:click="cancel">Cancel</button>
 
-    <div wire:loading wire:target="checkout-button">
+    <div wire:loading wire:target="checkout">
         Processing Payment...
     </div>
 </div>
@@ -51,7 +51,7 @@ Notice, we've added a "Cancel" button to the checkout form. If the user clicks t
 
 Now, when the "Checkout" button is clicked, the loading indicator will load, but not when the "Cancel" button is clicked.
 
-Also note that `wire:target` can accept multiple `ref` arguments in a comma separated format like this: `wire:target="foo, bar"`.
+Also note that `wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
 ## Toggling classes {#toggling-classes}
 
