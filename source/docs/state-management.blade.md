@@ -130,7 +130,7 @@ class HelloWorld extends Component
 @slot('view')
 @verbatim
 <div>
-    <h1>{{ $message }}</h1>
+    <h1>{{ $this->message }}</h1>
 </div>
 @endverbatim
 @endslot
