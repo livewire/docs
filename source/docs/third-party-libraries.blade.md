@@ -31,7 +31,7 @@ Let's say you are using a package like [Select2](https://select2.org) in your co
 @endverbatim
 @endcode
 
-On first load, everything will appear normal as if it's all working, but you'll notice, when you select an item drom the dropdown, the `$foo` property won't be updated.
+On first load, everything will appear normal as if it's all working, but you'll notice, when you select an item from the dropdown, the `$foo` property won't be updated.
 
 This is because Select2 is a jQuery plugin and emits jQuery events, and not native DOM events. Livewire normally listens for a native `change` event when `wire:model` is attached to an element.
 
