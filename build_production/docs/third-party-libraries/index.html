@@ -548,7 +548,7 @@
 &lt;/script&gt;
 @endpush</code></pre>
 </div>
-<p>On first load, everything will appear normal as if it's all working, but you'll notice, when you select an item drom the dropdown, the <code>$foo</code> property won't be updated.</p>
+<p>On first load, everything will appear normal as if it's all working, but you'll notice, when you select an item from the dropdown, the <code>$foo</code> property won't be updated.</p>
 <p>This is because Select2 is a jQuery plugin and emits jQuery events, and not native DOM events. Livewire normally listens for a native <code>change</code> event when <code>wire:model</code> is attached to an element.</p>
 <p>To get around this, we can register a listener manually (and remove the <code>wire:model</code>) in the script tag like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
