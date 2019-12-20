@@ -23,7 +23,7 @@ Directive | Description
 `wire:loading.class="foo"` | Will add the `foo` class to the element while network requests are happening
 `wire:loading.class.remove="foo"` | Will remove the `foo` class while loading
 `wire:loading.attr="disabled"` | Will add the `disabled="true"` attribute while loading
-`wire:dirty` | Will hide the elemeny by default, but show it while the element's "state" is dirty (different from what exists on the backend)
+`wire:dirty` | Will hide the element by default, but show it while the element's "state" is dirty (different from what exists on the backend)
 `wire:dirty.class="foo"` | Will add the `foo` class to the element while element is dirty
 `wire:dirty.class.remove="foo"` | Will remove the `foo` class while dirty
 `wire:dirty.attr="disabled"` | Will add the `disabled="true"` attribute while dirty
