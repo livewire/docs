@@ -21,6 +21,18 @@ php artisan make:livewire foo-bar
 php artisan make:livewire foo.bar
 @endcode
 
+Once created, you can render your components in a Blade file with the `@livewire('component-name')` blade directive.
+
+Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
+
+@code(['lang' => 'php'])
+@verbatim
+@livewire('foo')
+@livewire('foo-bar')
+@livewire('foo.bar')
+@endverbatim
+@endcode
+
 @tip
 For convenience, <code>make:livewire</code> is aliased to <code>livewire:make</code> and <code>livewire:touch</code>
 @endtip
