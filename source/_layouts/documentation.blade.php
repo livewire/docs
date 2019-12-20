@@ -9,19 +9,32 @@ $page->siteName = 'Livewire Documentation';
 @endsection
 
 @section('content')
-<section class="container mx-auto px-6 md:px-8 py-12">
-    <div class="flex flex-col lg:flex-row">
+@yield('header')
+
+<section class="container mx-auto px-6 md:px-8 py-12 content">
+    <div class="flex flex-col-reverse lg:flex-row">
         <nav id="js-nav-menu" class="nav-menu hidden lg:block">
             @include('_nav.menu', ['items' => $page->navigation])
         </nav>
 
         <div class="w-full lg:w-3/5 break-words lg:pl-4" v-pre>
-            <h1>{!! $page->title !!}</h1>
+            @if (strlen($page->title))
+                <h1>{!! $page->title !!}</h1>
+            @endif
 
             @yield('content')
 
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 @include('_nav.footer-links', ['items' => $page->navigation])
+            </div>
+        </div>
+
+        <div class="lg:w-1/5 lg:pl-12">
+            <div>
+                <p class="font-bold mt-0 mb-0 text-gray-500 text-xs tracking-wider uppercase text-right">Sponsor</p>
+                <a href="https://intellow.com/" target="_blank">
+                    <img src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
+                </a>
             </div>
         </div>
     </div>

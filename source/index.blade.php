@@ -20,6 +20,13 @@
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>...I'll get my floaties</em></p>
 
+        <div class="py-6">
+            <p class="font-bold mt-0 mb-2 text-gray-500 text-xs tracking-wider uppercase text-center">Sponsored By:</p>
+            <a href="https://intellow.com/" target="_blank">
+                <img class="w-48 m-auto" src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
+            </a>
+        </div>
+
         <div class="md:-mx-12 pt-8">
             <script async data-uid="7305ce6747" src="https://f.convertkit.com/7305ce6747/4f6b8fb1d8.js"></script>
         </div>
