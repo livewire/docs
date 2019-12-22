@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=6ed8f782548eb2587942">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=c074f3ac34e165e02ef0">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -544,6 +544,13 @@ php artisan make:livewire foo-bar
 
 # Creates Foo/Bar.php &amp; foo/bar.blade.php
 php artisan make:livewire foo.bar</code></pre>
+</div>
+<p>Once created, you can render your components in a Blade file with the <code>@livewire('component-name')</code> blade directive.</p>
+<p>Think of Livewire components like Blade includes. You can insert <code>@livewire</code> anywhere in a Blade view and it will render.</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewire('foo')
+@livewire('foo-bar')
+@livewire('foo.bar')</code></pre>
 </div>
 <div class="flex my-6 py-4 rounded-lg">
     <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
