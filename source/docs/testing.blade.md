@@ -157,4 +157,16 @@ $this->assertHasErrors(['foo' => 'required']);
 $this->assertHasErrors(['foo' => ['required', 'min']]);
 // Assert that the "foo" property has a "required" AND "min" validation rule error
 
+$this->assertNotFound();
+// Assert that an error within the component caused an error with the status code: 404
+
+$this->assertUnauthorized();
+// Assert that an error within the component caused an error with the status code: 401
+
+$this->assertForbidden();
+// Assert that an error within the component caused an error with the status code: 403
+
+$this->assertStatus(500);
+// Assert that an error within the component caused an error with the status code: 500
+
 @endcode

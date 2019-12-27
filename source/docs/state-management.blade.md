@@ -24,7 +24,7 @@ Automatically available via the `$this` object inside the component's Blade view
 Can be used for data-binding (`public $foo;` can be bound via `wire:model="foo"`). |
 Are sent back and forth with every network request (increase network payload). |
 Should not store sensitive data. (any information stored in them will be visible to JavaScript). |
-They MUST be of PHP type: `null`, `string`, `numeric`, `boolean`, or `array` (because JavaScript has to be able to understand them) |
+They MUST be of PHP type: `null`, `string`, `numeric`, `boolean`, or `array` (because JavaScript has to be able to understand them) OR an Eloquent Model or collection of Models |
 @endtable
 
 @warning
@@ -137,52 +137,3 @@ class HelloWorld extends Component
 @endcodeComponent
 
 You can think of `mount()` like you would the `boot()` method of a Laravel Model, or the `created()` method of a Vue component.
-
-### Storing/Referencing Eloquent Models {#storing-eloquent-models}
-
-It is common to want to set an Eloquent model (like `App\User`) as a public property (`public $user`), HOWEVER, this is not allowed. Public properties can only be set as non-object values (arrays, integers, strings, booleans).
-
-The idiomatic way to store/retrieve Eloquent model's inside a Livewire component, is to use computed properties. [Learn more about them here](/docs/computed-properties).
-
-@codeComponent([
-    'className' => 'ShowUser.php',
-    'viewName' => 'show-user.blade.php',
-])
-@slot('class')
-use Livewire\Component;
-
-class ShowUser extends Component
-{
-    public $userId;
-
-    public function mount($userId)
-    {
-        $this->userId = $userId;
-    }
-
-    public function getUserProperty()
-    {
-        return \App\User::find($this->userId);
-    }
-
-    public function executeSomeActionOnTheUser()
-    {
-        $this->user->someAction();
-    }
-
-    public function render()
-    {
-        return view('livewire.show-user');
-    }
-}
-@endslot
-@slot('view')
-@verbatim
-<div>
-    <h1>Hi {{ $this->user->name }}!</h1>
-
-    <button type="button" wire:click="executeSomeActionOnTheUser">Do Something</button>
-</div>
-@endverbatim
-@endslot
-@endcodeComponent

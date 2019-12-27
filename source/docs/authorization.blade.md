@@ -14,20 +14,18 @@ class EditPost extends \Livewire\Component
 {
     use AuthorizesRequests;
 
-    public $postId;
+    public $post;
 
-    public function mount(Post $postId)
+    public function mount(Post $post)
     {
-        $this->postId = $postId;
+        $this->post = $post;
     }
 
     public function save()
     {
-        $post = Post::find($this->postId);
+        $this->authorize('update', $this->post);
 
-        $this->authorize('update', $post);
-
-        $post->update(['title' => $this->title]);
+        $this->post->update(['title' => $this->title]);
     }
 }
 @endverbatim

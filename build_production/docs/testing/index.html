@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=c074f3ac34e165e02ef0">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=6ed8f782548eb2587942">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -666,7 +666,19 @@ $this-&gt;assertHasErrors(['foo' =&gt; 'required']);
 // Assert that the "foo" property has a "required" validation rule error
 
 $this-&gt;assertHasErrors(['foo' =&gt; ['required', 'min']]);
-// Assert that the "foo" property has a "required" AND "min" validation rule error</code></pre>
+// Assert that the "foo" property has a "required" AND "min" validation rule error
+
+$this-&gt;assertNotFound();
+// Assert that an error within the component caused an error with the status code: 404
+
+$this-&gt;assertUnauthorized();
+// Assert that an error within the component caused an error with the status code: 401
+
+$this-&gt;assertForbidden();
+// Assert that an error within the component caused an error with the status code: 403
+
+$this-&gt;assertStatus(500);
+// Assert that an error within the component caused an error with the status code: 500</code></pre>
 </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">

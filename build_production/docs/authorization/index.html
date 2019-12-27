@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=c074f3ac34e165e02ef0">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=6ed8f782548eb2587942">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -540,20 +540,18 @@ class EditPost extends \Livewire\Component
 {
     use AuthorizesRequests;
 
-    public $postId;
+    public $post;
 
-    public function mount(Post $postId)
+    public function mount(Post $post)
     {
-        $this-&gt;postId = $postId;
+        $this-&gt;post = $post;
     }
 
     public function save()
     {
-        $post = Post::find($this-&gt;postId);
+        $this-&gt;authorize('update', $this-&gt;post);
 
-        $this-&gt;authorize('update', $post);
-
-        $post-&gt;update(['title' =&gt; $this-&gt;title]);
+        $this-&gt;post-&gt;update(['title' =&gt; $this-&gt;title]);
     }
 }</code></pre>
 </div>

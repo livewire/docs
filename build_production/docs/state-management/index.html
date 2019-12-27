@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=c074f3ac34e165e02ef0">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=6ed8f782548eb2587942">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -561,7 +561,7 @@
 <td>Should not store sensitive data. (any information stored in them will be visible to JavaScript).</td>
 </tr>
 <tr>
-<td>They MUST be of PHP type: <code>null</code>, <code>string</code>, <code>numeric</code>, <code>boolean</code>, or <code>array</code> (because JavaScript has to be able to understand them)</td>
+<td>They MUST be of PHP type: <code>null</code>, <code>string</code>, <code>numeric</code>, <code>boolean</code>, or <code>array</code> (because JavaScript has to be able to understand them) OR an Eloquent Model or collection of Models</td>
 </tr>
 </tbody>
 </table>
@@ -661,46 +661,6 @@ class HelloWorld extends Component
     </div>
     </div>
 <p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>
-<h3 id="storing-eloquent-models">Storing/Referencing Eloquent Models</h3>
-<p>It is common to want to set an Eloquent model (like <code>App\User</code>) as a public property (<code>public $user</code>), HOWEVER, this is not allowed. Public properties can only be set as non-object values (arrays, integers, strings, booleans).</p>
-<p>The idiomatic way to store/retrieve Eloquent model's inside a Livewire component, is to use computed properties. <a href="/docs/computed-properties">Learn more about them here</a>.</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">ShowUser.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class ShowUser extends Component
-{
-    public $userId;
-
-    public function mount($userId)
-    {
-        $this-&gt;userId = $userId;
-    }
-
-    public function getUserProperty()
-    {
-        return \App\User::find($this-&gt;userId);
-    }
-
-    public function executeSomeActionOnTheUser()
-    {
-        $this-&gt;user-&gt;someAction();
-    }
-
-    public function render()
-    {
-        return view('livewire.show-user');
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">show-user.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;h1&gt;Hi {{ $this-&gt;user-&gt;name }}!&lt;/h1&gt;
-
-    &lt;button type="button" wire:click="executeSomeActionOnTheUser"&gt;Do Something&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">
