@@ -40,6 +40,10 @@ Here are a few examples of each in HTML:
 You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
 @endtip
 
+@tip
+You can pass parameters to the triggered method from the Blade component. For example, a button such as: <code>&lt;button wire:click="someAction('parameter')"&gt;</code> will pass the parameter to the component class' method: <code>public function someAction($parameter)</code>
+@endtip
+
 ## Modifiers {#modifiers}
 
 Like you saw in the **keydown** example, Livewire directives sometimes offer "modifiers" to add extra functionality to an event. Below are the available modifiers that can be used with any event:
