@@ -31,10 +31,14 @@ $page->siteName = 'Livewire Documentation';
 
         <div class="flex-col md:block md:w-1/5 lg:pl-12">
             <div>
-                <p class="font-bold mt-0 mb-0 text-gray-500 text-xs tracking-wider uppercase md:text-right">Sponsor</p>
+                <p class="font-bold mt-0 mb-0 text-gray-500 text-xs tracking-wider uppercase md:text-right">Sponsors</p>
+
+                <a class="block mb-4" href="https://intellow.com/" target="_blank">
+                    <img class="md:ml-auto w-32" src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
+                </a>
 
                 <a class="block" href="https://intellow.com/" target="_blank">
-                    <img class="md:ml-auto w-32" src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
+                    <img class="md:ml-auto w-32" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
                 </a>
             </div>
 
