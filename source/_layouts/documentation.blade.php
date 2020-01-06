@@ -37,7 +37,7 @@ $page->siteName = 'Livewire Documentation';
                     <img class="md:ml-auto w-32" src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
                 </a>
 
-                <a class="block" href="https://intellow.com/" target="_blank">
+                <a class="block" href="https://laravel.com/" target="_blank">
                     <img class="md:ml-auto w-32" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
                 </a>
             </div>
