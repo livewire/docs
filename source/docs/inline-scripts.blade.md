@@ -15,9 +15,9 @@ Declare a `@@stack('scripts')` inside your Blade layout file.
 @code
 @verbatim
 ...
-    @livewireAssets
+    @livewireScripts
     @stack('scripts')
-</head>
+</body>
 @endverbatim
 @endcode
 

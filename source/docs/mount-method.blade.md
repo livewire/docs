@@ -10,7 +10,7 @@ You can pass data into a component by passing additional parameters into the `@l
 
 @code(['lang' => 'php'])
 @verbatim
-@livewire('show-contact', $contactId)
+@livewire('show-contact', $contact)
 @endverbatim
 @endcode
 
@@ -23,10 +23,8 @@ class ShowContact extends Component
     public $name;
     public $email;
 
-    public function mount($id)
+    public function mount($contact)
     {
-        $contact = User::find($id);
-
         $this->name = $contact->name;
         $this->email = $contact->email;
     }
@@ -36,10 +34,10 @@ class ShowContact extends Component
 @endverbatim
 @endcode
 
-You can pass multiple parameters to the `mount()` hook and receive them like so:
+You can pass multiple parameters to the `mount()` hook and receive them as additional parameters in the method signature:
 
 @code(['lang' => 'php'])
 @verbatim
-@livewire('show-contact', $contactId, $profilePhotoUrl)
+@livewire('show-contact', $contact, $profilePhotoUrl)
 @endverbatim
 @endcode

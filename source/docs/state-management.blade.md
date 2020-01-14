@@ -20,7 +20,7 @@ Here are some helpful points about public properties in Livewire.
 @table
 Public Properties |
 --- |
-Automatically available via the `$this` object inside the component's Blade view. |
+Automatically available inside the component's Blade view. |
 Can be used for data-binding (`public $foo;` can be bound via `wire:model="foo"`). |
 Are sent back and forth with every network request (increase network payload). |
 Should not store sensitive data. (any information stored in them will be visible to JavaScript). |
@@ -130,7 +130,7 @@ class HelloWorld extends Component
 @slot('view')
 @verbatim
 <div>
-    <h1>{{ $this->message }}</h1>
+    <h1>{{ $message }}</h1>
 </div>
 @endverbatim
 @endslot

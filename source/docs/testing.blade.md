@@ -93,7 +93,8 @@ class CounterTest extends TestCase
     /** @test */
     function can_increment()
     {
-        Livewire::test(Counter::class)
+        Livewire::actingAs(factory(User::class)->create())
+            ->test(Counter::class)
             ->assertSee(0)
             ->call('increment')
             ->assertSee(1)
@@ -118,6 +119,9 @@ class CounterTest extends TestCase
 ## All Available Test Methods {#all-testing-methods}
 
 @code(['lang' => 'php'])
+Livewire::actingAs($user);
+// Set the provided user as the session's logged in user for the test.
+
 $this->set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
@@ -166,6 +170,9 @@ $this->assertHasNoErrors(['foo', 'bar']);
 $this->assertNotFound();
 // Assert that an error within the component caused an error with the status code: 404
 
+$this->assertRedirect('/some-path');
+// Assert that a redirect was triggered from the component.
+
 $this->assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
 
@@ -174,5 +181,8 @@ $this->assertForbidden();
 
 $this->assertStatus(500);
 // Assert that an error within the component caused an error with the status code: 500
+
+$this->assertDispatchedBrowserEvent('event', $data);
+// Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
 
 @endcode

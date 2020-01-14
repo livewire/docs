@@ -121,7 +121,7 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    {{ $this->message }}
+    {{ $message }}
     <button wire:click="setMessageToHello">Say Hi</button>
 </div>
 @endverbatim
@@ -132,7 +132,7 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @code(['lang' => 'php'])
 @verbatim
 <div>
-    {{ $this->message }}
+    {{ $message }}
     <button wire:click="$set('message', 'Hello')">Say Hi</button>
 </div>
 @endverbatim

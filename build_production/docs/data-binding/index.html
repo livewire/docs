@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=2c00597744a0f8a905f8">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=4efea889ce5df2c56214">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -203,15 +203,6 @@
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
         </a>
     
     </li>
@@ -551,7 +542,7 @@ class MyNameIs extends Component
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">my-name-is.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;input type="text" wire:model="name"&gt;
 
-    Hi! My name is {{ $this-&gt;name }}
+    Hi! My name is {{ $name }}
 &lt;/div&gt;</code></pre>
     </div>
     </div>
@@ -628,7 +619,7 @@ class MyNameIs extends Component
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">my-name-is.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
     &lt;input type="text" wire:model.lazy="name"&gt;
 
-    My name is chica-chica {{ $this-&gt;name }}
+    My name is chica-chica {{ $name }}
 &lt;/div&gt;</code></pre>
     </div>
     </div>

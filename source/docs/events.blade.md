@@ -11,7 +11,7 @@ Livewire components can communicate with each other through a global event syste
 There are multiple ways to fire events from Livewire components.
 
 ### Method A: From The Template {#from-template}
-This method is twice as fast as Method B, so it is the preferred usage.
+This method is faster than Method B, so it is the preferred usage. (fewer server roundtrips)
 
 @code
 <button wire:click="$emit('showModal')">
@@ -59,9 +59,27 @@ class Modal extends Component
 
 Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
 
-@tip
+If you need to name event listeners dynamically, you can substitute the `$listeners` property for the `getListeners()` protected method on the component:
+
+@codeComponent(['className' => 'Modal'])
+@slot('class')
+use Livewire\Component;
+
+class Modal extends Component
+{
+    public $isOpen = false;
+
+    protected function getListeners()
+    {
+        return ['showModal' => 'open'];
+    }
+
+    ...
+}
+@endslot
+@endcodeComponent
+
 You can also send parameters through the event bus.
-@endtip
 
 @code(['lang' => 'php'])
 $this->emit('showModal', 'My custom message for the modal');
@@ -81,7 +99,7 @@ class Modal extends Component
     public function open($message)
     {
         $this->isOpen = true;
-        $this->message = $message; // Will be 'My custom message for the modal' 
+        $this->message = $message; // Will be 'My custom message for the modal'
     }
 
     public function render()

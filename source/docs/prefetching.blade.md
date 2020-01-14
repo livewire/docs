@@ -4,11 +4,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-Livewire offers the ability to "prefetch" the result of an action on mouseover. This is useful for cases when an action DOES NOT perform side effects, and you want a little extra performance. Toggling content is a common use case.
-
-@warning
-Note: If you manipulate protected properties in the action that is prefetched, those changes are considered "side-effects" and will persist across prefetches. Currently prefecting only works when changing public data.
-@endwarning
+Livewire offers the ability to "prefetch" the result of an action on mouseover. This is useful for cases when an action DOES NOT (like writing to session or database) perform side effects, and you want a little extra performance. Toggling content is a common use case.
 
 Add the `prefetch` modifier to an action to enable this behavior:
 

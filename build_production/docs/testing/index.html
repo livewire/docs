@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=2c00597744a0f8a905f8">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=4efea889ce5df2c56214">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -203,15 +203,6 @@
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
         </a>
     
     </li>
@@ -606,7 +597,8 @@ class Counter extends Component
     /** @test  */
     function can_increment()
     {
-        Livewire::test(Counter::class)
+        Livewire::actingAs(factory(User::class)-&gt;create())
+            -&gt;test(Counter::class)
             -&gt;assertSee(0)
             -&gt;call('increment')
             -&gt;assertSee(1)
@@ -629,7 +621,10 @@ class Counter extends Component
 </div>
 <h2 id="all-testing-methods">All Available Test Methods</h2>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">$this-&gt;set('foo', 'bar');
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">Livewire::actingAs($user);
+// Set the provided user as the session's logged in user for the test.
+
+$this-&gt;set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
 $this-&gt;call('foo');
@@ -668,8 +663,17 @@ $this-&gt;assertHasErrors(['foo' =&gt; 'required']);
 $this-&gt;assertHasErrors(['foo' =&gt; ['required', 'min']]);
 // Assert that the "foo" property has a "required" AND "min" validation rule error
 
+$this-&gt;assertHasNoErrors('foo');
+// Assert that the "foo" property has no validation errors
+
+$this-&gt;assertHasNoErrors(['foo', 'bar']);
+// Assert that the "foo" AND "bar" properties have no validation errors
+
 $this-&gt;assertNotFound();
 // Assert that an error within the component caused an error with the status code: 404
+
+$this-&gt;assertRedirect('/some-path');
+// Assert that a redirect was triggered from the component.
 
 $this-&gt;assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
@@ -678,7 +682,10 @@ $this-&gt;assertForbidden();
 // Assert that an error within the component caused an error with the status code: 403
 
 $this-&gt;assertStatus(500);
-// Assert that an error within the component caused an error with the status code: 500</code></pre>
+// Assert that an error within the component caused an error with the status code: 500
+
+$this-&gt;assertDispatchedBrowserEvent('event', $data);
+// Assert that a browser event was dispatched from the component using (-&gt;dispatchBrowserEvent(...))</code></pre>
 </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">

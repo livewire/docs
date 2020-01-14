@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=2c00597744a0f8a905f8">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=4efea889ce5df2c56214">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -203,15 +203,6 @@
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
         </a>
     
     </li>
@@ -535,7 +526,7 @@
             <h2 id="initial-params">Initial Parameters</h2>
 <p>You can pass data into a component by passing additional parameters into the <code>@livewire</code> directive. For example, let's say we have a <code>ShowContact</code> Livewire component that needs to know which contact to show. Here's how you would pass in the contact id.</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewire('show-contact', $contactId)</code></pre>
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewire('show-contact', $contact)</code></pre>
 </div>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
@@ -545,10 +536,8 @@ class ShowContact extends Component
     public $name;
     public $email;
 
-    public function mount($id)
+    public function mount($contact)
     {
-        $contact = User::find($id);
-
         $this-&gt;name = $contact-&gt;name;
         $this-&gt;email = $contact-&gt;email;
     }
@@ -556,9 +545,9 @@ class ShowContact extends Component
     ...
 }</code></pre>
 </div>
-<p>You can pass multiple parameters to the <code>mount()</code> hook and receive them like so:</p>
+<p>You can pass multiple parameters to the <code>mount()</code> hook and receive them as additional parameters in the method signature:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewire('show-contact', $contactId, $profilePhotoUrl)</code></pre>
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">@livewire('show-contact', $contact, $profilePhotoUrl)</code></pre>
 </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">

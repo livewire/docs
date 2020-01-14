@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=2c00597744a0f8a905f8">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=4efea889ce5df2c56214">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -203,15 +203,6 @@
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
             Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/the-livewire-developer"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            The Livewire Developer
         </a>
     
     </li>
@@ -549,7 +540,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Automatically available via the <code>$this</code> object inside the component's Blade view.</td>
+<td>Automatically available inside the component's Blade view.</td>
 </tr>
 <tr>
 <td>Can be used for data-binding (<code>public $foo;</code> can be bound via <code>wire:model="foo"</code>).</td>
@@ -656,7 +647,7 @@ class HelloWorld extends Component
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">hello-world.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;h1&gt;{{ $this-&gt;message }}&lt;/h1&gt;
+    &lt;h1&gt;{{ $message }}&lt;/h1&gt;
 &lt;/div&gt;</code></pre>
     </div>
     </div>

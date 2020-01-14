@@ -2,7 +2,6 @@
 
 return [
     'Quickstart' => 'docs/quickstart',
-    'The Livewire Developer' => 'docs/the-livewire-developer',
     'The Basics' => [
         'children' => [
             'Installation' => 'docs/installation',
