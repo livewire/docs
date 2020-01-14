@@ -33,7 +33,7 @@ class ShowPost extends Component
 
     public function mount($postId)
     {
-        $this->postId;
+        $this->postId = $postId;
     }
 
     public function getPostProperty()
