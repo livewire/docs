@@ -17,10 +17,13 @@ Include the JavaScript (on every page that will be using Livewire).
 @code
 @verbatim
     ...
-    @livewireAssets
+    @livewireStyles
 </head>
 <body>
     ...
+    
+    @livewireScripts
+    @stack('scripts')
 </body>
 </html>
 @endverbatim
@@ -89,10 +92,15 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 @verbatim
 <head>
     ...
-    @livewireAssets
+    @livewireStyles
 </head>
 <body>
     @livewire('counter')
+    
+    ...
+    
+    @livewireScripts
+    @stack('scripts')
 </body>
 </html>
 @endverbatim
@@ -139,7 +147,7 @@ class Counter extends Component
 @verbatim
 <div style="text-align: center">
     <button wire:click="increment">+</button>
-    <h1>{{ $this->count }}</h1>
+    <h1>{{ $count }}</h1>
     <button wire:click="decrement">-</button>
 </div>
 @endverbatim
