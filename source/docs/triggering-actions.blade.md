@@ -40,6 +40,31 @@ Here are a few examples of each in HTML:
 You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
 @endtip
 
+## Parameters {#parameters}
+
+You can pass extra parameters into a Livewire action directly in the expression like so:
+
+@code
+@verbatim
+
+<button wire:click="addTodo({{ $todo->id }}, '{{ $todo->name }}')">Add Todo</button>
+
+@endverbatim
+@endcode
+
+Extra parameters passed to an action, will be passed through to the component's method as standard PHP params:
+
+@code(['lang' => 'php'])
+@verbatim
+
+public function addTodo($id, $name)
+{
+    ...
+}
+
+@endverbatim
+@endcode
+
 ## Modifiers {#modifiers}
 
 Like you saw in the **keydown** example, Livewire directives sometimes offer "modifiers" to add extra functionality to an event. Below are the available modifiers that can be used with any event:

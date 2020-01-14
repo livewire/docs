@@ -586,6 +586,18 @@
         You can listen for any event emitted by the element you are binding to. Let's say you have an element that fires a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
     </div>
 </div>
+<h2 id="parameters">Parameters</h2>
+<p>You can pass extra parameters into a Livewire action directly in the expression like so:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-html">&lt;button wire:click="addTodo({{ $todo-&gt;id }}, '{{ $todo-&gt;name }}')"&gt;Add Todo&lt;/button&gt;</code></pre>
+</div>
+<p>Extra parameters passed to an action, will be passed through to the component's method as standard PHP params:</p>
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">public function addTodo($id, $name)
+{
+    ...
+}</code></pre>
+</div>
 <h2 id="modifiers">Modifiers</h2>
 <p>Like you saw in the <strong>keydown</strong> example, Livewire directives sometimes offer &quot;modifiers&quot; to add extra functionality to an event. Below are the available modifiers that can be used with any event:</p>
 <div class="max-w-full overflow-x-auto">
