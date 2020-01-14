@@ -21,9 +21,8 @@ Include the JavaScript (on every page that will be using Livewire).
 </head>
 <body>
     ...
-    
+
     @livewireScripts
-    @stack('scripts')
 </body>
 </html>
 @endverbatim
@@ -96,11 +95,10 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 </head>
 <body>
     @livewire('counter')
-    
+
     ...
-    
+
     @livewireScripts
-    @stack('scripts')
 </body>
 </html>
 @endverbatim
