@@ -4,7 +4,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-Livewire supports 2 styles of testing it's components:
+Livewire supports 2 styles of testing its components:
 <ol class="list-inside">
     <li>Unit testing</li>
     <li>End-to-end testing</li>
@@ -45,7 +45,7 @@ class Counter extends Component
 @verbatim
 <div style="text-align: center">
     <button wire:click="increment">+</button>
-    <h1>{{ $this->count }}</h1>
+    <h1>{{ $count }}</h1>
     <button wire:click="decrement">-</button>
 </div>
 @endverbatim
@@ -184,5 +184,8 @@ $this->assertStatus(500);
 
 $this->assertDispatchedBrowserEvent('event', $data);
 // Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
+
+$this->assertRedirect($uri);
+// Assert whether the response is redirecting to a given URI
 
 @endcode
