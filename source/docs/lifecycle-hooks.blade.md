@@ -60,7 +60,7 @@ class HelloWorld extends Component
 
 ## Javascript Hooks {#js-hooks}
 
-Livewire gives you the opportunity to execute javascript before and after the DOM updates.
+Livewire gives you the opportunity to execute javascript during certain events.
 
 @table
 Hooks | Description
@@ -72,11 +72,11 @@ afterDomUpdate | Runs after livewire updates the DOM
 @code(['lang' => 'js'])
 <script>
     document.addEventListener("livewire:load", function(event) {
-        window.livewire.beforeDomUpdate(() => {
+        window.livewire.hook('beforeDomUpdate', () => {
             // Add your custom JavaScript here.
         });
 
-        window.livewire.afterDomUpdate(() => {
+        window.livewire.hook('afterDomUpdate', () => {
             // Add your custom JavaScript here.
         });
     });
