@@ -76,9 +76,9 @@ For example, if you were building a "search posts" component, and wanted the que
 
 `https://your-app.com/search-posts?search=some-search-string`
 
-This way, when a user hits the back button, or the bookmarks the page, you can get the initial state out of the query string, rather than resetting the component every time.
+This way, when a user hits the back button, or bookmarks the page, you can get the initial state out of the query string, rather than resetting the component every time.
 
-In these cases, you can add the property's name to `protected $updatesQueryString`, and Livewire will update the query string every time the property value changes.
+In these cases, you can add a property's name to `protected $updatesQueryString`, and Livewire will update the query string every time the property value changes.
 
 @codeComponent([
     'className' => 'SearchPosts.php',
