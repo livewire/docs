@@ -30,6 +30,7 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 @livewire('foo')
 @livewire('foo-bar')
 @livewire('foo.bar')
+@livewire(Package\Livewire\Foo::class)
 @endverbatim
 @endcode
 
