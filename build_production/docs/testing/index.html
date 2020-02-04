@@ -35,7 +35,7 @@
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=4fb2f4f92886a5cf169c">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=6dae68d23af8a02429c6">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -523,12 +523,8 @@
         <div class="w-full md:w-4/5 lg:w-3/5 break-words lg:pl-4" v-pre>
                             <h1>Testing</h1>
             
-            <p>Livewire supports 2 styles of testing it's components:</p>
-<ol class="list-inside">
-    <li>Unit testing</li>
-    <li>End-to-end testing</li>
-</ol>
-<p>For these demonstrations, we will be using a simple Counter component like the following:</p>
+            <p>Livewire offers a powerful set of tools for testing your components.</p>
+<p>For the demonstrations, lets assume a simple Counter component like the following:</p>
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
          <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">Counter.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
@@ -561,36 +557,10 @@ class Counter extends Component
 &lt;/div&gt;</code></pre>
     </div>
     </div>
-<h2 id="unit-testing">Unit Testing</h2>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
-{
-    /** @test  */
-    function can_increment()
-    {
-        $counter = Livewire::test(Counter::class);
-
-        $this-&gt;assertEquals(0, $counter-&gt;count);
-
-        $counter-&gt;increment();
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-
-        $counter-&gt;decrement();
-
-        $this-&gt;assertEquals(0, $counter-&gt;count);
-
-        $counter-&gt;set('count',1);
-
-        $this-&gt;assertEquals(1, $counter-&gt;count);
-    }
-}</code></pre>
-</div>
 <p>You can pass data to <code>Livewire::test()</code> method to initialize your component properties like so:</p>
 <div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">$counter = Livewire::test(Counter::class, $param1, $param2 ...);</code></pre>
+    <pre class="scrollbar-none"><code class="scrolling-touch language-php">Livewire::test(Counter::class, $param1, $param2 ...);</code></pre>
 </div>
-<h2 id="end-to-end-testing">End-to-end Testing</h2>
 <div class="rounded-lg bg-gray-800 mb-12">
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CounterTest extends TestCase
 {
@@ -624,67 +594,67 @@ class Counter extends Component
     <pre class="scrollbar-none"><code class="scrolling-touch language-php">Livewire::actingAs($user);
 // Set the provided user as the session's logged in user for the test.
 
-$this-&gt;set('foo', 'bar');
+Livewire::set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
-$this-&gt;call('foo');
+Livewire::call('foo');
 // Call the "foo" method
 
-$this-&gt;call('foo', 'bar', 'baz');
+Livewire::call('foo', 'bar', 'baz');
 // Call the "foo" method, and pass in the parameter "bar", and "baz"
 
-$this-&gt;assertSet('foo', 'bar');
+Livewire::assertSet('foo', 'bar');
 // Asserts that the "foo" property is set to the value "bar"
 
-$this-&gt;assertNotSet('foo', 'bar');
+Livewire::assertNotSet('foo', 'bar');
 // Asserts that the "foo" property is NOT set to the value "bar"
 
-$this-&gt;assertSee('foo');
+Livewire::assertSee('foo');
 // Assert that the string "foo" exists in the currently rendered HTML of the component
 
-$this-&gt;assertDontSee('foo');
+Livewire::assertDontSee('foo');
 // Assert that the string "foo" DOES NOT exist in the HTML
 
-$this-&gt;assertEmitted('foo');
+Livewire::assertEmitted('foo');
 // Assert that the "foo" event was emitted
 
-$this-&gt;assertEmitted('foo', 'bar', 'baz');
+Livewire::assertEmitted('foo', 'bar', 'baz');
 // Assert that the "foo" event was emitted with the "bar" and "baz" parameters
 
-$this-&gt;assertHasErrors('foo');
+Livewire::assertHasErrors('foo');
 // Assert that the "foo" property has validation errors
 
-$this-&gt;assertHasErrors(['foo', 'bar']);
+Livewire::assertHasErrors(['foo', 'bar']);
 // Assert that the "foo" AND "bar" properties have validation errors
 
-$this-&gt;assertHasErrors(['foo' =&gt; 'required']);
+Livewire::assertHasErrors(['foo' =&gt; 'required']);
 // Assert that the "foo" property has a "required" validation rule error
 
-$this-&gt;assertHasErrors(['foo' =&gt; ['required', 'min']]);
+Livewire::assertHasErrors(['foo' =&gt; ['required', 'min']]);
 // Assert that the "foo" property has a "required" AND "min" validation rule error
 
-$this-&gt;assertHasNoErrors('foo');
+Livewire::assertHasNoErrors('foo');
 // Assert that the "foo" property has no validation errors
 
-$this-&gt;assertHasNoErrors(['foo', 'bar']);
+Livewire::assertHasNoErrors(['foo', 'bar']);
 // Assert that the "foo" AND "bar" properties have no validation errors
 
-$this-&gt;assertNotFound();
+Livewire::assertNotFound();
 // Assert that an error within the component caused an error with the status code: 404
 
-$this-&gt;assertRedirect('/some-path');
+Livewire::assertRedirect('/some-path');
 // Assert that a redirect was triggered from the component.
 
-$this-&gt;assertUnauthorized();
+Livewire::assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
 
-$this-&gt;assertForbidden();
+Livewire::assertForbidden();
 // Assert that an error within the component caused an error with the status code: 403
 
-$this-&gt;assertStatus(500);
+Livewire::assertStatus(500);
 // Assert that an error within the component caused an error with the status code: 500
 
-$this-&gt;assertDispatchedBrowserEvent('event', $data);
+Livewire::assertDispatchedBrowserEvent('event', $data);
 // Assert that a browser event was dispatched from the component using (-&gt;dispatchBrowserEvent(...))</code></pre>
 </div>
             <div class="mt-12 pt-8 pb-6 border-t-2">

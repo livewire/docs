@@ -4,13 +4,9 @@ extends: _layouts.documentation
 section: content
 ---
 
-Livewire supports 2 styles of testing it's components:
-<ol class="list-inside">
-    <li>Unit testing</li>
-    <li>End-to-end testing</li>
-</ol>
+Livewire offers a powerful set of tools for testing your components.
 
-For these demonstrations, we will be using a simple Counter component like the following:
+For the demonstrations, lets assume a simple Counter component like the following:
 
 @codeComponent([
     'className' => 'Counter.php',
@@ -52,40 +48,11 @@ class Counter extends Component
 @endslot
 @endcodeComponent
 
-## Unit Testing {#unit-testing}
-
-@code(['lang' => 'php'])
-class CounterTest extends TestCase
-{
-    /** @test */
-    function can_increment()
-    {
-        $counter = Livewire::test(Counter::class);
-
-        $this->assertEquals(0, $counter->count);
-
-        $counter->increment();
-
-        $this->assertEquals(1, $counter->count);
-
-        $counter->decrement();
-
-        $this->assertEquals(0, $counter->count);
-
-        $counter->set('count',1);
-
-        $this->assertEquals(1, $counter->count);
-    }
-}
-@endcode
-
 You can pass data to `Livewire::test()` method to initialize your component properties like so:
 
 @code(['lang' => 'php'])
-$counter = Livewire::test(Counter::class, $param1, $param2 ...);
+Livewire::test(Counter::class, $param1, $param2 ...);
 @endcode
-
-## End-to-end Testing {#end-to-end-testing}
 
 @code(['lang' => 'php'])
 class CounterTest extends TestCase
@@ -122,67 +89,67 @@ class CounterTest extends TestCase
 Livewire::actingAs($user);
 // Set the provided user as the session's logged in user for the test.
 
-$this->set('foo', 'bar');
+Livewire::set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
-$this->call('foo');
+Livewire::call('foo');
 // Call the "foo" method
 
-$this->call('foo', 'bar', 'baz');
+Livewire::call('foo', 'bar', 'baz');
 // Call the "foo" method, and pass in the parameter "bar", and "baz"
 
-$this->assertSet('foo', 'bar');
+Livewire::assertSet('foo', 'bar');
 // Asserts that the "foo" property is set to the value "bar"
 
-$this->assertNotSet('foo', 'bar');
+Livewire::assertNotSet('foo', 'bar');
 // Asserts that the "foo" property is NOT set to the value "bar"
 
-$this->assertSee('foo');
+Livewire::assertSee('foo');
 // Assert that the string "foo" exists in the currently rendered HTML of the component
 
-$this->assertDontSee('foo');
+Livewire::assertDontSee('foo');
 // Assert that the string "foo" DOES NOT exist in the HTML
 
-$this->assertEmitted('foo');
+Livewire::assertEmitted('foo');
 // Assert that the "foo" event was emitted
 
-$this->assertEmitted('foo', 'bar', 'baz');
+Livewire::assertEmitted('foo', 'bar', 'baz');
 // Assert that the "foo" event was emitted with the "bar" and "baz" parameters
 
-$this->assertHasErrors('foo');
+Livewire::assertHasErrors('foo');
 // Assert that the "foo" property has validation errors
 
-$this->assertHasErrors(['foo', 'bar']);
+Livewire::assertHasErrors(['foo', 'bar']);
 // Assert that the "foo" AND "bar" properties have validation errors
 
-$this->assertHasErrors(['foo' => 'required']);
+Livewire::assertHasErrors(['foo' => 'required']);
 // Assert that the "foo" property has a "required" validation rule error
 
-$this->assertHasErrors(['foo' => ['required', 'min']]);
+Livewire::assertHasErrors(['foo' => ['required', 'min']]);
 // Assert that the "foo" property has a "required" AND "min" validation rule error
 
-$this->assertHasNoErrors('foo');
+Livewire::assertHasNoErrors('foo');
 // Assert that the "foo" property has no validation errors
 
-$this->assertHasNoErrors(['foo', 'bar']);
+Livewire::assertHasNoErrors(['foo', 'bar']);
 // Assert that the "foo" AND "bar" properties have no validation errors
 
-$this->assertNotFound();
+Livewire::assertNotFound();
 // Assert that an error within the component caused an error with the status code: 404
 
-$this->assertRedirect('/some-path');
+Livewire::assertRedirect('/some-path');
 // Assert that a redirect was triggered from the component.
 
-$this->assertUnauthorized();
+Livewire::assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
 
-$this->assertForbidden();
+Livewire::assertForbidden();
 // Assert that an error within the component caused an error with the status code: 403
 
-$this->assertStatus(500);
+Livewire::assertStatus(500);
 // Assert that an error within the component caused an error with the status code: 500
 
-$this->assertDispatchedBrowserEvent('event', $data);
+Livewire::assertDispatchedBrowserEvent('event', $data);
 // Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
 
 @endcode
