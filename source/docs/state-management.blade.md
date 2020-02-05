@@ -171,6 +171,8 @@ class FooComponent extends Component
 
 @code(['lang' => 'php'])
 @verbatim
+use Livewire\Castable;
+
 class CollectionCaster implements Castable
 {
     public function cast($value)
