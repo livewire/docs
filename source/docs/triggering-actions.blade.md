@@ -65,6 +65,19 @@ public function addTodo($id, $name)
 @endverbatim
 @endcode
 
+If your action requires any services that should be resolved via Laravel's dependency injection container, you may list them in the action's signature before any additional parameters:
+
+@code(['lang' => 'php'])
+@verbatim
+
+public function addTodo(TodoService $todoService, $id, $name)
+{
+    ...
+}
+
+@endverbatim
+@endcode
+
 ## Modifiers {#modifiers}
 
 Like you saw in the **keydown** example, Livewire directives sometimes offer "modifiers" to add extra functionality to an event. Below are the available modifiers that can be used with any event:
