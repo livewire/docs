@@ -106,7 +106,7 @@ class ContactForm extends Component
 @endslot
 @slot('view')
 @verbatim
-<form wire:submit="saveContact">
+<form wire:submit.prevent="saveContact">
     <input type="text" wire:model="name">
     @error('name') <span class="error">{{ $message }}</span> @enderror
 

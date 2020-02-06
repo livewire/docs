@@ -605,7 +605,7 @@ class ContactForm extends Component
 }</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">contact-form.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit="submit"&gt;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">contact-form.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit.prevent="saveContact"&gt;
     &lt;input type="text" wire:model="name"&gt;
     @error('name') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
 
