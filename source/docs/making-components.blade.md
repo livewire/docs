@@ -59,7 +59,7 @@ php artisan livewire:stub foo
 
 And you can tell Livewire to reference it when making a component by adding the `--stub` option to the make command:
 @code(['lang' => 'bash'])
-php artisan make:livewire --stub=foo
+php artisan make:livewire --stub=foo name
 @endcode
 
 ## The `move` Command {#move-command}
