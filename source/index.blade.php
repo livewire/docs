@@ -22,11 +22,17 @@
 
         <div class="py-6">
             <p class="font-bold mt-0 mb-2 text-gray-500 text-xs tracking-wider uppercase text-center">Sponsored By:</p>
-            <a href="https://intellow.com/" target="_blank">
+            <a style="min-height: 75px; display: block;" href="https://laravel.com/" target="_blank">
+                <img class="w-48 m-auto mb-4" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+            </a>
+            <a style="min-height: 75px; display: block;" href="https://intellow.com/" target="_blank">
                 <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_intellow.png" alt="Intellow">
             </a>
-            <a href="https://laravel.com/" target="_blank">
-                <img class="w-48 m-auto" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+            <a style="min-height: 75px; display: block;" href="http://jrmerritt.com/" target="_blank">
+                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_jrmerritt.png" alt="Laravel">
+            </a>
+            <a style="min-height: 75px; display: block;" href="https://trustfactory.bz/" target="_blank">
+                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_trustfactory.png" alt="Laravel">
             </a>
         </div>
 

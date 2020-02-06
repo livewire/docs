@@ -31,19 +31,27 @@ $page->siteName = 'Livewire Documentation';
 
         <div class="flex-col md:block md:w-1/5 lg:pl-12">
             <div>
-                <p class="font-bold mt-0 mb-0 text-gray-500 text-xs tracking-wider uppercase md:text-right">Sponsors</p>
+                <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7D553Y&placement=laravel-livewirecom" id="_carbonads_js"></script>
+            </div>
 
-                <a class="block mb-4" href="https://intellow.com/" target="_blank">
+            <div class="md:pt-8 flex sm:block flex-wrap justify-around">
+                <p class="hidden sm:block font-bold mt-0 mb-4 text-gray-500 text-xs tracking-wider uppercase md:text-right">Sponsors</p>
+
+                <a style="height: 50px" class="block mb-3 pb-3" href="https://laravel.com/" target="_blank">
+                    <img class="md:ml-auto w-32" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+                </a>
+
+                <a style="height: 50px" class="block mb-3 pb-3" href="https://intellow.com/" target="_blank">
                     <img class="md:ml-auto w-32" src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
                 </a>
 
-                <a class="block" href="https://laravel.com/" target="_blank">
-                    <img class="md:ml-auto w-32" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+                <a style="height: 50px" class="block mb-3 pb-3" href="http://jrmerritt.com/" target="_blank">
+                    <img class="md:ml-auto w-32" src="/assets/img/sponsor_jrmerritt.png" alt="Livewire Sponsor: Intellow">
                 </a>
-            </div>
 
-            <div class="md:pt-8">
-                <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7D553Y&placement=laravel-livewirecom" id="_carbonads_js"></script>
+                <a class="block" href="https://trustfactory.bz/" target="_blank">
+                    <img class="md:ml-auto w-32" src="/assets/img/sponsor_trustfactory.png" alt="Livewire Sponsor: Intellow">
+                </a>
             </div>
         </div>
     </div>
