@@ -32,7 +32,7 @@ $this->emit('showModal');
 @endcode
 
 ## Listening for events in PHP {#in-php}
-Event listeners are registered in the `$listeners` property of your Livewire components.
+Event listeners are registered in the `$listeners` property of your Livewire components. If the event name and method name are the same, you can shorthand to a single value.
 
 @codeComponent(['className' => 'Modal'])
 @slot('class')
@@ -42,11 +42,19 @@ class Modal extends Component
 {
     public $isOpen = false;
 
-    protected $listeners = ['showModal' => 'open'];
+    protected $listeners = [
+        'closeModal',
+        'showModal' => 'open',
+    ];
 
     public function open()
     {
         $this->isOpen = true;
+    }
+
+    public function closeModal()
+    {
+        $this->isOpen = false;
     }
 
     public function render()
