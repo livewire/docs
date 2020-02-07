@@ -60,6 +60,13 @@ class ContactForm extends Component
 
 If validation fails, a standard `ValidationException` is thrown (and caught by Livewire), and the standard `$errors` object is available inside the component's view. Because of this, any existing code you have, likely a Blade include, for handling validation in the rest of your application will apply here as well.
 
+You can also add custom key/message pairs to the error bag.
+@code(['lang' => 'php'])
+@verbatim
+    $this->addError('key', 'message')
+@endverbatim
+@endcode
+
 ## Real-time Validation {#real-time-validation}
 
 Sometimes it's useful to validate a form field as a user types into it. Livewire makes "real-time" validation simple with the `$this->validateOnly()` method.
