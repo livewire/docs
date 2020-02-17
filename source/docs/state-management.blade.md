@@ -133,10 +133,12 @@ class CastedComponent extends Component
 {
     public $options = ['foo', 'bar', 'bar'];
     public $expiresAt = 'tomorrow';
+    public $formattedDate = 'today';
 
     protected $casts = [
         'options' => 'collection',
         'expiresAt' => 'date',
+        'formattedDate' => 'date:m-d-y'
     ];
 
     public function getUniqueOptions()
