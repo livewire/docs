@@ -96,7 +96,13 @@ Livewire::call('foo');
 // Call the "foo" method
 
 Livewire::call('foo', 'bar', 'baz');
-// Call the "foo" method, and pass in the parameter "bar", and "baz"
+// Call the "foo" method, and pass the "bar" and "baz" parameters
+
+Livewire::emit('foo');
+// Fire the "foo" event
+
+Livewire::emit('foo', 'bar', 'baz');
+// Fire the "foo" event, and pass the "bar" and "baz" parameters
 
 Livewire::assertSet('foo', 'bar');
 // Asserts that the "foo" property is set to the value "bar"
