@@ -265,9 +265,7 @@ class SearchUsers extends Component
     public function render()
     {
         return view(&#039;livewire.search&#039;, [
-            &#039;users&#039; =&gt; $this-&gt;search
-                ? User::where(&#039;username&#039;, &#039;like&#039;, &quot;%{$this-&gt;search}%&quot;)-&gt;get()
-                : [],
+            &#039;users&#039; =&gt; User::where(&#039;username&#039;, $this-&gt;search)-&gt;get(),
         ]);
     }
 }</code></pre>
