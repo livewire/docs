@@ -5,7 +5,8 @@
     <div style="max-width: 600px; margin: auto" class="pt-16 pb-16 px-12 text-2xl">
         <p>
             <strong class="underline">Building modern web apps is hard.</strong>
-            Tools like Vue and React are extremely powerful, but the complexity they add to a full-stack developers workflow is insane.
+            Tools like Vue and React are extremely powerful, but the complexity they add to a full-stack developer's workflow is insane.
+            <br>
             <strong>It doesn’t have to be this way...</strong>
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>Ok, I'm listening...</em></p>
