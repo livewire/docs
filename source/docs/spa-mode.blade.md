@@ -4,23 +4,13 @@ extends: _layouts.documentation
 section: content
 ---
 
-While Livewire makes individual pages feel smooth, it doesn't give transitions between pages the same love. Livewire plans to support this functionality out of the box, but for now, it is recommended to use Turbolinks.
+## Turbolinks {#turbolinks}
 
-Fortunately, getting Turbolinks to play nicely with Livewire is simple. Let's walk through it.
+Livewire recommends you use Turbolinks in your apps to make page transitions faster. It is very possible to achieve a "SPA" fealing application written with Turbolinks & Livewire.
 
-Checkout the [Turbolinks documentation](https://github.com/turbolinks/turbolinks) for installation instructions.
+If you have Turbolinks installed on the page ([installation instructions here](https://github.com/turbolinks/turbolinks)), Livewire will handle the rest.
 
-Now, add the following JS in a script tag on the page, or in your `app.js` file.
-
-@code(['lang' => 'js'])
-document.addEventListener('turbolinks:load', () => {
-    window.livewire.rescan()
-})
-@endcode
-
-And that's it! This little snippet tells Turbolinks to reload Livewire every time a new page is visited or returned to.
-
-## Render Component As Entire Page {#render-as-entire-page}
+## Single Page Components {#single-page-components}
 
 If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helpers to cut out the extra boilerplate code. Take a look at the following example:
 
@@ -131,7 +121,7 @@ use Livewire\Component;
 
 class ShowContact extends Component
 {
-    protected $contact;
+    public $contact;
 
     public function mount(User $user)
     {

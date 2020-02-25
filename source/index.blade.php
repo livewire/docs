@@ -4,7 +4,9 @@
 <div class="bg-white">
     <div style="max-width: 600px; margin: auto" class="pt-16 pb-16 px-12 text-2xl">
         <p>
-            <strong class="underline">JavaScript is crazy these days.</strong> We pull heaps of code and complexity into a project for simple things like modals and loading spinners. <strong>It doesn’t have to be this way...</strong>
+            <strong class="underline">Building modern web apps is hard.</strong>
+            Tools like Vue and React are extremely powerful, but the complexity they add to a full-stack developers workflow is insane.
+            <strong>It doesn’t have to be this way...</strong>
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>Ok, I'm listening...</em></p>
         <p>
@@ -12,7 +14,7 @@
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>Hi Livewire!</em></p>
         <p>
-            Livewire is a full-stack framework for Laravel that makes building dynamic front-ends as simple as writing vanilla PHP (literally).
+            Livewire is a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel.
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>Consider my interest piqued</em></p>
         <p>
@@ -20,8 +22,8 @@
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>...I'll get my floaties</em></p>
 
-        <div class="py-6">
-            <p class="font-bold mt-0 mb-2 text-gray-500 text-xs tracking-wider uppercase text-center">Sponsored By:</p>
+        <div class="pt-8 pb-6">
+            <p class="font-bold mt-0 mb-2 text-gray-500 text-xs tracking-wider uppercase text-center">Our Lovely Sponsors:</p>
             <a style="min-height: 75px; display: block;" href="https://laravel.com/" target="_blank">
                 <img class="w-48 m-auto mb-4" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
             </a>
@@ -76,109 +78,89 @@
     <div style="max-width: 800px; margin: auto" class="px-12 pt-12 pb-16 text-xl">
         <h2>Ok, let's see some code</h2>
 
-        <p>Consider the following "counter" component written in VueJs:</p>
+        <p>Here's a real-time search component built with Livewire.</p>
 
-        <div class="">
-@code(['lang' => 'javascript']) @verbatim
-<script>
-    export default {
-        data() {
-            return {
-                count: 0
-            }
-        },
-        methods: {
-            increment() {
-                this.count++
-            },
-            decrement() {
-                this.count--
-            },
-        },
-    }
-</script>
-
-<template>
-    <div>
-        <button @click="increment">+</button>
-        <button @click="decrement">-</button>
-
-        <span>{{ count }}</span>
-    </div>
-</template>
-@endverbatim @endcode
-        </div>
-
-        <p>Now, let's see how we would accomplish the exact same thing with a Livewire component.</p>
-
-        <div class="">
+<div>
 @codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
 use Livewire\Component;
 
-class Counter extends Component
+class SearchUsers extends Component
 {
-    public $count = 0;
-
-    public function increment()
-    {
-        $this->count++;
-    }
-
-    public function decrement()
-    {
-        $this->count--;
-    }
+    public $search = '';
 
     public function render()
     {
-        return view('livewire.counter');
+        return view('livewire.search', [
+            'users' => $this->search
+                ? User::where('username', 'like', "%{$this->search}%")->get()
+                : [],
+        ]);
     }
 }
 @endverbatim @endslot
 
 @slot('view') @verbatim
 <div>
-    <button wire:click="increment">+</button>
-    <button wire:click="decrement">-</button>
+    <input wire:model="search" type="text" placeholder="Search users..."/>
 
-    <span>{{ $this->count }}</span>
+    <ul>
+        @foreach($users as $user)
+            <li>{{ $user->username }}</li>
+        @endforeach
+    </ul>
 </div>
 @endverbatim @endslot @endcodeComponent
-        </div>
+</div>
 
-        <p>Are you still with me? I know, it's bonkers, but just go with it for now.</p>
+        <p>You can include this component anywhere in your app like so.</p>
+
+<div class="">
+@codeComponent(['viewName' => 'resources/views/welcome.blade.php']) @slot('view') @verbatim
+<body>
+    ...
+    @livewire('search-users')
+    ...
+</body>
+@endverbatim @endslot @endcodeComponent
+</div>
+
+        <p>When a user types into the search input, the list of users updates in real-time.</p>
+
+        <p>Bonkers, I know...</p>
 
         <h2>How the he*k does this work?</h2>
 
-        <p>Livewire's not that different from frameworks like Vue/React actually. Here's what happens when you click the "+" button in the Vue component:</p>
+        <ul>
+            <li>Livewire renders the initial component output with the page (like a Blade include), this way it's SEO friendly.</li>
+            <li>When an interaction occurs, Livewire makes an AJAX request to the server with the updated data.</li>
+            <li>The server re-renders the component and responds with the new HTML.</li>
+            <li>Livewire then intelligently mutates DOM according to the things that changed.</li>
+        </ul>
 
-        <ol>
-            <li>Vue hears the click because of <code>@verbatim @click="increment" @endverbatim</code></li>
-            <li>Vue calls the <code>increment</code> method, which updates <code>count</code></li>
-            <li>Vue re-renders the template and updates the DOM</li>
-        </ol>
+        <h2>Some questions you might have...</h2>
 
-        <p>Livewire works nearly the same, but with 2 extra steps behind the scenes.</p>
+        <p style="margin-bottom: 0"><strong>
+            Does this use websockets?
+        </strong></p>
+        <p style="margin-top: .5rem">
+            No, Livewire relies solely on AJAX requests to do all its server communication. This means it's as reliable and scalable as your current setup.
+        </p>
 
-        <ol>
-            <li>Livewire hears the click because of <code>@verbatim wire:click="increment" @endverbatim</code></li>
-            <li><strong>Livewire sends an ajax request to PHP</strong></li>
-            <li>PHP calls the <code>increment</code> method, which updates <code>$count</code></li>
-            <li><strong>PHP re-renders the Blade template and sends back the HTML</strong></li>
-            <li>Livewire receives the response, and updates the DOM</li>
-        </ol>
+        <p style="margin-bottom: 0"><strong>
+            Is this a Vue-replacement?
+        </strong></p>
+        <p style="margin-top: .5rem">
+            In some ways yes, but mostly for cases where your Vue components are already sending `axios` or `fetch` requests. (Think searching, filtering, forms)
+        </p>
 
-        <p>Cool huh?</p>
+        <p style="margin-bottom: 0"><strong>
+            If it doesn't replace Vue, what do I do when I need JavaScript, like a drop-down, modal, or datepicker?
+        </strong></p>
+        <p style="margin-top: .5rem">
+            Livewire works beautifully with the AlpineJS framework (It was built for this need). For third-party library integration (something like Select2, Pickaday, or Dropzone.js), Livewire provides APIs to add support for these. Livewire also has a plugin to support using VueJs components inside of your Livewire components.
+        </p>
 
-        <h2>Can I replace all my Vue components with Livewire components now?</h2>
-
-        <p>Not exactly. Livewire will hopefully replace a bunch of them, but because every interaction requires a roundtrip to the server, it's better to use JavaScript for things that need to be instant (like animations, or toggling a dropdown).</p>
-
-        <p>A good rule of thumb is: any JavaScript components that rely on ajax for server communication, will be better off as Livewire components. There's lots of other good use cases, but this gives you a basic idea of where to start.</p>
-
-        <h2>When can I use it in my projects?</h2>
-
-        <p>Right now, the project is still in pre-release. Sign up for my email newsletter to get notified when It's ready for prime-time.</p>
+        <hr>
 
         <style>
             .formkit-form[data-uid="2e197490cb"][min-width~="700"] [data-style="clean"],

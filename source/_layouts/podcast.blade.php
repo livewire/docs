@@ -35,6 +35,6 @@ $page->social_image = 'https://laravel-livewire.com/assets/img/podcast-artwork.p
 
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
-<p>{!! (new TightenCo\Jigsaw\Parsers\ParsedownExtraParser())->parse($page->long_description) !!}</p>
+<p>{!! (new TightenCo\Jigsaw\Parsers\JigsawMarkdownParser())->parse($page->long_description) !!}</p>
 </div>
 @overwrite

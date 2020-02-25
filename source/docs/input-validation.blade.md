@@ -134,6 +134,33 @@ Let's break down exactly what is happening in this example:
 
 If you are wondering, "why do I need `validateOnly`? Can't I just use `validate`?". The reason is because otherwise, every single update to any field would validate ALL of the fields. This can be a jarring user experience. Imagine if you typed one character into the first field of a form, and all of a sudden every single field had a validation message. `validateOnly` prevents that, and only validates the current field being updated.
 
+## Direct Error Message Manipulation {#error-bag-manipulation}
+
+The `validate()` and `validateOnly()` method should handle most cases, but sometimes you may want direct control over Livewire's internal ErrorBag.
+
+Livewire provides a handful of methods for you to directly manipulate the ErrorBag.
+
+From anywhere inside a Livewire component class, you can call the following methods:
+
+@code(['lang' => 'php'])
+@verbatim
+$this->addError('email', 'The email field is invalid.');
+// Quickly add a validation message to the error bag.
+
+$this->resetErrorBag();
+$this->resetValidation();
+// These two methods do the same thing. The clear the error bag.
+// If you only want to clear errors for one key, you can use:
+$this->resetValidation('email');
+$this->resetErrorBag('email');
+
+$errors = $this->getErrorBag();
+// This will give you full access to the error bag,
+// allowing you to do things like this:
+$errors->add('some-key', 'Some message');
+@endverbatim
+@endcode
+
 ## Testing Validation {#testing-validation}
 
 Livewire provides useful testing utilities for validation scenarios. Let's a write a simple test for the original "Contact Form" component.

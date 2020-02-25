@@ -36,15 +36,12 @@
         <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5df22e74a7725e75cfdc">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0b6b277f2a6e14a0ac23">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
-<header class="flex items-center h-24 py-4 bg-white relative" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
@@ -203,37 +200,69 @@
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
 <p><p>Hello again. Uh, this is a serial episode, so I'm recording this one second after I just recorded the last one. So the last episode, we talked about these hard validation problems, and hopefully I illustrated to you some of the issues that really STEM from a difference that I wasn't aware of that I wasn't really, that I hadn't formalized, but I cleared up the difference that there's two types of valid two types of things people are trying to do in an app.</p>
+
 <p>Then I was able to solve it. When I separated out into two separate methods, validate and validate only, and I think it's going to be intuitive. I'm going to document it up and I think everybody is just going to think it. Uh, it works the way it should work and I'm, I'm so happy with it. Half. So happy with it.</p>
+
 <p>Like I finally, this has been. Something nagging in the back of my mind that's not perfect. And now in my mind, it's perfect in my mind. Maybe it's not in reality, but I think it's perfect. So I'm putting it to bed, um, and I can move on with my life. Uh, but this brings me to a bit of a bigger discussion.</p>
+
 <p>Um. This problem I, there's two ways I could have approached this. So, you know, the way I did approach it, um, I also could have approached it a different way, which is actually how I started approaching it. I. You get an a get hub issue where somebody says, Hey, it would be cool if the validation persisted from request to request, you know?</p>
+
 <p>Oh, yeah, yeah. Okay. We should make that available. Well, how do we do that? Maybe we'll add a config option. Maybe we'll add someone. How would we configure that ability? Okay, well, what if we have a trait called persists validation that maybe you just add used, persists validation. We document it.</p>
+
 <p>Okay. Right, right. So that's fine. And I actually started that way. I actually have a trait in a sample app called persist validation that I was messing with, and then, okay, that real time validation, they want maybe have a thing called persist validation and only validates specific fields or whatever.</p>
+
 <p>Okay. Maybe we have used real time validation, whatever. You just keep adding in these options. That describe the functionality, but they don't describe the use case. Um, and this was the road I was starting down, but it felt fuzzy to me, and I just hate adding more documentation for specific functionality that you have to now understand and know you have to understand everything that I understand and, and it's hard for me to understand this stuff.</p>
+
 <p>So why would I burden every user with that? So basically I had a choice. And I've had this choice a hundred times in Livewire, and every time I come across this choice, I don't realize it. It is that choice right away. But when I do realize that it's a choice between an invisible feature and a visible feature, and by that I mean an invisible feature is something that user will never notice.</p>
+
 <p>A visible feature is like them looking up how to do a specific thing and adding a trait and whatever. Once I realized that it's, that, that, that, uh, that fork in the road, I just. Choose the invisible, the invisibility route. I just go with the invisible. Um, and that, that's been my path with this whole Livewire thing is like, find the way that people expect it should work, which is so hard.</p>
+
 <p>And it takes like, user testing is super value. Interviewing people, using it yourself, dogfooding it, thinking about it a lot. Um, those are all the things I employ to anticipate how a user. Would expect it to work and then make it work the way they expect it to work. So basically I picture, like I picture a cartoon character, like walking in space and the road is like filling in as they walk, you know, like, it's like.</p>
+
 <p>The road is maybe it's like a brick road and the bricks are floating up from the abyss and just kind of assembling in front of them and maybe their eyes are closed in, they're whistling a happy tune, and they have no idea that if the road stops building itself, they'll fall to their death. But it's just magically happening as they go.</p>
+
 <p>I think that's the, the, and now I literally just came up with that right now. Um, it's pretty off the wall, but, uh, I think it's actually kind of. I think it's kind of accurate. That's what I want Livewire to be. I want it to be a road that assembles in front of you and you have no idea. You think you're just walking and whistling and happy tune.</p>
+
 <p>But underneath the hood there's like crazy stuff happening, you know, to make this happen. Um, and from an implementation perspective, I tend towards the simple implementation. I tend towards wanting it to be a simple tool with a bare set of, that's another balance. I'm, everything in life is balances, but that's another balance that competes with this value of invisibility.</p>
+
 <p>The value of a simple implementation, a simple set of tools that the user understands and can manipulate. I think of it kind of like the react versus view dichotomy where VJs has a lot of, um, it has a wider API because it caters to specific use cases with specific API APIs where react is more like a bare set of tools.</p>
+
 <p>And for those use cases, you can use a, that set of tools to accomplish what you need to accomplish. Um, and certain people like. There's differences in both of them, and there's different things to like with view. It might cater to specific things really well, but because you don't, I actually think that this, this is not an all encompassing.</p>
+
 <p>This is a reduction of view in react. I'm just saying that, but let's just go with the metaphor and let's just, uh, um, turn these two tools into characatures with view. With a wider API that is more specific for specific use cases for use cases, it, um, it fits the needs really well for those things.</p>
+
 <p>But then when there's needs outside of it, you feel like you're hacking something, um, or you're doing something that's unintended because it's more opinionated, where react is less opinionated and it's more of a bare bones set of tools. You, uh, when you, it has a slimmer API, so you have to employ more mojo to figure out how to do something and you run the risk of doing it in a not ideal way because.</p>
+
 <p>You don't understand it that well, the learning curve is higher, but when you run across something that you don't know how it solves you, you pretty much already do that for everything else. So you'll feel okay, you know, I'm mixing and matching techniques to get the job done. Okay, so that's a competing, those are competing values.</p>
+
 <p>This like, I want to, I want live wear to feel invisible. And also I want live where to fear, feel like a bare bones set of tools that's implemented in a simple way and is a transparent tool. I think that, and that's where react is moving towards with this hooks thing. This like a, you know, this hooks reveal the nature, the true nature of react or whatever, and it.</p>
+
 <p>Totally steepen the learning curve and a lot of people, it just kind of boggles their mind. Um, it's very confusing. They use effect hook specifically. Um, and it's something in that people talk about a lot. And this, I think this is an example of like maybe Dan AB off and I, I don't know that much about react.</p>
+
 <p>So again, just go with the metaphor or analogy. So like Dan Habermas was saying, well, I'm going to, let's reveal what, let's provide an API that reveals the way react works. Then. People can use it too. It's two. It's op most optimal. You know, they, you know, I, it makes sense. I understand that temptation.</p>
+
 <p>Um, where I imagine Avenue has a different approach to his tool, um, view. So anyway, so it's a competing thing where I want live, where to feel invisible. I also want it to feel like you understand how it works so that you can mix and match and be creative with it. It's a very, very hard thing to balance, but I'll say that in general, I choose in visibility as much as I can.</p>
+
 <p>Yeah. It's funny. That is, that is something intention because now that I'm saying it, the more I choose invisibility, often the, the more complex I'm making the inner workings of Livewire. And there's so many examples of this, but I guess I'll just give you two examples in the past two days. So I paired with my buddy Mark yesterday.</p>
+
 <p>Um, he's Mark salmon, shout out to him. He's, he's an awesome guy, is using live wire in a project. And so I just called them up to pair with him, um, and sort of get, you know, like what are the problems he's facing and whatnot. And so we talked about, um, what did we talk about? We talked about a specific.</p>
+
 <p>Holy crap. I don't even remember right now. Well, let's just say that it'll hit me as I'm talking about it, but it was a feature and, and I was sort of saying, well, yeah, we could add this, this option, this like. Config option or we could just handle this automatically. And he was like, well, maybe we could add a config option.</p>
+
 <p>And, and, and it quickly, it was apparent to me again, Oh, this is the choosing visibility thing. Now we have to make it invisible. We have to do it the way that you'd expect it to work. And so the validation thing is the same way. I chose invisibility. I chose to work really hard to understand how people expect it to work.</p>
+
 <p>It anticipate their use cases. And then build the road right in front of them so that they don't worry about it. They're not thinking, you know, when they use this arrow validate and the validation just works in persist across requests, they'll go, Oh yeah, that's how it's supposed to work. They won't even say that.</p>
+
 <p>It'll just work the way they think it should work. They have no idea what's going on under the hood. And the pains that I went through to like deal with message bags and persisting message bags and merging message bags and persisting only specific fields and message bags and, and detecting if it's a validation error.</p>
+
 <p>From, that was like thrown inside the component or if it, you already added a with errors onto the view that the render function returns like, ah, the story goes on and on and on, and there's a hundred examples of this in live where I chose the route of invisibility, even though it means making the app a little bit more complex and, but that's, that's just what I want live where to be.</p>
+
 <p>I don't know. I want it to be something that, that, that just feels like scary, easy to use an install. Like the installation steps are still two steps. You don't have to publish a config file, you don't have to configure anything. You're just composer require add the little assets and you're off to the races.</p>
+
 <p>So anyway, that's, that's my, that's my labor on a, on Livewire is making it feel. Completely invisible, hopefully, and seamless. Yeah, but who knows? Maybe one day I'll want to reveal the nature of Livewire and add hooks and make it really hard to use, except for really smart people, and then they'll all feel superior and talk about our conferences and everybody will feel inferior and decide that it's definitely the way to go because whatever.</p>
-<p>Bye.</p></p>
+
+<p>Bye.</p>
+</p>
 </div>
 </main>
 

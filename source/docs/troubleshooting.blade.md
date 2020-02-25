@@ -8,13 +8,13 @@ section: content
 
 The most common issues encountered by Livewire users has to do with Livewire's DOM diffing/patching system. This is the system that selectively updates elements that been changed, added, or removed after every component update.
 
-For the most part, this system is reliable, but there are certain cases where it is hard for it to keep track of things. When this happens, weird things happen to the component in the Browser.
+For the most part, this system is reliable, but there are certain cases where Livewire is unable to properly track changes. When this happens, hopefully, a helpful error will be thrown and you can debug with the following guide.
 
-### Symptoms;
+### Symptoms:
 * An input element looses focus
+* An element or group of elements dissapears suddenly
+* A previously interactive element stops responding to user input
 * A loading indicator mis-fires
-* A previously interactive element becomes stale
-* Transitions aren't applied to appropriate elements
 
 ### Cures:
 * Add `wire:key` to elements inside loops:
@@ -34,6 +34,9 @@ For the most part, this system is reliable, but there are certain cases where it
 <ul>
     @foreach ($items as $item)
         @livewire('view-item', $item, key($loop->index))
+
+        <!-- key() using Laravel 7's tag syntax -->
+        <livewire:view-item :item="$item" :key="$loop->index">
     @endforeach
 </ul>
 @endverbatim

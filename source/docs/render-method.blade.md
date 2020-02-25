@@ -4,7 +4,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-A Livewire component class needs only one method to function properly: `render()`. This method fires on every component update and is in charge of returning the Blade view to be rendered.
+A Livewire component's `render` method gets called on the initial page load AND every subsequent component update.
 
 @tip
 In simple components, you don't need to define a `render` method yourself. The base Livewire component class has a dynamic `render` method included.
@@ -14,7 +14,7 @@ In simple components, you don't need to define a `render` method yourself. The b
 The `render()` method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:
 
 @warning
-Make sure your Blade views have only ONE root HTML element.
+Make sure your Blade view only has ONE root element.
 @endwarning
 
 @codeComponent([

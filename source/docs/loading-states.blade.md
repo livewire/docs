@@ -23,20 +23,7 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disapear.
 
 ## Targeting specific actions {#targeting-actions}
-The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions. Consider the following example:
-
-@code(['lang' => 'html'])
-<div>
-    <button wire:click="checkout">Checkout</button>
-    <button wire:click="cancel">Cancel</button>
-
-    <div wire:loading>
-        Processing Payment...
-    </div>
-</div>
-@endcode
-
-Notice, we've added a "Cancel" button to the checkout form. If the user clicks the "Cancel" button, the "Processing Payment..." message will show briefly. This is clearly undesirable, therefore Livewire offers a `wire:target` directive. It allows you to attach a component's loading state to a specific component action. Let's look at the adapted example:
+The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions.
 
 @code(['lang' => 'html'])
 <div>

@@ -36,15 +36,12 @@
         <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5df22e74a7725e75cfdc">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0b6b277f2a6e14a0ac23">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
-<header class="flex items-center h-24 py-4 bg-white relative" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
@@ -203,35 +200,65 @@
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
 <p><p>So this is a little, um, analogy, metaphor. I dunno. A little thought experiment, analogy thing that I thought of recently, and it just reminded me when I was recording that, that last episode called a lovely refactor. Um, so wrapping your arms around a big tree. Okay. So like I expressed, I got a pull request that overwhelmed me and the pull requests overwhelmed me, but also my own code base overwhelmed me.</p>
+
 <p>Like I hadn't touched, I hadn't. I feel like I don't know everything about the backend of Livewire right now. You know that that changes. The more you're working in a certain area, you understand a lot more. But over time, you know, it's like a sand timer thing, a code base, like you sort, you start to lose it gradually over time, and then as you work on it, you, you know, the sand fills back up and then it slowly drains out.</p>
+
 <p>So this is kind of what came to me. I was thinking about, well, I don't really own this code anymore. This is, it's a, it's an unpleasant position to be in when you have to change code or work on code that you don't understand. Like there's too much stuff going on and you feel like you're wrapping your arms around a really big tree.</p>
+
 <p>You want to wrap your arms, you want to touch your fingers at the other end, but you just can't, the tree is just too big. So I think this analogy works for a lot of things, like a Greenfield project, let's say. Um. It starts off as a STEM, just a tiny little sapling, and you can wrap your fingers around it on one hand and it grows and it grows as you build it, but you, you have full control over it.</p>
+
 <p>You feel like, um, you know, every angle of it, all of those things. And so maybe good architecture, um, doesn't seem as important because you know, all the code. Um, and so I've seen this with even really big code bases at a company. Usually there is a, uh, a person who has been there forever. And who like wrote the thing and it's, you know, if it's a legacy 10 year old code base and they have their arms around the whole thing, I don't know how they do it.</p>
+
 <p>It's a really big tree. So they must have really, really long arms, but they can make changes, you know, fast and, and um, yeah. But the changes aren't always architecturally sound and they're not necessarily thinking big picture architecture. Because they keep the whole code base. Maybe they're there, like the, the issue ticket guy, like you know, other, the, the new hires and the specialists and consultants are working on new features and other microservices.</p>
+
 <p>But this guy, he's in the main code base and he's the one, you know, going through the issue tracker every day and fixing diverse parts of the code base. This is funny. I think it's, I think it's like a type, like in any longstanding code base or big or big company that's been around for a while.</p>
+
 <p>There's this, this person definitely exists. Anyway, I say this to say that, um, that this person doesn't necessarily need good architecture or need as good of architecture because it's all in his head. Her, it head, um, doesn't need good architecture because it's all in their head. And, um.</p>
+
 <p>Person. Now I'm hung up on the fact that I'm trying not to use the word he, because all the people I know that are like this are guys. Um, and I'm trying to use the VA when I'm saying this, but I don't know. Oh man. Oh man. Social, gender specific cities. Uh, okay. This person, this animal. Um, who is this way and wrap our arms around the code base.</p>
+
 <p>Okay. So you have your Greenfield app and you have your hand around the code base. Right. And like I said, or whatever the size of the code base is, when you own it, you own it and you can wheel and deal and move code fast. But when that sand timer runs out. And you lose, like let's say your arms shrink.</p>
+
 <p>So the arms shrinking, we'll be the analogy for, um, for how much, you know of the code base and the size of the trunk will be how big the code base is or how complex it is. So as your arms shrink or the sand runs out and you try to reach around the tree and you can't anymore, and you can't touch your fingers, you have a couple of options, you can push through it and you can grow your arms.</p>
+
 <p>By just working on the code base, understanding more of it, and eventually making the change or making dangerous changes, making changes you're not sure about, and hoping that, hoping that they work and don't impact other parts of the code base. Or you can shrink the trunk and a way to shrink the trunk is making abstractions that reveal the nature of the code base.</p>
+
 <p>So this last, uh, architectural change that I, that I, um, talked about did just that. I, it took a system that was just a bunch of code, like unorganized. There was, there's files that run code and they do things in different places and the different things are scattered across. And I moved it into one little bit in the service provider that says, register.</p>
+
 <p>Hydration, middleware and lists, all of these middlewares that are well-named. They name exactly what they do, and they're in a specific order because they act like layers of an onion on a shell. So this little bit now reveals the nature of the code base a little bit. You can remove this whole chunk and now you've removed a ton of functionality.</p>
+
 <p>You can swap in functionality easily. You can comment out a line, and now you've removed that functionality from the code base completely. So, I don't know. It's just sort of something that's been rattling around in my head is this idea of, of that feeling like, you know, that feeling, if you've worked at any, on any real project, you know, the feeling of not being able to wrap your arms around the tree.</p>
+
 <p>And you also know, um. You know how nice it is when you can wrap your arms around the tree and how you get a little bit lazy in terms of architecture. So maybe this is a lesson in distancing yourself from the code base or fresh eyes coming on the scene of a code base. Because when they don't, when you don't have all the understanding, you, um.</p>
+
 <p>You use, you can use, you can refactor, uh, to make the change easy to make, to reveal the nature of the code base at a, at a high level. And that's what it is. That's what abstractions are all about, is at the lowest level of abstraction, you have logic, you have procedures, you have imperative code, you have lines of if statements and L statements and whatnot.</p>
+
 <p>And maybe you put them into classes and you call it object orientation, but really if it's just, you know, imperative code jumped into classes, maybe you just got bought yourself a couple extra names or you know, whatever. But good abstractions help reveal the nature of these interactions and all of the patterns that you read about.</p>
+
 <p>That I've read about and studied and you know, it's the famous like pattern of people developer who, you know, you don't know anything. And then you want to know everything. So you read all these books and you think you have to abide by all these practices and then you just throw them all out the door and start doing your own thing.</p>
+
 <p>Well, as I'm, I've been on this, do your own thing, journey for awhile. I'm starting to kind of rediscover a lot of the patterns that I've read about before. A lot of the principles I've joined your principles, things like that. Um, prefer composition over inheritance, uh, the law of Demeter, all of these things that I've encountered.</p>
+
 <p>Along my journey I'm now re encountering, um, but organically, like encountering them in on my own and going, Oh, okay, so maybe these architectural astronauts who wrote these books warrant, um, you know, architectural astronaut, it's a PR PR pejorative term. It's like, it's almost like a, um, a hurtful term, you know?</p>
+
 <p>But. But I don't know. Maybe there's something to it. There's definitely something to it, and maybe, I mean this, there's no, there's no substitute for experience. So even if I don't know, what am I saying? I'm saying that a lot of those principles are really good. I'm glad I've read about them.</p>
+
 <p>I'm glad I know them. But you know, you go through the phase of, you use them all and then use them to far, and you don't understand why they're there. That's the thing. It's like. There. It's like the LA, you know, there was a, a layer cast podcast awhile back when Matt Stauffer and, uh, Taylor and Jeffrey, that was just their show season one, I guess.</p>
+
 <p>Um. And Matt, at one point, Matt used to whip out like biblical analogies and they were pretty apt. Um, and one of them that I'll never forget was he said, uh, the Sabbath, I'm going to screw this up. I don't actually know the like verse or anything, but the SA the Sabbath is for you. You are not for the Sabbath or something like that.</p>
+
 <p>Like basically kind of this idea that in the new Testament, you know, um, Jesus comes and, and there's all these Jewish laws that, um, Pharisees and people are, uh, like. Like, believe it's really important to uphold these laws. And so their legalistics will say, and Jesus goes, so these laws are, you know, I'm not here to abolish the laws.</p>
+
 <p>I'm here to fulfill the law, or whatever. I don't know. It's a lot of confusing stuff, but the idea is that the laws aren't made for you to serve them. They're made. To serve you. So that's kind of the idea here with these, with these big patterns and principles, is I think that's the problem is you start by serving them, by learning them and writing them on a stone tablet and abiding.</p>
+
 <p>Um, and then at least if you're like me, I started to throw them out and kind of chart out my own path, and now I'm sort of seeing how they serve me. You know, they're meant to serve you. So it's. It's a change anyway, object orientation, principles, programming, all of those things. They're good things and abstractions are really, really good things because they help shrink the trunk of a big tree.</p>
+
 <p>That's hard to wrap your arms around to help reveal the nature of the code base at a higher level. And that's the thing. It's all about levels of abstraction, right? The higher the level of abstraction, the more indirection, the more indirect. Um, uh, data flows, you know, like, it's not just literal line by line anymore.</p>
+
 <p>There's moving parts. There's, uh, IOC containers. There's all of these things. And depending on the size of your code base, it can be way overkill. But I had a big code base or at the appropriate size. Higher levels of abstraction at the cost of indirection. They allow you to understand the inner workings of the code base, and you can easily swap things out and understand parts, whatever, blah, blah, blah.</p>
-<p>Five seconds left. Thanks for listening to the rant. Um, yeah.</p></p>
+
+<p>Five seconds left. Thanks for listening to the rant. Um, yeah.</p>
+</p>
 </div>
 </main>
 

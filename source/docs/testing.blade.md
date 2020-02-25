@@ -6,79 +6,96 @@ section: content
 
 Livewire offers a powerful set of tools for testing your components.
 
-For the demonstrations, lets assume a simple Counter component like the following:
+Here's a Livewire component and a corresponding test to demonstrate the basics.
 
 @codeComponent([
-    'className' => 'Counter.php',
-    'viewName' => 'counter.blade.php',
+    'className' => 'CreatePost',
+    'viewName' => 'create-post.blade.php',
 ])
 @slot('class')
 @verbatim
 use Livewire\Component;
 
-class Counter extends Component
+class CreatePost extends Component
 {
-    public $count = 0;
+    public $title;
 
-    public function increment()
+    public function mount($initialTitle = '')
     {
-        $this->count++;
+        $this->title = $initialTitle;
     }
 
-    public function decrement()
+    public function create()
     {
-        $this->count--;
+        auth()->user()->posts()->create($this->validate([
+            'title' => 'required',
+        ]);
+
+        return redirect()->to('/posts');
     }
 
     public function render()
     {
-        return view('livewire.counter');
+        return view('livewire.create-post');
     }
 }
 @endverbatim
 @endslot
 @slot('view')
 @verbatim
-<div style="text-align: center">
-    <button wire:click="increment">+</button>
-    <h1>{{ $this->count }}</h1>
-    <button wire:click="decrement">-</button>
-</div>
+<form wire:submit.prevent="create">
+    <input wire:model="title" type="text">
+
+    <button>Create Post</button>
+</form>
 @endverbatim
 @endslot
 @endcodeComponent
 
-You can pass data to `Livewire::test()` method to initialize your component properties like so:
-
 @code(['lang' => 'php'])
-Livewire::test(Counter::class, $param1, $param2 ...);
-@endcode
-
-@code(['lang' => 'php'])
-class CounterTest extends TestCase
+class CreatePostTest extends TestCase
 {
     /** @test */
-    function can_increment()
+    function can_create_post()
     {
-        Livewire::actingAs(factory(User::class)->create())
-            ->test(Counter::class)
-            ->assertSee(0)
-            ->call('increment')
-            ->assertSee(1)
-            ->call('decrement')
-            ->assertSee(0)
-            ->set('count', 1)
-            ->assertSee(1)
-            ->set(['count' => 2])
-            ->assertSee(2)
-            ->call('emitFoo')
-            ->assertEmitted('foo')
-            ->call('emitFooWithParam', 'bar')
-            ->assertEmitted('foo', 'bar')
-            ->call('emitFooWithParam', 'bar')
-            ->assertEmitted('foo', function ($event, $params) {
-                return $event === 'foo' && $params === ['bar'];
-            });
+        $this->actingAs(factory(User::class)->create())
+
+        Livewire::test(CreatePost::class)
+            ->set('title', 'foo')
+            ->call('create');
+
+        $this->assertTrue(Post::whereTitle('foo')->exists());
+    }
+
+    /** @test */
+    function can_set_initial_title()
+    {
+        $this->actingAs(factory(User::class)->create())
+
+        Livewire::test(CreatePost::class, ['initialTitle' => 'foo'])
+            ->assertSet('title', 'foo');
+    }
+
+    /** @test */
+    function name_is_required()
+    {
+        $this->actingAs(factory(User::class)->create())
+
+        Livewire::test(CreatePost::class)
+            ->set('title', '')
+            ->call('create')
+            ->assertHasErrors(['name' => 'required']);
+    }
+
+    /** @test */
+    function is_redirected_to_posts_page_after_creation()
+    {
+        $this->actingAs(factory(User::class)->create())
+
+        Livewire::test(CreatePost::class)
+            ->set('title', 'foo')
+            ->call('create')
+            ->assertRedirect('/posts');
     }
 }
 @endcode
@@ -89,73 +106,73 @@ class CounterTest extends TestCase
 Livewire::actingAs($user);
 // Set the provided user as the session's logged in user for the test.
 
-Livewire::set('foo', 'bar');
+->set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
-Livewire::call('foo');
+->call('foo');
 // Call the "foo" method
 
-Livewire::call('foo', 'bar', 'baz');
+->call('foo', 'bar', 'baz');
 // Call the "foo" method, and pass the "bar" and "baz" parameters
 
-Livewire::emit('foo');
+->emit('foo');
 // Fire the "foo" event
 
-Livewire::emit('foo', 'bar', 'baz');
+->emit('foo', 'bar', 'baz');
 // Fire the "foo" event, and pass the "bar" and "baz" parameters
 
-Livewire::assertSet('foo', 'bar');
+->assertSet('foo', 'bar');
 // Asserts that the "foo" property is set to the value "bar"
 
-Livewire::assertNotSet('foo', 'bar');
+->assertNotSet('foo', 'bar');
 // Asserts that the "foo" property is NOT set to the value "bar"
 
-Livewire::assertSee('foo');
+->assertSee('foo');
 // Assert that the string "foo" exists in the currently rendered HTML of the component
 
-Livewire::assertDontSee('foo');
+->assertDontSee('foo');
 // Assert that the string "foo" DOES NOT exist in the HTML
 
-Livewire::assertEmitted('foo');
+->assertEmitted('foo');
 // Assert that the "foo" event was emitted
 
-Livewire::assertEmitted('foo', 'bar', 'baz');
+->assertEmitted('foo', 'bar', 'baz');
 // Assert that the "foo" event was emitted with the "bar" and "baz" parameters
 
-Livewire::assertHasErrors('foo');
+->assertHasErrors('foo');
 // Assert that the "foo" property has validation errors
 
-Livewire::assertHasErrors(['foo', 'bar']);
+->assertHasErrors(['foo', 'bar']);
 // Assert that the "foo" AND "bar" properties have validation errors
 
-Livewire::assertHasErrors(['foo' => 'required']);
+->assertHasErrors(['foo' => 'required']);
 // Assert that the "foo" property has a "required" validation rule error
 
-Livewire::assertHasErrors(['foo' => ['required', 'min']]);
+->assertHasErrors(['foo' => ['required', 'min']]);
 // Assert that the "foo" property has a "required" AND "min" validation rule error
 
-Livewire::assertHasNoErrors('foo');
+->assertHasNoErrors('foo');
 // Assert that the "foo" property has no validation errors
 
-Livewire::assertHasNoErrors(['foo', 'bar']);
+->assertHasNoErrors(['foo', 'bar']);
 // Assert that the "foo" AND "bar" properties have no validation errors
 
-Livewire::assertNotFound();
+->assertNotFound();
 // Assert that an error within the component caused an error with the status code: 404
 
-Livewire::assertRedirect('/some-path');
+->assertRedirect('/some-path');
 // Assert that a redirect was triggered from the component.
 
-Livewire::assertUnauthorized();
+->assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
 
-Livewire::assertForbidden();
+->assertForbidden();
 // Assert that an error within the component caused an error with the status code: 403
 
-Livewire::assertStatus(500);
+->assertStatus(500);
 // Assert that an error within the component caused an error with the status code: 500
 
-Livewire::assertDispatchedBrowserEvent('event', $data);
+->assertDispatchedBrowserEvent('event', $data);
 // Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
 
 @endcode

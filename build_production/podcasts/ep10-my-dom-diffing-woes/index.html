@@ -36,15 +36,12 @@
         <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5df22e74a7725e75cfdc">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0b6b277f2a6e14a0ac23">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
-<header class="flex items-center h-24 py-4 bg-white relative" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
@@ -203,21 +200,37 @@
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
 <p><p>Okay. So this episode is going to be the one where I actually talk to you about what I came here to talk to you about. Hopefully listen to episode 9 about how Dom different works. So I'm at a fork in the road. I'm getting all these issues not a ton. You know, it's not like doesn't seem to be breaking everything for everybody.</p>
+
 <p>But this you know how I said the final piece of the puzzle was the backend caching thing, which if you haven't been following the project closely don't even know what I'm talking about, but I thought that was the final piece of the puzzle. This is the final piece of the puzzle in terms of what's the word Soul like reliability.</p>
+
 <p>This is the thing. This is the one part of Live Wire that gives me a little bit of the heebie-jeebies. It's a hard part. It's hard to understand. It's hard. It's just kind of a beast how Livewire does down dipping using morph dumb. Like I said, I've made updates to morph Dom like tons of them. So more Stones become a little bit of a Frankenstein inside Live Wire, but this is the piece of the puzzle that they're still it's still the cause of a lot of random issues on GitHub and I want it to be really.</p>
+
 <p>And UJS is Dom dipping stuff is really good. Like you almost never run into issues. And then when they make you do that key thing where if you have a loop like a V4 and you add: key you feel like oh that's really weird because you're not used to dealing you're not used to worrying about the Dom dipping that view JS is doing it just works.</p>
+
 <p>So I want to have that feeling out of the box and morph time just isn't cutting it. So I have this decision to make Dua a. Like really roll up my sleeves and grok morph down which I feel I've tried to do multiple times, but do I really roll up my sleeves and like manhandle morph Dom like understand it to the core write notes make, you know actual refactor it to make it more readable.</p>
+
 <p>It's insanely unreadable. Like if you try maybe just for fun go to the GitHub morph down repository. Look at morph Dom dot J's that big file and try to understand it. I dare you. It's a massive procedure. File and it's really hard to understand. So do I do that that's option A where I take more of them and I just make it my.</p>
+
 <p>Insert word that we shouldn't say here. So back on track. Yeah. Do I do that that's option A or option b is I switch to a virtual Dom strategy like I talked about before that has the benefit of I could literally Use SNAP dumb or any of these dumb different libraries that reactor view use, that would be great.</p>
+
 <p>That would be super easy. And sorry it was that part would be easy the part of like making something work beautifully, but getting it to work. I would have to translate all of the Dom into the virtual Dom and then do the dipping and translate it back whatever it be a lot of weirdness and I'm just not sure if that's something I want to do because I attempted it before I gave it a weekend and I ended up just killing that.</p>
+
 <p>So that's option be an option C is there's always the rewrite in the sky option C is do I write my own Dom differ like like more of them, but for exactly what I need. So option A is the most realistic one. It's the one I've been doing. I just keep hacking morph Dom until I get it to do. What I wanted to do.</p>
+
 <p>The pros of option AR is probably the least work and it's the least disruptive. But the cons of it are morph times hard to understand. It's very hard to understand and I don't even know if I'll be able to make it do what I want without almost rewriting it anyway option b where I switch to a virtual Dom strategy the pro is that I can rely on somebody else maintaining.</p>
+
 <p>Sorry, the pro of of option A another huge probe. The biggest Pro is that there's a whole group of people on GitHub that are constantly making sure that it works for everybody meaning it's been out there for a long time. There's lots of weird little if statements that detect stuff for certain browsers.</p>
+
 <p>Like if I were to write my own starting from scratch, I would be basically just Reinventing the wheel and all those areas. So option b is starting with a, you know, implementing a virtual Dom. Like Snap down that vue.js uses and if I do that the pro is like I said I get to use basically the hardened beautiful solid core that vue.js uses.</p>
+
 <p>The con is to adapt my strategy to that strategy would be a lot of heavy lifting and might result in just as much weird errors as I'm getting right now. Option C is the most enticing to me because I would get to understand and own every bit of it. And if I wrote that I would I would have written an understand every single nook and cranny of live wire from Back to Front I would have.</p>
+
 <p>Ownership of it and what understand all of it and it would all be in my brain and intentional and within my domain this is a pro and a con it's a pro because I totally understand it. It's a con because I have widened the codebase significantly and I would be Reinventing the wheel like I said before so it's a tough one, and I don't actually I'm not going to come to an answer right here on this call on this call.</p>
+
 <p>Like we're just kind you know, me and you were talking and I don't know what I'm going to do. So I'm just here to sort of vent and tell you my dom dipping woes. This is the last nasty part of Live Wire and if I can overcome this then Live Wire in my brain Live Wire will be clean and efficient on the front end and it's getting there.</p>
-<p>But this is kind of a missing piece. So you understand how Dom dipping works now and you understand the crossroads that I'm at in terms of strategies for the front end. I will hopefully do a follow-up post where I tell you what I decided to do and how it went right or wrong. But until then enjoy your hike and thank you for listening.</p></p>
+
+<p>But this is kind of a missing piece. So you understand how Dom dipping works now and you understand the crossroads that I'm at in terms of strategies for the front end. I will hopefully do a follow-up post where I tell you what I decided to do and how it went right or wrong. But until then enjoy your hike and thank you for listening.</p>
+</p>
 </div>
 </main>
 

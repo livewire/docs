@@ -155,3 +155,7 @@ class Counter extends Component
 ## View it in the browser {#view-in-browser-finally}
 
 Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic 🧙‍♂.️
+
+@tip
+In general, something as trivial as this "counter" is more suited for pure JavaScript or AlpineJS. Livewire's strengths really shine for interactions that would normally interact with the server. (Think forms, data-tables, etc...)
+@endtip

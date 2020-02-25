@@ -4,7 +4,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-## PHP Hooks
+## Class Hooks
 
 Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
@@ -13,8 +13,8 @@ Hooks | Description
 --- | ---
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
 hydrate | Runs on every request, immediately after the component is hydrated, but before an action is performed, or `render()` is called
-updating | Runs before any update to the Livewire component
-updated | Runs after any update to the Livewire component
+updating | Runs before any update to the Livewire component's data
+updated | Runs after any update to the Livewire componenta's data
 updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
 @endtable

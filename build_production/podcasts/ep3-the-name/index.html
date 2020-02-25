@@ -36,15 +36,12 @@
         <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5df22e74a7725e75cfdc">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0b6b277f2a6e14a0ac23">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
-<header class="flex items-center h-24 py-4 bg-white relative" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
@@ -204,32 +201,50 @@
 <h3>Transcript:</h3>
 <p><p>[00:00:00] Caleb: Okay. Today. We're going to talk about Livewire the name. Where did it come from? How did how did we get here? What what changed along the way and what are some of the problems that I'm still coming across? So Livewire as you know, it was inspired by a package called Phoenix live. So Phoenix is a framework like laravel for the language Elixir like laravel is to PHP and Chris McCord the author of Phoenix.
 He demoed this new tool these working on called live view Phoenix live view and I saw the blog post for this my mind blew up and I spent the next eight months building live where and it started out being really similar to the live view and now it's become something different but similar in some ways and definitely took inspiration from so.</p>
+
 <p>So the first name that Livewire had was Phoenix light was a phoenix live view laravel proof-of-concept not an official name, but that was the first thing I called. [00:01:00] It was just a proof of concept for Phoenix live view inside laravel and I thought that I might just call it laravel live view but I wasn't sure like I thought that might be kind of lame to just steal someone's name for another for a package in another Community.
 Like if it was like, I don't know view redox or something instead of view acts like kind of. On spin on it. So that's what it was out of the gate. The first the first name I came up with kind of off the cuff. I think was lightwire so light wire and basically the my goal was I wanted to convey something like electroluminescence electroluminescence.</p>
+
 <p>I don't know like luminescent electric but not I don't know. So I like what I wanted wire. I don't know why I came up with wire. But I wanted wire and because it connects things and it's you know, I want to basically I wanted live where it's funny because I can't think of why I wouldn't pick a live wire but I definitely struggled with it for a while.</p>
+
 <p>I [00:02:00] had tons and tons of names written down on envelopes and paper and whatever like what am I going to call this thing? I just didn't love light. And I think maybe part of why I didn't love it as people kept like Miss stating it. I think they were saying I think maybe they were saying Livewire by accident.
 Maybe that was my cue. I forgot the process. Basically it was this process of me like sitting with an idea and brainstorming a bunch and then after a while the right the right name sort of emerges because it's the one with the fewest surprises. It's like the principle of least surprise. It's one of the few surprises.
 It meets all the criteria. Is best is anyone else would and probably more so that's kind of how I made the decision. It wasn't an obvious like oh, this is Livewire. It was like it took some tumbling, you know to get there to that point. So I called it live where then the next step is. So live view is capital L and capital V.
 And so the question is is it live wire with a capital? W? Or is it just live where one word [00:03:00] and so this is something I struggled with and still do struggle with because people do write it as live where with a capital W from time to time because I think that and that's just kind of tells me like that's what at least some people assume.</p>
+
 <p>It's how you would spell it and I would probably assume that too but here's the reason why I'm sort of sticking with Livewire lowercase. W this is kind of crazy, but it's one of those things that actually matters to me. I'm trying to think of an example. There's other examples of packages sort of named like this like maybe sigh shell the thing under Artisan Tinker.</p>
+
 <p>There's definitely other packages that have how man I can't think of a good one. There are definitely good ones though. Shoot. Anyway when you are if you live where is going to have a classes? It's going to be a namespace in PHP, right and when you import that namespace, is it going to be live?
 Capital W wire like if it's if it's live wire in the same way, like if you have HTML a class called literally you want [00:04:00] to call it HTML. Is it going to be all capitals for your acronyms or is going to be Capital H lowercase T. Ml I would do Capital H lowercase T. Ml I think there's some standard somewhere that says that's what you should do.</p>
+
 <p>I don't know but I treat acronyms as word. When I'm studly casing them for classes, so kind of naturally I think I would do live wire with all lowercase and not do the the capital W and a class name space because then it's sort of like when you make a like a hashing, you know how like encryption if you encrypt something.
 You can decrypt it. It's like to way if you hash it's one way you have something and you can never you can never make it back to its original form. I felt like the Livewire capital W name for class importing was a similar idea that if you just saw a used statement in PHP that said use capital L IV E capital W IR e you wouldn't know if it's two words or if it's [00:05:00] one word with that capital W.</p>
+
 <p>It's ambiguous. It doesn't work the other way around and something about that just hurts my brain. It adds a little bit of friction. That's like oh this if you do this weird thing where you have. Word that has multiple capitals You Now enter the world of confusion. So I thought I would make it not confusing and live.
 Where is one word one word, and I think I really sort of came to this when I was writing the. My composure dot Json file where I'm autoloading the root Source namespace. What am I going to Auto load that route class and it's and it's live wire with one word and that's kind of what I suck with. So that's that that's part one of the naming story.</p>
+
 <p>Oh man. We're already at five minutes and forty. I'll have to rush part 2, so I need to make a so GitHub. What am I going to make GitHub? So GitHub live where / live wires. Sorry the live just get up / live wires taken. What am I going to do? There is a live where well, I don't know because I don't want [00:06:00] it to necessarily just be like laravel this I wanted to be its own thing and Taylor has publicly stated that people should not prefix their packages with laravel because people get confused and think their official and Taylor like LLC laravel like it's trademarked.</p>
+
 <p>You can't just use it. So I tried to avoid that. So I was like, all right. Well forget whole organization. Maybe I'll have live boy or PHP Live Wire PHP is also it's actually mostly JavaScript like it's written mostly in JavaScript and it's a kind of like a JavaScript framework. So would it be live where JS know, it would be you know, well, okay be live where laravel yeah, but that's kind of weird so you can see the weirdness in the domain name.
 Live where framework.com is what I landed on for the domain name because the suffix to something like well, I'm not going to do live where PHP and I'm not going to do live or JSL do live where framework.com that felt. Okay, but I don't even know what I was thinking when I made the Twitter handle live where it was taken, of course, so I did live wire laravel reads horribly.</p>
+
 <p>It always bugged [00:07:00] me every time I saw it. I needed a different name. It couldn't just be Live Wire. And I liked the laravel context. It was later live where Larry Bell and I didn't feel as bad about using laravel my name if it was a weird suffix, you know, but that's really annoying. And every time I saw her wrote it, I just felt gross about it.</p>
+
 <p>So all of this was just sort of culminating into just this kind of bad feeling about the name that it just wasn't settled yet. So I was on an airplane to go fly fishing recently. And and on the way there I started writing down. Basically, I'd like mine dumped everything in my brain about the direction of live where and one of the area's is naming.</p>
+
 <p>I really wanted to settle on a name and get it off of Caleb or zo / Live Wire because that just feels like kind of like immature to me. Like it's an immature project. So I wrote here. I have the note right here. It was one of those things where I just sat down and I finally had time alone to think without the internet or any distractions and I had the solution just pretty much [00:08:00] came to me immediately was like.
 So am I going to call layer of a live wire or Live Wire? Well, I guess I still don't know but it's going to be Live Wire because I don't want to infringe on Taylor's laravel trademark. So but I realized the perfect domain name is laravel - live wire.com and the perfect Twitter name is at laravel live where those are the two things that I know then there was a question of do I make the GitHub or.</p>
+
 <p>Organization laravel - live where / live wire or just live wire / live where anyway, I wrote down no matter what I have to ask Taylor about this. So Taylor in my mind. I'm thinking well, you know, I know Taylor personally, so maybe he'll you know, I don't also want to take advantage of him and I don't want to put pressure on him, but it is like a pretty popular package like it's something I've pretty much dedicated like my life to at the moment.</p>
+
 <p>So it's not like I'm just kind of offhandedly creating a packet at something. Probably going to be around for a long time and hopefully be pretty like popular. And so maybe it's warranted here and I'm sure he'd empathize that the domain [00:09:00] names are really hard to get anything that feels natural and I figured I'll just tell them that I'm not going to use like laravel in like logo and The Branding at all.</p>
+
 <p>So anyway reached out to him like yesterday or two days ago and he said fine by me and so that that's it. I change the domain name last night at like 10:00 p.m. Two layer of a live where.com. I change the GitHub organization to just live wire / live where I don't know if that's the best move I had to this is actually legal don't come at me, but I had to like pay a guy in Bitcoin to get that organization.</p>
+
 <p>He was just squatting on it. So yeah, but I feel I feel good about the name finally. It's Livewire capital L. I'm going to change the logo at some point capital L live wire at laravel live where layer of alive where.com. And GitHub / Libor / Libor because I want to do composer require live. We're live.</p>
-<p>We're not composer require layer of alive or / live where I want you to be able to remember it and so you can just because that's the most natural thing as composer require live our special ever. Okay, we are at time. Thanks for listening as always [00:10:00] TTYL.</p></p>
+
+<p>We're not composer require layer of alive or / live where I want you to be able to remember it and so you can just because that's the most natural thing as composer require live our special ever. Okay, we are at time. Thanks for listening as always [00:10:00] TTYL.</p>
+</p>
 </div>
 </main>
 

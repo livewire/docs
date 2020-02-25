@@ -1,9 +1,6 @@
 @extends ('_layouts.base')
 
 @section('content')
-<a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
 <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">

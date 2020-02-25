@@ -16,9 +16,9 @@
         <meta name="description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally).">
 
         <meta property="og:site_name" content="Livewire Documentation"/>
-        <meta property="og:title" content="State Management | Livewire Documentation"/>
+        <meta property="og:title" content="Flash Messages | Livewire Documentation"/>
         <meta property="og:description" content="A full-stack framework for Laravel that makes building dynamic front-ends as easy as writing vanilla PHP (literally)."/>
-        <meta property="og:url" content="https://laravel-livewire.com/docs/state-management"/>
+        <meta property="og:url" content="https://laravel-livewire.com/docs/flash-messages"/>
         <meta property="og:image" content="https://laravel-livewire.com/assets/img/twitter.png"/>
         <meta property="og:type" content="website"/>
 
@@ -28,22 +28,19 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>State Management | Livewire Documentation</title>
+        <title>Flash Messages | Livewire Documentation</title>
 
         <link rel="home" href="https://laravel-livewire.com/">
         <link rel="icon" href="/favicon.ico">
 
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5df22e74a7725e75cfdc">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0b6b277f2a6e14a0ac23">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
-<header class="flex items-center h-24 py-4 bg-white relative" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
@@ -208,7 +205,7 @@
     </li>
             <li class="pl-4">
             
-        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Basics</p>
+        <p class="font-bold nav-menu__item text-gray-500 text-xs tracking-wider uppercase pt-2">The Essentials</p>
     
             
         <ul class="list-none my-0">
@@ -241,24 +238,6 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/state-management"
-            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
-        >
-            State Management
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/computed-properties"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Computed Properties
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
         <a href="/docs/mount-method"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -268,28 +247,19 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/data-binding"
+        <a href="/docs/properties"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Data Binding
+            Properties
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/triggering-actions"
+        <a href="/docs/actions"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Triggering Actions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/lifecycle-hooks"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Lifecycle Hooks
+            Actions
         </a>
     
     </li>
@@ -299,6 +269,15 @@
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
             Events
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/lifecycle-hooks"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Lifecycle Hooks
         </a>
     
     </li>
@@ -348,6 +327,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="/docs/flash-messages"
+            class="lvl1  active font-semibold text-blue-600 nav-menu__item hover:text-blue-600"
+        >
+            Flash Messages
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="/docs/nesting-components"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
@@ -365,19 +353,10 @@
         <ul class="list-none my-0">
             <li class="pl-4">
             
-        <a href="/docs/defer-loading"
+        <a href="/docs/loading-states"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Defer Loading
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/prefetching"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Prefetching
+            Loading States
         </a>
     
     </li>
@@ -392,19 +371,10 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/loading-states"
+        <a href="/docs/prefetching"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Loading States
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/dirty-states"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Dirty States
+            Prefetching
         </a>
     
     </li>
@@ -419,10 +389,19 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/css-transitions"
+        <a href="/docs/dirty-states"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            CSS Transitions
+            Dirty States
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/defer-loading"
+            class="lvl1   nav-menu__item hover:text-blue-600"
+        >
+            Defer Loading
         </a>
     
     </li>
@@ -436,37 +415,19 @@
         <ul class="list-none my-0">
             <li class="pl-4">
             
-        <a href="/docs/inline-scripts"
+        <a href="/docs/alpine-js"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            Inline Scripts
+            AlpineJS
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/vuejs"
+        <a href="/docs/spa-mode"
             class="lvl1   nav-menu__item hover:text-blue-600"
         >
-            VueJs
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/third-party-libraries"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Third-Party Libraries
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/web-components"
-            class="lvl1   nav-menu__item hover:text-blue-600"
-        >
-            Web Components
+            SPA Mode
         </a>
     
     </li>
@@ -492,15 +453,6 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/spa-mode"
-            class="lvl0   nav-menu__item hover:text-blue-600"
-        >
-            SPA Mode
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
         <a href="/docs/security"
             class="lvl0   nav-menu__item hover:text-blue-600"
         >
@@ -521,190 +473,94 @@
         </nav>
 
         <div class="w-full md:w-4/5 lg:w-3/5 break-words lg:pl-4" v-pre>
-                            <h1>State Management</h1>
+                            <h1>Flash Messages</h1>
             
-            <p>Livewire components store and track state using public class properties on the Component class.</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class FooComponent extends Component
-{
-    // Public Property
-    public $foo;</code></pre>
-</div>
-<p>Here are some helpful points about public properties in Livewire.</p>
-<div class="max-w-full overflow-x-auto">
-<table>
-<thead>
-<tr>
-<th>Public Properties</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Automatically available inside the component's Blade view.</td>
-</tr>
-<tr>
-<td>Can be used for data-binding (<code>public $foo;</code> can be bound via <code>wire:model="foo"</code>).</td>
-</tr>
-<tr>
-<td>Are sent back and forth with every network request (increase network payload).</td>
-</tr>
-<tr>
-<td>Should not store sensitive data. (any information stored in them will be visible to JavaScript).</td>
-</tr>
-<tr>
-<td>They MUST be of PHP type: <code>null</code>, <code>string</code>, <code>numeric</code>, <code>boolean</code>, or <code>array</code> (because JavaScript has to be able to understand them) OR an Eloquent Model or collection of Models</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="flex my-6 py-4 rounded-lg">
-    <div class="hidden md:block -ml-12 absolute pr-4 text-red-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg text-4xl">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12" y2="16"></line>
-        </svg>
-    </div>
+            <p>In cases where it's useful to "flash" a success or failure message to the user, Livewire supports Laravel's system for flashing data to the session.</p>
 
-    <div class="border-l-4 border-red-400 font-medium pl-4 text-gray-700">
-        <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
-    </div>
-</div>
-<h3 id="initializing-properties">Initializing Properties</h3>
-<p>You can initialize properties using the <code>mount</code> method/hook in Livewire. For example:</p>
+<p>Here's a common example of it's usage:</p>
+
 <div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
         <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">HelloWorld.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">UpdatePost.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
 
-class HelloWorld extends Component
+class UpdatePost extends Component
 {
-    public $message;
+    public $post;
+    public $title;
 
-    public function mount()
+    public function mount(Post $post)
     {
-        $this-&gt;message = 'Hello ' . auth()-&gt;user()-&gt;first_name;
+        $this-&gt;post = $post;
+        $this-&gt;title = $post-&gt;title;
     }
 
-    public function render()
+    public function update()
     {
-        return view('livewire.hello-world');
-    }
-}</code></pre>
-    </div>
-            <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">hello-world.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;h1&gt;{{ $message }}&lt;/h1&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-<p>You can think of <code>mount()</code> like you would the <code>boot()</code> method of a Laravel Model, or the <code>created()</code> method of a Vue component.</p>
-<h3 id="update-query-string">Updating The Query String</h3>
-<p>Sometimes it's useful to update the browser's query string when your component state changes.</p>
-<p>For example, if you were building a &quot;search posts&quot; component, and wanted the query string to reflect the current search value like so:</p>
-<p><code>https://your-app.com/search-posts?search=some-search-string</code></p>
-<p>This way, when a user hits the back button, or bookmarks the page, you can get the initial state out of the query string, rather than resetting the component every time.</p>
-<p>In these cases, you can add a property's name to <code>protected $updatesQueryString</code>, and Livewire will update the query string every time the property value changes.</p>
-<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
-        <div class="relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">SearchPosts.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
-
-class SearchPosts extends Component
-{
-    public $search;
-
-    protected $updatesQueryString = ['search'];
-
-    public function mount()
-    {
-        $this-&gt;search = request()-&gt;query('search', $this-&gt;search);
-    }
-
-    public function render()
-    {
-        return view('livewire.search-posts', [
-            'posts' =&gt; Post::where('title', 'like', '%'.$this-&gt;search.'%')-&gt;get(),
+        $this-&gt;post-&gt;update([
+            &#039;title&#039; =&gt; $this-&gt;title,
         ]);
+
+        session()-&gt;flash(&#039;message&#039;, &#039;Post successfully updated.&#039;);
+    }
+
+    public function render()
+    {
+        return view(&#039;livewire.update-post&#039;);
     }
 }</code></pre>
     </div>
             <div class="border-gray-700 border-t-2 relative py-1">
-         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">search-posts.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
-    &lt;input wire:model="search" type="text" placeholder="Search posts by title..."&gt;
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">update-post.blade.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-html">&lt;form wire:submit.prevent=&quot;update&quot;&gt;
+    &lt;div&gt;
+        @if (session()-&gt;has(&#039;message&#039;))
+            &lt;div class=&quot;alert alert-success&quot;&gt;
+                {{ session(&#039;message&#039;) }}
+            &lt;/div&gt;
+        @endif
+    &lt;/div&gt;
 
-    &lt;h1&gt;Search Results:&lt;/h1&gt;
+    Title: &lt;input wire:model=&quot;email&quot; type=&quot;text&quot;&gt;
 
-    &lt;ul&gt;
-        @foreach($posts as $post)
-            &lt;li&gt;{{ $post-&gt;title }}&lt;/li&gt;
-        @endforeach
-    &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+    &lt;button&gt;Save&lt;/button&gt;
+&lt;/form&gt;</code></pre>
     </div>
     </div>
-<h3 id="casting-properties">Casting Properties</h3>
-<p>Livewire offers an api to &quot;cast&quot; public properties to a more usable data type. Two common use-cases for this are working with date objects like <code>Carbon</code> instances, and dealing with Laravel collections:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class CastedComponent extends Component
+
+<p>Now, after the user clicks "Sabe" and their post is updated, they will see "Post successfully updated" on the page.</p>
+
+<p>If you wish to add flash data to a redirect and show the message on the destination page instead, Livewire is smart enough to persist the flash data for one more request. For example:</p>
+
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
+        <div class="relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">UpdatePost.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">...
+public function update()
 {
-    public $options = ['foo', 'bar', 'bar'];
-    public $expiresAt = 'tomorrow';
+    $this-&gt;post-&gt;update([
+        &#039;title&#039; =&gt; $this-&gt;title,
+    ]);
 
-    protected $casts = [
-        'options' =&gt; 'collection',
-        'expiresAt' =&gt; 'date',
-    ];
+    session()-&gt;flash(&#039;message&#039;, &#039;Post successfully updated.&#039;);
 
-    public function getUniqueOptions()
-    {
-        return $this-&gt;options-&gt;unique();
-    }
+    return redirect()-&gt;to(&#039;/posts&#039;);
+}
+...</code></pre>
+    </div>
+        </div>
 
-    public function getExpirationDateForHumans()
-    {
-        return $this-&gt;expiresAt-&gt;format('m/d/Y');
-    }
+<p>Now when a user "Saves" a post, they will be redirected to the "/posts" endpoint and see the flash message there. This assumes the <code>/posts</code> page has the proper Blade snippet to display flash messages.</p>
 
-    ...</code></pre>
-</div>
-<h4 id="custom-casters">Custom Casters</h4>
-<p>Livewire allows you to build your own custom casters for custom use-cases. Implement the <code>Livewire\Castable</code> interface in a class and reference it in the <code>$casts</code> property:</p>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">class FooComponent extends Component
-{
-    public $foo = ['bar', 'baz'];
-
-    protected $casts = ['foo' =&gt; CollectionCaster::class];
-
-    ...</code></pre>
-</div>
-<div class="rounded-lg bg-gray-800 mb-12">
-    <pre class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Castable;
-
-class CollectionCaster implements Castable
-{
-    public function cast($value)
-    {
-        return collect($value);
-    }
-
-    public function uncast($value)
-    {
-        return $value-&gt;all();
-    }
-}</code></pre>
-</div>
             <div class="mt-12 pt-8 pb-6 border-t-2">
                 <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="flex flex-col items-center md:items-start">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/render-method">The <code>render()</code> Method</a>
+                <a href="/docs/redirecting">Redirecting</a>
             </h4>
             </div>
     <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/computed-properties">Computed Properties</a>
+                <a href="/docs/nesting-components">Nesting Components</a>
             </h4>
             </div>
 </div>

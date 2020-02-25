@@ -36,15 +36,12 @@
         <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=5df22e74a7725e75cfdc">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0b6b277f2a6e14a0ac23">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
     <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <a href="https://github.com/sponsors/calebporzio/" class="bg-purple-700 font-bold hover:bg-purple-800 hover:text-white py-3 text-center text-lg text-white">
-    Show some ❤️ and support the project.
-</a>
-<header class="flex items-center h-24 py-4 bg-white relative" role="banner">
+        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
     <div class="container flex items-center mx-auto px-4 lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
@@ -203,23 +200,41 @@
 <div class="container mx-auto py-8 px-6 md:px-0" style="max-width: 760px;">
 <h3>Transcript:</h3>
 <p><p>All right, so you're probably expecting my answer to this why I believe in Live Wire to be kind of like the last episode pretty soft broad vague inspirational. I don't know but. It's actually not it's pretty concrete. I believe in Live Wire because of one moment three years ago. I was reading a blog post by th where he demonstrates.</p>
+
 <p>Why? Why are we just a Jackson Json? Why not Ajax HTML already rendered on the back end and then just swap it into the page and you know, and he called it server render JavaScript and the rails Community is kind of all about this I discovered it and it hit me like a ton of bricks and I went whoa.</p>
+
 <p>And I was just immediately enamored with the idea. I used it in a project and it worked exactly as well as I thought it would and I was able to use blade but still, you know, get all the benefits of you know deferring loading a jack seeing this stuff, you know, whatever like making Dynamic pages that don't reload but still just using blade for everything and I was enamored with it.</p>
+
 <p>And from that on like that that has been a known good to me. Like there's so little downside to that strategy. It's crazy. And that's why you know, I'm sure I've talked about this a hundred times. You've seen this in every talk that I've given whatever like GitHub you open up xhr Tab and devtools get up devtools and you just see Ajax request flying off the handle and almost none of them are returning Json.</p>
+
 <p>They're all returning rendered HTML these P Jax to do this. And so why is this the reason that I believe in live wires the reason because that's what live where is it's built on this concept Live Wire is age axing HTML. There's a bunch of extra stuff that makes it super duper seamless. So you don't have to before you would have to do the wiring yourself.</p>
+
 <p>You have to trigger the Ajax request and you have to swap it into the page. Livewire hand gives you a nice API for when to trigger. The request to get new Json or sorry new HTML and it's smarter than just just wiping out the HTML with the new HTML. It does the Dom dipping stuff like we've talked about but that's it.</p>
+
 <p>That's what it is at its core like at its core. That's what it is. So if that's the problem live wires solution. And there's a lot of other features in Livewire a lot of extra things a lot of huge potential for ways. It can be used really clever things. Like we've talked about the prefetch stuff and dirty detection and loading States and all sorts of stuff that it grants you that's really nice and whatever huge potential.</p>
+
 <p>But at the end of the day strip all those things away and live we're still useful for this use case and it's a pretty big one. So this is why I believe in live where I believe in live where in general but but I got to be honest. It's definitely, you know times that I doubt certain features or doubt certain use cases and a pretty vocal about him.</p>
+
 <p>I mean, I the whole counter examples just. BS like I wouldn't use live wire for a counter, I feel kind of weird every time I use Livewire to just like show or hide something on a click, you know, I feel like whole Ajax request for a freaking toggle. Like I should be using JavaScript for that. Like I feel that way, you know, so in that way the live where water is a little bit muddy, but but forget about that stuff like let's talk about.</p>
+
 <p>Let's talk about swapping and ajax deferred loading, you know, like Auto searching, you know form like a story table stored in real-time validation realtor auto-saving forms. Like these are all things that. That live wire is not adding anything like you're already submitting Ajax request. You're just sending Json doing the templating on the front end and by doing that you're dealing with the templating in a totally separate language that's not easily testable.</p>
+
 <p>And isn't it is totally separated from your front end. So you need like double the routes and double the code. Basically we're live. We're just allows you to basically cut out that whole other half and stay inside the world, you know. So in that sense, I believe in Live Wire like when I doubt myself when I doubt the project things like that like the end of the day I have to remind myself that hey like takeaway Live Wire and I'm still going to basically build my own Live Wire, like I'm basically gonna use these same principles and end up building something that's not as powerful as Livewire.</p>
+
 <p>So I guess. Some of the times that I yeah, I don't know. So that's why I believe in Livewire. It's very concrete I believe in it because it's built around a Jackson HTML and swapping it into a page based on some sort of trigger and that to me is an incredibly powerful pattern the rails Community has been on top of this for ever and big companies like GitHub.</p>
+
 <p>Base camp anything that uses turbo links. They're all built around this this principle and it is just crazy powerful. So in that sense, I believe in Live Wire and I think Live Wire will always have a place because it provides you with my opinion one of the best ways to to leverage that that technology which is pretty interesting because.</p>
+
 <p>Like a Phoenix live view does that but it uses web sockets and it's way more integrated and it's kind of a different cell, you know, so Live Wire live or has maybe more of a modest cell and I think that's why I live where needs to to be more aware of how to make it work well with JavaScript because in you know Phoenix, they have the speed that we're just not going to have with their Phoenix.</p>
+
 <p>What's it called Phoenix channels the websocket stuff and you know, long-running server instances and all that stuff. Like we're just not going to become as fast is as they can. I mean they're making games in Phoenix live view that we're not going to be doing that in Livewire. So Live Wire is. It's not a worse Phoenix live view in my mind.</p>
+
 <p>It's not just a slower live view. It takes a lot of the the API from live view because it's a freaking Kick-Ass API and it uses the principles and solves the need of something like turbolinks pjx, you know server render JavaScript those techniques that are already using Ajax and you know, That yeah, so so in that sense, that's why I believe in live lawyer and I think it solves this this problem pretty well.</p>
+
 <p>It fits into its own little niche. It's not a worse version of anything. It's it's own thing. If anything it's a better version of something. So so that's why I believe in it. That's that's what I tell myself and that's why I will I will use it, you know. Yeah, so, so that's that's the snippet here coming in at six minutes and 30 seconds.</p>
-<p>That's a lot of extra time. I hope you use that time. Well, enjoy your enjoy the rest of your trout fishing trip. Thank you.</p></p>
+
+<p>That's a lot of extra time. I hope you use that time. Well, enjoy your enjoy the rest of your trout fishing trip. Thank you.</p>
+</p>
 </div>
 </main>
 

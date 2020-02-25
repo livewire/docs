@@ -4,42 +4,82 @@ extends: _layouts.documentation
 section: content
 ---
 
-Livewire supports nesting components. This feature allows you to compose components from other components, which is an incredibly powerful architectural pattern.
+Livewire supports nesting components. Component nesting can be an extremely powerful technique, but there are a few gotchas worth mentioning up-front:
 
-Here is an example of a nested component:
+1. Nested components CAN accept data parameters from their parents, HOWEVER they are not reactive like props from a Vue component.
+2. Livewire components should NOT be used for extracing Blade snippets into separate files. For these cases, Blade includes or components are preferable.
+
+Here is an example of a nested component called `add-user-note` from another Livewire component's view.
 
 @codeComponent([
-    'viewName' => 'show-users.blade.php',
+    'className' => 'UserDashboard.php',
+    'viewName' => 'user-dashboard.blade.php',
 ])
+@slot('class')
+@verbatim
+use Livewire\Component;
+
+class UserDashboard extends Component
+{
+    public $user;
+
+    public function mount(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function render()
+    {
+        return view('livewire.user-dashboard');
+    }
+}
+@endverbatim
+@endslot
 @slot('view')
 @verbatim
 <div>
-    @livewire('user-profile', $user)
+    <h2>User Details:</h2>
+    Name: {{ $user->name }}
+    Email: {{ $user->email }}
+
+    <h2>User Notes:</h2>
+    <div>
+        @livewire('add-user-note', $user)
+    </div>
 </div>
 @endverbatim
 @endslot
 @endcodeComponent
 
-@warning
-A common misconception is that properties passed into Livewire components are "reactive" (like Vue or React). Because of the way Livewire architects components, this is impossible. The data you pass into a nested component is set initially and not updated if the parent changes. For all component interactions, refer to the <a href="/docs/events">Events page.</a>
-@endwarning
+## Keeping Track Of Components In A Loop {#keyed-components}
 
-## Keyed Components {#keyed-components}
+Similar to VueJs, if you render a component inside a loop, Livewire has no way of keeping track of which one is which. To remedy this, livewire offers a special "key" syntax:
 
-Similar to VueJs, if you render a component inside a loop, Livewire has trouble keeping track of changes made to those components. To remedy this, livewire offers a special "key" syntax:
-
-@codeComponent([
-    'viewName' => 'show-users.blade.php',
-])
+@codeComponent(['viewName' => 'show-users.blade.php'])
 @slot('view')
 @verbatim
 <div>
     @foreach ($users as $user)
         @livewire('user-profile', $user, key($user->id))
+
+        <!-- key() using Laravel 7's tag syntax -->
+        <livewire:user-profile :user="$user" :key="$user->id">
     @endforeach
 </div>
 @endverbatim
 @endslot
 @endcodeComponent
 
-> Note: Livewire doesn't actually call PHP's "key()" function, it just uses "key()" as a signifier in it's blade parser.
+If you are on Laravel 7 or above, you can use the tag syntax.
+
+@codeComponent(['viewName' => 'show-users.blade.php'])
+@slot('view')
+@verbatim
+<div>
+    @foreach ($users as $user)
+        <livewire:user-profile :user="$user" :key="$user->id">
+    @endforeach
+</div>
+@endverbatim
+@endslot
+@endcodeComponent

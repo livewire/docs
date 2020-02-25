@@ -11,75 +11,72 @@ Livewire components can communicate with each other through a global event syste
 There are multiple ways to fire events from Livewire components.
 
 ### Method A: From The Template {#from-template}
-This method is faster than Method B, so it is the preferred usage. (fewer server roundtrips)
 
 @code
-<button wire:click="$emit('showModal')">
+<button wire:click="$emit('postAdded')">
 @endcode
 
 ### Method B: From The Component {#from-component}
 
 @code(['lang' => 'php'])
-$this->emit('showModal');
+$this->emit('postAdded');
 @endcode
 
-### Method C: From JavaScript {#from-javascript}
+### Method C: From Global JavaScript {#from-javascript}
 
 @code(['lang' => 'javascript'])
 <script>
-    window.livewire.emit('showModal')
+    window.livewire.emit('postAdded')
 </script>
 @endcode
 
-## Listening for events in PHP {#in-php}
-Event listeners are registered in the `$listeners` property of your Livewire components. If the event name and method name are the same, you can shorthand to a single value.
+## Event Listeners {#event-listeners}
+Event listeners are registered in the `$listeners` property of your Livewire components.
 
-@codeComponent(['className' => 'Modal'])
+Listeners are a key->value pair where the key is the event to listen for, and the value is the method to call on the component.
+
+@codeComponent(['className' => 'ShowPosts'])
 @slot('class')
 use Livewire\Component;
 
-class Modal extends Component
+class ShowPosts extends Component
 {
-    public $isOpen = false;
+    public $addedMessageVisible = false;
 
-    protected $listeners = [
-        'closeModal',
-        'showModal' => 'open',
-    ];
+    protected $listeners = ['postAdded' => 'showPostAddedMessage'];
 
-    public function open()
+    public function showPostAddedMessage()
     {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
+        $this->addedMessageVisible = true;
     }
 
     public function render()
     {
-        return view('livewire.modal');
+        return view('livewire.show-posts');
     }
 }
 @endslot
 @endcodeComponent
 
-Now when any other component on the page emits a `showModal` event, this component will pick it up and fire the `open` method on itself.
+Now when any other component on the page emits a `postAdded` event, this component will pick it up and fire the `showPostAddedMessage` method on itself.
+
+@tip
+If the name of the event and the method you're calling match, you can leave out the key. For example: <code>protected $listeners = ['postAdded'];</code> will call the <code>postAdded</code> method when the <code>postAdded</code> event is emitted.
+@endtip
 
 If you need to name event listeners dynamically, you can substitute the `$listeners` property for the `getListeners()` protected method on the component:
 
-@codeComponent(['className' => 'Modal'])
+@codeComponent(['className' => 'ShowPosts'])
 @slot('class')
 use Livewire\Component;
 
-class Modal extends Component
+class ShowPosts extends Component
 {
-    public $isOpen = false;
+    public $addedMessageVisible = false;
 
     protected function getListeners()
     {
-        return ['showModal' => 'open'];
+        return ['postAdded' => 'showPostAddedMessage'];
     }
 
     ...
@@ -87,36 +84,51 @@ class Modal extends Component
 @endslot
 @endcodeComponent
 
-You can also send parameters through the event bus.
+### Passing Parameters {#passing-parameters}
+
+You can also send parameters with an event emission.
 
 @code(['lang' => 'php'])
-$this->emit('showModal', 'My custom message for the modal');
+$this->emit('postAdded', $post->id);
 @endcode
 
-@codeComponent(['className' => 'Modal'])
+@codeComponent(['className' => 'ShowPosts'])
 @slot('class')
 use Livewire\Component;
 
-class Modal extends Component
+class ShowPosts extends Component
 {
-    public $message = null;
-    public $isOpen = false;
+    public $addedMessageVisible = false;
+    public $addedPost;
 
-    protected $listeners = ['showModal' => 'open'];
+    protected $listeners = ['postAdded'];
 
-    public function open($message)
+    public function postAdded($postId)
     {
-        $this->isOpen = true;
-        $this->message = $message; // Will be 'My custom message for the modal'
+        $this->addedMessageVisible = true;
+        $this->addedPost = Post::find($postId);
     }
 
     public function render()
     {
-        return view('livewire.modal');
+        return view('livewire.show-posts');
     }
 }
 @endslot
 @endcodeComponent
+
+### Scoping Events To Parent Listeners {#scope-events-to-parents}
+When dealing with [nested components](/docs/nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
+
+In these cases, can use the `emitUp` feature:
+
+@code
+<button wire:click="$emitUp('postAdded')">
+@endcode
+
+@code(['lang' => 'php'])
+$this->emitUp('postAdded');
+@endcode
 
 ## Listening for events in JavaScript {#in-js}
 
@@ -124,14 +136,14 @@ Livewire allows you to register event listeners in JavaScript like so:
 
 @code(['lang' => 'javascript'])
 <script>
-window.livewire.on('foo', param => {
-    alert('The foo event was called with the param: ' + param);
+window.livewire.on('postAdded', postId => {
+    alert('A post was added with the id of: ' + postId);
 })
 </script>
 @endcode
 
 @tip
-This feature is actually incredibly powerful. It provides a bridge between Livewire and other JS inside your app. For example, if you had a JavaScript function to show a toaster (popup) inside your app to show notification messages, you could trigger them from inside your Livewire component with this feature.
+This feature is actually incredibly powerful. For example, you could register a listener to show a toaster (popup) inside your app when Livewire performs certain actions. This is one of the many ways to bridge the gap between PHP and JavaScript with Livewire.
 @endtip
 
 ## Listening for Laravel Echo events {#echo-events}
@@ -157,7 +169,6 @@ class OrderShipped implements ShouldBroadcast
 }
 @endslot
 @endcodeComponent
-
 
 Let's say you fire this event with Laravel's broadcasting system like this:
 
