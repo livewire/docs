@@ -2,6 +2,7 @@
 
 import Prism from 'prismjs'
 import animate from 'animateplus'
+import Alpine from 'alpinejs'
 
 window.animate = animate
 
