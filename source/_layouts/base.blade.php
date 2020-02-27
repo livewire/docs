@@ -46,15 +46,18 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         @endif
     </head>
-    <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
+    <body
+        x-data="{ mobileMenuVisible: false }"
+        class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-200"
+    >
         @yield('content')
 
         <script src="{{ mix('js/main.js', 'assets/build') }}"></script>
 
         @stack('scripts')
 
-        <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
-            <ul class="list-none flex flex-col md:flex-row justify-center">
+        <footer class="py-4 mt-8 text-sm text-center bg-white" role="contentinfo">
+            <ul class="flex flex-col justify-center list-none md:flex-row">
                 <li class="md:mr-2">
                     &copy; <a href="https://laravel-livewire.com" title="Livewire">Livewire</a> {{ date('Y') }}.
                 </li>
