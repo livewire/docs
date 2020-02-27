@@ -36,16 +36,19 @@
         <link rel="alternate" type="application/rss+xml" title="Building Livewire RSS" href="https://rss.simplecast.com/podcasts/10939/rss"/>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a126d20bdc3a10d85c4e">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=491c10a2669145166e79">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
-    <body class="flex flex-col justify-between min-h-screen bg-gray-200 text-gray-800 leading-normal font-sans">
-        <header class="flex items-center h-24 py-4 bg-white relative" role="banner">
-    <div class="container flex items-center mx-auto px-4 lg:px-8">
+    <body
+        x-data="{ mobileMenuVisible: false }"
+        class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-200"
+    >
+        <header class="relative flex items-center h-24 py-4 bg-white" role="banner">
+    <div class="container flex items-center px-4 mx-auto lg:px-8">
         <div class="flex items-center">
             <!-- Desktop Logo -->
-            <a href="/" title="Building Livewire Podcast home" class="hidden md:inline-flex items-center">
+            <a href="/" title="Building Livewire Podcast home" class="items-center hidden md:inline-flex">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="234px" height="54px" viewBox="0 0 234 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -88,7 +91,7 @@
 
             </a>
             <!-- Mobile Logo -->
-            <a href="/" title="Building Livewire Podcast home" class="inline-flex md:hidden items-center">
+            <a href="/" title="Building Livewire Podcast home" class="inline-flex items-center md:hidden">
                 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="47px" height="53px" viewBox="0 0 47 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -126,7 +129,7 @@
             </a>
         </div>
 
-        <div class="flex flex-1 justify-end items-center text-right md:pl-10">
+        <div class="flex items-center justify-end flex-1 text-sm text-right md:pl-10 sm:text-base">
                             <button
     title="Start searching"
     type="button"
@@ -154,17 +157,17 @@
     >&times;</button>
 </div>
 
-                        <a href="/docs/quickstart" class="ml-6 text-blue-800">Docs</a>
-            <a href="https://forum.laravel-livewire.com" class="ml-6 text-blue-800">Forum</a>
-            <a href="/podcast" class="ml-6 text-blue-800">Podcast</a>
+                        <a href="/docs/quickstart" class="ml-3 text-blue-800 sm:ml-6">Docs</a>
+            <a href="https://forum.laravel-livewire.com" class="ml-3 text-blue-800 sm:ml-6">Forum</a>
+            <a href="/podcast" class="ml-3 text-blue-800 sm:ml-6">Podcast</a>
             <a href="https://github.com/livewire/livewire">
-                <svg class="fill-current text-blue-800 w-8 ml-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+                <svg class="w-6 ml-3 text-blue-800 fill-current sm:w-8 sm:ml-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
             </a>
         </div>
     </div>
 
     
-    <div class="mb-6 absolute bottom-0 w-full" style="
+    <div class="absolute bottom-0 w-full mb-6" style="
         background-image: url(&quot;data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' id='Line-Copy' fill='%23FFFFFF'%3e%3c/path%3e%3c/g%3e%3c/svg%3e&quot;);
         background-repeat-y: no-repeat;
         background-position-y: bottom;
@@ -173,7 +176,7 @@
     "></div>
 </header>
 
-<main role="main" class="w-full flex-auto">
+<main role="main" class="flex-auto w-full">
     <div style="background: #10B3CB; background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.2));">
     <div class="container mx-auto px-12 py-12 text-xl flex-col md:flex-row flex justify-between items-center" style="max-width: 900px">
         <div class="md:w-1/2 py-16">
@@ -204,7 +207,7 @@
 </div>
 </main>
 
-        <script src="/assets/build/js/main.js?id=0cfc2899f8a0f5af7831"></script>
+        <script src="/assets/build/js/main.js?id=30d9df0e5a572fe78d54"></script>
 
                     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script type="text/javascript">
@@ -244,8 +247,8 @@
     })
 </script>
 
-        <footer class="bg-white text-center text-sm mt-8 py-4" role="contentinfo">
-            <ul class="list-none flex flex-col md:flex-row justify-center">
+        <footer class="py-4 mt-8 text-sm text-center bg-white" role="contentinfo">
+            <ul class="flex flex-col justify-center list-none md:flex-row">
                 <li class="md:mr-2">
                     &copy; <a href="https://laravel-livewire.com" title="Livewire">Livewire</a> 2020.
                 </li>
