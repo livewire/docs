@@ -130,7 +130,7 @@ class HelloWorld extends Component
 
     public function render()
     {
-        return view('livewire.hello-world);
+        return view('livewire.hello-world');
     }
 }
 @endverbatim
@@ -279,7 +279,7 @@ class SearchPosts extends Component
 
     public function mount()
     {
-        $this->fill(request()->only('search', 'page));
+        $this->fill(request()->only('search', 'page'));
     }
 
     ...
