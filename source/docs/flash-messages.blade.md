@@ -62,7 +62,7 @@ class UpdatePost extends Component
 @endslot
 @endcodeComponent
 
-Now, after the user clicks "Sabe" and their post is updated, they will see "Post successfully updated" on the page.
+Now, after the user clicks "Save" and their post is updated, they will see "Post successfully updated" on the page.
 
 If you wish to add flash data to a redirect and show the message on the destination page instead, Livewire is smart enough to persist the flash data for one more request. For example:
 
