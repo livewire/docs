@@ -82,7 +82,7 @@
         <p>Here's a real-time search component built with Livewire.</p>
 
 <div>
-@codeComponent(['className' => 'App\Http\Livewire\Counter.php', 'viewName' => 'resources/views/livewire/counter.blade.php']) @slot('class') @verbatim
+@codeComponent(['className' => 'App\Http\Livewire\SearchUsers.php', 'viewName' => 'resources/views/livewire/search-users.blade.php']) @slot('class') @verbatim
 use Livewire\Component;
 
 class SearchUsers extends Component
