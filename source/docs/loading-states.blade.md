@@ -40,6 +40,18 @@ Now, when the "Checkout" button is clicked, the loading indicator will load, but
 
 Also note that `wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
+Besides actions you can also target whenever a `wire:model` is synchronized.
+
+@code(['lang' => 'html'])
+<div>
+    <input wire:model="quantity">
+
+    <div wire:loading wire:target="quantity">
+        Updating quantity...
+    </div>
+</div>
+@endcode
+
 ## Toggling classes {#toggling-classes}
 
 You can add or remove classes from an element during loading states, by adding the `.class` modifier to the `wire:loading` directive.
