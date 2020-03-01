@@ -47,7 +47,7 @@ In this example, the `span` will be hidden by default, and only visible when the
 
 ## Toggling classes on other elements {#toggling-classes}
 
-The class and atribute modifiers can be used in the same way for referenced elements
+The class and attribute modifiers can be used in the same way for referenced elements
 
 @code(['lang' => 'html'])
 <div>
