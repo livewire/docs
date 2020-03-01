@@ -4,7 +4,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-Livewire offers a directive called `wire:poll` that, when added to an element, will refresh the component every `5s`.
+Livewire offers a directive called `wire:poll` that, when added to an element, will refresh the component every `2s`.
 
 @tip
 Polling for changes over Ajax is a lightweight, simpler alternative to something like Laravel Echo, Pusher, or any WebSocket strategy.
