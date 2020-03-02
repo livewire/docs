@@ -272,7 +272,7 @@ class SearchPosts extends Component
     public $page = 1;
 
     protected $updatesQueryString = [
-        'foo'
+        'foo',
         ['search' => ['except' => '']],
         ['page' => ['except' => 1]],
     ];
