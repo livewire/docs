@@ -7,7 +7,7 @@ section: content
 Livewire supports nesting components. Component nesting can be an extremely powerful technique, but there are a few gotchas worth mentioning up-front:
 
 1. Nested components CAN accept data parameters from their parents, HOWEVER they are not reactive like props from a Vue component.
-2. Livewire components should NOT be used for extracing Blade snippets into separate files. For these cases, Blade includes or components are preferable.
+2. Livewire components should NOT be used for extracting Blade snippets into separate files. For these cases, Blade includes or components are preferable.
 
 Here is an example of a nested component called `add-user-note` from another Livewire component's view.
 
