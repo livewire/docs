@@ -55,7 +55,7 @@ You can pass multiple parameters to the `mount()` hook and receive them as addit
 
 @code(['lang' => 'html'])
 @verbatim
-<livewire:show-contact :contact="$contact" section-heading="Show Contact">
+<livewire:show-contact :contact="$contact" :section-heading="Show Contact">
 @endverbatim
 @endcode
 
