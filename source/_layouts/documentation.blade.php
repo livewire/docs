@@ -52,6 +52,10 @@ $page->siteName = 'Livewire Documentation';
                     <img class="w-32 md:ml-auto" src="/assets/img/sponsor_cierra.png" alt="Cierra">
                 </a>
 
+                <a style="height: 50px" class="block pb-3 mb-3" href="https://www.1043labs.com/" target="_blank">
+                    <img class="w-24 md:ml-auto" src="/assets/img/sponsor_1043labs.png" alt="1043 Labs">
+                </a>
+
                 <a style="height: 50px" class="block pb-3 mb-3" href="http://jrmerritt.com/" target="_blank">
                     <img class="w-32 md:ml-auto" src="/assets/img/sponsor_jrmerritt.png" alt="JR Merritt">
                 </a>

@@ -34,9 +34,15 @@
             <a style="min-height: 75px; display: block;" href="https://cierra.de" target="_blank">
                 <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_cierra.png" alt="Cierra">
             </a>
+
             <a style="min-height: 75px; display: block;" href="https://ueberdosis.io" target="_blank">
                 <img class="w-48 m-auto mb-4" src="https://drop.hanspagel.com/xCzFrLeC9d.svg" alt="Uberdosis">
             </a>
+
+            <a style="min-height: 75px; display: block;" href="https://www.1043labs.com/" target="_blank">
+                <img class="w-32 m-auto mb-4" src="/assets/img/sponsor_1043labs.png" alt="1043 Labs">
+            </a>
+
             <a style="min-height: 75px; display: block;" href="http://jrmerritt.com/" target="_blank">
                 <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_jrmerritt.png" alt="JR Merritt">
             </a>
