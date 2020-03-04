@@ -31,11 +31,17 @@
             <a style="min-height: 75px; display: block;" href="https://intellow.com/" target="_blank">
                 <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_intellow.png" alt="Intellow">
             </a>
+            <a style="min-height: 75px; display: block;" href="https://cierra.de" target="_blank">
+                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_cierra.png" alt="Cierra">
+            </a>
+            <a style="min-height: 75px; display: block;" href="https://ueberdosis.io" target="_blank">
+                <img class="w-48 m-auto mb-4" src="https://drop.hanspagel.com/xCzFrLeC9d.svg" alt="Uberdosis">
+            </a>
             <a style="min-height: 75px; display: block;" href="http://jrmerritt.com/" target="_blank">
-                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_jrmerritt.png" alt="Laravel">
+                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_jrmerritt.png" alt="JR Merritt">
             </a>
             <a style="min-height: 75px; display: block;" href="https://trustfactory.bz/" target="_blank">
-                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_trustfactory.png" alt="Laravel">
+                <img class="w-48 m-auto mb-4" src="/assets/img/sponsor_trustfactory.png" alt="Trust Factory">
             </a>
         </div>
 

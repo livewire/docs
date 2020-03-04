@@ -524,6 +524,18 @@
 
 <p>Also note that <code>wire:target</code> can accept multiple arguments in a comma separated format like this: <code>wire:target="foo, bar"</code>.</p>
 
+<p>Besides actions you can also target whenever a <code>wire:model</code> is synchronized.</p>
+
+<div class="rounded-lg bg-gray-800 mb-12">
+    <pre  class="scrollbar-none"><code class="scrolling-touch language-html">&lt;div&gt;
+    &lt;input wire:model=&quot;quantity&quot;&gt;
+
+    &lt;div wire:loading wire:target=&quot;quantity&quot;&gt;
+        Updating quantity...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
 <h2 id="toggling-classes">Toggling classes</h2>
 
 <p>You can add or remove classes from an element during loading states, by adding the <code>.class</code> modifier to the <code>wire:loading</code> directive.</p>
@@ -595,15 +607,19 @@
                 </a>
 
                 <a style="height: 50px" class="block pb-3 mb-3" href="https://intellow.com/" target="_blank">
-                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_intellow.png" alt="Livewire Sponsor: Intellow">
+                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_intellow.png" alt="Intellow">
+                </a>
+
+                <a style="height: 50px" class="block pb-3 mb-3" href="https://cierra.de" target="_blank">
+                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_cierra.png" alt="Cierra">
                 </a>
 
                 <a style="height: 50px" class="block pb-3 mb-3" href="http://jrmerritt.com/" target="_blank">
-                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_jrmerritt.png" alt="Livewire Sponsor: Intellow">
+                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_jrmerritt.png" alt="JR Merritt">
                 </a>
 
                 <a class="block" href="https://trustfactory.bz/" target="_blank">
-                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_trustfactory.png" alt="Livewire Sponsor: Intellow">
+                    <img class="w-32 md:ml-auto" src="/assets/img/sponsor_trustfactory.png" alt="Trustfactory">
                 </a>
             </div>
         </div>
