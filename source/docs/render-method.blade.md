@@ -47,23 +47,6 @@ class ShowPosts extends Component
 @endslot
 @endcodeComponent
 
-@warning
-Although `render()` methods closely resemble controller methods, there are a few techniques you are used to using in controllers that aren't available in Livewire components.
-
-Here are two common things you might forget ARE NOT possible in Livewire:
-@endwarning
-
-@code(['lang' => 'php'])
-@verbatim
-public function render()
-{
-    return back();
-    // Or
-    return ['some' => 'data'];
-}
-@endverbatim
-@endcode
-
 ## Returning Blade Template Strings {#returning-strings}
 If your Livewire project uses Laravel 7 or above, you can optionally return a Blade template string from `->render()`.
 
