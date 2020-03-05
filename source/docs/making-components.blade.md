@@ -19,6 +19,9 @@ php artisan make:livewire foo-bar
 
 php artisan make:livewire foo.bar
 # Creates Foo/Bar.php & foo/bar.blade.php
+
+php artisan make:livewire foo --inline
+# Creates only Foo/Bar.php
 @endcode
 
 Once created, you can render your components in a Blade file with the `@livewire('component-name')` blade directive.
@@ -48,9 +51,11 @@ You can customize the stubs (templates) that Livewire uses to create new compone
 php artisan livewire:stubs
 @endcode
 
-The above command will create two files:
+The above command will create three files:
+
 * `stubs/livewire.stub`
 * `stubs/livewire.view.stub`
+* `stubs/livewire.inline.stub`
 
 Now, when you run the `make:livewire` command, Livewire will use the above stub files as the template.
 

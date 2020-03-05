@@ -513,7 +513,7 @@
     </div>
 </div>
 
-<h3 id="returning-blade">Returning Blade</h3>
+<h2 id="returning-blade">Returning Blade Views</h2>
 
 <p>The <code>render()</code> method is expected to return a Blade view, therefore, you can compare it to writing a controller method. Here is an example:</p>
 
@@ -599,6 +599,64 @@ Here are two common things you might forget ARE NOT possible in Livewire:
     // Or
     return [&#039;some&#039; =&gt; &#039;data&#039;];
 }</code></pre>
+</div>
+
+<h2 id="returning-strings">Returning Blade Template Strings</h2>
+
+<p>If your Livewire project uses Laravel 7 or above, you can optionally return a Blade template string from <code>-&gt;render()</code>.</p>
+
+<div class="rounded-lg bg-gray-800 overflow-hidden mb-12">
+        <div class="relative py-1">
+         <span class="select-none absolute font-bold px-4 pt-1 right-0 text-gray-500 text-sm hidden md:block">DeletePost.php</span>         <pre style="margin: 0;" class="scrollbar-none"><code class="scrolling-touch language-php">use Livewire\Component;
+
+class DeletePost extends Component
+{
+    public $post;
+
+    public function mount(Post $post)
+    {
+        $this-&gt;post = $post;
+    }
+
+    public function delete()
+    {
+        $this-&gt;post-&gt;delete();
+    }
+
+    public function render()
+    {
+        return &lt;&lt;&lt;&#039;blade&#039;
+            &lt;div&gt;
+                &lt;button wire:click=&quot;delete&quot;&gt;Delete Post&lt;/button&gt;
+            &lt;/div&gt;
+        blade;
+    }
+}</code></pre>
+    </div>
+        </div>
+
+<div class="flex my-6 py-4 rounded-lg">
+    <div class="hidden md:block -ml-12 absolute pr-4 text-blue-500">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="svg text-4xl"
+        >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+    </div>
+
+    <div class="border-l-4 border-blue-400 font-medium pl-4 text-gray-700">
+        For inline components like above, you should use the <code>--inline</code> flag during creation: <code>artisan make:livewire delete-post --inline</code>
+    </div>
 </div>
 
             <div class="pt-8 pb-6 mt-12 border-t-2">

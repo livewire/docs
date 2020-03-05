@@ -22,6 +22,18 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 
 When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disapear.
 
+Also, you can "hide" an element during a loading state with the `.remove` modifier.
+
+@code(['lang' => 'html'])
+<div>
+    <button wire:click="checkout">Checkout</button>
+
+    <div wire:loading.remove>
+        Hide Me While Loading...
+    </div>
+</div>
+@endcode
+
 ## Targeting specific actions {#targeting-actions}
 The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions.
 
