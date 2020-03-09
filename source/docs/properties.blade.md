@@ -11,6 +11,7 @@ Livewire components store and track data as public properties on the component c
 class HelloWorld extends Component
 {
     public $message = 'Hello World!';
+    ...
 @endverbatim
 @endcode
 
