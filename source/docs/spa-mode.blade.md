@@ -57,6 +57,12 @@ Route::livewire('/home', 'counter')
 // Customizing section (@@yield('body'))
 Route::livewire('/home', 'counter')
     ->section('body');
+    
+// Passing parameters to the layout (Like native @@extends('layouts.app', ['title' => 'foo']))
+Route::livewire('/home', 'counter')
+    ->layout('layouts.app', [
+        'title' => 'foo'
+    ]);
 @endcode
 
 You can also configure these settings for an entire route group using the group option array syntax:
@@ -73,6 +79,7 @@ Route::layout('layouts.base')->section('body')->group(function () {
     //
 });
 @endcode
+
 
 ### Route Parameters {#route-params}
 
