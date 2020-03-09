@@ -87,7 +87,7 @@ Livewire also makes a `$this->fill()` method available to you for cases where yo
 @slot('class')
 public function mount()
 {
-    $this->fill(['message' => 'Hello World!]);
+    $this->fill(['message' => 'Hello World!']);
 }
 @endslot
 @endcodeComponent
