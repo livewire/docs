@@ -56,7 +56,7 @@ You can pass multiple parameters to the `mount()` hook and receive them as addit
 
 ### Injecting Parameters {#injecting-parameters}
 
-Like a controller, you can inject dependancies by adding type-hinted parameters before passed-in ones.
+Like a controller, you can inject dependencies by adding type-hinted parameters before passed-in ones.
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
