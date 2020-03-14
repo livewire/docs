@@ -1,3 +1,5 @@
+@include('includes.screencast-cta')
+
 Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.
 
 ## Install the package {#install-package}

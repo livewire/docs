@@ -1,3 +1,4 @@
+@include('includes.screencast-cta')
 
 ## Class Hooks
 

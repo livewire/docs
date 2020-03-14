@@ -39,7 +39,7 @@
 
         @stack('meta')
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i,900" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('css/main.css') }}">
 
         @if ($docsearchApiKey && $docsearchIndexName)
@@ -51,10 +51,6 @@
         class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-200"
     >
         @yield('content')
-
-        <script src="{{ mix('js/main.js') }}"></script>
-
-        @stack('scripts')
 
         <footer class="py-4 mt-8 text-sm text-center bg-white" role="contentinfo">
             <ul class="flex flex-col justify-center list-none md:flex-row">
@@ -68,5 +64,8 @@
                 </li>
             </ul>
         </footer>
+
+        <script src="{{ mix('js/main.js') }}"></script>
+        @stack('scripts')
     </body>
 </html>

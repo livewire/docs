@@ -1,3 +1,5 @@
+@include('includes.screencast-cta')
+
 ## Install Livewire
 
 Include the PHP.

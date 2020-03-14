@@ -1,3 +1,4 @@
+@include('includes.screencast-cta')
 
 A Livewire component's `render` method gets called on the initial page load AND every subsequent component update.
 

@@ -1,3 +1,4 @@
+@include('includes.screencast-cta')
 
 Livewire components store and track data as public properties on the component class.
 

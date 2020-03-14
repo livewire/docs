@@ -2,6 +2,7 @@
 
 use App\PodcastEpisode;
 use App\DocumentationPages;
+use App\Screencast;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use Michelf\MarkdownExtra;
@@ -34,6 +35,22 @@ Route::get('/docs/{page}', function ($slug) {
         'slug' => $slug,
         'pages' => $pages,
         'content' => $content,
+    ]);
+});
+
+// Screencast Index.
+Route::get('/screencasts', function () {
+    return redirect()->to('/screencasts/'.Screencast::first()->slug);
+});
+
+// Show Screencast.
+Route::get('/screencasts/{slug}', function ($slug) {
+    $screencast = Screencast::whereSlug($slug)->first();
+
+    return view('show-screencast', [
+        'title' => $screencast->title . ' | Livewire Screencasts',
+        'screencasts' => Screencast::all(),
+        'screencast' => $screencast,
     ]);
 });
 
