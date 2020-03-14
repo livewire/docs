@@ -51,6 +51,7 @@ Route::get('/screencasts/{slug}', function ($slug) {
         'title' => $screencast->title . ' | Livewire Screencasts',
         'screencasts' => Screencast::all(),
         'screencast' => $screencast,
+        'social_image' => 'https://laravel-livewire.com/img/screencast-head.png',
     ]);
 });
 
