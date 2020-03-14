@@ -1,11 +1,12 @@
-<button
+<!-- Mobile nav item (hidden for now) -->
+<!-- <button
     title="Start searching"
     type="button"
     class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center border border-gray rounded-full focus:outline-none h-10 px-3"
     onclick="searchInput.toggle()"
 >
     <img src="/img/magnifying-glass.svg" alt="search icon" class="h-4 w-4 max-w-none">
-</button>
+</button> -->
 
 <div id="js-search-input" class="docsearch-input__wrapper hidden md:block">
     <label for="search" class="hidden">Search</label>
