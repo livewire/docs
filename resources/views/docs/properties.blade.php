@@ -149,6 +149,7 @@ Internally, Livewire will listen for an `input` event on the element, and when t
 
 @component('components.tip')
 You can add <code>wire:model</code> to any element that dispataches an <code>input</code> event. Even custom elements, or third-party JavaScript libraries.
+If you are using data binding in more than one element, be sure to wrap them with a single root element. Otherwise, data binding would work only for the first element.
 @endcomponent
 
 Common elements to use `wire:model` on include:
