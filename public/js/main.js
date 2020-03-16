@@ -216,8 +216,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/calebporzio/Documents/Code/sites/new-livewire-docs/resources/js/main.js */"./resources/js/main.js");
-module.exports = __webpack_require__(/*! /Users/calebporzio/Documents/Code/sites/new-livewire-docs/resources/sass/main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! /Users/calebporzio/Documents/Code/sites/livewire-docs/resources/js/main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! /Users/calebporzio/Documents/Code/sites/livewire-docs/resources/sass/main.scss */"./resources/sass/main.scss");
 
 
 /***/ })

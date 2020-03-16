@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
-@section('nav-toggle')
-    @include('includes.menu-toggle')
+@section('nav-menu')
+    <nav class="nav-menu">
+        @include('includes.menu', ['items' => $pages->all()])
+    </nav>
 @endsection
 
 @section('content')
@@ -9,10 +11,7 @@
 
 <section class="container px-6 py-12 mx-auto md:px-8 content">
     <div class="flex flex-col lg:flex-row">
-        <nav
-            class="nav-menu lg:block"
-            :class="mobileMenuVisible ? 'block' : 'hidden'"
-        >
+        <nav class="nav-menu hidden lg:block">
             @include('includes.menu', ['items' => $pages->all()])
         </nav>
 

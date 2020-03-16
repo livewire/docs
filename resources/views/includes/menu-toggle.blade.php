@@ -1,9 +1,12 @@
 <button
-    class="flex items-center justify-center h-10 px-2 mr-4 border rounded-full sm:px-5 bg-blue border-blue lg:hidden focus:outline-none"
-    @click="mobileMenuVisible = !mobileMenuVisible"
+    x-data="{ open: false }"
+    @@set-nav-open.window="open = $event.detail"
+    x-init="$watch('open', value => { $dispatch('set-nav-open', value) })"
+    class="flex items-center justify-center h-10 px-2 border rounded-full sm:px-5 bg-gray-100 border-blue md:hidden focus:outline-none"
+    @click="open = ! open"
 >
     <svg
-        x-show="!mobileMenuVisible"
+        x-show="! open"
         xmlns="http://www.w3.org/2000/svg"
         class="w-4 text-blue-900 fill-current h-9"
         viewBox="0 0 32 32"
@@ -12,7 +15,8 @@
     </svg>
 
     <svg
-        x-show="mobileMenuVisible"
+        x-show="open"
+        style="display: none;"
         xmlns="http://www.w3.org/2000/svg"
         class="w-4 text-blue-900 fill-current h-9"
         viewBox="0 0 36 30"
