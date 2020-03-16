@@ -42,7 +42,7 @@ class Screencast extends Model
             'title' => 'Actions',
             'slug' => 'actions',
             'description' => <<<EOT
-                Building off the data-binding concept, "actions" in Livewire (the word we use for component methods) is the final peice of the "reactivity" puzzle. Easily trigger back-end code from front-end actions. No endpoints, no controllers, just plain PHP methods.
+                Building off the data-binding concept, "actions" in Livewire (the word we use for component methods) is the final piece of the "reactivity" puzzle. Easily trigger back-end code from front-end actions. No endpoints, no controllers, just plain PHP methods.
             EOT,
             'url' => 'https://player.vimeo.com/video/396766334',
             'duration_in_minutes' => '4:17',
