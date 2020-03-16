@@ -44,11 +44,22 @@
 var iframe = document.querySelector('iframe');
 var player = new Vimeo.Player(iframe);
 
+if (localStorage.getItem('livewire.screencasts.rate')) {
+    player.setPlaybackRate(localStorage.getItem('livewire.screencasts.rate'))
+}
+
 // Automatically send the user to the next video after completion.
 player.on('ended', function() {
     // Don't the next link if there is none
     if (@json(! $screencast->next)) return;
     location.href = '/screencasts/{{ optional($screencast->next)->slug }}';
 });
+
+// Remember the user's PlaybackRate.
+player.on('playbackratechange', function () {
+    player.getPlaybackRate().then(function (rate) {
+        localStorage.setItem('livewire.screencasts.rate', rate)
+    })
+})
 </script>
 @endpush
