@@ -35,8 +35,8 @@ class Screencast extends Model
             'description' => <<<EOT
                 The first and most important concept to understand when using Livewire is "data binding". It's the backbone of page reactivity in Livewire, and it'll be your first introduction into how Livewire works under the hood. Mandatory viewing.
             EOT,
-            'url' => 'https://player.vimeo.com/video/396766532',
-            'duration_in_minutes' => '9:18',
+            'url' => 'https://player.vimeo.com/video/398003880',
+            'duration_in_minutes' => '9:11',
         ],
         [
             'title' => 'Actions',
