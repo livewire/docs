@@ -30,7 +30,7 @@ Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewi
 
 If you are not already used to each tool on it's own, mixing the syntaxes of both can be a bit confusing.
 
-Because of this, when possible, you should extract the Alpine parts to reusable Blade components for consumtion inside of Livewire (and anywhere in your app).
+Because of this, when possible, you should extract the Alpine parts to reusable Blade components for consumption inside of Livewire (and anywhere in your app).
 
 Here is an example (Using Laravel 7 Blade component tag syntax).
 
