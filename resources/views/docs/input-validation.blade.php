@@ -42,10 +42,24 @@ class ContactForm extends Component
 @verbatim
 <form wire:submit.prevent="submit">
     <input type="text" wire:model="name">
+
+    //for laravel 5.8 and above
     @error('name') <span class="error">{{ $message }}</span> @enderror
 
+    //for laravel below 5.8
+    @if ($errors->has('name'))
+    <span class="error">{{ $errors->first('name') }}</span>
+    @endif
+
     <input type="text" wire:model="email">
+    
+    //for laravel 5.8 and above
     @error('email') <span class="error">{{ $message }}</span> @enderror
+
+    //for laravel below 5.8
+    @if ($errors->has('email'))
+    <span class="error">{{ $errors->first('email') }}</span>
+    @endif
 
     <button type="submit">Save Contact</button>
 </form>
