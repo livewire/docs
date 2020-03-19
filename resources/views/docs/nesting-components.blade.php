@@ -56,9 +56,6 @@ Similar to VueJs, if you render a component inside a loop, Livewire has no way o
 <div>
     @foreach ($users as $user)
         @livewire('user-profile', $user, key($user->id))
-
-        <!-- key() using Laravel 7's tag syntax -->
-        <livewire:user-profile :user="$user" :key="$user->id">
     @endforeach
 </div>
 @endverbatim
