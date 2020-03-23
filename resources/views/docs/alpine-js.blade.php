@@ -41,9 +41,9 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
     ...
 
     <x:dropdown>
-        <slot name="trigger">
+        <x-slot name="trigger">
             <button>Show More...</button>
-        </slot>
+        <x-/slot>
 
         <ul>
             <li><button wire:click="archive">Archive</button></li>
