@@ -268,8 +268,8 @@ class SearchPosts extends Component
 
     protected $updatesQueryString = [
         'foo',
-        ['search' => ['except' => '']],
-        ['page' => ['except' => 1]],
+        'search' => ['except' => ''],
+        'page' => ['except' => 1],
     ];
 
     public function mount()
