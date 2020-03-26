@@ -177,7 +177,7 @@ This feature is actually incredibly powerful. For example, you could register a 
 Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
 
 @component('components.warning')
-This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available. For more info on this, check out the <a href="https://laravel.com/docs/5.8/broadcasting#installing-laravel-echo">docs</a>.
+This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available. For more info on this, check out the <a href="https://laravel.com/docs/broadcasting#installing-laravel-echo">docs</a>.
 @endcomponent
 
 Consider the following Laravel Event:
