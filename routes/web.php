@@ -1,11 +1,13 @@
 <?php
 
-use App\PodcastEpisode;
-use App\DocumentationPages;
+use App\User;
 use App\Screencast;
+use App\PodcastEpisode;
+use Michelf\MarkdownExtra;
+use App\DocumentationPages;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
-use Michelf\MarkdownExtra;
+use Laravel\Socialite\Facades\Socialite;
 
 // Algolia Docsearch API Details.
 View::share('docsearchApiKey', env('DOCSEARCH_API_KEY'));
@@ -16,6 +18,51 @@ Route::get('/', function () {
     return view('home', [
         'title' => 'Livewire',
     ]);
+});
+
+Route::get('/foo', function () {
+    return view('foo', [
+        'title' => 'Foo',
+    ]);
+})->name('login')->middleware('guest');
+
+Route::middleware(['auth', 'sponsor.guest'])->group(function () {
+    Route::get('baz', function () {
+        return view('baz', ['title' => 'Baz']);
+    });
+});
+
+Route::middleware(['auth', 'sponsor'])->group(function () {
+    Route::get('/bar', function () {
+        return view('bar', [
+            'title' => 'Bar',
+        ]);
+    });
+});
+
+Route::get('login/github', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('login/github/callback', function () {
+    $gitHubUser = Socialite::driver('github')->user();
+
+    $user = User::firstOrCreate([
+        'github_id' => $gitHubUser->id,
+    ], [
+        'github_username' => $gitHubUser->nickname,
+        'name' => $gitHubUser->name,
+        'email' => $gitHubUser->email,
+        'avatar' => $gitHubUser->avatar,
+    ]);
+
+    auth()->login($user);
+
+    return redirect()->to('/baz');
+});
+
+Route::post('/callback/github', function () {
+
 });
 
 // Documentation.
