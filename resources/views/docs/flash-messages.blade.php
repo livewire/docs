@@ -49,7 +49,7 @@ class UpdatePost extends Component
         @endif
     </div>
 
-    Title: <input wire:model="email" type="text">
+    Title: <input wire:model="title" type="text">
 
     <button>Save</button>
 </form>
