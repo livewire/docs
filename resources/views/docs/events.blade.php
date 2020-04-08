@@ -177,7 +177,7 @@ This feature is actually incredibly powerful. For example, you could register a 
 Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
 
 @component('components.warning')
-This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available. For more info on this, check out the <a href="https://laravel.com/docs/5.8/broadcasting#installing-laravel-echo">docs</a>.
+This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available. For more info on this, check out the <a href="https://laravel.com/docs/master/broadcasting#installing-laravel-echo">docs</a>.
 @endcomponent
 
 Consider the following Laravel Event:
@@ -219,7 +219,7 @@ use Livewire\Component;
 
 class OrderTracker extends Component
 {
-    public $showNewOrderNotication = false;
+    public $showNewOrderNotification = false;
 
     // Special Syntax: ['echo:{channel},{event}' => '{method}']
     protected $listeners = ['echo:orders,OrderShipped' => 'notifyNewOrder'];
@@ -237,4 +237,44 @@ class OrderTracker extends Component
 @endslot
 @endcomponent
 
-Now, Livewire will intercept the received event from Pusher, and act accordingly.
+Now, Livewire will intercept the received event from Pusher, and act accordingly. In a similar way, you can also listen to events broadcasted to private/presence channels:
+
+@component('components.warning')
+    Make sure you have your <a href="https://laravel.com/docs/master/broadcasting#defining-authorization-callbacks">Authentication Callbacks</a> properly defined.
+@endcomponent
+
+@component('components.code-component', ['className' => 'OrderTracker'])
+@slot('class')
+use Livewire\Component;
+
+class OrderTracker extends Component
+{
+    public $showNewOrderNotification = false;
+    public $orderId;
+
+    public function mount($orderId)
+    {
+        $this->orderId = $orderId;
+    }
+
+    public function getListeners()
+    {
+        return [
+            "echo-private:orders.{$this->orderId},OrderShipped" => 'notifyNewOrder',
+            // Or:
+            "echo-presence:orders.{$this->orderId},OrderShipped" => 'notifyNewOrder',
+        ];
+    }
+
+    public function notifyNewOrder()
+    {
+        $this->showNewOrderNotification = true;
+    }
+
+    public function render()
+    {
+        return view('livewire.order-tracker');
+    }
+}
+@endslot
+@endcomponent
