@@ -20,27 +20,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/foo', function () {
-    return view('foo', [
-        'title' => 'Foo',
-    ]);
-})->name('login')->middleware('guest');
-
-Route::middleware(['auth', 'sponsor.guest'])->group(function () {
-    Route::get('baz', function () {
-        return view('baz', ['title' => 'Baz']);
-    });
-});
-
-Route::middleware(['auth', 'sponsor'])->group(function () {
-    Route::get('/bar', function () {
-        return view('bar', [
-            'title' => 'Bar',
-        ]);
-    });
-});
-
 Route::get('login/github', function () {
+    session()->put('before-github-redirect', url()->previous());
+
     return Socialite::driver('github')->redirect();
 });
 
@@ -58,11 +40,7 @@ Route::get('login/github/callback', function () {
 
     auth()->login($user);
 
-    return redirect()->to('/baz');
-});
-
-Route::post('/callback/github', function () {
-
+    return redirect()->to(session('before-github-redirect', '/screecasts/installation'));
 });
 
 // Documentation.

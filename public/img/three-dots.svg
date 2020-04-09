@@ -1,1 +1,5 @@
-<svg fill="currentColor" viewBox="0 -192 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m320 64c0 35.347656-28.652344 64-64 64s-64-28.652344-64-64 28.652344-64 64-64 64 28.652344 64 64zm0 0"/><path d="m128 64c0 35.347656-28.652344 64-64 64s-64-28.652344-64-64 28.652344-64 64-64 64 28.652344 64 64zm0 0"/><path d="m512 64c0 35.347656-28.652344 64-64 64s-64-28.652344-64-64 28.652344-64 64-64 64 28.652344 64 64zm0 0"/></svg>
+<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <circle cx="14" cy="12" r=".5"></circle>
+    <circle cx="20" cy="12" r=".5"></circle>
+    <circle cx="8" cy="12" r=".7"></circle>
+</svg>
