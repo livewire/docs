@@ -72,14 +72,14 @@ class CreatePostTest extends TestCase
     }
 
     /** @test */
-    function name_is_required()
+    function title_is_required()
     {
         $this->actingAs(factory(User::class)->create())
 
         Livewire::test(CreatePost::class)
             ->set('title', '')
             ->call('create')
-            ->assertHasErrors(['name' => 'required']);
+            ->assertHasErrors(['title' => 'required']);
     }
 
     /** @test */
