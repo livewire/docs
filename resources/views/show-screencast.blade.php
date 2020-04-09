@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="relative p-2 md:p-8 pt-0 bg-gray-100">
-    <div class="container mx-auto px-4 md:px-12 pt-4 md:pt-12 text-xl flex-col md:flex-row flex justify-between relative items-center" style="max-width: 900px">
+    <div class="container mx-auto px-4 md:px-12 pt-4 text-xl flex-col md:flex-row flex justify-between relative items-center" style="max-width: 900px">
         <div class="pb-16 pt-6" x-data>
             <div class="rounded overflow-hidden shadow-lg">
                 <div style="padding:56.25% 0 0 0;position:relative;" class="relative">
