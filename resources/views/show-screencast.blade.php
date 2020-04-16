@@ -20,18 +20,18 @@
                                 background-size: cover;
                             "></div>
                             <div class="flex flex-col justify-center items-center relative z-10 h-full w-full">
-                                <div class="font-bold mb-8 text-3xl text-center text-white">This video is restrictricted to GitHub sponsors only.</div>
-                                <div class="mb-8 text-center text-white text-xl">Your sponsorship helps make videos like these possible! ❤️</div>
+                                <div class="font-bold md:mb-8 md:text-3xl text-center text-white">This video is restrictricted to GitHub sponsors only.</div>
+                                <div class="hidden md:block md:mb-8 text-center text-white md:text-xl">Your sponsorship helps make videos like these possible! ❤️</div>
                                 @guest
                                     <div class="mt-4">
-                                        <a class="cursor-pointer border-2 border-white flex hover:border-gray-300 hover:text-gray-400 items-center px-8 py-2 rounded-full shadow text-white" href="/login/github">
-                                            <span class="mr-4">Log in with GitHub</span>
+                                        <a class="text-sm md:text-base cursor-pointer border-2 border-white flex hover:border-gray-300 hover:text-gray-400 items-center px-4 md:px-8 py-1 md:py-2 rounded-full shadow text-white" href="/login/github">
+                                            <span class="mr-2">Log in with GitHub</span>
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                         </a>
                                     </div>
                                 @else
-                                    <div>
-                                        <a class="cursor-pointer border-2 border-white flex hover:border-gray-300 hover:text-gray-400 items-center px-8 py-2 rounded-full shadow text-white" href="https://github.com/sponsors/calebporzio" target="__blank">
+                                    <div class="mt-4">
+                                        <a class="text-sm md:text-base cursor-pointer border-2 border-white flex hover:border-gray-300 hover:text-gray-400 items-center px-4 md:px-8 py-1 md:py-2 rounded-full shadow text-white" href="/login/github">
                                             <span class="mr-4">Become A GitHub Sponsor</span>
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                         </a>
@@ -47,7 +47,7 @@
                     <span class="block leading-5 text-sm tracking-normal">{{ $screencast->description }}</span>
 
                     @if ($screencast->code_url && (! $screencast->is_paid || (auth()->user() && auth()->user()->is_sponsor)))
-                        <div class="mt-6">
+                        <div class="mt-8 flex">
                             <a class="text-xs md:text-sm border-2 border-indigo-500 cursor-pointer flex hover:border-indigo-800 hover:text-indigo-800 items-center justify-center px-8 py-2 rounded-full text-indigo-600" href="{{ $screencast->code_url }}" target="__blank">
                                 <span class="mr-4">Explore The Source Code For This Lesson</span>
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>

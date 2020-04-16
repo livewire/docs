@@ -27,7 +27,7 @@
             x-data="{ open: false }"
             x-show="open"
             @@set-nav-open.window="open = $event.detail"
-            class="fixed inset-0 z-10" style="background: rgba(0,0,0,0.5); display: none;"
+            class="fixed inset-0 z-20" style="background: rgba(0,0,0,0.5); display: none;"
         >
             <div
                 x-show.transition.opacity="open"
