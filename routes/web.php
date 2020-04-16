@@ -27,6 +27,7 @@ Route::get('login/github', function () {
 });
 
 Route::get('login/github/callback', function () {
+    \Illuminate\Support\Facades\Cache::forget('sponsors');
     $gitHubUser = Socialite::driver('github')->user();
 
     $user = User::firstOrCreate([
