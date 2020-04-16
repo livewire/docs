@@ -179,7 +179,7 @@ Livewire supports binding to nested data inside arrays using dot notation:
 
 ### Lazily Updating {#lazilly-updating}
 
-By default, Livewire sends a request to server after every `input` event (or `change` in some cases). This is usually fine for things like `<select>` elements that don't typically fire rapid updates, however, this is often unnecessary for text fields that update as the user types.
+By default, Livewire sends a request to the server after every `input` event (or `change` in some cases). This is usually fine for things like `<select>` elements that don't typically fire rapid updates, however, this is often unnecessary for text fields that update as the user types.
 
 In those cases, use the `lazy` directive modifier to listen for the native "change" event.
 
