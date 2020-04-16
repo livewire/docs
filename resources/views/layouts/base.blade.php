@@ -47,6 +47,8 @@
         @if ($docsearchApiKey && $docsearchIndexName)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         @endif
+
+        @livewireStyles
     </head>
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-200">
         @yield('content')
@@ -65,6 +67,7 @@
         </footer>
 
         <script src="{{ mix('js/main.js') }}"></script>
+        @livewireScripts
         @stack('scripts')
     </body>
 </html>
