@@ -18,6 +18,7 @@ class Series extends Model
     {
         return [
             [ 'id' => 1, 'title' => 'Getting Started' ],
+            [ 'id' => 2, 'title' => 'Building A Form With Validation' ],
         ];
     }
 }

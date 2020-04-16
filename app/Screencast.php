@@ -97,5 +97,89 @@ class Screencast extends Model
             'series_id' => 1,
             'is_paid' => false,
         ],
+        [
+            'title' => 'Introduction',
+            'slug' => 's1-introduction',
+            'description' => <<<EOT
+                In this video, we get a glimpse of where we're headed in the series and what it will look like.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408128508',
+            'code_url' => null,
+            'duration_in_minutes' => '1:47',
+            'series_id' => 2,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Setting Up The Component',
+            'slug' => 's1-setting-up-the-component',
+            'description' => <<<EOT
+                In this video, we'll set up our first real Livewire component in "Surge", and learn a few handy tricks along the way to reduce boilerplate and manipulate components more efficiently.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408118751',
+            'code_url' => 'https://github.com/livewire/surge/commit/7a05a339439586143b1c16d89589b4124b64c236',
+            'duration_in_minutes' => '6:43',
+            'series_id' => 2,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Setting Up The Form',
+            'slug' => 's1-setting-up-the-form',
+            'description' => <<<EOT
+                In this video, we scaffold out the HTML for the "Registration Form" and give it it's most basic behavior: Creating a user.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408118829',
+            'code_url' => 'https://github.com/livewire/surge/commit/d57eac13b8f2a5e2127cb6cdf02255a7f26818be',
+            'duration_in_minutes' => '8:47',
+            'series_id' => 2,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Adding Validation',
+            'slug' => 's1-adding-validation',
+            'description' => <<<EOT
+                In this video, we finish out the basic feature with form validation. We'll protect against creating multiple users with the same email address and see what validation looks like inside a Livewire component.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408118925',
+            'code_url' => 'https://github.com/livewire/surge/commit/c7eab961021796b4722161777255b62b14efbad8',
+            'duration_in_minutes' => '7:18',
+            'series_id' => 2,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Writing Tests',
+            'slug' => 's1-writing-tests',
+            'description' => <<<EOT
+                Now that we have the basic behavior nailed down, we'll write automated tests against it. This way, going forward, we can run a test suite quickly and easily and be confident everything works!
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408119012',
+            'code_url' => 'https://github.com/livewire/surge/commit/995c2d462f1e0beff6c99f96bbf3d09917f764d3',
+            'duration_in_minutes' => '14:51',
+            'series_id' => 2,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Real-Time Validation (TDD)',
+            'slug' => 's1-real-time-validation',
+            'description' => <<<EOT
+                Thus far, we haven't really seen the full advantages of writing a form like this in Livewire. In this video, we'll look at how easy it is to add dynamic behavior like real-time validation to a component. The work is already done for us!
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408119216',
+            'code_url' => 'https://github.com/livewire/surge/commit/5078b3f8057b48c1398dfd574793ddef01b3aa9a',
+            'duration_in_minutes' => '7:02',
+            'series_id' => 2,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Styling With Tailwind UI',
+            'slug' => 's1-styling',
+            'description' => <<<EOT
+                Now that we're happy with the way our component WORKS, let's make it LOOK good. We'll use Tailwind & Tailwind UI to make a fantastic looking interface and review some other stylistic things along the way.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/408118568',
+            'code_url' => 'https://github.com/livewire/surge/commit/64d0007a56e9ad90d0718124a3f2b35dd8537139',
+            'duration_in_minutes' => '13:19',
+            'series_id' => 2,
+            'is_paid' => true,
+        ],
     ];
 }
