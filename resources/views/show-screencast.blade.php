@@ -20,7 +20,7 @@
                                 background-size: cover;
                             "></div>
                             <div class="flex flex-col justify-center items-center relative z-10 h-full w-full">
-                                <div class="font-bold md:mb-8 md:text-3xl text-center text-white">This video is restrictricted to GitHub sponsors only.</div>
+                                <div class="font-bold md:mb-8 md:text-3xl text-center text-white">This video is restricted to GitHub sponsors only.</div>
                                 <div class="hidden md:block md:mb-8 text-center text-white md:text-xl">Your sponsorship helps make videos like these possible! ❤️</div>
                                 @guest
                                     <div class="mt-4">
