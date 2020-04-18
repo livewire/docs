@@ -50,3 +50,24 @@ For the most part, this system is reliable, but there are certain cases where Li
 <div wire:key="foo">...</div>
 <div wire:key="bar">...</div>
 @endcomponent
+
+## Checksom Issues
+
+On every request, Livewire does a "[checksum](https://laravel-livewire.com/docs/security)" but in some cases with arrays, it can throw an exception even when the data inside the array is the same.
+
+Because in PHP an array can have keys that are alpha-numeric and numeric keys in the same array and in any order, but Javascript will make an object of it because it doesn't support arrays with keys that are alpha-numeric. When Javascript is creating an object it will also reorder the keys, it will place numeric keys before alpha-numeric keys.
+
+This causes a problem when the JSON is sent back because the "[checksum](https://laravel-livewire.com/docs/security)" will look different.
+
+So make sure when you have a public property that is an array numeric keys are before alpha-numeric character keys.
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class HelloWorld extends Component
+{
+    public $list = [
+        '123' => 456,
+        'foo' => 'bar'
+    ];
+    ...
+@endverbatim
+@endcomponent
