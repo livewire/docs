@@ -9,6 +9,8 @@ It allows you to sprinkle JavaScript behavior directly into your markup in a dec
 
 Livewire supports Alpine out of the box and works pretty hard to make the combination as smooth as possible.
 
+> Note: You must install Alpine in order to use it. Check out [Alpine repo](https://github.com/alpinejs/alpine) for installation instructions.
+
 Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewire component's view.
 
 @component('components.code', ['lang' => 'html'])
