@@ -71,7 +71,7 @@ Route::get('/screencasts', function () {
 
 // Show Screencast.
 Route::get('/screencasts/{slug}', function ($slug) {
-    $screencast = Screencast::whereSlug($slug)->first();
+    $screencast = Screencast::whereSlug($slug)->firstOrFail();
 
     return view('show-screencast', [
         'title' => $screencast->title . ' | Livewire Screencasts',
