@@ -18,7 +18,11 @@ class User extends Authenticatable
 
     public function getIsSponsorAttribute()
     {
-        if (in_array($this->github_username, ['calebporzio', 'calebporzio-test'])) return true;
+        if (in_array($this->github_username, [
+            'calebporzio',
+            'calebporzio-test',
+            'foremtehan',
+        ])) return true;
 
         return !! $this->sponsor;
     }
