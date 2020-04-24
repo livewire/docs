@@ -50,7 +50,7 @@ php artisan vendor:publish --tag=livewire:config
 
 ## Configuring The Asset Base URL
 
-By default, Livewire serves it's JavaScript portion (`livewire.js`) from the following route in your app: `/livewire/livewire.js`.
+By default, Livewire serves its JavaScript portion (`livewire.js`) from the following route in your app: `/livewire/livewire.js`.
 
 The actual script tag that gets generated defaults to: `<script src="/livewire/livewire.js"`.
 
