@@ -41,7 +41,7 @@ Route::get('login/github/callback', function () {
 
     auth()->login($user);
 
-    return redirect()->to(session('before-github-redirect', '/screecasts/installation'));
+    return redirect()->to(session('before-github-redirect', '/screencasts/installation'));
 });
 
 // Documentation.
