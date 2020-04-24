@@ -43,7 +43,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
     <x:dropdown>
         <x-slot name="trigger">
             <button>Show More...</button>
-        <x-/slot>
+        </x-slot>
 
         <ul>
             <li><button wire:click="archive">Archive</button></li>
