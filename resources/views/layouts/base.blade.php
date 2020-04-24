@@ -47,11 +47,13 @@
         @if ($docsearchApiKey && $docsearchIndexName)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         @endif
+
+        @livewireStyles
     </head>
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-200">
         @yield('content')
 
-        <footer class="py-4 mt-8 text-sm text-center bg-white" role="contentinfo">
+        <footer class="py-4 text-sm text-center bg-white" role="contentinfo">
             <ul class="flex flex-col justify-center list-none md:flex-row">
                 <li class="md:mr-2">
                     &copy; <a href="https://laravel-livewire.com" title="Livewire">Livewire</a> {{ date('Y') }}.
@@ -65,6 +67,7 @@
         </footer>
 
         <script src="{{ mix('js/main.js') }}"></script>
+        @livewireScripts
         @stack('scripts')
     </body>
 </html>

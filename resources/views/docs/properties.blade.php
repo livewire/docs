@@ -146,7 +146,7 @@ When the user types something into the text field, the value of the `$message` p
 Internally, Livewire will listen for an `input` event on the element, and when triggered, it will send an AJAX request to re-render the component with the new data.
 
 @component('components.tip')
-You can add <code>wire:model</code> to any element that dispataches an <code>input</code> event. Even custom elements, or third-party JavaScript libraries.
+You can add <code>wire:model</code> to any element that dispatches an <code>input</code> event. Even custom elements, or third-party JavaScript libraries.
 @endcomponent
 
 Common elements to use `wire:model` on include:
@@ -268,8 +268,8 @@ class SearchPosts extends Component
 
     protected $updatesQueryString = [
         'foo',
-        ['search' => ['except' => '']],
-        ['page' => ['except' => 1]],
+        'search' => ['except' => ''],
+        'page' => ['except' => 1],
     ];
 
     public function mount()

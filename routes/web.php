@@ -1,11 +1,13 @@
 <?php
 
-use App\PodcastEpisode;
-use App\DocumentationPages;
+use App\User;
 use App\Screencast;
+use App\PodcastEpisode;
+use Michelf\MarkdownExtra;
+use App\DocumentationPages;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
-use Michelf\MarkdownExtra;
+use Laravel\Socialite\Facades\Socialite;
 
 // Algolia Docsearch API Details.
 View::share('docsearchApiKey', env('DOCSEARCH_API_KEY'));
@@ -16,6 +18,30 @@ Route::get('/', function () {
     return view('home', [
         'title' => 'Livewire',
     ]);
+});
+
+Route::get('login/github', function () {
+    session()->put('before-github-redirect', url()->previous());
+
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('login/github/callback', function () {
+    \Illuminate\Support\Facades\Cache::forget('sponsors');
+    $gitHubUser = Socialite::driver('github')->user();
+
+    $user = User::firstOrCreate([
+        'github_id' => $gitHubUser->id,
+    ], [
+        'github_username' => $gitHubUser->nickname,
+        'name' => $gitHubUser->name,
+        'email' => $gitHubUser->email,
+        'avatar' => $gitHubUser->avatar,
+    ]);
+
+    auth()->login($user);
+
+    return redirect()->to(session('before-github-redirect', '/screecasts/installation'));
 });
 
 // Documentation.
@@ -45,7 +71,7 @@ Route::get('/screencasts', function () {
 
 // Show Screencast.
 Route::get('/screencasts/{slug}', function ($slug) {
-    $screencast = Screencast::whereSlug($slug)->first();
+    $screencast = Screencast::whereSlug($slug)->firstOrFail();
 
     return view('show-screencast', [
         'title' => $screencast->title . ' | Livewire Screencasts',

@@ -23,35 +23,46 @@
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>...I'll get my floaties</em></p>
 
-        <div class="pt-8 pb-6">
+        <div class="md:-mx-24 pt-8 pb-6">
             <p class="font-bold mt-0 mb-2 text-gray-500 text-xs tracking-wider uppercase text-center">Our Lovely Sponsors:</p>
-            <a style="min-height: 75px; display: block;" href="https://laravel.com/" target="_blank">
-                <img class="w-48 m-auto mb-4" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
-            </a>
 
-            <a style="min-height: 75px; display: block;" href="https://intellow.com/" target="_blank">
-                <img class="w-48 m-auto mb-4" src="/img/sponsor_intellow.png" alt="Intellow">
-            </a>
+            <div class="flex flex-wrap items-center justify-around">
+                <a class="mb-4" style="display: block;" href="https://laravel.com/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+                </a>
 
-            <a style="min-height: 75px; display: block;" href="https://cierra.de" target="_blank">
-                <img class="w-48 m-auto mb-4" src="/img/sponsor_cierra.png" alt="Cierra">
-            </a>
+                <a class="mb-4" style="display: block;" href="https://intellow.com/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_intellow.png" alt="Intellow">
+                </a>
 
-            <a style="min-height: 75px; display: block;" href="https://ueberdosis.io" target="_blank">
-                <img class="w-48 m-auto mb-4" src="https://drop.hanspagel.com/xCzFrLeC9d.svg" alt="Uberdosis">
-            </a>
+                <a class="mb-4" style="display: block;" href="https://cierra.de" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_cierra.png" alt="Cierra">
+                </a>
 
-            <a style="min-height: 75px; display: block;" href="https://www.1043labs.com/" target="_blank">
-                <img class="w-32 m-auto mb-4" src="/img/sponsor_1043labs.png" alt="1043 Labs">
-            </a>
+                <a class="mb-4" style="display: block;" href="https://ueberdosis.io" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="https://drop.hanspagel.com/xCzFrLeC9d.svg" alt="Uberdosis">
+                </a>
 
-            <a style="min-height: 75px; display: block;" href="http://jrmerritt.com/" target="_blank">
-                <img class="w-48 m-auto mb-4" src="/img/sponsor_jrmerritt.png" alt="JR Merritt">
-            </a>
+                <a class="mb-4" style="display: block;" href="https://www.1043labs.com/" target="_blank">
+                    <img class="w-32 m-auto mb-4" src="/img/sponsor_1043labs.png" alt="1043 Labs">
+                </a>
 
-            <a style="min-height: 75px; display: block;" href="https://trustfactory.bz/" target="_blank">
-                <img class="w-48 m-auto mb-4" src="/img/sponsor_trustfactory.png" alt="Trust Factory">
-            </a>
+                <a class="mb-4" style="display: block;" href="http://jrmerritt.com/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_jrmerritt.png" alt="JR Merritt">
+                </a>
+
+                <a class="mb-4" style="display: block;" href="https://trustfactory.bz/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_trustfactory.png" alt="Trust Factory">
+                </a>
+
+                <a class="mb-4" style="display: block;" href="https://roasted.dev/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_roasted.svg" alt="Roasted Dev">
+                </a>
+
+                <a class="mb-4" style="display: block;" href="https://www.amezmo.com/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_amezmo.svg" alt="Amezmo">
+                </a>
+            </div>
         </div>
 
         <div class="md:-mx-12 pt-8">

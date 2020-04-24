@@ -103,3 +103,23 @@ php artisan livewire:delete foo --force
 @component('components.tip')
 For convenience, <code>livewire:delete</code> is aliased to <code>livewire:rm</code>
 @endcomponent
+
+## Manually Registering Components {#manually-registering-components}
+
+You may manually register components using the `Livewire::component` method. 
+This can be useful if you have components in another namespace or a composer package.
+Typically this should be done in the `boot` method of a service provider. 
+
+@component('components.code', ['lang' => 'php'])
+namespace App\Providers;
+
+use Other\Namespace\YourComponent;
+use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+
+class LivewireComponentProvider extends ServiceProvider {
+    public function boot() {
+        Livewire::component('your-component', YourComponent::class);
+    }
+}
+@endcomponent
