@@ -91,6 +91,8 @@ Route::get('/podcast', function () {
     ]);
 });
 
+throw new \Exception;
+
 // Show Podcast Show.
 Route::get('/podcasts/{slug}', function ($slug) {
     $podcast = PodcastEpisode::whereFilename($slug)->first();
