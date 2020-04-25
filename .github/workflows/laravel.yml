@@ -29,4 +29,5 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
+        SIMPLECAST_API_KEY: ${{ secrets.SIMPLECAST_API_KEY }}
       run: vendor/bin/phpunit
