@@ -22,7 +22,8 @@ class RoutesTest extends TestCase
         });
 
         // Docs
-        $this->followingRedirects()->get('/docs')->assertSuccessful();
+        $this->withoutExceptionHandling()->followingRedirects()->get('/docs')->assertSuccessful();
+
         collect((new DocumentationPages(''))->all())->flatten()->each(function ($slug) {
             $this->get('/docs/'.$slug)->assertSuccessful();
         });
