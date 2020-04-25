@@ -28,7 +28,7 @@ For the most part, this system is reliable, but there are certain cases where Li
 @verbatim
 <ul>
     @foreach ($items as $item)
-        @livewire('view-item', $item, key($loop->index))
+        @livewire('view-item', ['item' => $item], key($loop->index))
 
         <!-- key() using Laravel 7's tag syntax -->
         <livewire:view-item :item="$item" :key="$loop->index">
