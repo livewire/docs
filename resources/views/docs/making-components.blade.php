@@ -18,9 +18,9 @@ php artisan make:livewire foo --inline
 # Creates only Foo.php
 @endcomponent
 
-Once created, you can render your components in a Blade file with the `@livewire('component-name')` blade directive.
+Once created, you can render your components in a Blade file with the <code>&#64;livewire('component-name')</code> blade directive.
 
-Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
+Think of Livewire components like Blade includes. You can insert <code>&#64;livewire</code> anywhere in a Blade view and it will render.
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
@@ -34,7 +34,9 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
 If you are on Laravel 7 or greater, you can use the tag syntax.
 
 @component('components.code', ['lang' => 'html'])
+@verbatim
 <livewire:foo>
+@endverbatim
 @endcomponent
 
 ### Modifying Stubs {#modifying-stubs}
@@ -106,9 +108,9 @@ For convenience, <code>livewire:delete</code> is aliased to <code>livewire:rm</c
 
 ## Manually Registering Components {#manually-registering-components}
 
-You may manually register components using the `Livewire::component` method. 
+You may manually register components using the `Livewire::component` method.
 This can be useful if you have components in another namespace or a composer package.
-Typically this should be done in the `boot` method of a service provider. 
+Typically this should be done in the `boot` method of a service provider.
 
 @component('components.code', ['lang' => 'php'])
 namespace App\Providers;
