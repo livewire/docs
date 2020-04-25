@@ -51,7 +51,7 @@ For the most part, this system is reliable, but there are certain cases where Li
 <div wire:key="bar">...</div>
 @endcomponent
 
-## Checksom Issues
+## Checksum Issues
 
 On every request, Livewire does a "[checksum](https://laravel-livewire.com/docs/security)" but in some cases with arrays, it can throw an exception even when the data inside the array is the same.
 
