@@ -39,7 +39,7 @@ class UserDashboard extends Component
 
     <h2>User Notes:</h2>
     <div>
-        @livewire('add-user-note', $user)
+        @livewire('add-user-note', ['user' => $user])
     </div>
 </div>
 @endverbatim
