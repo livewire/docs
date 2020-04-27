@@ -1,7 +1,7 @@
 
 Livewire offers the ability to paginate results within a component. This feature hooks into Laravel's native pagination features, so it should feel like an invisible feature to you.
 
-## Paginating Data
+## Paginating Data {#paginating-data}
 
 Let's say you have a `show-posts` component, but you want to limit the results to 10 posts per page.
 
@@ -44,7 +44,7 @@ class ShowPosts extends Component
 
 Now there will be rendered HTML links for the different pages at the bottom of your posts, and the results will be paginated.
 
-## Resetting Pagination After Filtering Data
+## Resetting Pagination After Filtering Data {#resetting-pagination}
 
 A common pattern when filtering a paginated result set is to reset the current page to "1" when filtering is applied.
 
