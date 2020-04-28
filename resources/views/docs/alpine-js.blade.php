@@ -330,7 +330,7 @@ You may be wondering, "But how do I get the unique component id?". Well, you can
 @component('components.code', ['lang' => 'javascript'])
 @verbatim
 <div>
-    <input x-data @input.keydown.enter="@this.set('foo', 'bar)">
+    <input x-data @input.keydown.enter="@this.set('foo', 'bar')">
 </div>
 @endverbatim
 @endcomponent
