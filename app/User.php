@@ -21,7 +21,11 @@ class User extends Authenticatable
         if (in_array($this->github_username, [
             'calebporzio',
             'calebporzio-test',
+            // Gift
             'foremtehan',
+            // DevSquad
+            'r2luna',
+            'danieldevsquad',
         ])) return true;
 
         return !! $this->sponsor;

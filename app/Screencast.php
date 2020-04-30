@@ -181,5 +181,80 @@ class Screencast extends Model
             'series_id' => 2,
             'is_paid' => true,
         ],
+        /**
+         * Profile Page
+         */
+        [
+            'title' => 'Introduction',
+            'slug' => 's2-intro',
+            'description' => <<<EOT
+                My face talking about all the fun and exciting things we’re going to build in this course. My beard is growing long.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/413629785',
+            'code_url' => '',
+            'duration_in_minutes' => '1:01',
+            'series_id' => 3,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'TDDing A Profile Form',
+            'slug' => 's2-tdding-the-profile-page',
+            'description' => <<<EOT
+                We’ll kick off the course by TDDing out the Livewire component for the profile page form in the backend. It’s way more fun than it sounds.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/413628748',
+            'code_url' => 'https://github.com/livewire/surge/commit/76873cb17e3b4c9691a8da6912513cf5754be485',
+            'duration_in_minutes' => '16:21',
+            'series_id' => 3,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Building The Frontend w/ Tailwind UI',
+            'slug' => 's2-building-the-frontend-w-tailwind-ui',
+            'description' => <<<EOT
+                Now we can take our hard work from the TDD video and bring it to life in the browser using Tailwind UI.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/413628917',
+            'code_url' => 'https://github.com/livewire/surge/commit/dc8e729b731008719ffbae0663f1fce6dce7814e',
+            'duration_in_minutes' => '10:16',
+            'series_id' => 3,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Alert Message On Save',
+            'slug' => 's2-alert-message',
+            'description' => <<<EOT
+                We’ll add a Livewire-only “saved” alert that will display when the user clicks the “Save” button. This is a clean, reliable, and simple way to get the job done.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/413629060',
+            'code_url' => 'https://github.com/livewire/surge/commit/dc8e729b731008719ffbae0663f1fce6dce7814e',
+            'duration_in_minutes' => '12:04',
+            'series_id' => 3,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Toaster Notification On Save',
+            'slug' => 's2-toaster-notifications',
+            'description' => <<<EOT
+                This is our first encounter with the JavaScript framework “AlpineJS”. We’ll use it to build a toaster notification system that we can use throughout the entire app and trigger from any Livewire component. Fantastic stuff.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/413629233',
+            'code_url' => 'https://github.com/livewire/surge/commit/3bbb942c9eeff5ac1146e6241ac7b16715df69aa',
+            'duration_in_minutes' => '17:07',
+            'series_id' => 3,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Inline Message On Save',
+            'slug' => 's2-inline-message',
+            'description' => <<<EOT
+                If a toaster notification is too intrusive for you, in this video, we’ll create a subtle but pretty inline “Saved” message that will fade out after 2.5 seconds. This will be our most hardcore usage of Livewire and Alpine together. Buckle up.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/413629507',
+            'code_url' => 'https://github.com/livewire/surge/commit/67909ffe8055fad15d8764e848739a43ef9041e1',
+            'duration_in_minutes' => '19:19',
+            'series_id' => 3,
+            'is_paid' => true,
+        ],
     ];
 }

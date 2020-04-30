@@ -18,7 +18,8 @@ class Series extends Model
     {
         return [
             [ 'id' => 1, 'title' => 'Getting Started' ],
-            [ 'id' => 2, 'title' => 'Building A Form With Validation' ],
+            [ 'id' => 2, 'title' => 'A Basic Form With Validation' ],
+            [ 'id' => 3, 'title' => 'Form Notification Messages' ],
         ];
     }
 }
