@@ -194,7 +194,7 @@ class Screencast extends Model
             'code_url' => '',
             'duration_in_minutes' => '1:01',
             'series_id' => 3,
-            'is_paid' => true,
+            'is_paid' => false,
         ],
         [
             'title' => 'TDDing A Profile Form',
