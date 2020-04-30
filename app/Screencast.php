@@ -233,7 +233,7 @@ class Screencast extends Model
             'is_paid' => true,
         ],
         [
-            'title' => 'Toaster Notification On Save',
+            'title' => 'Toaster Notification On Save W/ AlpineJS',
             'slug' => 's2-toaster-notifications',
             'description' => <<<EOT
                 This is our first encounter with the JavaScript framework “AlpineJS”. We’ll use it to build a toaster notification system that we can use throughout the entire app and trigger from any Livewire component. Fantastic stuff.
@@ -245,7 +245,7 @@ class Screencast extends Model
             'is_paid' => true,
         ],
         [
-            'title' => 'Inline Message On Save',
+            'title' => 'Inline Message On Save W/ AlpineJS',
             'slug' => 's2-inline-message',
             'description' => <<<EOT
                 If a toaster notification is too intrusive for you, in this video, we’ll create a subtle but pretty inline “Saved” message that will fade out after 2.5 seconds. This will be our most hardcore usage of Livewire and Alpine together. Buckle up.
