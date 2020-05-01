@@ -26,6 +26,8 @@ class User extends Authenticatable
             // DevSquad
             'r2luna',
             'danieldevsquad',
+            // Kevin
+            'iAmKevinMcKee',
         ])) return true;
 
         return !! $this->sponsor;
