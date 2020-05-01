@@ -44,6 +44,10 @@ Route::get('login/github/callback', function () {
     return redirect()->to(session('before-github-redirect', '/screencasts/installation'));
 });
 
+Route::post('/sponsors/refresh', function () {
+    \Illuminate\Support\Facades\Cache::forget('sponsors');
+});
+
 // Documentation.
 Route::redirect('/docs', '/docs/quickstart');
 Route::get('/docs/{page}', function ($slug) {
