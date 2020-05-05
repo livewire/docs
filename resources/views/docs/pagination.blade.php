@@ -126,7 +126,7 @@ class ShowPosts extends Component
 Unfortunately, Livewire will overwrite a custom view you have defined inside a service provider using: <code>Paginator::defaultView()</code>.
 @endcomponent
 
-When using either method, instead of achor tags in your pagination component, you should use `wire:click` handlers with the following methods:
+When using either method, instead of anchor tags in your pagination component, you should use `wire:click` handlers with the following methods:
 
 - `nextPage` to navigate to the next page
 - `previousPage` to navigate to the previous page
