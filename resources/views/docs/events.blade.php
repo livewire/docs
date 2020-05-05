@@ -116,7 +116,7 @@ class ShowPosts extends Component
 ### Scoping Events To Parent Listeners {#scope-events-to-parents}
 When dealing with [nested components](/docs/nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
 
-In these cases, can use the `emitUp` feature:
+In these cases, you can use the `emitUp` feature:
 
 @component('components.code', ['lang' => 'php'])
 $this->emitUp('postAdded');
@@ -126,10 +126,10 @@ $this->emitUp('postAdded');
 <button wire:click="$emitUp('postAdded')">
 @endcomponent
 
-### Scoping Events To Components By Name{#scope-events-to-components}
+### Scoping Events To Components By Name {#scope-events-to-components}
 Sometimes you may only want to emit an event to other components of the same type.
 
-In these cases, can use `emitTo`:
+In these cases, you can use `emitTo`:
 
 @component('components.code', ['lang' => 'php'])
 $this->emitTo('counter', 'postAdded');
@@ -144,7 +144,7 @@ $this->emitTo('counter', 'postAdded');
 ### Scoping Events To Self {#scope-events-to-self}
 Sometimes you may only want to emit an event on the component that fired the event. This is sometimes useful for firing an event in PHP and listening for it in JavaScript.
 
-In these cases, can use `emitSelf`:
+In these cases, you can use `emitSelf`:
 
 @component('components.code', ['lang' => 'php'])
 $this->emitSelf('postAdded');
