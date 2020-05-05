@@ -39,7 +39,7 @@ class UserDashboard extends Component
 
     <h2>User Notes:</h2>
     <div>
-        @livewire('add-user-note', $user)
+        @livewire('add-user-note', ['user' => $user])
     </div>
 </div>
 @endverbatim
@@ -55,7 +55,7 @@ Similar to VueJs, if you render a component inside a loop, Livewire has no way o
 @verbatim
 <div>
     @foreach ($users as $user)
-        @livewire('user-profile', $user, key($user->id))
+        @livewire('user-profile', ['user' => $user], key($user->id))
     @endforeach
 </div>
 @endverbatim
