@@ -330,7 +330,7 @@ You may be wondering, "But how do I get the unique component id?". Well, you can
 @component('components.code', ['lang' => 'javascript'])
 @verbatim
 <div>
-    <input x-data @input.keydown.enter="@this.set('foo', 'bar)">
+    <input x-data @input.keydown.enter="@this.set('foo', 'bar')">
 </div>
 @endverbatim
 @endcomponent
@@ -341,7 +341,7 @@ If you were to inspect the source of the rendered page in the browser, here is w
 
 @component('components.code', ['lang' => 'javascript'])
 @verbatim
-<input x-data @input.keydown.enter="window.livewire.find('unique-id').set('foo', 'bar)">
+<input x-data @input.keydown.enter="window.livewire.find('unique-id').set('foo', 'bar')">
 @endverbatim
 @endcomponent
 
