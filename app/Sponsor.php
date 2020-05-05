@@ -21,25 +21,30 @@ class Sponsor extends Model
     public function getRows()
     {
         return Cache::remember('sponsors', now()->addHour(), function () {
-            return array_map(function ($sponsor) {
-                return [
-                    'id' => $sponsor['sponsor']['id'],
-                    'tier_id' => $sponsor['tier']['id'],
-                    'tier_name' => $sponsor['tier']['name'],
-                    'tier_description' => $sponsor['tier']['descriptionHTML'],
-                    'tier_price' => $sponsor['tier']['monthlyPriceInDollars'],
-                    'tier_price_in_cents' => $sponsor['tier']['monthlyPriceInCents'],
-                    'username' => $sponsor['sponsor']['login'],
-                    'name' => $sponsor['sponsor']['name'],
-                    'email' => $sponsor['sponsor']['email'],
-                    'avatar' => $sponsor['sponsor']['avatarUrl'],
-                    'company' => $sponsor['sponsor']['company'],
-                    'location' => $sponsor['sponsor']['location'],
-                    'website' => $sponsor['sponsor']['websiteUrl'],
-                    'created_at' => $sponsor['createdAt'],
-                    'url' => $sponsor['sponsor']['url'],
-                ];
-            }, $this->fetchRawSponsors());
+            return collect($this->fetchRawSponsors())
+                ->filter(function ($sponsor) {
+                    return !! $sponsor['sponsor'];
+                })
+                ->map(function ($sponsor) {
+                    return [
+                        'id' => $sponsor['sponsor']['id'],
+                        'tier_id' => $sponsor['tier']['id'],
+                        'tier_name' => $sponsor['tier']['name'],
+                        'tier_description' => $sponsor['tier']['descriptionHTML'],
+                        'tier_price' => $sponsor['tier']['monthlyPriceInDollars'],
+                        'tier_price_in_cents' => $sponsor['tier']['monthlyPriceInCents'],
+                        'username' => $sponsor['sponsor']['login'],
+                        'name' => $sponsor['sponsor']['name'],
+                        'email' => $sponsor['sponsor']['email'],
+                        'avatar' => $sponsor['sponsor']['avatarUrl'],
+                        'company' => $sponsor['sponsor']['company'],
+                        'location' => $sponsor['sponsor']['location'],
+                        'website' => $sponsor['sponsor']['websiteUrl'],
+                        'created_at' => $sponsor['createdAt'],
+                        'url' => $sponsor['sponsor']['url'],
+                    ];
+                })
+                ->toArray();
         });
     }
 
