@@ -18,6 +18,20 @@ body {
     stroke-linejoin: round;
 }
 
+// Content lists
+.content {
+    li { @apply .mb-3; }
+    li:last-child { @apply .mb-0; }
+    ul { @apply .list-none; }
+    li {
+        ul,
+        ol {
+            @apply .my-0 .ml-4 .pt-1;
+            li { @apply .mb-1; }
+        }
+    }
+}
+
 ul { @apply .list-disc; }
 ol { @apply .list-decimal; }
 

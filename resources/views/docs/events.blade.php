@@ -1,3 +1,17 @@
+* [Firing Events](#firing-events) { .text-blue-800 }
+  * [From The Template](#from-template) { .font-normal.text-sm.text-blue-800 }
+  * [From The Component](#from-component) { .font-normal.text-sm.text-blue-800 }
+  * [From Global JavaScript](#from-js) { .font-normal.text-sm.text-blue-800 }
+* [Event Listeners](#event-listeners) { .text-blue-800 }
+* [Passing Parameters](#passing-parameters) { .text-blue-800 }
+* [Scoping Events](#scoping-events) { .text-blue-800 }
+  * [Scoping To Parent Listeners](#scope-to-parents) { .font-normal.text-sm.text-blue-800 }
+  * [Scoping To Components By Name](#scope-by-name) { .font-normal.text-sm.text-blue-800 }
+  * [Scoping To Self](#scope-to-self) { .font-normal.text-sm.text-blue-800 }
+* [Listening For Events In JavaScript](#in-js) { .text-blue-800 }
+
+<div>&nbsp;</div>
+
 @include('includes.screencast-cta')
 
 Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.
@@ -18,7 +32,7 @@ There are multiple ways to fire events from Livewire components.
 $this->emit('postAdded');
 @endcomponent
 
-### Method C: From Global JavaScript {#from-javascript}
+### Method C: From Global JavaScript {#from-js}
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
@@ -80,7 +94,7 @@ class ShowPosts extends Component
 @endslot
 @endcomponent
 
-### Passing Parameters {#passing-parameters}
+## Passing Parameters {#passing-parameters}
 
 You can also send parameters with an event emission.
 
@@ -113,7 +127,9 @@ class ShowPosts extends Component
 @endslot
 @endcomponent
 
-### Scoping Events To Parent Listeners {#scope-events-to-parents}
+## Scoping Events {#scoping-events}
+
+## Scoping To Parent Listeners {#scope-to-parents}
 When dealing with [nested components](/docs/nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
 
 In these cases, you can use the `emitUp` feature:
@@ -126,7 +142,7 @@ $this->emitUp('postAdded');
 <button wire:click="$emitUp('postAdded')">
 @endcomponent
 
-### Scoping Events To Components By Name {#scope-events-to-components}
+### Scoping To Components By Name {#scope-by-name}
 Sometimes you may only want to emit an event to other components of the same type.
 
 In these cases, you can use `emitTo`:
@@ -141,7 +157,7 @@ $this->emitTo('counter', 'postAdded');
 
 (Now, if the button is clicked, the "postAdded" event will only be emitted to `counter` components)
 
-### Scoping Events To Self {#scope-events-to-self}
+### Scoping To Self {#scope-to-self}
 Sometimes you may only want to emit an event on the component that fired the event. This is sometimes useful for firing an event in PHP and listening for it in JavaScript.
 
 In these cases, you can use `emitSelf`:
@@ -156,7 +172,7 @@ $this->emitSelf('postAdded');
 
 (Now, if the button is clicked, the "postAdded" event will only be emitted to the instance of the component that it was emitted from.)
 
-## Listening for events in JavaScript {#in-js}
+## Listening For Events In JavaScript {#in-js}
 
 Livewire allows you to register event listeners in JavaScript like so:
 
@@ -170,111 +186,4 @@ window.livewire.on('postAdded', postId => {
 
 @component('components.tip')
 This feature is actually incredibly powerful. For example, you could register a listener to show a toaster (popup) inside your app when Livewire performs certain actions. This is one of the many ways to bridge the gap between PHP and JavaScript with Livewire.
-@endcomponent
-
-## Listening for Laravel Echo events {#echo-events}
-
-Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
-
-@component('components.warning')
-This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available. For more info on this, check out the <a href="https://laravel.com/docs/broadcasting#installing-laravel-echo">docs</a>.
-@endcomponent
-
-Consider the following Laravel Event:
-
-@component('components.code-component', ['className' => 'OrderShipped'])
-@slot('class')
-class OrderShipped implements ShouldBroadcast
-{
-    use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public function broadcastOn()
-    {
-        return new Channel('orders');
-    }
-}
-@endslot
-@endcomponent
-
-Let's say you fire this event with Laravel's broadcasting system like this:
-
-@component('components.code', ['lang' => 'php'])
-event(new OrderShipped);
-@endcomponent
-
-Normally, you would listen for this event in Laravel Echo like so:
-
-@component('components.code', ['lang' => 'js'])
-    Echo.channel('orders')
-        .listen('OrderShipped', (e) => {
-            console.log(e.order.name);
-        });
-@endcomponent
-
-With Livewire however, all you have to do is register it in your `$listeners` property, with some special syntax to designate it's from Echo.
-
-@component('components.code-component', ['className' => 'OrderTracker'])
-@slot('class')
-use Livewire\Component;
-
-class OrderTracker extends Component
-{
-    public $showNewOrderNotification = false;
-
-    // Special Syntax: ['echo:{channel},{event}' => '{method}']
-    protected $listeners = ['echo:orders,OrderShipped' => 'notifyNewOrder'];
-
-    public function notifyNewOrder()
-    {
-        $this->showNewOrderNotification = true;
-    }
-
-    public function render()
-    {
-        return view('livewire.order-tracker');
-    }
-}
-@endslot
-@endcomponent
-
-Now, Livewire will intercept the received event from Pusher, and act accordingly. In a similar way, you can also listen to events broadcasted to private/presence channels:
-
-@component('components.warning')
-    Make sure you have your <a href="https://laravel.com/docs/master/broadcasting#defining-authorization-callbacks">Authentication Callbacks</a> properly defined.
-@endcomponent
-
-@component('components.code-component', ['className' => 'OrderTracker'])
-@slot('class')
-use Livewire\Component;
-
-class OrderTracker extends Component
-{
-    public $showNewOrderNotification = false;
-    public $orderId;
-
-    public function mount($orderId)
-    {
-        $this->orderId = $orderId;
-    }
-
-    public function getListeners()
-    {
-        return [
-            "echo-private:orders.{$this->orderId},OrderShipped" => 'notifyNewOrder',
-            // Or:
-            "echo-presence:orders.{$this->orderId},OrderShipped" => 'notifyNewOrder',
-        ];
-    }
-
-    public function notifyNewOrder()
-    {
-        $this->showNewOrderNotification = true;
-    }
-
-    public function render()
-    {
-        return view('livewire.order-tracker');
-    }
-}
-@endslot
 @endcomponent

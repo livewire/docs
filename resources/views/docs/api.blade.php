@@ -20,7 +20,7 @@ Directive | Description
 `wire:dirty.class="foo"` | Will add the `foo` class to the element while element is dirty
 `wire:dirty.class.remove="foo"` | Will remove the `foo` class while dirty
 `wire:dirty.attr="disabled"` | Will add the `disabled="true"` attribute while dirty
-`wire:target="foo"` | Will scope `wire:loading` and `wire:dirty` functionality to the element that has `wire:ref="foo"`
+`wire:target="foo"` | Will scope `wire:loading` and `wire:dirty` functionality to when the "foo" action is triggered.
 `wire:ignore` | Adding this directive to an element will tell Livewire to not update it or it's children when updating the DOM from a server request. Useful when using Third-party javascript libraries in Livewire components.
 `wire:ignore.self` | The "self" modifier ignores updates to the element itself, but allows modifications to children.
 @endcomponent

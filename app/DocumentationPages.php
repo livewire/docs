@@ -9,8 +9,7 @@ class DocumentationPages
         'The Essentials' => [
             'Installation' => 'installation',
             'Making Components' => 'making-components',
-            'The <code>render()</code> Method' => 'render-method',
-            'The <code>mount()</code> Method' => 'mount-method',
+            'Rendering Components' => 'rendering-components',
             'Properties' => 'properties',
             'Actions' => 'actions',
             'Events' => 'events',
@@ -32,13 +31,16 @@ class DocumentationPages
             'Dirty States' => 'dirty-states',
             'Defer Loading' => 'defer-loading',
         ],
-        'JavaScript' => [
+        'JS Integrations' => [
             'AlpineJS' => 'alpine-js',
-            'SPA Mode' => 'spa-mode',
+            'Turbolinks' => 'turbolinks',
+            'Laravel Echo' => 'laravel-echo',
         ],
         'Testing' => 'testing',
-        'Troubleshooting' => 'troubleshooting',
         'Security' => 'security',
+        'Troubleshooting' => 'troubleshooting',
+        'Package Development' => 'package-dev',
+        'Artisan Commands' => 'artisan-commands',
         'API Reference' => 'api',
     ];
 

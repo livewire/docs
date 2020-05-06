@@ -1,4 +1,21 @@
+* [Introduction](#public-properties) { .text-blue-800 }
+  * [Important Notes](#important-notes) { .font-normal.text-sm.text-blue-800 }
+* [Initializing Properties](#initializing-properties) { .text-blue-800 }
+* [Data Binding](#data-binding) { .text-blue-800 }
+  * [Debouncing Input](#debouncing-input) { .font-normal.text-sm.text-blue-800 }
+  * [Binding Nested Data](#binding-nested-data) { .font-normal.text-sm.text-blue-800 }
+  * [Lazy Updating](#lazy-updating) { .font-normal.text-sm.text-blue-800 }
+* [Updating The Query String](#query-string) { .text-blue-800 }
+  * [Keeping A Clean Query String](#clean-query-string) { .font-normal.text-sm.text-blue-800 }
+* [Casting Properties](#casting-properties) { .text-blue-800 }
+  * [Custom Casters](#custom-casters) { .font-normal.text-sm.text-blue-800 }
+* [Computed Properties](#computed-properties) { .text-blue-800 }
+
+<div>&nbsp;</div>
+
 @include('includes.screencast-cta')
+
+## Public Properties {#public-properties}
 
 Livewire components store and track data as public properties on the component class.
 
@@ -40,7 +57,7 @@ class HelloWorld extends Component
 @endslot
 @endcomponent
 
-### First, Three Important Notes {#important-notes}
+### Important Notes {#important-notes}
 
 Here are three ESSENTIAL things to note about public properties before embarking on your Livewire journey:
 
@@ -159,7 +176,7 @@ Element Tag |
 `<select>` |
 `<textarea>` |
 
-### Input Debounce {#input-debounce}
+### Debouncing Input {#debouncing-input}
 
 By default, Livewire applies a 150ms debounce to text inputs. This avoids too many network requests being sent as a user types into a text field.
 
@@ -169,7 +186,7 @@ If you wish to override this default (or add it to a non-text input), Livewire o
 <input type="text" wire:model.debounce.500ms="name">
 @endcomponent
 
-### Nested Data {#nested-binding}
+### Binding Nested Data {#binding-nested-data}
 
 Livewire supports binding to nested data inside arrays using dot notation:
 
@@ -177,7 +194,7 @@ Livewire supports binding to nested data inside arrays using dot notation:
 <input type="text" wire:model="parent.message">
 @endcomponent
 
-### Lazily Updating {#lazilly-updating}
+### Lazy Updating {#lazy-updating}
 
 By default, Livewire sends a request to the server after every `input` event (or `change` in some cases). This is usually fine for things like `<select>` elements that don't typically fire rapid updates, however, this is often unnecessary for text fields that update as the user types.
 
@@ -189,7 +206,7 @@ In those cases, use the `lazy` directive modifier to listen for the native "chan
 
 Now, the `$message` property will only be updated when the user clicks away from the input field.
 
-## Updating The Query String {#update-query-string}
+## Updating The Query String {#query-string}
 
 Sometimes it's useful to update the browser's query string when your component state changes.
 

@@ -50,7 +50,7 @@
 
         @livewireStyles
     </head>
-    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-200">
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
         @yield('content')
 
         <footer class="py-4 text-sm text-center bg-white" role="contentinfo">

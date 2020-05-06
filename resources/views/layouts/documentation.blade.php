@@ -9,13 +9,13 @@
 @section('content')
 @yield('header')
 
-<section class="container px-6 py-12 mx-auto md:px-8 content">
+<section class="container px-6 py-12 mx-auto md:px-8">
     <div class="flex flex-col lg:flex-row">
         <nav class="nav-menu hidden lg:block">
             @include('includes.menu', ['items' => $pages->all()])
         </nav>
 
-        <div class="w-full break-words md:w-4/5 lg:w-3/5 lg:pl-4" v-pre>
+        <div class="w-full break-words md:w-4/5 lg:w-3/5 lg:pl-4 content" v-pre>
             <h1>{!! $title !!}</h1>
 
             @yield('content')

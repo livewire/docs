@@ -1,8 +1,6 @@
 @include('includes.screencast-cta')
 
-Livewire has both a PHP component AND a Javascript component. You need to make sure both are available in your project before you can use it.
-
-## Install the package {#install-package}
+## Install The Package {#install-package}
 
 @component('components.code', ['lang' => 'bash'])
 composer require livewire/livewire
@@ -35,6 +33,8 @@ If you are on Laravel 7 or higher, you can use the new tag syntax.
 <livewire:scripts>
 @endverbatim
 @endcomponent
+
+That's it! That's all you need to start using Livewire. Everything else on this page is optional.
 
 ## Publishing The Config File {#publishing-config}
 

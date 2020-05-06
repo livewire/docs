@@ -1,4 +1,14 @@
+* [Introduction](#introduction) { .text-blue-800 }
+* [Passing Action Parameters](#action-parameters) { .text-blue-800 }
+* [Event Modifiers](#event-modifiers) { .text-blue-800 }
+  * [Keydown Modifiers](#keydown-modifiers) { .font-normal.text-sm.text-blue-800 }
+* [Magic Actions](#magic-actions) { .text-blue-800 }
+
+<div>&nbsp;</div>
+
 @include('includes.screencast-cta')
+
+## Introduction {#introduction}
 
 The goal of actions in Livewire is to be able to easily listen to page interactions, and call a method on your Livewire component (re-rendering the component).
 
@@ -74,7 +84,7 @@ Here are a few examples of each in HTML:
 You can listen for any event dispatched by the element you are binding to. Let's say you have an element that dispatches a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
 @endcomponent
 
-## Parameters {#parameters}
+## Passing Action Parameters {#action-parameters}
 
 You can pass extra parameters into a Livewire action directly in the expression like so:
 
@@ -112,7 +122,7 @@ public function addTodo(TodoService $todoService, $id, $name)
 @endverbatim
 @endcomponent
 
-## Modifiers {#modifiers}
+## Event Modifiers {#event-modifiers}
 
 Like you saw in the **keydown** example, Livewire directives sometimes offer "modifiers" to add extra functionality to an event. Below are the available modifiers that can be used with any event.
 
@@ -125,7 +135,7 @@ self | Only triggers an action if the event was triggered on itself. This preven
 debounce.150ms | Adds an Xms debounce the handling of the action.
 @endcomponent
 
-## Keydown Modifiers {#keydown-modifiers}
+### Keydown Modifiers {#keydown-modifiers}
 
 To listen for specific keys on **keydown** events, you can pass the name of the key as a modifier. You can directly use any valid key names exposed via [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
 
@@ -147,8 +157,8 @@ ArrowRight | arrow-right
 
 In the above example, the handler will only be called if `event.key` is equal to 'PageDown'.
 
-## Special Actions {#special-actions}
-In Livewire, there are some "special" actions that are usually prefixed with a "$" symbol:
+## Magic Actions {#magic-actions}
+In Livewire, there are some "magic" actions that are usually prefixed with a "$" symbol:
 
 @component('components.table')
 Function | Description
