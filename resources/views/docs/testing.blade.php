@@ -99,7 +99,7 @@ class CreatePostTest extends TestCase
 
 @component('components.code', ['lang' => 'php'])
 Livewire::actingAs($user);
-// Set the provided user as the session's logged in user for the test.
+// Set the provided user as the session's logged in user for the test
 
 ->set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
@@ -162,7 +162,7 @@ Livewire::actingAs($user);
 // Assert that an error within the component caused an error with the status code: 404
 
 ->assertRedirect('/some-path');
-// Assert that a redirect was triggered from the component.
+// Assert that a redirect was triggered from the component
 
 ->assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
