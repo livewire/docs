@@ -128,6 +128,9 @@ Livewire::actingAs($user);
 ->assertDontSee('foo');
 // Assert that the string "foo" DOES NOT exist in the HTML
 
+->assertSeeHtml('<h1>foo</h1>');
+// Assert that the string "<h1>foo</h1>" exists in the currently rendered HTML of the component
+
 ->assertEmitted('foo');
 // Assert that the "foo" event was emitted
 
