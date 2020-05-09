@@ -123,10 +123,10 @@ Livewire::actingAs($user);
 // Asserts that the "foo" property is NOT set to the value "bar"
 
 ->assertSee('foo');
-// Assert that the string "foo" exists in the currently rendered HTML of the component
+// Assert that the string "foo" exists in the currently rendered content of the component
 
 ->assertDontSee('foo');
-// Assert that the string "foo" DOES NOT exist in the HTML
+// Assert that the string "foo" DOES NOT exist in the currently rendered content of the component
 
 ->assertSeeHtml('<h1>foo</h1>');
 // Assert that the string "<h1>foo</h1>" exists in the currently rendered HTML of the component
