@@ -95,6 +95,21 @@ class CreatePostTest extends TestCase
 }
 @endcomponent
 
+## Testing Component Presence {#testing-component-presence}
+
+Livewire registers a handy PHPUnit method to test for a component's presence on a page.
+
+@component('components.code', ['lang' => 'php'])
+class CreatePostTest extends TestCase
+{
+    /** @test */
+    function post_creation_page_contains_livewire_component()
+    {
+        $this->get('/posts/create')->assertSeeLivewire('create-post');
+    }
+}
+@endcomponent
+
 ## All Available Test Methods {#all-testing-methods}
 
 @component('components.code', ['lang' => 'php'])
