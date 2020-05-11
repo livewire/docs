@@ -75,3 +75,23 @@ If you are on Laravel 7 or above, you can use the tag syntax.
 @endverbatim
 @endslot
 @endcomponent
+
+### Sibling Components in a Loop
+
+In some situations, you may find the need to have sibling components inside of a loop, this situation reqires additional consideration for the `key` value.
+
+Each component will need its own `key` directive, using the method above will lead to both sibling components having the same key, which will cause unforeseen issues.  The solution is to ensure that each sibling component has a truly unique key, one possible technique is to multiply the ID of the model by a random integer, for example:
+
+```php
+// user-profile component
+<div>    
+    // Bad
+    <livewire:user-profile-additional-component :user="$user" :key="$user->id">
+    <livewire:user-profile-some-related-component :user="$user" :key="$user->id">
+    
+    // Good
+    <livewire:user-profile-additional-component :user="$user" :key="(rand() * $user->id)">
+    <livewire:user-profile-some-related-component :user="$user" :key="(rand() * $user->id)">
+</div>
+```
+
