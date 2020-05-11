@@ -35,6 +35,29 @@ If you are on Laravel 7 or greater, you can use the tag syntax.
 @endverbatim
 @endcomponent
 
+If you have a component inside of a sub-folder with its own namespace, you must use a dot (`.`) prefixed with the namespace.
+
+For example, if we have a `SearchPosts` component inside of a `app/Http/Livewire/Nav` folder, we would indicate it as such:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+namespace App\Http\Livewire\Nav;
+
+use Livewire\Component;
+
+class SearchPosts extends Component
+{
+    // ...
+}
+@endverbatim
+@endcomponent
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<livewire:nav.search-posts />
+@endverbatim
+@endcomponent
+
 ### Passing Initial Parameters {#parameters}
 
 You can pass data into a component by passing additional parameters into the <code>&#64;livewire</code> directive. For example, let's say we have a `ShowContact` Livewire component that needs to know which contact to show. Here's how you would pass in a `contact` model.
