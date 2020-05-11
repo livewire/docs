@@ -82,8 +82,9 @@ In some situations, you may find the need to have sibling components inside of a
 
 Each component will need its own `key` directive, using the method above will lead to both sibling components having the same key, which will cause unforeseen issues.  The solution is to ensure that each sibling component has a truly unique key, one possible technique is to multiply the ID of the model by a random integer, for example:
 
-```php
-// user-profile component
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<!-- user-profile component -->
 <div>    
     // Bad
     <livewire:user-profile-additional-component :user="$user" :key="$user->id">
@@ -93,5 +94,5 @@ Each component will need its own `key` directive, using the method above will le
     <livewire:user-profile-additional-component :user="$user" :key="(rand() * $user->id)">
     <livewire:user-profile-some-related-component :user="$user" :key="(rand() * $user->id)">
 </div>
-```
-
+@endverbatim
+@endcomponent
