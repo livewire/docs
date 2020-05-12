@@ -37,6 +37,10 @@
                     <img class="w-32 md:ml-auto" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
                 </a>
 
+                <a style="height: 50px" class="block pb-3 mb-3" href="https://devsquad.com/" target="_blank">
+                    <img class="w-32 md:ml-auto" src="/img/sponsor_devsquad.png" alt="DevSquad">
+                </a>
+
                 <a style="height: 50px" class="block pb-3 mb-3" href="https://intellow.com/" target="_blank">
                     <img class="w-32 md:ml-auto" src="/img/sponsor_intellow.png" alt="Intellow">
                 </a>
