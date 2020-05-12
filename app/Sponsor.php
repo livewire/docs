@@ -27,20 +27,20 @@ class Sponsor extends Model
                 })
                 ->map(function ($sponsor) {
                     return [
-                        'id' => $sponsor['sponsor']['id'],
+                        'id' => $sponsor['sponsorEntity']['id'],
                         'tier_id' => $sponsor['tier']['id'],
                         'tier_name' => $sponsor['tier']['name'],
                         'tier_description' => $sponsor['tier']['descriptionHTML'],
                         'tier_price' => $sponsor['tier']['monthlyPriceInDollars'],
                         'tier_price_in_cents' => $sponsor['tier']['monthlyPriceInCents'],
-                        'username' => $sponsor['sponsor']['login'],
-                        'name' => $sponsor['sponsor']['name'],
-                        'email' => $sponsor['sponsor']['email'],
-                        'avatar' => $sponsor['sponsor']['avatarUrl'],
-                        'location' => $sponsor['sponsor']['location'],
-                        'website' => $sponsor['sponsor']['websiteUrl'],
+                        'username' => $sponsor['sponsorEntity']['login'],
+                        'name' => $sponsor['sponsorEntity']['name'],
+                        'email' => $sponsor['sponsorEntity']['email'],
+                        'avatar' => $sponsor['sponsorEntity']['avatarUrl'],
+                        'location' => $sponsor['sponsorEntity']['location'],
+                        'website' => $sponsor['sponsorEntity']['websiteUrl'],
                         'created_at' => $sponsor['createdAt'],
-                        'url' => $sponsor['sponsor']['url'],
+                        'url' => $sponsor['sponsorEntity']['url'],
                     ];
                 })
                 ->toArray();
