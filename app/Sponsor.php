@@ -22,9 +22,6 @@ class Sponsor extends Model
     {
         return Cache::remember('sponsors', now()->addHour(), function () {
             return collect($this->fetchRawSponsors())
-                ->filter(function ($sponsor) {
-                    return !! $sponsor['sponsor'];
-                })
                 ->map(function ($sponsor) {
                     return [
                         'id' => $sponsor['sponsorEntity']['id'],
