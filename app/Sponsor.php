@@ -37,7 +37,6 @@ class Sponsor extends Model
                         'name' => $sponsor['sponsor']['name'],
                         'email' => $sponsor['sponsor']['email'],
                         'avatar' => $sponsor['sponsor']['avatarUrl'],
-                        'company' => $sponsor['sponsor']['company'],
                         'location' => $sponsor['sponsor']['location'],
                         'website' => $sponsor['sponsor']['websiteUrl'],
                         'created_at' => $sponsor['createdAt'],
@@ -66,16 +65,27 @@ class Sponsor extends Model
                         monthlyPriceInCents
                         name
                       }
-                      sponsor {
-                        avatarUrl
-                        email
-                        id
-                        login
-                        name
-                        url
-                        company
-                        location
-                        websiteUrl
+                      sponsorEntity {
+                        ... on Organization {
+                            avatarUrl
+                            email
+                            id
+                            login
+                            name
+                            url
+                            location
+                            websiteUrl
+                        }
+                        ... on User {
+                            avatarUrl
+                            email
+                            id
+                            login
+                            name
+                            url
+                            location
+                            websiteUrl
+                        }
                       }
                       createdAt
                     }
