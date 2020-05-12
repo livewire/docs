@@ -44,6 +44,7 @@ Route::get('login/github/callback', function () {
 });
 
 Route::post('/sponsors/refresh', function () {
+    \Illuminate\Support\Facades\Cache::forget('sponsors');
 
     return response(200);
 });
