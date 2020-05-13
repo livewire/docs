@@ -1,6 +1,6 @@
 * [Livewire Directive (`@@livewire`)](#livewire-directive) { .text-blue-800 }
   * [Passing Initial Parameters](#parameters) { .font-normal.text-sm.text-blue-800 }
-  * [Dependancy Injection](#injecting-parameters) { .font-normal.text-sm.text-blue-800 }
+  * [Dependency Injection](#injecting-parameters) { .font-normal.text-sm.text-blue-800 }
   * [Accessing The Request](#the-request) { .font-normal.text-sm.text-blue-800 }
 * [Livewire Route Registration (`Route::livewire()`)](#route-registration) { .text-blue-800 }
   * [Custom Layouts](#custom-layout) { .font-normal.text-sm.text-blue-800 }
@@ -79,7 +79,7 @@ class ShowContact extends Component
 @endverbatim
 @endcomponent
 
-### Dependancy Injection {#injecting-parameters}
+### Dependency Injection {#injecting-parameters}
 
 Like a controller, you can inject dependencies by adding type-hinted parameters before passed-in ones.
 
