@@ -176,6 +176,57 @@ Element Tag |
 `<select>` |
 `<textarea>` |
 
+When using <code>wire:model</code> livewire binds the element both ways. This means the default value of the element comes from the livewire component, and as you change the value of your input, livewire will internally change the value of the component.
+
+@component('components.code-component', [
+    'className' => 'TwoWay.php',
+    'viewName' => 'two-way.blade.php',
+])
+@slot('class')
+@verbatim
+use Livewire\Component;
+
+class TwoWay extends Component
+{
+    public $selectExample = 'default';
+    public $options = [
+        'default' => 'A default option',
+        'another' => 'Awesome choice',
+        'yet-another' => 'Super amazing option',
+    ];
+
+    public $price = 200;
+
+    public function render()
+    {
+        return view('livewire.two-way');
+    }
+}
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
+<div>
+    <p>A Select Example</p>
+    <select wire:model="selectExample">
+        @foreach($options as $key => $option)
+            <option value="{{ $key }}">{{ $option }}</option>
+        @endforeach
+    </select>
+
+    // Note there is no blade comparison in the option,
+    // thats all handled internally by livewire
+
+    <p>A Range Example</p>
+    <input type="range" wire:model="price" min="50" max="300" step="50" />
+
+    // If you add a "value" attribute, it will conflict with the range input.
+    
+</div>
+@endverbatim
+@endslot
+@endcomponent
+
 ### Debouncing Input {#debouncing-input}
 
 By default, Livewire applies a 150ms debounce to text inputs. This avoids too many network requests being sent as a user types into a text field.
