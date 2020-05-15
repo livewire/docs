@@ -29,7 +29,7 @@ If you use a different guard to authenticate your users then also add an entry t
 @component('components.code', ['lang' => 'php'])
 @verbatim
 ...
-    'middleware_group' => ['web', 'auth:otherguard'],
+'middleware_group' => ['web', 'auth:otherguard'],
 ...
 @endverbatim
 @endcomponent
