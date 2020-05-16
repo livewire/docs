@@ -28,6 +28,8 @@ class User extends Authenticatable
             'danieldevsquad',
             // Kevin
             'iAmKevinMcKee',
+            // Neerav Pandya
+            'neeravp',
         ])) return true;
 
         return !! $this->sponsor;
