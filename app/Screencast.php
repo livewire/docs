@@ -256,5 +256,80 @@ class Screencast extends Model
             'series_id' => 3,
             'is_paid' => true,
         ],
+        /**
+         * Custom Form Inputs
+         */
+        [
+            'title' => 'Introduction',
+            'slug' => 's4-intro',
+            'description' => <<<EOT
+                This series is all about custom form inputs. Weather you're building them yourself or pulling in a third-party JS lib, you'll have all the tools you need to accomplish this pattern in your own project.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/419922006',
+            'code_url' => '',
+            'duration_in_minutes' => '1:01',
+            'series_id' => 4,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Extracting Reusable Blade Components',
+            'slug' => 's4-extracting-blade-components',
+            'description' => <<<EOT
+                Rather than copy and pasting HTML from Tailwind UI everywhere, we're going to extract this shared markup to Blade components. We'll talk all about Blade components and land on a pretty good abstraction we'll be using in the rest of the app.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/419904257',
+            'code_url' => 'https://github.com/livewire/surge/commit/97754b6c6d909de2d84a81c2848bc48ccec74261',
+            'duration_in_minutes' => '24:09',
+            'series_id' => 4,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Playing Nice With JavaScript Using wire:ignore',
+            'slug' => 's4-wire-ignore',
+            'description' => <<<EOT
+                Livewire gets confused when foreign JavaScript manipulates the page without letting Livewire know. In general, 90% of problems can be fixed by a simple attribute called "wire:ignore".
+            EOT,
+            'url' => 'https://player.vimeo.com/video/419904619',
+            'code_url' => 'https://github.com/livewire/surge/commit/c0381278cbaf28cb1d8f7582bcc739e8b4e2683b',
+            'duration_in_minutes' => '07:20',
+            'series_id' => 4,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Diggin Deep Into wire:model',
+            'slug' => 's4-wire-model',
+            'description' => <<<EOT
+                "wire:model" is one of the most useful directives in Livewire. In this video we are going to open it up and understand how it works so that we can use it and abuse it ourselves.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/419904727',
+            'code_url' => '',
+            'duration_in_minutes' => '08:52',
+            'series_id' => 4,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Using A Date-Picker: Pikaday',
+            'slug' => 's4-date-picker',
+            'description' => <<<EOT
+                Date-pickers are one of the most common custom-input types needed in a project. This episode is all about how to integrate with them, particularly Pikaday.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/419904844',
+            'code_url' => 'https://github.com/livewire/surge/commit/636d7b2927352326f1c7a58e5b6116d464d76b78',
+            'duration_in_minutes' => '22:21',
+            'series_id' => 4,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Using A Rich-Text Editor: Trix',
+            'slug' => 's4-rich-text',
+            'description' => <<<EOT
+                This video is all about integrating with the popular rich-text editor Trix. The same principles apply to other libraries as well.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/419905177',
+            'code_url' => 'https://github.com/livewire/surge/commit/ce6cf4e313b80edca551649e1584fed9187f9cca',
+            'duration_in_minutes' => '13:49',
+            'series_id' => 4,
+            'is_paid' => true,
+        ],
     ];
 }
