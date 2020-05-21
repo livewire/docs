@@ -101,6 +101,9 @@ class CreatePostTest extends TestCase
 Livewire::actingAs($user);
 // Set the provided user as the session's logged in user for the test.
 
+Livewire::test('foo', ['bar' => $bar]);
+// Test the "foo" component with "bar" set as a parameter.
+
 ->set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
