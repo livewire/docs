@@ -15,7 +15,7 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 </div>
 @endcomponent
 
-When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disapear.
+When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disappear.
 
 Also, you can "hide" an element during a loading state with the `.remove` modifier.
 
@@ -47,7 +47,7 @@ Now, when the "Checkout" button is clicked, the loading indicator will load, but
 
 Also note that `wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
-Besides actions you can also target whenever a `wire:model` is synchronized.
+Besides actions, you can also target whenever a `wire:model` is synchronized.
 
 @component('components.code', ['lang' => 'html'])
 <div>
