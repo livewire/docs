@@ -5,12 +5,12 @@
 <header class="relative flex justify-between items-center h-24 py-4 px-4 bg-white" role="banner">
     <div class="flex items-center w-full">
         <div class="flex items-center">
-            <a href="/" title="{{ config('app.name') }} home" class="items-center inline-flex">
+            <a href="/" aria-label="{{ config('app.name') }} home" title="{{ config('app.name') }} home" class="items-center inline-flex">
                 {!! file_get_contents(public_path('/img/logo.svg')) !!}
             </a>
         </div>
 
-        <div class="hidden sm:flex items-center justify-end flex-1 text-sm text-right md:pl-10 sm:text-base">
+        <div class="hidden lg:flex items-center justify-end flex-1 text-sm text-right md:pl-10 sm:text-base">
             @if ($docsearchApiKey && $docsearchIndexName)
                 @include('includes.search-input')
             @endif
