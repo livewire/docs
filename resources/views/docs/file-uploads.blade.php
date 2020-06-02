@@ -194,9 +194,7 @@ After a user chooses a file, you may want to show them a preview of that file BE
 
 Livewire makes this trivial with the `->temporaryUrl()` method on uploaded files.
 
-@component('components.warning')
-It is important to validate the uploaded file in an "updated" hook (as shown in the following example) before exposing a temporary preview url to the browser.
-@endcomponent
+> Note: for security reasons, temporary urls are only supported for image uploads.
 
 Here's an example of a file upload with an image preview:
 
