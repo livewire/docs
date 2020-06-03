@@ -33,8 +33,9 @@ You can also specify a specific action to fire on the polling interval by passin
 @endverbatim
 @endcomponent
 
-Now, the `foo` method on the component will be called every 5 seconds.
+Now, the `foo` method on the component will be called every 2 seconds.
 
 @component('components.tip')
 Livewire reduces polling when the browser tab is in the background so that it doesn't bog down the server with ajax requests unnecessarily.
+Only about 5% of the expected polling requests are kept.
 @endcomponent
