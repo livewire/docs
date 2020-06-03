@@ -109,11 +109,13 @@ Additionally, Livewire offers `$this->reset()` to programatically reset public p
 @component('components.code')Component
 @slot('class')
 public $name = '';
+public $content = '';
 
 public function savePost()
 {
     $this->post->update([
         'name' => $this->name,
+        'content' => $this->content,
     ]);
 
     $this->reset();
@@ -121,6 +123,9 @@ public function savePost()
 
     $this->reset('name');
     // Will only reset the name property.
+
+    $this->reset(['name', 'content']);
+    // Will reset both the name AND the content property.
 }
 @endslot
 @endcomponent

@@ -7,6 +7,8 @@
 * [Testing File Uploads](#testing-uploads) { .text-blue-800 }
 * [Uploading Directly To Amazon S3](#upload-to-s3) { .text-blue-800 }
   * [Configuring Automatic File Cleanup](#auto-cleanup) { .font-normal.text-sm.text-blue-800 }
+* [Loading Indicators](#loading-indicators) { .text-blue-800 }
+* [Progress Indicators (And All JavaScript Events)](#js-hooks) { .text-blue-800 }
 * [Configuration](#configuration) { .text-blue-800 }
   * [Global Validation](#global-validation) { .font-normal.text-sm.text-blue-800 }
   * [Global Middleware](#global-middleware) { .font-normal.text-sm.text-blue-800 }
@@ -18,7 +20,11 @@
 
 ## Basic File Upload {#basic}
 
-Livewire makes uploading and storing files extremely easy. Here's an example of a simple component that handles uploading a photo:
+Livewire makes uploading and storing files extremely easy.
+
+First, add the `WithFileUploads` trait to your component. Now you can use `wire:model` on file inputs as if they were any other input type and Livewire will take care of the rest.
+
+Here's an example of a simple component that handles uploading a photo:
 
 @component('components.code-component', [
     'className' => 'UploadPhoto.php',
@@ -27,9 +33,12 @@ Livewire makes uploading and storing files extremely easy. Here's an example of 
 @slot('class')
 @verbatim
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UploadPhoto extends Component
 {
+    use WithFileUploads;
+
     public $photo;
 
     public function save()
@@ -71,10 +80,10 @@ The previous example demonstrates the most basic storage scenario: Moving the te
 
 However, you may want to customize the file name of the stored file, or even specify a specific storage "disk" to store the file on (maybe in an S3 bucket for example).
 
-Livewire honors the same API's Laravel uses for storing uploaded files, so feel free to browse [Laravel's documentation](https://laravel.com/docs/filesystem#file-uploads). However, here here are a few common storage scenerios for you:
+Livewire honors the same API's Laravel uses for storing uploaded files, so feel free to browse [Laravel's documentation](https://laravel.com/docs/filesystem#file-uploads). However, here are a few common storage scenarios for you:
 
 @component('components.code', ['lang' => 'php'])
-// Store the uploaded file in the "photos" directory of the default filesytem disk.
+// Store the uploaded file in the "photos" directory of the default filesystem disk.
 $this->photo->store('photos');
 
 // Store in the "photos" directory in a configured "s3" bucket.
@@ -107,9 +116,12 @@ Here's an example of a file upload that handles multiple uploads:
 @slot('class')
 @verbatim
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UploadPhotos extends Component
 {
+    use WithFileUploads;
+
     public $photos = [];
 
     public function save()
@@ -155,9 +167,12 @@ Again, you can accomplish this like you would any other input type in Livewire:
 @slot('class')
 @verbatim
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UploadPhoto extends Component
 {
+    use WithFileUploads;
+
     public $photo;
 
     public function updatedPhoto()
@@ -205,9 +220,12 @@ Here's an example of a file upload with an image preview:
 @slot('class')
 @verbatim
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UploadPhotoWithPreview extends Component
 {
+    use WithFileUploads;
+
     public $photo;
 
     public function updatedPhoto()
@@ -281,7 +299,7 @@ function can_upload_photo() {
 For more specifics on testing file uploads, reference [Laravel's file upload testing documentation](https://laravel.com/docs/http-tests#testing-file-uploads).
 
 ## Uploading Directly To Amazon S3 {#upload-to-s3}
-As previously mentioned, Livewire stores all file uploads in a temporary directory untill the developer chooses to store the file permenantly.
+As previously mentioned, Livewire stores all file uploads in a temporary directory until the developer chooses to store the file permanently.
 
 By default, Livewire uses the default filesystem disk configuration (usually `local`), and stores the files under a folder called `livewire-tmp/`.
 
@@ -318,13 +336,64 @@ php artisan livewire:configure-s3-upload-cleanup
 
 Now, any temporary files older than 24 hours will be cleaned up by S3 automatically.
 
+@component('components.tip')
+If you are not using S3, Livewire will handle the file cleanup automatically. No need to run this command.
+@endcomponent
+
+## Loading Indicators {#loading-indicators}
+Although `wire:model` for file uploads works differently than other `wire:model` input types under the hood, the interface for showing loading indicators remains the same.
+
+You can display a loading indicator scoped to the file upload like so:
+
+@component('components.code', ['lang' => 'html'])
+<input type="file" wire:model="photo">
+
+<div wire:loading wire:target="photo">Uploading...</div>
+@endcomponent
+
+Now, while the file is uploading the "Uploading..." message will be shown and then hidden when the upload is finished.
+
+This works with the entire Livewire [Loading States API](/docs/loading-states).
+
+## Progress Indicators (And All JavaScript Events) {#js-hooks}
+Every file upload in Livewire dispatches JavaScript events on the `<input>` element for custom JavaScript to listen to.
+
+Here are the dispatched events:
+
+Event | Description
+--- | ---
+`livewire-upload-start` | Dispatched when the upload starts
+`livewire-upload-finish` | Dispatches if the upload is successfully finished
+`livewire-upload-error` | Dispatches if the upload fails in some way
+`livewire-upload-progress` | Dispatches an event containing the upload progress percentage as the upload progresses
+
+Here is an example of wrapping a Livewire file upload in an AlpineJS component to display a progress bar:
+
+@component('components.code', ['lang' => 'html'])
+<div
+    x-data="{ isUploading: false, progress: 0 }"
+    x-on:livewire-upload-start="isUploading = true"
+    x-on:livewire-upload-finish="isUploading = false"
+    x-on:livewire-upload-error="isUploading = false"
+    x-on:livewire-upload-progress="progress = $event.detail.progress"
+>
+    <!-- File Input -->
+    <input type="file" wire:model="photo">
+
+    <!-- Progress Bar -->
+    <div x-show="isUploading">
+        <progress max="100" x-bind:value="progress"></progress>
+    </div>
+</div>
+@endcomponent
+
 ## Configuration {#configuration}
 Because Livewire stores all file uploads temporarily before the developer has a chance to validate or store them, Livewire assumes some default handling of all file uploads.
 
 ### Global Validation {#global-validation}
 By default, Livewire will validate ALL temporary file uploads with the following rules: `file|max:12288` (Must be a file less than 12MB).
 
-If you you with to customize this, you can configure exactly what validate rules should run on all temporary file uploads inside `config/livewire.php`:
+If you wish to customize this, you can configure exactly what validate rules should run on all temporary file uploads inside `config/livewire.php`:
 
 @component('components.code-component', [
     'className' => 'config/livewire.php',

@@ -140,6 +140,9 @@ Livewire::actingAs($user);
 ->assertEmitted('foo', 'bar', 'baz');
 // Assert that the "foo" event was emitted with the "bar" and "baz" parameters
 
+->assertNotEmitted('foo');
+// Assert that the "foo" event was NOT emitted
+
 ->assertHasErrors('foo');
 // Assert that the "foo" property has validation errors
 
