@@ -95,11 +95,26 @@ class CreatePostTest extends TestCase
 }
 @endcomponent
 
+## Testing Component Presence {#testing-component-presence}
+
+Livewire registers a handy PHPUnit method to test for a component's presence on a page.
+
+@component('components.code', ['lang' => 'php'])
+class CreatePostTest extends TestCase
+{
+    /** @test */
+    function post_creation_page_contains_livewire_component()
+    {
+        $this->get('/posts/create')->assertSeeLivewire('create-post');
+    }
+}
+@endcomponent
+
 ## All Available Test Methods {#all-testing-methods}
 
 @component('components.code', ['lang' => 'php'])
 Livewire::actingAs($user);
-// Set the provided user as the session's logged in user for the test.
+// Set the provided user as the session's logged in user for the test
 
 Livewire::test('foo', ['bar' => $bar]);
 // Test the "foo" component with "bar" set as a parameter.
@@ -126,10 +141,16 @@ Livewire::test('foo', ['bar' => $bar]);
 // Asserts that the "foo" property is NOT set to the value "bar"
 
 ->assertSee('foo');
-// Assert that the string "foo" exists in the currently rendered HTML of the component
+// Assert that the string "foo" exists in the currently rendered content of the component
 
 ->assertDontSee('foo');
-// Assert that the string "foo" DOES NOT exist in the HTML
+// Assert that the string "foo" DOES NOT exist in the currently rendered content of the component
+
+->assertSeeHtml('<h1>foo</h1>');
+// Assert that the string "<h1>foo</h1>" exists in the currently rendered HTML of the component
+
+->assertDontSeeHtml('<h1>foo</h1>');
+// Assert that the string "<h1>foo</h1>" DOES NOT exist in the currently rendered HTML of the component
 
 ->assertSeeHtml('<div></div>');
 // Assert that the string "<div></div>" exists in the currently rendered HTML of the component
@@ -168,7 +189,7 @@ Livewire::test('foo', ['bar' => $bar]);
 // Assert that an error within the component caused an error with the status code: 404
 
 ->assertRedirect('/some-path');
-// Assert that a redirect was triggered from the component.
+// Assert that a redirect was triggered from the component
 
 ->assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
