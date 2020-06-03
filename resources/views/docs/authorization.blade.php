@@ -25,3 +25,11 @@ class EditPost extends \Livewire\Component
 }
 @endverbatim
 @endcomponent
+If you use a different guard to authenticate your users then also add an entry to middleware_group in the livewire config file:
+@component('components.code', ['lang' => 'php'])
+@verbatim
+...
+'middleware_group' => ['web', 'auth:otherguard'],
+...
+@endverbatim
+@endcomponent
