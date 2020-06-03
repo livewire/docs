@@ -63,6 +63,7 @@ Here are three ESSENTIAL things to note about public properties before embarking
 
 1. Data stored in public properties is made visible to the front-end JavaScript. Therefore, you SHOULD NOT store sensitive data in them.
 2. Properties can ONLY be either a JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR an eloquent model (or collection of models).
+3. **For PHP >= 7.4 users:** public properties in Livewire components DO NOT currently support typed properties.
 
 @component('components.warning')
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
