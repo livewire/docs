@@ -91,8 +91,8 @@ Each component will need its own `key` directive, using the method above will le
     <livewire:user-profile-some-related-component :user="$user" :key="$user->id">
     
     // Good
-    <livewire:user-profile-additional-component :user="$user" :key="(rand() * $user->id)">
-    <livewire:user-profile-some-related-component :user="$user" :key="(rand() * $user->id)">
+    <livewire:user-profile-additional-component :user="$user" :key="'user-profile-additional-component-'.$user->id">
+    <livewire:user-profile-some-related-component :user="$user" :key="'user-profile-some-related-component-'.$user->id">
 </div>
 @endverbatim
 @endcomponent
