@@ -308,15 +308,22 @@ Livewire offers an api to "cast" public properties to a more usable data type. T
 @verbatim
 class CastedComponent extends Component
 {
-    public $options = ['foo', 'bar', 'bar'];
-    public $expiresAt = 'tomorrow';
-    public $formattedDate = 'today';
+    public $options;
+    public $expiresAt;
+    public $formattedDate;
 
     protected $casts = [
         'options' => 'collection',
         'expiresAt' => 'date',
         'formattedDate' => 'date:m-d-y'
     ];
+    
+    public function mount()
+    {
+        $this->options = collect(['foo', 'bar', 'bar']);
+        $this->expiresAt = \Carbon\Carbon::parse('tomorrow');
+        $this->formattedDate = \Carbon\Carbon::parse('today');
+    }
 
     public function getUniqueOptions()
     {
