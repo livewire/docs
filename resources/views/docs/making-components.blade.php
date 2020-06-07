@@ -28,6 +28,6 @@ If you wish to create Inline components (Component's without `.blade.php` files)
 php artisan make:livewire search-posts --inline
 @endcomponent
 
-Now, only one file will be create:
+Now, only one file will be created:
 
 * `app/Http/Livewire/SearchPosts.php`
