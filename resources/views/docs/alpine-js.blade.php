@@ -251,7 +251,7 @@ Here is an example of using the Select2 library inside a Livewire component to d
 Also, note that sometimes it's useful to ignore changes to an element, but not its children. If this is the case, you can add the <code>self</code> modifier to the <code>wire:ignore</code> directive, like so: <code>wire:ignore.self</code>.
 @endcomponent
 
-## Communicating Between Livewire and JavaScript
+## Communicating Between Livewire and JavaScript {#communicating-with-js}
 
 Every Livewire component loaded on a browser page has both a unique id, and a corresponding JavaScript object.
 

@@ -9,6 +9,7 @@
   * [Configuring Automatic File Cleanup](#auto-cleanup) { .font-normal.text-sm.text-blue-800 }
 * [Loading Indicators](#loading-indicators) { .text-blue-800 }
 * [Progress Indicators (And All JavaScript Events)](#js-hooks) { .text-blue-800 }
+* [JavaScript Upload API](#js-api) { .text-blue-800 }
 * [Configuration](#configuration) { .text-blue-800 }
   * [Global Validation](#global-validation) { .font-normal.text-sm.text-blue-800 }
   * [Global Middleware](#global-middleware) { .font-normal.text-sm.text-blue-800 }
@@ -99,7 +100,7 @@ $this->photo->storeAs('photos', 'avatar', 'S3');
 $this->photo->storePublicly('photos', 's3');
 
 // Store in the "photos" directory, with the name "avatar.png", with "public" visibility in a configured "s3" bucket.
-$this->photo->storePubliclyAs('photos', 'avatar', 's3);
+$this->photo->storePubliclyAs('photos', 'avatar', 's3');
 @endcomponent
 
 The methods above should provide enough flexibility for storing the uploaded files exactly how you want to.
@@ -385,6 +386,37 @@ Here is an example of wrapping a Livewire file upload in an AlpineJS component t
         <progress max="100" x-bind:value="progress"></progress>
     </div>
 </div>
+@endcomponent
+
+## JavaScript Upload API {#js-api}
+Integrating with 3rd-party file-uploading libraries often requires finer-tuned control than a simple `<input type="file">` tag.
+
+For these cases, Livewire exposes dedicated JavaScript functions.
+
+The functions exist on the JavaScript component object, which can be accessesed using the convenience Blade directive: `@this`. If you haven't seen `@this` before, you can read more about it [here](/docs/alpine-js#communicating-with-js).
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<script>
+    let file = document.querySelector('input[type="file"]').files[0]
+
+    // Upload a file:
+    @this.upload('photo', file, (uploadedFilename) => {
+        // Success callback.
+    }, () => {
+        // Error callback.
+    }, (event) => {
+        // Progress callback.
+        // event.detail.progress contains a number between 1 and 100 as the upload progresses.
+    })
+
+    // Upload multiple files:
+    @this.uploadMultiple('photos', [file], successCallback, errorCallback, progressCallback)
+
+    // Remove single file from multiple uploaded files
+    @this.removeUpload('photos', uploadedFilename, successCallback)
+</script>
+@endverbatim
 @endcomponent
 
 ## Configuration {#configuration}
