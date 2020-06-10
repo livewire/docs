@@ -21,6 +21,8 @@
 
 ## Basic File Upload {#basic}
 
+> Note: Your Livewire version must be >= 1.2.0 to use this feature.
+
 Livewire makes uploading and storing files extremely easy.
 
 First, add the `WithFileUploads` trait to your component. Now you can use `wire:model` on file inputs as if they were any other input type and Livewire will take care of the rest.
