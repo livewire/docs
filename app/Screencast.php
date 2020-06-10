@@ -380,7 +380,7 @@ class Screencast extends Model
             'code_url' => 'https://github.com/livewire/surge/commit/7b8772f24d67cb215e6de3c2ec4eb17de44480f7',
             'duration_in_minutes' => '14:44',
             'series_id' => 5,
-            'is_paid' => false,
+            'is_paid' => true,
         ],
         [
             'title' => 'Testing File Uploads',
@@ -392,7 +392,7 @@ class Screencast extends Model
             'code_url' => 'https://github.com/livewire/surge/commit/06e8381d69ce08b43847d0951d2a427c2f2a6d48',
             'duration_in_minutes' => '5:12',
             'series_id' => 5,
-            'is_paid' => false,
+            'is_paid' => true,
         ],
         [
             'title' => 'Showing Upload Previews',
