@@ -19,29 +19,7 @@ document.addEventListener("livewire:load", function(event) {
 });
 @endcomponent
 
-To use Livewire, VueJS and Turbolinks at the same time, you will need to create your Vue instance inside of the `turbolinks:load` event.
-
-Below is a full example of using all three:
-
-@component('components.code', ['lang' => 'js'])
-// resources/js/app.js
-
-const turbolinks = require('turbolinks');
-
-document.addEventListener("livewire:load", function(event) {
-    // Boot turbolinks after Livewire loads.
-    turbolinks.start();
-});
-
-document.addEventListener('turbolinks:load', () => {
-    // Construct the Vue app instance after turbolinks initiates a load.
-    const app = new Vue({
-        el: '#app'
-    });
-});
-@endcomponent
-
-Since Turbolinks cannot be placed in the `<body>` of your HTML, you must register the Livewire scripts into `<head>` of your document.
+Since Turbolink cannot be registered in the `<body>` of your HTML, you must register your app & Livewire scripts into `<head>` of your document.
 
 Here is an example base layout:
 
@@ -58,7 +36,7 @@ Here is an example base layout:
         <title>{{ config('app.name', 'Livewire') }}</title>
         
         <!-- Scripts -->
-        <script src="{{ asset(mix('js/app.js')) }}" defer data-turbolinks-track="reload"></script>
+        <script src="{{ asset(mix('js/app.js')) }}" data-turbolinks-track="reload"></script>
         <livewire:scripts>
         @stack('scripts')
 
