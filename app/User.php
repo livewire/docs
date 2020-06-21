@@ -31,6 +31,7 @@ class User extends Authenticatable
             // Neerav Pandya
             'neeravp',
             'RicardoRamirezR',
+            'ngcammayo',
         ])) return true;
 
         return !! $this->sponsor;
