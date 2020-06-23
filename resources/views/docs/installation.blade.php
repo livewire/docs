@@ -54,7 +54,7 @@ By default, Livewire serves its JavaScript portion (`livewire.js`) from the foll
 
 The actual script tag that gets generated defaults to: `<script src="/livewire/livewire.js"`.
 
-There are two scenerios that will cause this default behavior to break:
+There are two scenarios that will cause this default behavior to break:
 
 1. You publish the Livewire assets and are now serving them from a sub-folder like "assets".
 
