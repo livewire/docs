@@ -20,8 +20,8 @@ class Sponsor extends Model
 
     public function getsScreencasts()
     {
-        // If they sponsor for more than $12, they get access to screencasts.
-        return $this->tier_price_in_cents > 12 * 100;
+        // If they sponsor for more than $8, they get access to screencasts.
+        return $this->tier_price_in_cents > 8 * 100;
     }
 
     public function getRows()
