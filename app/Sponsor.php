@@ -18,6 +18,12 @@ class Sponsor extends Model
          return $this->hasOne(User::class, 'github_username', 'username');
     }
 
+    public function getsScreencasts()
+    {
+        // If they sponsor for more than $12, they get access to screencasts.
+        return $this->tier_price_in_cents > 12 * 100;
+    }
+
     public function getRows()
     {
         return Cache::remember('sponsors', now()->addHour(), function () {

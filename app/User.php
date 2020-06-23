@@ -34,7 +34,11 @@ class User extends Authenticatable
             'ngcammayo',
         ])) return true;
 
-        return !! $this->sponsor;
+        if ($this->sponsor) {
+            return $this->sponsor->getsScreencasts();
+        }
+
+        return false;
     }
 
     public function uiActions()
