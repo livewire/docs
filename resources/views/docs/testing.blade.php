@@ -53,7 +53,7 @@ class CreatePostTest extends TestCase
     /** @test */
     function can_create_post()
     {
-        $this->actingAs(factory(User::class)->create())
+        $this->actingAs(factory(User::class)->create());
 
         Livewire::test(CreatePost::class)
             ->set('title', 'foo')
@@ -65,7 +65,7 @@ class CreatePostTest extends TestCase
     /** @test */
     function can_set_initial_title()
     {
-        $this->actingAs(factory(User::class)->create())
+        $this->actingAs(factory(User::class)->create());
 
         Livewire::test(CreatePost::class, ['initialTitle' => 'foo'])
             ->assertSet('title', 'foo');
@@ -74,7 +74,7 @@ class CreatePostTest extends TestCase
     /** @test */
     function title_is_required()
     {
-        $this->actingAs(factory(User::class)->create())
+        $this->actingAs(factory(User::class)->create());
 
         Livewire::test(CreatePost::class)
             ->set('title', '')
@@ -85,7 +85,7 @@ class CreatePostTest extends TestCase
     /** @test */
     function is_redirected_to_posts_page_after_creation()
     {
-        $this->actingAs(factory(User::class)->create())
+        $this->actingAs(factory(User::class)->create());
 
         Livewire::test(CreatePost::class)
             ->set('title', 'foo')
