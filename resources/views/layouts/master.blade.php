@@ -10,7 +10,7 @@
             </a>
         </div>
 
-        <div class="hidden lg:flex items-center justify-end flex-1 text-sm text-right md:pl-10 sm:text-base">
+        <div class="md:hidden lg:flex items-center justify-end flex-1 text-sm text-right md:pl-10 sm:text-base">
             @if ($docsearchApiKey && $docsearchIndexName)
                 @include('includes.search-input')
             @endif
