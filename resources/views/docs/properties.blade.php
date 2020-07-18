@@ -69,6 +69,11 @@ Here are three ESSENTIAL things to note about public properties before embarking
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
 @endcomponent
 
+@component('components.warning')
+Model and collection or models will be serialized using the same method Laravel uses for queues. This means that the model must be persisted to the database so be unserialized.
+You can use a custom caster that will convert the model to an array and recreate the model when unserializing to handle the non-persisted models.
+@endcomponent
+
 ## Initializing Properties {#initializing-properties}
 
 You can initialize properties using the `mount` method of your component.
