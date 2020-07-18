@@ -36,6 +36,7 @@ class DocumentationPages
             'AlpineJS' => 'alpine-js',
             'Turbolinks' => 'turbolinks',
             'Laravel Echo' => 'laravel-echo',
+            'Inline Scripts' => 'inline-scripts',
         ],
         'Testing' => 'testing',
         'Security' => 'security',
