@@ -9,6 +9,7 @@
   * [Scoping To Components By Name](#scope-by-name) { .font-normal.text-sm.text-blue-800 }
   * [Scoping To Self](#scope-to-self) { .font-normal.text-sm.text-blue-800 }
 * [Listening For Events In JavaScript](#in-js) { .text-blue-800 }
+* [Dispatching Browser Events](#browser) { .text-blue-800}
 
 <div>&nbsp;</div>
 
@@ -186,4 +187,30 @@ window.livewire.on('postAdded', postId => {
 
 @component('components.tip')
 This feature is actually incredibly powerful. For example, you could register a listener to show a toaster (popup) inside your app when Livewire performs certain actions. This is one of the many ways to bridge the gap between PHP and JavaScript with Livewire.
+@endcomponent
+
+## Dispatching Browser Events {#browser}
+
+Livewire allows you to fire browser window events like so:
+
+@component('components.code', ['lang' => 'php'])
+ $this->dispatchBrowserEvent('name-updated', ['newName'=> $value ]);
+@endcomponent
+
+Which you can then listen for anywhere in global javascript:
+
+@component('components.code', ['lang' => 'javascript'])
+<script>
+window.addEventListener('name-updated', function(event) {
+    alert("Name updated to: " + event.detail.newName);
+});
+</script>
+@endcomponent
+
+This is very useful for use with AlpineJS:
+
+@component('components.code', ['lang' => 'html'])
+<div x-data="{open : false}" @name-updated.window="open = false">
+    <!-- Modal with a Livewire form -->
+</div>
 @endcomponent
