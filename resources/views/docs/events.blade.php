@@ -9,7 +9,7 @@
   * [Scoping To Components By Name](#scope-by-name) { .font-normal.text-sm.text-blue-800 }
   * [Scoping To Self](#scope-to-self) { .font-normal.text-sm.text-blue-800 }
 * [Listening For Events In JavaScript](#in-js) { .text-blue-800 }
-* [Dispatching Browser Events](#browser) { .text-blue-800}
+* [Dispatching Browser Events](#browser) { .text-blue-800 }
 
 <div>&nbsp;</div>
 
