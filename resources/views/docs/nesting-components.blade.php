@@ -80,7 +80,7 @@ If you are on Laravel 7 or above, you can use the tag syntax.
 
 In some situations, you may find the need to have sibling components inside of a loop, this situation reqires additional consideration for the `key` value.
 
-Each component will need its own `key` directive, using the method above will lead to both sibling components having the same key, which will cause unforeseen issues.  The solution is to ensure that each sibling component has a truly unique key, one possible technique is to multiply the ID of the model by a random integer, for example:
+Each component will need its own unique `key`, but using the method above will lead to both sibling components having the same key, which will cause unforeseen issues. To combat this, you could ensure that each `key` is unique by prefixing it with the component name, for example:
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
