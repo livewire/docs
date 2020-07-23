@@ -57,8 +57,12 @@
                     <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_jrmerritt.png" alt="JR Merritt">
                 </a>
 
-                <a class="block" href="https://trustfactory.bz/" target="_blank">
+                <a style="height: 50px" class="block" href="https://trustfactory.bz/" target="_blank">
                     <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_trustfactory.png" alt="Trustfactory">
+                </a>
+
+                <a style="height: 50px" class="block pb-3 mb-3" href="https://www.livemessage.io/" target="_blank">
+                    <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_livemessage.png" alt="Livemessage">
                 </a>
             </div>
         </div>
