@@ -62,16 +62,11 @@ class HelloWorld extends Component
 Here are three ESSENTIAL things to note about public properties before embarking on your Livewire journey:
 
 1. Data stored in public properties is made visible to the front-end JavaScript. Therefore, you SHOULD NOT store sensitive data in them.
-2. Properties can ONLY be either a JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR an eloquent model (or collection of models).
+2. Properties can ONLY be either a JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR an eloquent model (or collection of models). To use properties with other data types, you must pass each through a [custom caster](#custom-casters).
 3. **For PHP >= 7.4 users:** public properties in Livewire components DO NOT currently support typed properties.
 
 @component('components.warning')
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
-@endcomponent
-
-@component('components.warning')
-Model and collection or models will be serialized using the same method Laravel uses for queues. This means that the model must be persisted to the database so be unserialized.
-You can use a custom caster that will convert the model to an array and recreate the model when unserializing to handle the non-persisted models.
 @endcomponent
 
 ## Initializing Properties {#initializing-properties}
@@ -377,9 +372,11 @@ class CollectionCaster implements Castable
 @endverbatim
 @endcomponent
 
+Custom casters are especially useful when you are attempting to store unsupported data types within properties.
+
 ## Computed Properties {#computed-properties}
 
-Livewire offers an api for accessing dynamic properties. This is especially helpful for deriving properties from the database or another persistent store like a cache.
+Livewire offers an API for accessing dynamic properties. This is especially helpful for deriving properties from the database or another persistent store like a cache.
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
