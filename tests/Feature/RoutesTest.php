@@ -28,13 +28,12 @@ class RoutesTest extends TestCase
             $this->get('/docs/'.$slug)->assertSuccessful();
         });
 
-        if(env('SIMPLECAST_API_KEY')){
+        if (env('SIMPLECAST_API_KEY')) {
             // Podcasts
             $this->get('/podcast')->assertSuccessful();
             PodcastEpisode::all()->each(function ($podcast) {
                 $this->get('/podcasts/'.$podcast->filename)->assertSuccessful();
             });
         }
-
     }
 }
