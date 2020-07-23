@@ -35,9 +35,9 @@
                 </a>
             </div>
 
-            <div class="flex flex-wrap items-center justify-around space-x-4">
-                <a class="mb-4 block" href="https://intellow.com/" target="_blank">
-                    <img class="w-32 m-auto mb-4" src="/img/sponsor_intellow.png" alt="Intellow">
+            <div class="flex flex-wrap items-center justify-around">
+                <a class="mb-4 block" href="https://padmission.com/" target="_blank">
+                    <img class="w-32 m-auto mb-4" src="/img/sponsor_padmission.png" alt="Padmission">
                 </a>
 
                 <a class="mb-4 block" href="https://cierra.de" target="_blank">
