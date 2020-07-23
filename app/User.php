@@ -32,6 +32,7 @@ class User extends Authenticatable
             'neeravp',
             'RicardoRamirezR',
             'ngcammayo',
+            'mohsenbostan',
         ])) return true;
 
         if ($this->sponsor) {

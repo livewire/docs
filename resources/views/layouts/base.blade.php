@@ -34,7 +34,7 @@
 
         <title>{{ $title ? strip_tags($title) . ' | ' : '' }}{{ config('app.name') }}</title>
 
-        <link rel="home" href="config('app.url')">
+        <link rel="home" href="{{ config('app.url') }}">
         <link rel="icon" href="/favicon.ico">
 
         @stack('meta')

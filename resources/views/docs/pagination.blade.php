@@ -66,7 +66,7 @@ class ShowPosts extends Component
 {
     use WithPagination;
 
-    public $search = ;
+    public $search = '';
 
     public function updatingSearch()
     {

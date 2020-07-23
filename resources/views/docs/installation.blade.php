@@ -28,9 +28,9 @@ If you are on Laravel 7 or higher, you can use the new tag syntax.
 
 @component('components.code')
 @verbatim
-<livewire:styles>
+<livewire:styles />
 ...
-<livewire:scripts>
+<livewire:scripts />
 @endverbatim
 @endcomponent
 
