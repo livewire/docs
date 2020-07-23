@@ -1,5 +1,5 @@
 
-Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases when the page may not react immediately to a user event (like a click). It is up to you to determine when you should provide the user with some kind of loading state or not.
+Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases when the page may not react immediately to a user event (like a click). Livewire allows you to easily display loading states, which can make your app feel more responsive.
 
 ## Toggling elements during "loading" states {#toggling-elements}
 
@@ -17,7 +17,7 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 
 When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disappear.
 
-Also, you can "hide" an element during a loading state with the `.remove` modifier.
+You can also "hide" an element during a loading state using the `.remove` modifier.
 
 @component('components.code', ['lang' => 'html'])
 <div>
@@ -30,7 +30,8 @@ Also, you can "hide" an element during a loading state with the `.remove` modifi
 @endcomponent
 
 ## Targeting specific actions {#targeting-actions}
-The method outlined above works great for simple components, however, it's common to want to only show loading indicators for specific actions.
+
+The method outlined above works well for simple components. For more complex components, you may want to show loading indicators only for specific actions.
 
 @component('components.code', ['lang' => 'html'])
 <div>
@@ -43,11 +44,11 @@ The method outlined above works great for simple components, however, it's commo
 </div>
 @endcomponent
 
-Now, when the "Checkout" button is clicked, the loading indicator will load, but not when the "Cancel" button is clicked.
+In the above example, the loading indicator will be displayed when the "Checkout" button is clicked, but not when the "Cancel" button is clicked.
 
-Also note that `wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
+`wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
-Besides actions, you can also target whenever a `wire:model` is synchronized.
+In addition to actions, you can also target whenever a `wire:model` is synchronized.
 
 @component('components.code', ['lang' => 'html'])
 <div>
