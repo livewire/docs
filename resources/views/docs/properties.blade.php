@@ -105,6 +105,18 @@ public function mount()
 @endslot
 @endcomponent
 
+You can even pass `$this->fill()` an Eloquent model. When you do, public properties in your Livewire component that match properties included in your Eloquent model's `toArray()` method
+will be filled.
+
+@component('components.code-component', ['className' => 'HelloWorld.php'])
+@slot('class')
+public function mount(User $user)
+{
+    $this->fill($user);
+}
+@endslot
+@endcomponent
+
 Additionally, Livewire offers `$this->reset()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
 @component('components.code')Component
