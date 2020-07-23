@@ -30,9 +30,16 @@ class User extends Authenticatable
             'iAmKevinMcKee',
             // Neerav Pandya
             'neeravp',
+            'RicardoRamirezR',
+            'ngcammayo',
+            'mohsenbostan',
         ])) return true;
 
-        return !! $this->sponsor;
+        if ($this->sponsor) {
+            return $this->sponsor->getsScreencasts();
+        }
+
+        return false;
     }
 
     public function uiActions()

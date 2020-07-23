@@ -331,5 +331,128 @@ class Screencast extends Model
             'series_id' => 4,
             'is_paid' => true,
         ],
+        /**
+         * File Uploads
+         */
+        [
+            'title' => 'Introduction',
+            'slug' => 's5-intro',
+            'description' => <<<EOT
+                This series is ALL about file uploads. Handling file uploads well is a notoriously tedius process. Livewire makes it MUCH easier.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427511470',
+            'code_url' => '',
+            'duration_in_minutes' => '1:47',
+            'series_id' => 5,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Setting Up Gravatar',
+            'slug' => 's5-gravatar',
+            'description' => <<<EOT
+                Before we add the ability to upload avatars, we should start with implementing sensible default avatars with a handy service called "Gravatar".
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510271',
+            'code_url' => 'https://github.com/livewire/surge/commit/9c9903f63c69a9e5bbfa5f1fea2d9518053dc536',
+            'duration_in_minutes' => '4:11',
+            'series_id' => 5,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Configuring Filesystem Disks',
+            'slug' => 's5-filesystem-disks',
+            'description' => <<<EOT
+                Lets talk about what we're going to do with the uploaded files users submit. Where will we store them? What will we put in the database field? And other important questions.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510314',
+            'code_url' => 'https://github.com/livewire/surge/commit/56fe685dc87d728cac2c6291733ee699c67f4a1f',
+            'duration_in_minutes' => '11:32',
+            'series_id' => 5,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'A Basic Avatar Upload',
+            'slug' => 's5-avatar-upload',
+            'description' => <<<EOT
+                Let's look at the simplest possible user avatar upload feature in Livewire. While we're at it, we'll go over what's happening under the hood so we have a foundation for understanding future concerns.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510465',
+            'code_url' => 'https://github.com/livewire/surge/commit/7b8772f24d67cb215e6de3c2ec4eb17de44480f7',
+            'duration_in_minutes' => '14:44',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Testing File Uploads',
+            'slug' => 's5-testing-uploads',
+            'description' => <<<EOT
+                Laravel makes testing file uplaods easy. Livewire builds on Laravel's existing techniques and makes the experience natural and easy.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510643',
+            'code_url' => 'https://github.com/livewire/surge/commit/06e8381d69ce08b43847d0951d2a427c2f2a6d48',
+            'duration_in_minutes' => '5:12',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Showing Upload Previews',
+            'slug' => 's5-upload-previews',
+            'description' => <<<EOT
+                It's helpful to show users a preview of a file that has just been selected before it is "saved" with a form submission. Livewire offers simple tools for exposing public-facing, secure URLs to your users to preview their upload.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510769',
+            'code_url' => 'https://github.com/livewire/surge/commit/0cc2024ae6aacb04afb6f1253d7e7820f909071d',
+            'duration_in_minutes' => '5:08',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Uploading Directly To S3',
+            'slug' => 's5-s3-uploads',
+            'description' => <<<EOT
+                Livewire offers the ability to use an S3-based filesystem to store it's temporary uploads. Let's look at what it takes to enable S3 uploads and upload files without ever touching your actual Laravel server.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510841',
+            'code_url' => 'https://github.com/livewire/surge/commit/0cc2024ae6aacb04afb6f1253d7e7820f909071d',
+            'duration_in_minutes' => '11:35',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Handling Multiple File Uploads',
+            'slug' => 's5-handling-multiple-uploads',
+            'description' => <<<EOT
+                Let's look at handling multiple file uploads at once using Livewire's file-upload system.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427510970',
+            'code_url' => 'https://github.com/livewire/surge/commit/adf0710339f8e7e8ca8af652cc6b1a2f6dcd93a1',
+            'duration_in_minutes' => '2:44',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Making File Inputs Look Good',
+            'slug' => 's5-styling-file-inputs',
+            'description' => <<<EOT
+                The browser defaults for styling file inputs are ugly. Let's see if we can make things look prettier, but remain accessible. Alpine makes this easy.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427511024',
+            'code_url' => 'https://github.com/livewire/surge/commit/2c48a6b6fabdec8cc713f5ac75330a2a6494f0ad',
+            'duration_in_minutes' => '14:47',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Integrating With Filepond',
+            'slug' => 's5-integrating-with-filepond',
+            'description' => <<<EOT
+                Filepond is a fantastic library for handling file-uploads on the front-end in JavaScript. In this episode we're going to look at the best way to integrate Livewire's file-upload system with Filepond. The result will be a seamless filepond blade component.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/427511231',
+            'code_url' => 'https://github.com/livewire/surge/commit/162523b7a9f81728f79b92e8c91584ed6ba9fcca',
+            'duration_in_minutes' => '21:03',
+            'series_id' => 5,
+            'is_paid' => true,
+        ],
     ];
 }
