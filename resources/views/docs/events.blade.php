@@ -194,23 +194,23 @@ This feature is actually incredibly powerful. For example, you could register a 
 Livewire allows you to fire browser window events like so:
 
 @component('components.code', ['lang' => 'php'])
- $this->dispatchBrowserEvent('name-updated', ['newName'=> $value ]);
+$this->dispatchBrowserEvent('name-updated', ['newName' => $value]);
 @endcomponent
 
-Which you can then listen for anywhere in global javascript:
+You are able to listen for this window event with JavaScript:
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-window.addEventListener('name-updated', function(event) {
+window.addEventListener('name-updated', event => {
     alert("Name updated to: " + event.detail.newName);
-});
+})
 </script>
 @endcomponent
 
-This is very useful for use with AlpineJS:
+AlpineJS allows you to easily listen for these window events within your HTML:
 
 @component('components.code', ['lang' => 'html'])
-<div x-data="{open : false}" @name-updated.window="open = false">
-    <!-- Modal with a Livewire form -->
+<div x-data="{ open: false }" @name-updated.window="open = false">
+    <!-- Modal with a Livewire name update form -->
 </div>
 @endcomponent
