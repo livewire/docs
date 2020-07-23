@@ -202,7 +202,7 @@ You are able to listen for this window event with JavaScript:
 @component('components.code', ['lang' => 'javascript'])
 <script>
 window.addEventListener('name-updated', event => {
-    alert("Name updated to: " + event.detail.newName);
+    alert('Name updated to: ' + event.detail.newName);
 })
 </script>
 @endcomponent
