@@ -41,6 +41,10 @@
                     <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_devsquad.png" alt="DevSquad">
                 </a>
 
+                <a style="height: 50px" class="block pb-3 mb-3" href="https://www.livemessage.io/" target="_blank">
+                    <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_livemessage.png" alt="Livemessage">
+                </a>
+
                 <a style="height: 50px" class="block pb-3 mb-3" href="https://padmission.com/" target="_blank">
                     <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_padmission.png" alt="Padmission">
                 </a>
@@ -59,10 +63,6 @@
 
                 <a style="height: 50px" class="block" href="https://trustfactory.bz/" target="_blank">
                     <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_trustfactory.png" alt="Trustfactory">
-                </a>
-
-                <a style="height: 50px" class="block pb-3 mb-3" href="https://www.livemessage.io/" target="_blank">
-                    <img class="w-32 mx-auto md:mx-0 md:ml-auto" src="/img/sponsor_livemessage.png" alt="Livemessage">
                 </a>
             </div>
         </div>

@@ -30,8 +30,11 @@
                 <a class="mb-4 pr-0 sm:pr-12 block" href="https://laravel.com/" target="_blank">
                     <img class="w-48 m-auto mb-4" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
                 </a>
-                <a class="mb-4 block" href="https://devsquad.com/" target="_blank">
+                <a class="mb-4 pr-0 sm:pr-12 block" href="https://devsquad.com/" target="_blank">
                     <img class="w-48 m-auto mb-4" src="/img/sponsor_devsquad.png" alt="DevSquad">
+                </a>
+                <a class="mb-4 block" href="https://www.livemessage.io/" target="_blank">
+                    <img class="w-48 m-auto mb-4" src="/img/sponsor_livemessage.png" alt="Livemessage">
                 </a>
             </div>
 
@@ -66,10 +69,6 @@
 
                 <a class="mb-4 block" href="https://www.amezmo.com/" target="_blank">
                     <img class="w-32 m-auto mb-4" src="/img/sponsor_amezmo.svg" alt="Amezmo">
-                </a>
-
-                <a class="mb-4 block" href="https://www.livemessage.io/" target="_blank">
-                    <img class="w-32 m-auto mb-4" src="/img/sponsor_livemessage.png" alt="Livemessage">
                 </a>
             </div>
         </div>
