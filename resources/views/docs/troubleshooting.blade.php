@@ -71,3 +71,19 @@ class HelloWorld extends Component
     ...
 @endverbatim
 @endcomponent
+
+## Third party Js issues
+
+### Symptoms:
+* In the console you see `Uncaught SyntaxError: Invalid or unexpected token`.
+* In the source it points to `@this`
+
+### Cures:
+This happens due to the fact that view:cache breaks livewire.
+
+For now, an easy workaround would be to put this in your `AppServiceProvider` under `register`.
+@component('components.code', ['lang' => 'php'])
+@verbatim
+    Blade::directive('this', [LivewireBladeDirectives::class, 'this'])
+@endverbatim
+@endcomponent
