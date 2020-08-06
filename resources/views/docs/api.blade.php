@@ -10,6 +10,7 @@ Directive | Description
 `wire:foo="bar"` | Listens for a browser event called "foo". (You can listen for *any* browser DOM event - not just those fired by Livewire).
 `wire:model="foo"` | Assuming `$foo` is a public property on the component class, every time an input element with this directive is updated, the property synchronizes with its value.
 `wire:model.debounce.100ms="foo"` | Debounces the `input` events emitted by the element every 100 milliseconds.
+`wire:model.lazy="foo"` | Runs the "foo" method on the component when user clicks away from the input field.
 `wire:poll.500ms="foo"` | Runs the "foo" method on the component class every 500 milliseconds.
 `wire:init="foo"` | Runs the "foo" method on the component immediately after it renders on the page.
 `wire:loading` | Hides the element by default, and makes it visible while network requests are in transit.
