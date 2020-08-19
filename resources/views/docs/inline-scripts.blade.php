@@ -71,3 +71,7 @@ Here's an example:
 @endcomponent
 
 > Note: the `@@this` directive compiles to the following string for JavaScript to interpret: "window.livewire.find([component-id])"
+
+@component('components.warning')
+    Due to the way the @@this directive is registered it is not compatible with Laravels "view:cache".
+@endcomponent
