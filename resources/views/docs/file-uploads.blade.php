@@ -19,7 +19,7 @@
 
 @include('includes.screencast-cta')
 
-## Basic File Upload {#basic}
+## Basic File Upload {#basic-upload}
 
 > Note: Your Livewire version must be >= 1.2.0 to use this feature.
 
