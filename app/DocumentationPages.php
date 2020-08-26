@@ -37,6 +37,7 @@ class DocumentationPages
             'Turbolinks' => 'turbolinks',
             'Laravel Echo' => 'laravel-echo',
             'Inline Scripts' => 'inline-scripts',
+            'Third Party Libraries' => 'third-party-libraries',
         ],
         'Testing' => 'testing',
         'Security' => 'security',
