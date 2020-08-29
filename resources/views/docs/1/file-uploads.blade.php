@@ -356,7 +356,7 @@ You can display a loading indicator scoped to the file upload like so:
 
 Now, while the file is uploading the "Uploading..." message will be shown and then hidden when the upload is finished.
 
-This works with the entire Livewire [Loading States API](/docs/loading-states).
+This works with the entire Livewire [Loading States API](loading-states).
 
 ## Progress Indicators (And All JavaScript Events) {#js-hooks}
 Every file upload in Livewire dispatches JavaScript events on the `<input>` element for custom JavaScript to listen to.
@@ -395,7 +395,7 @@ Integrating with 3rd-party file-uploading libraries often requires finer-tuned c
 
 For these cases, Livewire exposes dedicated JavaScript functions.
 
-The functions exist on the JavaScript component object, which can be accessesed using the convenience Blade directive: `@this`. If you haven't seen `@this` before, you can read more about it [here](/docs/alpine-js#communicating-with-js).
+The functions exist on the JavaScript component object, which can be accessesed using the convenience Blade directive: `@this`. If you haven't seen `@this` before, you can read more about it [here](alpine-js#communicating-with-js).
 
 @component('components.code', ['lang' => 'html'])
 @verbatim

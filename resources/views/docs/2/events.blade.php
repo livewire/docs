@@ -131,7 +131,7 @@ class ShowPosts extends Component
 ## Scoping Events {#scoping-events}
 
 ## Scoping To Parent Listeners {#scope-to-parents}
-When dealing with [nested components](/docs/nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
+When dealing with [nested components](nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
 
 In these cases, you can use the `emitUp` feature:
 
