@@ -70,6 +70,9 @@
                 <a class="mb-4 block" href="https://www.amezmo.com/" target="_blank">
                     <img class="w-32 m-auto mb-4" src="/img/sponsor_amezmo.svg" alt="Amezmo">
                 </a>
+                <a class="mb-4 block" href="https://www.snapshooter.io/" target="_blank">
+                    <img class="w-32 m-auto mb-4" src="/img/sponsor-snapshooter.svg" alt="SnapShooter Backups">
+                </a>
             </div>
         </div>
 
