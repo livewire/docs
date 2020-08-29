@@ -116,6 +116,11 @@ class DocumentationPages
         return $compare === $this->currentPage;
     }
 
+    public function isNewestVersion()
+    {
+        return $this->newestVersion() == $this->currentVersion;
+    }
+
     public function newestVersion()
     {
         return max($this->allVersions());
