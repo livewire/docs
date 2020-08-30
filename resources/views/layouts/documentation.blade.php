@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
 @section('nav-menu')
-    <nav class="nav-menu">
+    <nav class="nav-menu space-y-8">
+        <div class="pl-4">
+            @include('includes.version-switcher', ['currentPage' => $pages->currentPage, 'currentVersion' => $pages->currentVersion, 'versions' => $pages->allVersions()])
+        </div>
+
         @include('includes.menu', ['items' => $pages->all()])
     </nav>
 @endsection
@@ -11,11 +15,19 @@
 
 <section class="container px-6 py-12 mx-auto md:px-8">
     <div class="flex flex-col lg:flex-row">
-        <nav class="nav-menu hidden lg:block">
+        <nav class="nav-menu hidden lg:block space-y-8">
+            <div class="pr-16">
+                @include('includes.version-switcher', ['currentPage' => $pages->currentPage, 'currentVersion' => $pages->currentVersion, 'versions' => $pages->allVersions()])
+            </div>
+
             @include('includes.menu', ['items' => $pages->all()])
         </nav>
 
         <div class="w-full break-words md:w-4/5 lg:w-3/5 lg:pl-4 content" v-pre>
+            @unless ($pages->isNewestVersion())
+                @include('includes.version-warning')
+            @endunless
+
             <h1>{!! $title !!}</h1>
 
             @yield('content')
