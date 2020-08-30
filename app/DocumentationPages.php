@@ -98,7 +98,7 @@ class DocumentationPages
     {
         $this->currentPage = $currentPage;
 
-        $this->currentVersion = $currentVersion ?: $this->newestVersion();
+        $this->currentVersion = intval($currentVersion) ?: $this->newestVersion();
     }
 
     public function all()
@@ -118,7 +118,7 @@ class DocumentationPages
 
     public function isNewestVersion()
     {
-        return $this->newestVersion() == $this->currentVersion;
+        return $this->newestVersion() === $this->currentVersion;
     }
 
     public function newestVersion()
