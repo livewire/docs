@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@push('meta')
+    @unless($pages->isNewestVersion())
+        <link rel="canonical" href="{{ secure_url('docs/'.$pages->newestVersion().'.x/'.$pages->currentPage) }}" />
+    @endunless
+@endpush
+
 @section('nav-menu')
     <nav class="nav-menu space-y-8">
         <div class="pl-4">
