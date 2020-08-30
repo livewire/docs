@@ -56,7 +56,7 @@ Route::get('/docs/{pageSlug}', function ($pageSlug) {
     $newestVersion = (new DocumentationPages())->newestVersion();
 
     if (! file_exists($path = resource_path("views/docs/{$newestVersion}/{$pageSlug}.blade.php"))) {
-        abort(404);
+        return redirect("/docs/{$newestVersion}.x/quickstart");
     }
 
     return redirect("/docs/{$newestVersion}.x/{$pageSlug}");
@@ -65,7 +65,7 @@ Route::get('/docs/{versionSlug}/{pageSlug}', function ($versionSlug, $pageSlug) 
     $version = Str::before($versionSlug, '.');
 
     if (! file_exists($path = resource_path("views/docs/{$version}/{$pageSlug}.blade.php"))) {
-        abort(404);
+        return redirect("/docs/{$versionSlug}.x/quickstart");
     }
 
     $pages = new DocumentationPages($pageSlug, $version);
