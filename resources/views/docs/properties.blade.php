@@ -119,7 +119,7 @@ public function mount(User $user)
 
 Additionally, Livewire offers `$this->reset()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
-@component('components.code')Component
+@component('components.code-component')
 @slot('class')
 public $name = '';
 public $content = '';
