@@ -19,7 +19,7 @@
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>Consider my interest piqued</em></p>
         <p>
-            It's not like anything you've seen before, the best way to understand it is just to look at the code. Strap on your snorkle, we're diving in.
+            It's not like anything you've seen before, the best way to understand it is just to look at the code. Strap on your snorkel, we're diving in.
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>...I'll get my floaties</em></p>
 
@@ -193,7 +193,7 @@ class SearchUsers extends Component
             If it doesn't replace Vue, what do I do when I need JavaScript, like a drop-down, modal, or datepicker?
         </strong></p>
         <p style="margin-top: .5rem">
-            Livewire works beautifully with the AlpineJS framework (It was built for this need). For third-party library integration (something like Select2, Pickaday, or Dropzone.js), Livewire provides APIs to add support for these. Livewire also has a plugin to support using VueJs components inside of your Livewire components.
+            Livewire works beautifully with the AlpineJS framework (It was built for this need). For third-party library integration (something like Select2, Pikaday, or Dropzone.js), Livewire provides APIs to add support for these. Livewire also has a plugin to support using VueJs components inside of your Livewire components.
         </p>
 
         <hr>
