@@ -19,7 +19,7 @@
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>Consider my interest piqued</em></p>
         <p>
-            It's not like anything you've seen before, the best way to understand it is just to look at the code. Strap on your snorkel, we're diving in.
+            It's not like anything you've seen before, the best way to understand it is to just look at the code. Strap on your snorkel, we're diving in.
         </p>
         <p class="-mt-6 text-gray-500 text-xl"><em>...I'll get my floaties</em></p>
 
