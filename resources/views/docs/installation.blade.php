@@ -24,7 +24,7 @@ Add the following Blade directives in the `head` tag, and before the end `body` 
 @endverbatim
 @endcomponent
 
-If you are on Laravel 7 or higher, you can use the new tag syntax.
+You can alternatively use the tag syntax.
 
 @component('components.code')
 @verbatim

@@ -256,7 +256,7 @@ Also, note that sometimes it's useful to ignore changes to an element, but not i
 Every Livewire component loaded on a browser page has both a unique id, and a corresponding JavaScript object.
 
 You can retrieve this JavaScript object with the following syntax:
-`let component = window.livewire.find('some-component-id')`
+`let component = Livewire.find('some-component-id')`
 
 Now that you have the component object, you can actually interact with it programaticaly from JavaScript.
 
@@ -302,7 +302,7 @@ If you happened to know the unique component ID assigned to this component when 
 @component('components.code', ['lang' => 'javascript'])
 @verbatim
 <script>
-    let component = window.livewire.find('the-unique-component-id')
+    let component = Livewire.find('the-unique-component-id')
 
     var title = component.get('title')
     // Gets the current value of the `public $title` component property.
@@ -335,13 +335,13 @@ You may be wondering, "But how do I get the unique component id?". Well, you can
 @endverbatim
 @endcomponent
 
-If you followed, Livewire has a Blade directive called `@this` that is an alias for `window.livewire.find('...')`. This directive makes it extremely easy to talk to the current Livewire component from JavaScript, particularly AlpineJS expressions.
+If you followed, Livewire has a Blade directive called `@this` that is an alias for `Livewire.find('...')`. This directive makes it extremely easy to talk to the current Livewire component from JavaScript, particularly AlpineJS expressions.
 
 If you were to inspect the source of the rendered page in the browser, here is what that `input` element would look like:
 
 @component('components.code', ['lang' => 'javascript'])
 @verbatim
-<input x-data @input.keydown.enter="window.livewire.find('unique-id').set('foo', 'bar')">
+<input x-data @input.keydown.enter="Livewire.find('unique-id').set('foo', 'bar')">
 @endverbatim
 @endcomponent
 

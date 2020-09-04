@@ -18,6 +18,7 @@ class DocumentationPages
         'Component Features' => [
             'Validation' => 'input-validation',
             'File Uploads' => 'file-uploads',
+            'Query String' => 'query-string',
             'Authorization' => 'authorization',
             'Pagination' => 'pagination',
             'Redirecting' => 'redirecting',

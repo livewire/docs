@@ -37,7 +37,7 @@ $this->emit('postAdded');
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-    window.livewire.emit('postAdded')
+    Livewire.emit('postAdded')
 </script>
 @endcomponent
 
@@ -179,7 +179,7 @@ Livewire allows you to register event listeners in JavaScript like so:
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-window.livewire.on('postAdded', postId => {
+Livewire.on('postAdded', postId => {
     alert('A post was added with the id of: ' + postId);
 })
 </script>
