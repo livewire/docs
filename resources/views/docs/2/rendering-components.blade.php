@@ -231,7 +231,7 @@ Route::layout('layouts.base')->section('body')->group(function () {
 
 ### Route Parameters {#route-params}
 
-Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` lifecycle hook. For example:
+Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through its `mount` lifecycle hook. For example:
 
 **web.php**
 @component('components.code', ['lang' => 'php'])
@@ -259,7 +259,7 @@ class ShowContact extends Component
 }
 @endcomponent
 
-As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
+As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as its parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
 
 ### Route Model Binding {#route-model-binding}
 
