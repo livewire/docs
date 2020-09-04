@@ -37,7 +37,7 @@ $this->emit('postAdded');
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-    Livewire.emit('postAdded')
+    window.livewire.emit('postAdded')
 </script>
 @endcomponent
 
@@ -131,7 +131,7 @@ class ShowPosts extends Component
 ## Scoping Events {#scoping-events}
 
 ## Scoping To Parent Listeners {#scope-to-parents}
-When dealing with [nested components](/docs/nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
+When dealing with [nested components](nesting-components), sometimes you may only want to emit events to parents and not children or sibling components.
 
 In these cases, you can use the `emitUp` feature:
 
@@ -179,7 +179,7 @@ Livewire allows you to register event listeners in JavaScript like so:
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-Livewire.on('postAdded', postId => {
+window.livewire.on('postAdded', postId => {
     alert('A post was added with the id of: ' + postId);
 })
 </script>

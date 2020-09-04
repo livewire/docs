@@ -5,6 +5,8 @@
   * [Debouncing Input](#debouncing-input) { .font-normal.text-sm.text-blue-800 }
   * [Binding Nested Data](#binding-nested-data) { .font-normal.text-sm.text-blue-800 }
   * [Lazy Updating](#lazy-updating) { .font-normal.text-sm.text-blue-800 }
+* [Updating The Query String](#query-string) { .text-blue-800 }
+  * [Keeping A Clean Query String](#clean-query-string) { .font-normal.text-sm.text-blue-800 }
 * [Casting Properties](#casting-properties) { .text-blue-800 }
   * [Custom Casters](#custom-casters) { .font-normal.text-sm.text-blue-800 }
 * [Computed Properties](#computed-properties) { .text-blue-800 }
@@ -57,10 +59,11 @@ class HelloWorld extends Component
 
 ### Important Notes {#important-notes}
 
-Here are two ESSENTIAL things to note about public properties before embarking on your Livewire journey:
+Here are three ESSENTIAL things to note about public properties before embarking on your Livewire journey:
 
 1. Data stored in public properties is made visible to the front-end JavaScript. Therefore, you SHOULD NOT store sensitive data in them.
-2. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Collection`, `DateTime`, `Model`, `EloquentCollection`.
+2. Properties can ONLY be either a JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR an eloquent model (or collection of models). To use properties with other data types, you must pass each through a [custom caster](#custom-casters).
+3. **For PHP >= 7.4 users:** public properties in Livewire components DO NOT currently support typed properties.
 
 @component('components.warning')
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
@@ -102,19 +105,39 @@ public function mount()
 @endslot
 @endcomponent
 
+You can even pass `$this->fill()` an Eloquent model. When you do, public properties in your Livewire component that match properties included in your Eloquent model's `toArray()` method
+will be filled.
+
+@component('components.code-component', ['className' => 'HelloWorld.php'])
+@slot('class')
+public function mount(User $user)
+{
+    $this->fill($user);
+}
+@endslot
+@endcomponent
+
 Additionally, Livewire offers `$this->reset()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
-@component('components.code')Component
+@component('components.code-component')
 @slot('class')
-public $search = '';
-public $isActive = true;
+public $name = '';
+public $content = '';
 
-public function resetFilters()
+public function savePost()
 {
-    $this->reset('search');
+    $this->post->update([
+        'name' => $this->name,
+        'content' => $this->content,
+    ]);
+
+    $this->reset();
+    // Will reset all public properties.
+
+    $this->reset('name');
     // Will only reset the name property.
 
-    $this->reset(['search', 'isActive']);
+    $this->reset(['name', 'content']);
     // Will reset both the name AND the content property.
 }
 @endslot
@@ -171,14 +194,6 @@ Element Tag |
 `<select>` |
 `<textarea>` |
 
-### Binding Nested Data {#binding-nested-data}
-
-Livewire supports binding to nested data inside arrays using dot notation:
-
-@component('components.code')
-<input type="text" wire:model="parent.message">
-@endcomponent
-
 ### Debouncing Input {#debouncing-input}
 
 By default, Livewire applies a 150ms debounce to text inputs. This avoids too many network requests being sent as a user types into a text field.
@@ -189,11 +204,19 @@ If you wish to override this default (or add it to a non-text input), Livewire o
 <input type="text" wire:model.debounce.500ms="name">
 @endcomponent
 
+### Binding Nested Data {#binding-nested-data}
+
+Livewire supports binding to nested data inside arrays using dot notation:
+
+@component('components.code')
+<input type="text" wire:model="parent.message">
+@endcomponent
+
 ### Lazy Updating {#lazy-updating}
 
 By default, Livewire sends a request to the server after every `input` event (or `change` in some cases). This is usually fine for things like `<select>` elements that don't typically fire rapid updates, however, this is often unnecessary for text fields that update as the user types.
 
-In those cases, use the `lazy` directive modifier to listen for the native `change` event.
+In those cases, use the `lazy` directive modifier to listen for the native "change" event.
 
 @component('components.code')
 <input type="text" wire:model.lazy="message">
@@ -201,21 +224,98 @@ In those cases, use the `lazy` directive modifier to listen for the native `chan
 
 Now, the `$message` property will only be updated when the user clicks away from the input field.
 
-### Deferred Updating {#defer-updating}
-In cases where you don't need data updates to happen live, Livewire has a `.defer` modifer that batches data updates with the next network request.
+## Updating The Query String {#query-string}
 
-For example, given the following component:
+Sometimes it's useful to update the browser's query string when your component state changes.
 
-@component('components.code', ['lang' => 'html'])
-<input type="text" wire:model.defer="query">
-<button wire:click="search">Search</button>
+For example, if you were building a "search posts" component, and wanted the query string to reflect the current search value like so:
+
+`https://your-app.com/search-posts?search=some-search-string`
+
+This way, when a user hits the back button, or bookmarks the page, you can get the initial state out of the query string, rather than resetting the component every time.
+
+In these cases, you can add a property's name to `protected $updatesQueryString`, and Livewire will update the query string every time the property value changes.
+
+@component('components.code-component', [
+    'className' => 'SearchPosts.php',
+    'viewName' => 'search-posts.blade.php',
+])
+@slot('class')
+use Livewire\Component;
+
+class SearchPosts extends Component
+{
+    public $search;
+
+    protected $updatesQueryString = ['search'];
+
+    public function mount()
+    {
+        $this->search = request()->query('search', $this->search);
+    }
+
+    public function render()
+    {
+        return view('livewire.search-posts', [
+            'posts' => Post::where('title', 'like', '%'.$this->search.'%')->get(),
+        ]);
+    }
+}
+@endslot
+@slot('view')
+@verbatim
+<div>
+    <input wire:model="search" type="text" placeholder="Search posts by title...">
+
+    <h1>Search Results:</h1>
+
+    <ul>
+        @foreach($posts as $post)
+            <li>{{ $post->title }}</li>
+        @endforeach
+    </ul>
+</div>
+@endverbatim
+@endslot
 @endcomponent
 
-As the user types into the `<input>` field, no network requests will be sent. Even if the user clicks away from the input field and onto other fields on the page, no requests will be sent.
+### Keeping A Clean Query String {#clean-query-string}
 
-When the user presses "Search", Livewire will send ONE network request that contains both the new "query" state, AND the "search" action to perform.
+In the case above, when the search property is empty, the query string will look like this:
 
-This can durastically cut down on network usage when it's not needed.
+`?search=`
+
+There are other cases where you might want to only represent a value in the query string if it is NOT the default setting.
+
+For example, if you have a `$page` property to track pagination in a component, you may want to remove the `page` property from the query string when the user is on the first page.
+
+In cases like these, you can use the following syntax:
+
+@component('components.code-component', ['className' => 'SearchPosts.php'])
+@slot('class')
+use Livewire\Component;
+
+class SearchPosts extends Component
+{
+    public $foo;
+    public $search = '';
+    public $page = 1;
+
+    protected $updatesQueryString = [
+        'foo',
+        'search' => ['except' => ''],
+        'page' => ['except' => 1],
+    ];
+
+    public function mount()
+    {
+        $this->fill(request()->only('search', 'page'));
+    }
+
+    ...
+}
+@endslot
+@endcomponent
 
 ## Casting Properties {#casting-properties}
 

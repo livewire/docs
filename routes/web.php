@@ -7,6 +7,7 @@ use Michelf\MarkdownExtra;
 use App\DocumentationPages;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 // Algolia Docsearch API Details.
@@ -51,19 +52,30 @@ Route::post('/sponsors/refresh', function () {
 
 // Documentation.
 Route::redirect('/docs', '/docs/quickstart');
-Route::get('/docs/{page}', function ($slug) {
-    if (! file_exists($path = resource_path('views/docs/'.$slug.'.blade.php'))) {
-        abort(404);
+Route::get('/docs/{pageSlug}', function ($pageSlug) {
+    $newestVersion = (new DocumentationPages())->newestVersion();
+
+    if (! file_exists($path = resource_path("views/docs/{$newestVersion}/{$pageSlug}.blade.php"))) {
+        return redirect("/docs/{$newestVersion}.x/quickstart");
     }
 
-    $pages = new DocumentationPages($slug);
+    return redirect("/docs/{$newestVersion}.x/{$pageSlug}");
+});
+Route::get('/docs/{versionSlug}/{pageSlug}', function ($versionSlug, $pageSlug) {
+    $version = Str::before($versionSlug, '.');
+
+    if (! file_exists($path = resource_path("views/docs/{$version}/{$pageSlug}.blade.php"))) {
+        return redirect("/docs/{$versionSlug}.x/quickstart");
+    }
+
+    $pages = new DocumentationPages($pageSlug, $version);
     $content = MarkdownExtra::defaultTransform(
         View::file($path)->render()
     );
 
     return view('docs', [
         'title' => $pages->title(),
-        'slug' => $slug,
+        'slug' => $pageSlug,
         'pages' => $pages,
         'content' => $content,
     ]);

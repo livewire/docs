@@ -238,7 +238,7 @@ class ShowContact extends Component
 }
 @endcomponent
 
-As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as it's parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
+As you can see, the `mount` method in a Livewire component is acting like a controller method would as far as its parameters go. If you visit `/contact/123`, the `$id` variable passed into the `mount` method will contain the value `123`.
 
 ### Route Model Binding {#route-model-binding}
 
