@@ -35,7 +35,7 @@ Normally, you would listen for this event in Laravel Echo like so:
         });
 @endcomponent
 
-With Livewire however, all you have to do is register it in your `$listeners` property, with some special syntax to designate it's from Echo.
+With Livewire however, all you have to do is register it in your `$listeners` property, with some special syntax to designate that it originates from Echo.
 
 @component('components.code-component', ['className' => 'OrderTracker'])
 @slot('class')
