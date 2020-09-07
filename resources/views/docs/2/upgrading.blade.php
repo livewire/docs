@@ -11,7 +11,8 @@ Before we get into the technical upgrade stuff. You might be interested in what 
 
 1. Update the `livewire/livewire` dependency in your `composer.json` file to `^2.0`
 2. Run `composer update livewire/livewire`
-3. Run `artisan view:clear`
+3. Run `php artisan view:clear`
+4. Run `php artisan livewire:publish --assets` (If you published the assets before)
 
 ## Update Your Application Code
 
