@@ -132,7 +132,7 @@ public $foo;
 
 public function mount()
 {
-    $this->foo = collect(['foo, 'bar']);
+    $this->foo = collect(['foo', 'bar']);
 }
 @endverbatim
 @endcomponent
