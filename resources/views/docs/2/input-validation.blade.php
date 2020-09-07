@@ -73,9 +73,9 @@ class ContactForm extends Component
         'email' => 'required|email',
     ];
 
-    public function updated($field)
+    public function updated($propertyName)
     {
-        $this->validateOnly($field);
+        $this->validateOnly($propertyName);
     }
 
     public function saveContact()
@@ -122,9 +122,9 @@ class ContactForm extends Component
     public $name;
     public $email;
 
-    public function updated($field)
+    public function updated($propertyName)
     {
-        $this->validateOnly($field, [
+        $this->validateOnly($propertyName, [
             'name' => 'min:6',
             'email' => 'email',
         ]);

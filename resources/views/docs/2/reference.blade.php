@@ -1,6 +1,12 @@
 Already familiar with Livewire and want to skip the long-form documentation? Here's a giant list of everything available in Livewire.
 
 ### Template Directives
+These are directives added to elements within Livewire component templates.
+
+@component('components.code', ['lang' => 'html'])
+<button wire:click="save">...</button>
+@endcomponent
+
 @component('components.table')
 Directive | Description
 --- | ---
@@ -28,7 +34,18 @@ Directive | Description
 `wire:ignore.self` | The "self" modifier restricts updates to the element itself, but allows modifications to its children.
 @endcomponent
 
-### JS Component Object (`$wire`)
+### Alpine Component Object (`$wire`)
+
+These are methods and properties availabe on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
+
+@component('components.code', ['lang' => 'html'])
+<div x-data>
+    <span x-show="$wire.showMessage">...</span>
+
+    <button x-on:click="$wire.toggleShowMessage()">...</button>
+</div>
+@endcomponent
+
 @component('components.table')
 API | Description
 --- | ---
@@ -47,7 +64,10 @@ API | Description
 `$wire.entangle('foo').defer` | Only update Livewire's "foo" next time a Livewire request is fired
 @endcomponent
 
-### Global JS Livewire Object (`window.Livewire`)
+### Global Livewire JavaScript Object
+
+These are methods available on the `window.Livewire` object in the frontend. These are for deeper Livewire interaction and customization.
+
 @component('components.table')
 Method | Description
 --- | --- | ---
@@ -67,9 +87,15 @@ Method | Description
 `Livewire.rescan()` | Re-scan the DOM for newly added Livewire components
 @endcomponent
 
-### JS Hooks {#js-hooks}
+### JavaScript Hooks {#js-hooks}
 
-**Usage:** `Livewire.hook([hook], ([params]) => { ... })`
+These are "hooks" you can listen for in JavaScript. These allow you to hook into very specific parts of a Livewire component's JavaScript lifecycle for third-party packages or deep customizations. The abilties unlocked here are immense. A significant of Livewire's core uses these hooks to provide functionality.
+
+@component('components.code', ['lang' => 'javascript'])
+Livewire.hook('component.initialized', component => {
+    //
+})
+@endcomponent
 
 @component('components.table')
 Name | Params | Description
@@ -85,7 +111,20 @@ Name | Params | Description
 `message.processed` | `(message, component)` | A message has been fully received and implemented (DOM updates, etc...)
 @endcomponent
 
-### PHP Component Lifecycle Hooks
+### Component Class Lifecycle Hooks
+
+These are methods you can declare in your Livewire component classes to run code at specific times in the backend's lifecycle. [Read Full Documentation](/docs/2.x/lifecycle-hooks)
+
+@component('components.code', ['lang' => 'php'])
+class ShowPost extends Component
+{
+    public function mount()
+    {
+        //
+    }
+}
+@endcomponent
+
 @component('components.table')
 Name | Description
 --- | ---
@@ -97,54 +136,99 @@ Name | Description
 `dehydrate()` | Called after `render()`, but before the component has been dehydrated and sent to the frontend
 @endcomponent
 
-### Component Protected Properties
-@component('components.table')
-Name | Params | Description
---- | ---
-`$queryString` |
-`$rules` |
-`$listeners` |
-`$listeners` |
-`$paginationTheme` |
+### Component Class Protected Properties
+
+Livewire provides core functionality through protected properties on a component's class. Most of these have corresponsing methods by the same name if you prefer to return values in a method, rather than declare them as properties.
+
+@component('components.code', ['lang' => 'php'])
+class ShowPost extends Component
+{
+    protected $rules = ['foo' => 'required|min:6'];
+}
 @endcomponent
 
-### PHP Traits
 @component('components.table')
-Name | Params | Description
+Name | Description
 --- | ---
-`WithPagination` |
-`WithFileUploads` |
+`$queryString` | Declare which properties to "bind" to the query sting. [Read Docs](/docs/2.x/query-string)
+`$rules` | Specify validation rules to be applied to properties when calling `$this->validate()`. [Read Docs](/docs/2.x/input-validation)
+`$listeners` | Specify which events you want to listen for emitted by other components. [Read Docs](/docs/2.x/events)
+`$paginationTheme` | Specify weather you want to use Tailwind or Bootstrap for you pagination theme. [Read Docs](/docs/2.x/pagination)
+@endcomponent
+
+### Component Class Traits
+
+These are traits that unlock additional functionality in a Livewire component. Usually for features that are considered best as "opt-in".
+
+@component('components.code', ['lang' => 'php'])
+class ShowPost extends Component
+{
+    use WithPagination;
+}
+@endcomponent
+
+@component('components.table')
+Name | Description
+--- | ---
+`WithPagination` | This trait enables Livewire-based pagination instead of Laravel's stock pagination system. [Read Docs](/docs/2.x/pagination)
+`WithFileUploads` | This trait enables adding `wire:model` to an input of `type="file"`. [Read Docs](/docs/2.x/file-uploads)
 @endcomponent
 
 ### Class Methods
+
+@component('components.code', ['lang' => 'php'])
+class PostForm extends Component
+{
+    public function save()
+    {
+        ...
+
+        $this->emit('post-saved');
+    }
+}
+@endcomponent
+
 @component('components.table')
-Name | Params | Description
+Name | Description
 --- | ---
-`$this->emit($eventName, ...$params)` |
-`$this->emit($eventName, ...$params)->up()` |
-`$this->emit($eventName, ...$params)->self()` |
-`$this->emit($eventName, ...$params)->to($componentName)` |
-`$this->dispatchBrowserEvent($eventName, ...$params)` |
-`$this->validate()` |
-`$this->validate($rules, $messages)` |
-`$this->validateOnly($field)` |
-`$this->validateOnly($field, $rules, $messages)` |
-`$this->redirect($url)` |
-`$this->redirectRoute($routeName)` |
-`$this->skipRender()` |
-`$this->addError($name, $error)` |
-`$this->resetValidation()` |
-`$this->fill([...$propertyData])` |
-`$this->reset()` |
-`$this->reset($field)` |
-`$this->reset([...$fields])` |
-`$this->only([...$propertyNames])` |
+`$this->emit($eventName, ...$params)` | Event an event to othe components on the page
+`$this->emit($eventName, ...$params)->up()` | Emit an event to parent components on the page
+`$this->emit($eventName, ...$params)->self()` | Emit an event only to THIS component
+`$this->emit($eventName, ...$params)->to($componentName)` | Emit and event to any component matching the provided name
+`$this->dispatchBrowserEvent($eventName, ...$params)` | Dispatch a browser event from this component's root element
+`$this->validate()` | Run the validation rules provided in the `$rules` property against the public component properties
+`$this->validate($rules, $messages)` | Run the provided validation rules against the public properties
+`$this->validateOnly($propertyName)` | Run the `$rules` property validation against a specific property provided and not others
+`$this->validateOnly($propertyName, $rules, $messages)` | Run the provided validation rules against a specific property name
+`$this->redirect($url)` | Redirect to a new URL when the Livewire request finishes and reaches the frontend
+`$this->redirectRoute($routeName)` | Redirect to a specific route name
+`$this->skipRender()` | Skip running the `->render()` method for the current request. (Usually for performance reasons)
+`$this->addError($name, $error)` | Add a specific error name and value to the component's error bag manually
+`$this->resetValidation()` | Reset the currently stored validation errors (clear them)
+`$this->fill([...$propertyData])` | Set public property names to provided values in bulk
+`$this->reset()` | Reset all public properties to their initial (pre-mount) state
+`$this->reset($field)` | Reset a specific public property to its pre-mount state
+`$this->reset([...$fields])` | Reset multiple specific properties
+`$this->only([...$propertyNames])` | Return key->value pairs of property data only for a specific set of property names
 @endcomponent
 
 ### PHP Testing Methods
+
+These are methods available on Livewire's testing helpers. [Read Full Documentation](/docs/2.x/testing)
+
+@component('components.code', ['lang' => 'php'])
+public function test()
+{
+    Livewire::test(ShowPost::class)
+        ->assertDontSee('bar')
+        ->set('foo', 'bar')
+        ->assertSee('bar');
+}
+@endcomponent
+
 @component('components.table')
-Name | Params | Description
---- | ---
+Name |
+--- |
 `->assertSet($propertyName, $value)` |
 `->assertNotSet($propertyName, $value)` |
 `->assertSee($string)` |
@@ -168,33 +252,46 @@ Name | Params | Description
 @endcomponent
 
 ### Artisan Commands
+
+These are the `artisan` commands Livewire makes available to make frequent tasks like creating a component easier.
+
 @component('components.table')
 Name | Params | Description
 --- | ---
-`artisan make:livewire` |
-`artisan livewire:make` |
-`artisan livewire:copy` |
-`artisan livewire:move` |
-`artisan livewire:delete` |
-`artisan livewire:touch` |
-`artisan livewire:cp` |
-`artisan livewire:mv` |
-`artisan livewire:rm` |
-`artisan livewire:stubs` |
-`artisan livewire:publish` |
-`artisan livewire:configure-s3-upload-cleanup` |
+`artisan make:livewire` | Create a new component
+`artisan livewire:make` | Create a new component
+`artisan livewire:copy` | Copy a component
+`artisan livewire:move` | Mova a component
+`artisan livewire:delete` | Delete a component
+`artisan livewire:touch` | Alias for `livewire:make`
+`artisan livewire:cp` | Alias for `livewire:copy`
+`artisan livewire:mv` | Alias for `livewire:move`
+`artisan livewire:rm` | Alias for `livewire:delete`
+`artisan livewire:stubs` | Publish Livewire stubs (used in the above commands) for local modification
+`artisan livewire:publish` | Public Livewire's config file to your project (`config/livewire.php`)
+`artisan livewire:publish --assets` | Public Livewire's config file AND its frontend assets to your project
+`artisan livewire:configure-s3-upload-cleanup` | Configure your cloud disk driver's S3 bucket to clear temporary uploads after 24 hours
 @endcomponent
 
 ### PHP Lifecycle Hooks
+
+These are hooks provided by Livewire in PHP for listening to lifecycle occurences at a global level (not at a component level). These are used internally to provide a significant portion of Livewire's core functionality, and can be used in ServiceProviders to further extend Livewire yourself.
+
+@component('components.code', ['lang' => 'php'])
+Livewire::listen('component.hydrate', function ($component, $request) {
+    //
+});
+@endcomponent
+
 @component('components.table')
 Name | Params | Description
 --- | ---
-`component.hydrate` | `($component, $request)`
-`component.hydrate.initial` | `($component, $request)`
-`component.hydrate.subsequent` | `($component, $request)`
-`component.dehydrate` | `($component, $response)`
-`component.dehydrate.initial` | `($component, $response)`
-`component.dehydrate.subsequent` | `($component, $response)`
-`property.hydrate` | `($name, $value, $component, $request)`
-`property.dehydrate` | `($name, $value, $component, $response)`
+`component.hydrate` | `($component, $request)` | Run on EVERY component hydration
+`component.hydrate.initial` | `($component, $request)` | Run only on the INITIAL hydration (When the component is first loaded)
+`component.hydrate.subsequent` | `($component, $request)` | Run only AFTER the initial component request
+`component.dehydrate` | `($component, $response)` | Run on EVERY component dehydration
+`component.dehydrate.initial` | `($component, $response)` | Run only on the INITIAL dehydration (When the component is first loaded)
+`component.dehydrate.subsequent` | `($component, $response)` | Run on dehydrate AFTER the initial component request
+`property.hydrate` | `($name, $value, $component, $request)` | Run when a specific property is hydrated
+`property.dehydrate` | `($name, $value, $component, $response)` | Run when a specific property is dehydrated
 @endcomponent
