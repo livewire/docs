@@ -14,7 +14,7 @@
             @if ($docsearchApiKey && $docsearchIndexName)
                 @include('includes.search-input')
             @endif
-            <a href="/docs/quickstart" class="ml-3 text-blue-800 sm:ml-6">Docs</a>
+            <a href="/docs" class="ml-3 text-blue-800 sm:ml-6">Docs</a>
             <a href="/screencasts" class="ml-3 text-blue-800 sm:ml-6">Screencasts</a>
             <a href="/podcast" class="ml-3 text-blue-800 sm:ml-6">Podcast</a>
             <a href="https://forum.laravel-livewire.com" class="ml-3 text-blue-800 sm:ml-6">Forum</a>
@@ -29,7 +29,7 @@
         <div
             x-data="{ open: false }"
             x-show="open"
-            @@set-nav-open.window="open = $event.detail"
+            x-on:set-nav-open.window="open = $event.detail"
             class="fixed inset-0 z-20" style="background: rgba(0,0,0,0.5); display: none;"
         >
             <div

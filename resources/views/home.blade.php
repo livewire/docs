@@ -173,29 +173,6 @@ class SearchUsers extends Component
             <li>Livewire then intelligently mutates DOM according to the things that changed.</li>
         </ul>
 
-        <h2>Some questions you might have...</h2>
-
-        <p style="margin-bottom: 0"><strong>
-            Does this use websockets?
-        </strong></p>
-        <p style="margin-top: .5rem">
-            No, Livewire relies solely on AJAX requests to do all its server communication. This means it's as reliable and scalable as your current setup.
-        </p>
-
-        <p style="margin-bottom: 0"><strong>
-            Is this a Vue-replacement?
-        </strong></p>
-        <p style="margin-top: .5rem">
-            In some ways yes, but mostly for cases where your Vue components are already sending `axios` or `fetch` requests. (Think searching, filtering, forms)
-        </p>
-
-        <p style="margin-bottom: 0"><strong>
-            If it doesn't replace Vue, what do I do when I need JavaScript, like a drop-down, modal, or datepicker?
-        </strong></p>
-        <p style="margin-top: .5rem">
-            Livewire works beautifully with the AlpineJS framework (it was built for this need). For third-party library integration (something like Select2, Pikaday, or Dropzone.js), Livewire provides APIs to add support for these. Livewire also has a plugin to support using VueJs components inside of your Livewire components.
-        </p>
-
         <hr>
 
         <style>
