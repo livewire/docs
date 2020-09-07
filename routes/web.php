@@ -75,8 +75,8 @@ Route::get('/docs/{versionSlug}/{pageSlug}', function ($versionSlug, $pageSlug) 
 
     return view('docs', [
         // Temoporary V2 twitter card to celebrate V2.
-        'social_size' => $versionSlug === '2.x' ? 'summary_large_image' : 'summary',
-        'social_image' => $versionSlug === '2.x' ? 'https://laravel-livewire.com/img/twitter-card2.jpg' : 'https://laravel-livewire.com/img/twitter.png',
+        'social_size' => ($versionSlug === '2.x' && $pageSlug === 'upgrading') ? 'summary_large_image' : 'summary',
+        'social_image' => ($versionSlug === '2.x' && $pageSlug === 'upgrading') ? 'https://laravel-livewire.com/img/twitter-card2.jpg' : 'https://laravel-livewire.com/img/twitter.png',
         'title' => $pages->title(),
         'slug' => $pageSlug,
         'pages' => $pages,
