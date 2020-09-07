@@ -51,7 +51,7 @@ Livewire's `WithPagination` trait exposes a `->resetPage()` method to accomplish
 This method can be used in combination with the `updating/updated` lifecycle hooks to reset the page when certain component data is updated.
 
 
-@slot('class')
+@component('components.code', ['lang' => 'php'])
 @verbatim
 use Livewire\WithPagination;
 
@@ -74,7 +74,6 @@ class ShowPosts extends Component
     }
 }
 @endverbatim
-@endslot
 @endcomponent
 
 ## Using The Bootstrap Pagination Theme {#custom-pagination-view}
