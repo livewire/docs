@@ -172,7 +172,7 @@ class Counter extends Component
 @endslot
 @slot('view')
 @verbatim
-<div x-data="{ open: @@entangle('showDropdown') }">
+<div x-data="{ open: @entangle('showDropdown') }">
     <button @click="open = true">Show More...</button>
 
     <ul x-show="open" @click.away="open = false">
