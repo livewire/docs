@@ -81,7 +81,7 @@ class ShowPost extends Component
 @endverbatim
 @endcomponent
 
-If for whatever reason, this automatic behavior doesn't work well for, you can intercept parameters using the `mount()` method:
+If for whatever reason, this automatic behavior doesn't work well for you, you can intercept parameters using the `mount()` method:
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
