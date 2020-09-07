@@ -42,7 +42,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 <div>
     ...
 
-    <x:dropdown>
+    <x-dropdown>
         <x-slot name="trigger">
             <button>Show More...</button>
         </x-slot>
@@ -301,7 +301,7 @@ Here's how we will be using it:
     <input wire:model="title" id="title" type="text">
 
     <label for="date">Event Date</label>
-    <x:date-picker wire:model="date" id="date"/>
+    <x-date-picker wire:model="date" id="date"/>
 
     <button>Schedule Event</button>
 </form>
@@ -365,7 +365,7 @@ A more real-world example would be creating a "color-picker" Blade component tha
 @component('components.code', ['lang' => 'html'])
 @verbatim
 <div>
-    <x:color-picker wire:model="color"/>
+    <x-color-picker wire:model="color"/>
 </div>
 @endverbatim
 @endcomponent
