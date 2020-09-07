@@ -128,7 +128,7 @@ let foo = await $wire.getFoo()
 // Emitting a Livewire event called "some-event" with two parameters
 $wire.emit('some-event', 'foo', 'bar')
 
-// Listening for a Livewire event emitted called "som-event"
+// Listening for a Livewire event emitted called "some-event"
 $wire.on('some-event', (foo, bar) => {})
 
 // Getting a Livewire property
