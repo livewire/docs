@@ -12,6 +12,7 @@ Before we get into the technical upgrade stuff. You might be interested in what 
 1. Update the `livewire/livewire` dependency in your `composer.json` file to `^2.0`
 2. Run `composer update livewire/livewire`
 3. Run `artisan view:clear`
+4. Run `artisan livewire:publish` to clear v1 Livewire assets that need replacing.
 
 ## Update Your Application Code
 
