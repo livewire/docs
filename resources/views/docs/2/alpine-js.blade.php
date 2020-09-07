@@ -144,7 +144,7 @@ $wire.call('someMethod', param)
 $wire.__instance
 @endcomponent
 
-## Sharing State Between Livewire And Alpine: `@@entangle`
+## Sharing State Between Livewire And Alpine: `@entangle`
 Livewire has an incredibly powerful feature called "entangle" that allows you to "entangle" a Livewire and Alpine property together. With entanglement, when one value changes, the other will also be changed.
 
 To demonstrate, consider the dropdown example from before, but now with it's `show` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
@@ -172,7 +172,7 @@ class Counter extends Component
 @endslot
 @slot('view')
 @verbatim
-<div x-data="{ open: @@entangle('showDropdown') }">
+<div x-data="{ open: @entangle('showDropdown') }">
     <button @click="open = true">Show More...</button>
 
     <ul x-show="open" @click.away="open = false">
@@ -258,7 +258,7 @@ You can also "forward" these Livewire directives individually. For example:
 @endverbatim
 @endcomponent
 
-There are LOTS of different ways to use this utility, but one common example is using it in conjunction with the aforementioned `@@entangle` directive:
+There are LOTS of different ways to use this utility, but one common example is using it in conjunction with the aforementioned `@entangle` directive:
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
@@ -282,7 +282,7 @@ There are LOTS of different ways to use this utility, but one common example is 
 @endverbatim
 @endcomponent
 
-> Note: If the `.defer` modifier is passed via `wire:model.defer`, the `@@entangle` directive will automatically recognize it and add the `@entangle('...').defer` modifier under the hood.
+> Note: If the `.defer` modifier is passed via `wire:model.defer`, the `@entangle` directive will automatically recognize it and add the `@entangle('...').defer` modifier under the hood.
 
 ## Creating A DatePicker Component {#creating-a-datepicker}
 
