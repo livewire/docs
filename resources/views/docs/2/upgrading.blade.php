@@ -18,11 +18,53 @@ Before we get into the technical upgrade stuff. You might be interested in what 
 
 There are the following breaking changes and their upgrade instructions in order of impact.
 
+1. [Updated: `$updatesQueryString` to `$queryString`](#query-string)
 1. [Removed: Route::livewire()](#route-livewire)
 1. [Removed: Turbolinks Support](#turbolinks)
 1. [Removed: Property Casters](#casters)
 1. [Updated: Pagination Views](#pagination)
 1. [Updated: JavaScript Hooks](#hooks)
+
+### Updated: `$updatesQueryString` to `$queryString` {#query-string}
+Livewire 1.x had a more primitive utility for manipulating the browser's query string based on property values. In V2, there is a much more advanced utility for manipulating the query string.
+
+The first breaking change is `$updatesQueryString` has been changed to `$queryString`:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class Search extends Component
+{
+    // Before
+    protected $updatesQueryString = ['search']
+
+    // After
+    protected $queryString = ['search']
+}
+@endverbatim
+@endcomponent
+
+Aside from a new property name, there are 2 significant changes to the inner workings:
+
+1. Property values are now automatically set to intial values from the query string on page load
+1. The query string system now uses the browser's `history.pushState` API instead of `history.replaceState` (which means you can now click the back button in a browser to revisit old query string changes)
+
+Because the query string system now automatically sets initial values, there is no need for doing that in the `mount()` method anymore:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class Search extends Component
+{
+    ...
+
+    public function mount()
+    {
+        // No need for code like this anymore.
+        // The search property will now be automatically set.
+        $this->search = request()->query('search', '');
+    }
+}
+@endverbatim
+@endcomponent
 
 ### Removed: Route::livewire() {#route-livewire}
 Livewire 1.x allowed you to register a component with a route for the entire page using the `Route::livewire()` method. Livewire 2.0 now allows you to pass Livewire components directly into routes using the standard `Route::get()` method and the fully qualified namespace.
