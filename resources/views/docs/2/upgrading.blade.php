@@ -232,7 +232,7 @@ Here are the hook usages side by side for comparison:
 | `livewire.hook('responseReceived', (component, response) => {})` | `Livewire.hook('message.received', (message, component) => {})` |
 | `livewire.hook('afterDomUpdate', (component) => {})` | `Livewire.hook('message.processed', (message, component) => {})` |
 
-*Note: in some instances, a `message` object is now passed in instead of a `response` object. `response` can be accessed as a property of `message`: `response.message`*
+*Note: in some instances, a `message` object is now passed in instead of a `response` object. `response` can be accessed as a property of `message`: `message.response`*
 
 ## Signing Off
 Hopefully, the impact of this upgrade isn't much for you.
