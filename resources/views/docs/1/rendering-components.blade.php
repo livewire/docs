@@ -1,8 +1,9 @@
-* [As Components](#livewire-directive) { .text-blue-800 }
-  * [Passing Parameters](#parameters) { .font-normal.text-sm.text-blue-800 }
+* [Livewire Directive (`@@livewire`)](#livewire-directive) { .text-blue-800 }
+  * [Passing Initial Parameters](#parameters) { .font-normal.text-sm.text-blue-800 }
   * [Dependency Injection](#injecting-parameters) { .font-normal.text-sm.text-blue-800 }
-* [As Pages](#route-registration) { .text-blue-800 }
-  * [Configuring Different Layouts](#custom-layout) { .font-normal.text-sm.text-blue-800 }
+  * [Accessing The Request](#the-request) { .font-normal.text-sm.text-blue-800 }
+* [Livewire Route Registration (`Route::livewire()`)](#route-registration) { .text-blue-800 }
+  * [Custom Layouts](#custom-layout) { .font-normal.text-sm.text-blue-800 }
   * [Route Parameters](#route-params) { .font-normal.text-sm.text-blue-800 }
   * [Route Model Binding](#route-model-binding) { .font-normal.text-sm.text-blue-800 }
 * [The Render Method (`render()`)](#render-method) { .text-blue-800 }
@@ -13,73 +14,87 @@
 
 @include('includes.screencast-cta')
 
-## As Components {#livewire-directive}
 
-The most basic way to render a Livewire component on a page is using the `<livewire:` tag syntax:
+## Livewire Directive (`@@livewire`) {#livewire-directive}
+
+The most basic way to render a Livewire component on a page is using the `@@livewire` blade directive:
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
 <div>
-    <livewire:show-posts />
+    @livewire('search-posts')
 </div>
 @endverbatim
 @endcomponent
 
-Alternatively you can use the `@@livewire` blade directive:
+If you are on Laravel 7 or greater, you can use the tag syntax.
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
-    @livewire('show-posts')
+<livewire:search-posts />
 @endverbatim
 @endcomponent
 
 If you have a component inside of a sub-folder with its own namespace, you must use a dot (`.`) prefixed with the namespace.
 
-For example, if we have a `ShowPosts` component inside of a `app/Http/Livewire/Nav` folder, we would indicate it as such:
+For example, if we have a `SearchPosts` component inside of a `app/Http/Livewire/Nav` folder, we would indicate it as such:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'php'])
 @verbatim
-<livewire:nav.show-posts />
+namespace App\Http\Livewire\Nav;
+
+use Livewire\Component;
+
+class SearchPosts extends Component
+{
+    // ...
+}
 @endverbatim
 @endcomponent
 
-### Passing Parameters {#parameters}
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<livewire:nav.search-posts />
+@endverbatim
+@endcomponent
+
+### Passing Initial Parameters {#parameters}
 
 You can pass data into a component by passing additional parameters into the <code>&#64;livewire</code> directive. For example, let's say we have a `ShowContact` Livewire component that needs to know which contact to show. Here's how you would pass in a `contact` model.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'php'])
 @verbatim
-<livewire:show-post :post="$post">
+@livewire('show-contact', ['contact' => $contact])
 @endverbatim
 @endcomponent
 
-Alternatively, this is how you can pass in parameters using the Blade directive.
+If you are on Laravel 7 or greater, you can use the tag syntax.
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
-@livewire('show-post', ['post' => $post])
+<livewire:show-contact :contact="$contact">
 @endverbatim
 @endcomponent
 
-Now, you can intercept those parameters and store the data as public properties using the `mount()` method.
+Now, you can intercept those parameters and store the data as public properties using the `mount()` method/lifecycle hook.
 
 @component('components.tip')
-In Livewire components, you use <code>mount()</code> instead of a class constructor <code>__construct()</code> like you may be used to.
+In Livewire components, you use the <code>mount()</code> instead of a class constructor (<code>__construct()</code>) like you may be used to.
 @endcomponent
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
 use Livewire\Component;
 
-class ShowPost extends Component
+class ShowContact extends Component
 {
-    public $title;
-    public $content;
+    public $name;
+    public $email;
 
-    public function mount($post)
+    public function mount($contact)
     {
-        $this->title = $post->title;
-        $this->content = $post->content;
+        $this->name = $contact->name;
+        $this->email = $contact->email;
     }
 
     ...
@@ -96,17 +111,17 @@ Like a controller, you can inject dependencies by adding type-hinted parameters 
 use Livewire\Component;
 use \Illuminate\Session\SessionManager
 
-class ShowPost extends Component
+class ShowContact extends Component
 {
-    public $title;
-    public $content;
+    public $name;
+    public $email;
 
-    public function mount(SessionManager $session, $post)
+    public function mount(SessionManager $session, $contact)
     {
-        $session->put("post.{$post->id}.last_viewed", now());
+        $session->put("contact.{$contact->id}.last_viewed", now());
 
-        $this->title = $post->title;
-        $this->content = $post->content;
+        $this->name = $contact->name;
+        $this->email = $contact->email;
     }
 
     ...
@@ -114,107 +129,109 @@ class ShowPost extends Component
 @endverbatim
 @endcomponent
 
-## As Pages {#route-registration}
+### Accessing The Request {#the-request}
 
-If the main content of a page is a Livewire component, you can pass the component directly into a Laravel route:
+Because `mount()` runs during the initial page load, it is the only place in a Livewire component you can reliably access Laravel's request object.
 
-@component('components.code', ['lang' => 'php'])
-@verbatim
-Route::get('/post', ShowPosts::class);
-@endverbatim
-@endcomponent
-
-By default, Livewire will render the `ShowPosts` into a blade component located at: `resources/views/layouts/app.blade.php`
-
-This component should include both the Livewire assets and a `$slot` for Livewire to render into like so:
-
-@component('components.code')
-@verbatim
-<head>
-    @livewireStyles
-</head>
-<body>
-    {{ $slot }}
-
-    @livewireScripts
-</body>
-@endverbatim
-@endcomponent
-
-For more information on Laravel components, [visit the documentation](https://laravel.com/docs/blade#components).
-
-### Configuring Different Layouts {#custom-layout}
-If you want to specify a different layout file than the default, you can use the `->layout()` and `->slot()` methods on the view instance you return from `render()`.
-
+For example, you can set the initial value of a property based on a request parameter (possibly something passed in the query-string).
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
 use Livewire\Component;
+use \Illuminate\Session\SessionManager
 
-class ShowPost extends Component
+class ShowContact extends Component
 {
-    ...
-    public function render()
+    public $name;
+    public $email;
+
+    public function mount($contact, $sectionHeading = '')
     {
-        return view('livewire.show-post')
-            ->layout('layouts.base');
+        $this->name = $contact->name;
+        $this->email = $contact->email;
+        $this->sectionHeading = request('section_heading', $sectionHeading);
+    }
+
+    ...
+}
+@endverbatim
+@endcomponent
+
+
+## Livewire Route Registration {#route-registration}
+
+If you find yourself writing controllers and views that only return a Livewire component, you might want to use Livewire's routing helper to cut out the extra boilerplate code. Take a look at the following example:
+
+*Before*
+@component('components.code', ['lang' => 'php'])
+@verbatim
+// Route
+Route::get('/home', 'HomeController@show');
+
+// Controller
+class HomeController extends Controller
+{
+    public function show()
+    {
+        return view('home');
     }
 }
+
+// View
+@extends('layouts.app')
+
+@section('content')
+    @livewire('counter')
+@endsection
 @endverbatim
 @endcomponent
 
-If you are using a non-default slot in the component, you can also chain on `->slot()`:
+**After**
+@component('components.code', ['lang' => 'php'])
+// Route
+Route::livewire('/home', 'counter');
+@endcomponent
+
+Note: for this feature to work, Livewire assumes you have a layout stored in `resources/views/layouts/app.blade.php` that yields a "content" section (`@@yield('content')`)
+
+### Custom Layout {#custom-layout}
+If you use a different layout file or section name, you can configure these in the standard way you configure laravel routes:
 
 @component('components.code', ['lang' => 'php'])
-public function render()
-{
-    return view('livewire.show-posts')
-        ->layout('layouts.base')
-        ->slot('main');
-}
+// Customizing layout
+Route::livewire('/home', 'counter')
+    ->layout('layouts.base');
+
+// Customizing section (@@yield('body'))
+Route::livewire('/home', 'counter')
+    ->section('body');
+
+// Passing parameters to the layout (Like native @@extends('layouts.app', ['title' => 'foo']))
+Route::livewire('/home', 'counter')
+    ->layout('layouts.app', [
+        'title' => 'foo'
+    ]);
 @endcomponent
 
-Alternatively, Livewire supports using traditional Blade layout files with `@@extends`.
-
-Given the following layout file:
-
-@component('components.code')
-@verbatim
-<head>
-    @livewireStyles
-</head>
-<body>
-    @yield('content')
-
-    @livewireScripts
-</body>
-@endverbatim
-@endcomponent
-
-You can configure Livewire to reference it using `->extends()` instead of `->layout()`:
+You can also configure these settings for an entire route group using the group option array syntax:
 
 @component('components.code', ['lang' => 'php'])
-public function render()
-{
-    return view('livewire.show-posts')
-        ->extends('layouts.app');
-}
+Route::group(['layout' => 'layouts.base', 'section' => 'body'], function () {
+    //
+});
 @endcomponent
 
-If you need to configure the `@@section` for the component to use, you can configure that as well with the `->section()` method:
-
+Or the fluent alternative:
 @component('components.code', ['lang' => 'php'])
-public function render()
-{
-    return view('livewire.show-posts')
-        ->extends('layouts.app')
-        ->section('body');
-}
+Route::layout('layouts.base')->section('body')->group(function () {
+    //
+});
 @endcomponent
+
 
 ### Route Parameters {#route-params}
 
-Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` method. For example:
+Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through its `mount` lifecycle hook. For example:
 
 **web.php**
 @component('components.code', ['lang' => 'php'])
@@ -227,11 +244,15 @@ use Livewire\Component;
 
 class ShowContact extends Component
 {
-    public $contact;
+    public $name;
+    public $email;
 
     public function mount($id)
     {
-        $this->contact = User::find($id);
+        $contact = User::find($id);
+
+        $this->name = $contact->name;
+        $this->email = $contact->email;
     }
 
     ...
@@ -266,26 +287,6 @@ class ShowContact extends Component
 
 Now, after visiting `/contact/123`, the value passed into `mount` will be an instance of the `User` model with id `123`.
 
-If you are using PHP 7.4, you can also typehint class properties, and Livewire will automatically route-model bind to them. For example:
-
-Given the following route:
-**web.php**
-@component('components.code', ['lang' => 'php'])
-Route::livewire('/contact/{contact}', ShowContact::class);
-@endcomponent
-
-The following component's `$contact` property will be automatically injected with no need for the `mount()` method.
-
-**App\Http\Livewire\ShowContact.php**
-@component('components.code', ['lang' => 'php'])
-use Livewire\Component;
-use App\Contact;
-
-class ShowContact extends Component
-{
-    public Contact $contact;
-}
-@endcomponent
 
 ## The Render Method {#render-method}
 

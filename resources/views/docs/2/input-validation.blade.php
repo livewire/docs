@@ -1,27 +1,24 @@
 
-Validation in Livewire should feel similar to standard form validation in Laravel.
+Validation in Livewire should feel similar to standard form validation in Laravel. In short, Livewire provides a `$rules` property for setting validation rules on a per-component basis, and a `->validate()` method for validating a component's properties using those rules.
 
 Here's a simple example of a form in Livewire being validated.
 
-@component('components.code-component', [
-    'className' => 'ContactForm',
-    'viewName' => 'contact-form.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class ContactForm extends Component
 {
     public $name;
     public $email;
 
+    protected $rules = [
+        'name' => 'required|min:6',
+        'email' => 'required|email',
+    ];
+
     public function submit()
     {
-        $this->validate([
-            'name' => 'required|min:6',
-            'email' => 'required|email',
-        ]);
+        $this->validate();
 
         // Execution doesn't reach here if validation fails.
 
@@ -29,11 +26,6 @@ class ContactForm extends Component
             'name' => $this->name,
             'email' => $this->email,
         ]);
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
     }
 }
 @endverbatim
@@ -68,40 +60,29 @@ Sometimes it's useful to validate a form field as a user types into it. Livewire
 
 To validate an input field after every update, we can use Livewire's `updated` hook:
 
-@component('components.code-component', [
-    'className' => 'ContactForm',
-    'viewName' => 'contact-form.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class ContactForm extends Component
 {
     public $name;
     public $email;
 
+    protected $rules = [
+        'name' => 'required|min:6',
+        'email' => 'required|email',
+    ];
+
     public function updated($field)
     {
-        $this->validateOnly($field, [
-            'name' => 'min:6',
-            'email' => 'email',
-        ]);
+        $this->validateOnly($field);
     }
 
     public function saveContact()
     {
-        $validatedData = $this->validate([
-            'name' => 'required|min:6',
-            'email' => 'required|email',
-        ]);
+        $validatedData = $this->validate();
 
         Contact::create($validatedData);
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
     }
 }
 @endverbatim
@@ -129,6 +110,39 @@ Let's break down exactly what is happening in this example:
 * When the user submits the form, there is a final validation check, and the data is persisted.
 
 If you are wondering, "why do I need `validateOnly`? Can't I just use `validate`?". The reason is because otherwise, every single update to any field would validate ALL of the fields. This can be a jarring user experience. Imagine if you typed one character into the first field of a form, and all of a sudden every single field had a validation message. `validateOnly` prevents that, and only validates the current field being updated.
+
+## Validating with rules outside of the `$rules` property
+If for whatever reason you want to validate using rules other than the ones defined in the `$rules` property, you can always do this by passing the rules directly into the `validate()` and `validateOnly()` methods.
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+class ContactForm extends Component
+{
+    public $name;
+    public $email;
+
+    public function updated($field)
+    {
+        $this->validateOnly($field, [
+            'name' => 'min:6',
+            'email' => 'email',
+        ]);
+    }
+
+    public function saveContact()
+    {
+        $validatedData = $this->validate([
+            'name' => 'required|min:6',
+            'email' => 'required|email',
+        ]);
+
+        Contact::create($validatedData);
+    }
+}
+@endverbatim
+@endslot
+@endcomponent
 
 ## Direct Error Message Manipulation {#error-bag-manipulation}
 
@@ -209,13 +223,9 @@ For more examples of supported syntax for these two methods, take a look at the 
 If you wish to use your own validation system in Livewire, that isn't a problem. Livewire will catch `ValidationException` and provide the errors to the view just like using `$this->validate()`.
 
 For example:
-@component('components.code-component', [
-    'className' => 'ContactForm',
-    'viewName' => 'contact-form.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 
 class ContactForm extends Component
@@ -231,11 +241,6 @@ class ContactForm extends Component
         )->validate();
 
         Contact::create($validatedData);
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
     }
 }
 @endverbatim

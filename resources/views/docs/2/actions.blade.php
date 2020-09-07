@@ -14,34 +14,22 @@ The goal of actions in Livewire is to be able to easily listen to page interacti
 
 Here's the basic usage:
 
-@component('components.code-component', [
-    'className' => 'ShowPost.php',
-    'viewName' => 'show-post.blade.php',
-])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class ShowPost extends Component
 {
-    ...
+    public Post $post;
 
-    public function addLike()
+    public function like()
     {
         $this->post->addLikeBy(auth()->user());
-    }
-
-    public function render()
-    {
-        return view('livewire.show-post');
     }
 }
 @endslot
 @slot('view')
 @verbatim
 <div>
-    ...
-
-    <button wire:click="addLike">Like Post</button>
+    <button wire:click="like">Like Post</button>
 </div>
 @endverbatim
 @endslot
@@ -61,17 +49,14 @@ submit | `wire:submit`
 
 Here are a few examples of each in HTML:
 
-**click**
 @component('components.code')
 <button wire:click="doSomething">Do Something</button>
 @endcomponent
 
-**keydown**
 @component('components.code')
 <input wire:keydown.enter="doSomething">
 @endcomponent
 
-**submit**
 @component('components.code')
 <form wire:submit.prevent="save">
     ...
@@ -91,7 +76,9 @@ You can pass extra parameters into a Livewire action directly in the expression 
 @component('components.code')
 @verbatim
 
-<button wire:click="addTodo({{ $todo->id }}, '{{ $todo->name }}')">Add Todo</button>
+<button wire:click="addTodo({{ $todo->id }}, '{{ $todo->name }}')">
+    Add Todo
+</button>
 
 @endverbatim
 @endcomponent
@@ -109,7 +96,20 @@ public function addTodo($id, $name)
 @endverbatim
 @endcomponent
 
-If your action requires any services that should be resolved via Laravel's dependency injection container, you may list them in the action's signature before any additional parameters:
+Action parameters are also capable of directly resolving a model by its key using a type hint.
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+
+public function addTodo(Todo $todo, $name)
+{
+    ...
+}
+
+@endverbatim
+@endcomponent
+
+If your action requires any services that should be resolved via Laravel's dependency injection container, you can list them in the action's signature before any additional parameters:
 
 @component('components.code', ['lang' => 'php'])
 @verbatim

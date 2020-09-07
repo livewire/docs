@@ -71,6 +71,219 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 
 Now, the Livewire and Alpine syntaxes are completely seperate, AND you have a reusable Blade component to use from other components.
 
+## Interacting With Livewire From Alpine: `$wire`
+
+From any Alpine component inside a Livewire component, you can access a magic `$wire` object to access and manipulate the Livewire component.
+
+To demonstrate it's usage, we'll create a "counter" component in Alpine that uses Livewire completely under the hood:
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+class Counter extends Component
+{
+    public $count = 0;
+
+    public function increment()
+    {
+        $this->count++;
+    }
+}
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
+<div>
+    <!-- Alpine Counter Component -->
+    <div x-data>
+        <h1 x-text="$wire.count"></h1>
+
+        <button x-on:click="$wire.increment()">Increment</button>
+    </div>
+</div>
+@endverbatim
+@endslot
+@endcomponent
+
+Now, when a user clicks "Increment", the standard Livewire roundtrip will trigger and Alpine will reflect Livewire's new `$count` value.
+
+Because `$wire` uses a [JavaScript Proxy]() under the hood, you are able to access properties on it and call methods on it and those operations will be forwarded to Livewire. In addition to this functionality, `$wire` also has standard, built-in methods available to you.
+
+Here is the full API for `$wire`:
+
+@component('components.code', ['lang' => 'javascript'])
+// Accessing a Livewire property
+$wire.foo
+
+// Calling a Livewire method
+$wire.someMethod(someParam)
+
+// Calling a Livewire method and doing something with it's result
+$wire.someMethod(someParam)
+    .then(result => { ... })
+
+// Calling a Livewire method and storing it's response using async/await
+let foo = await $wire.getFoo()
+
+// Emitting a Livewire event called "some-event" with two parameters
+$wire.emit('some-event', 'foo', 'bar')
+
+// Listening for a Livewire event emitted called "som-event"
+$wire.on('some-event', (foo, bar) => {})
+
+// Getting a Livewire property
+$wire.get('property')
+
+// Setting a Livewire property to a specific value
+$wire.set('property', value)
+
+// Calling a Livewire action
+$wire.call('someMethod', param)
+
+// Accessing the underlying Livewire component JavaScript instance
+$wire.__instance
+@endcomponent
+
+## Sharing State Between Livewire And Alpine: `@@entangle`
+Livewire has an incredibly powerful feature called "entangle" that allows you to "entangle" a Livewire and Alpine property together. With entanglement, when one value changes, the other will also be changed.
+
+To demonstrate, consider the dropdown example from before, but now with it's `show` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+class Counter extends Component
+{
+    public $showDropdown = false;
+
+    public function archive()
+    {
+        ...
+        $this->showDropdown = false;
+    }
+
+    public function delete()
+    {
+        ...
+        $this->showDropdown = false;
+    }
+}
+@endverbatim
+@endslot
+@slot('view')
+@verbatim
+<div x-data="{ open: @@entangle('showDropdown') }">
+    <button @click="open = true">Show More...</button>
+
+    <ul x-show="open" @click.away="open = false">
+        <li><button wire:click="archive">Archive</button></li>
+        <li><button wire:click="delete">Delete</button></li>
+    </ul>
+</div>
+@endverbatim
+@endslot
+@endcomponent
+
+Now a user can toggle on the dropdown immediately with Alpine, but when they click a Livewire action like "Archive", the dropdown will be told to close from Livewire. Both Alpine and Livewire are welcome to manipulate their respective properties, and the other will automatically update.
+
+Sometimes, it isn't necessary to update Livewire on every Alpine change, and you'd rather bundle the change with the next Livewire request that goes out. In these cases, you can chain on a `.defer` property like so:
+
+@component('components.code', ['lang' => 'javascript'])
+<div x-data="{ open: @entangle('showDropdown').defer }">
+    ...
+@endcomponent
+
+Now, when a user toggles the dropdown open and closed, there will be no AJAX requests sent for Livewire, HOWEVER, when a Livewire action is triggered from a button like "archive" or "delete", the new state of "showDropdown" will be bundled along with the request.
+
+If you are having trouble following this difference. Open your browser's devtools and observe the difference in XHR requests with and without `.defer` added.
+
+## Accessing Livewire Directives From Blade Components
+Extracting re-usable Blade components within your Livewire application is an essential pattern.
+
+One difficulty you might encounter while implementing Blade components within a Livewire context is accessing the value of attributes like `wire:model` from inside the component.
+
+For example, you might create a text input Blade component like so:
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<!-- Usage -->
+<x-inputs.text wire:model="foo"/>
+
+<!-- Definition -->
+<div>
+    <input type="text" {{ $attributes }}>
+</div>
+@endverbatim
+@endcomponent
+
+A simple Blade component like this will work perfectly fine. Laravel and Blade will automatically forward any extra attributes added to the component (like `wire:model` in this case), and place them on the `<input>` tag because we echod out the attribute bag (`$attributes`).
+
+However, sometimes you might need to extract more detailed into about Livewire attributes passed to the component.
+
+For these cases, Livewire offers a `$attributes->wire()` method to help with these tasks.
+
+Given the following Blade Component usage:
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<x-inputs.text wire:model.defer="foo" wire:loading.class="opacity-25"/>
+@endverbatim
+@endcomponent
+
+You could access Livewire directive information from Blade's `$attribute` bag like so:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+$attributes->wire('model')->value(); // "foo"
+$attributes->wire('model')->modifiers(); // ["defer"]
+$attributes->wire('model')->hasModifier('defer'); // true
+
+$attributes->wire('loading')->hasModifier('class'); // true
+$attributes->wire('loading')->value(); // "opacity-25"
+@endverbatim
+@endcomponent
+
+You can also "forward" these Livewire directives individually. For example:
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<!-- Given -->
+<x-inputs.text wire:model.defer="foo" wire:loading.class="opacity-25"/>
+
+<!-- You could forward the "wire:model.defer="foo" directive like so: -->
+<input type="text" {{ $attributes->wire('model') }}>
+
+<!-- The output would be: -->
+<input type="text" wire:model.defer="foo">
+@endverbatim
+@endcomponent
+
+There are LOTS of different ways to use this utility, but one common example is using it in conjunction with the aforementioned `@@entangle` directive:
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+<!-- Usage -->
+<x-dropdown wire:model="show">
+    <x-slot name="trigger">
+        <button>Show</button>
+    </x-slot>
+
+    Dropdown Contents
+</x-dropdown>
+
+<!-- Definition -->
+<div x-data="{ open: @entangle($attributes->wire('model')) }">
+    <span @click="open = true">{{ $trigger }}</span>
+
+    <div x-show="open" @click.away="open = false">
+        {{ $slot }}
+    </div>
+</div>
+@endverbatim
+@endcomponent
+
+> Note: If the `.defer` modifier is passed via `wire:model.defer`, the `@@entangle` directive will automatically recognize it and add the `@entangle('...').defer` modifier under the hood.
+
 ## Creating A DatePicker Component {#creating-a-datepicker}
 
 A common use case for JavaScript inside Livewire is custom form inputs. Things like datepickers, color-pickers, etc... are often essential to your app.
@@ -250,99 +463,3 @@ Here is an example of using the Select2 library inside a Livewire component to d
 @component('components.tip')
 Also, note that sometimes it's useful to ignore changes to an element, but not its children. If this is the case, you can add the <code>self</code> modifier to the <code>wire:ignore</code> directive, like so: <code>wire:ignore.self</code>.
 @endcomponent
-
-## Communicating Between Livewire and JavaScript {#communicating-with-js}
-
-Every Livewire component loaded on a browser page has both a unique id, and a corresponding JavaScript object.
-
-You can retrieve this JavaScript object with the following syntax:
-`let component = window.livewire.find('some-component-id')`
-
-Now that you have the component object, you can actually interact with it programaticaly from JavaScript.
-
-For example, given the following Livewire component:
-
-@component('components.code-component', [
-    'className' => 'CreatePost',
-    'viewName' => 'create-post.blade.php',
-])
-@slot('class')
-@verbatim
-use Livewire\Component;
-
-class CreatePost extends Component
-{
-    public $title = '';
-
-    public function create()
-    {
-        Post::create(['title' => $this->title]);
-    }
-
-    public function render()
-    {
-        return view('livewire.create-post');
-    }
-}
-@endverbatim
-@endslot
-@slot('view')
-@verbatim
-<form wire:submit.prevent="create">
-    <input wire:model="title" type="text">
-
-    <button>Create Post</button>
-</form>
-@endverbatim
-@endslot
-@endcomponent
-
-If you happened to know the unique component ID assigned to this component when it was loaded in the browser, you could run the following in the DevTools (or from any JavaScript on the page):
-
-@component('components.code', ['lang' => 'javascript'])
-@verbatim
-<script>
-    let component = window.livewire.find('the-unique-component-id')
-
-    var title = component.get('title')
-    // Gets the current value of the `public $title` component property.
-    // Which defaults to '', so `title` would be set to an
-    // empty string initially.
-
-    component.set('title', 'Some Title')
-    // Sets the `public $title` component property to "Some Title"
-    // You will actually see "Some Title" fill the input field
-    // on the page. To Livewire there is no difference between
-    // Calling this method and actually typing into the input field.
-
-    component.call('create')
-    // This will call the "create" method on the component
-    // exactly as if you physically clicked the create
-    // button inside the form.
-</script>
-@endverbatim
-@endcomponent
-
-If you can follow, you should be able to see the potential here. This API allows you to interact with a Livewire component, programatically, from JavaScript. This pattern unlocks all sorts of potential.
-
-You may be wondering, "But how do I get the unique component id?". Well, you can inspect the source and look at the `wire:id` attribute on the root element of the component. OR you can use this very handy syntax from inside your Livewire component's view:
-
-@component('components.code', ['lang' => 'javascript'])
-@verbatim
-<div>
-    <input x-data @input.keydown.enter="@this.set('foo', 'bar')">
-</div>
-@endverbatim
-@endcomponent
-
-If you followed, Livewire has a Blade directive called `@this` that is an alias for `window.livewire.find('...')`. This directive makes it extremely easy to talk to the current Livewire component from JavaScript, particularly AlpineJS expressions.
-
-If you were to inspect the source of the rendered page in the browser, here is what that `input` element would look like:
-
-@component('components.code', ['lang' => 'javascript'])
-@verbatim
-<input x-data @input.keydown.enter="window.livewire.find('unique-id').set('foo', 'bar')">
-@endverbatim
-@endcomponent
-
-As you can see the Livewire & Alpine combo can be extremely powerful and expressive.

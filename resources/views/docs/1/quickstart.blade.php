@@ -4,13 +4,13 @@
 
 Include the PHP.
 
-@component('components.code', ['lang' => 'bash'])
-composer require livewire/livewire
+@component('components.code')
+    composer require livewire/livewire
 @endcomponent
 
 Include the JavaScript (on every page that will be using Livewire).
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code')
 @verbatim
     ...
     @livewireStyles
@@ -85,14 +85,14 @@ Livewire components MUST have a single root element.
 Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
 @endverbatim
 
-@component('components.code', ['lang' => 'html', 'lineHighlight' => 6])
+@component('components.code', ['lineHighlight' => 6])
 @verbatim
 <head>
     ...
     @livewireStyles
 </head>
 <body>
-    <livewire:counter>
+    @livewire('counter')
 
     ...
 

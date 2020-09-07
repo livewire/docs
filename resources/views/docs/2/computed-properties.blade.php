@@ -15,13 +15,8 @@ class FooComponent extends Component
 
 Now, you can access `$this->foo` from either the component's class or Blade view:
 
-@component('components.code-component', [
-    'className' => 'ShowPost.php',
-    'viewName' => 'show-post.blade.php',
-])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class ShowPost extends Component
 {
     public $postId;
@@ -39,11 +34,6 @@ class ShowPost extends Component
     public function deletePost()
     {
         $this->post->delete();
-    }
-
-    public function render()
-    {
-        return view('livewire.show-post');
     }
 }
 @endslot

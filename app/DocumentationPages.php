@@ -48,6 +48,8 @@ class DocumentationPages
         ],
         2 => [
             'Quickstart' => 'quickstart',
+            'Reference' => 'reference',
+            'Upgrading From 1.x' => 'upgrading',
             'The Essentials' => [
                 'Installation' => 'installation',
                 'Making Components' => 'making-components',
@@ -56,15 +58,17 @@ class DocumentationPages
                 'Actions' => 'actions',
                 'Events' => 'events',
                 'Lifecycle Hooks' => 'lifecycle-hooks',
+                'Nesting Components' => 'nesting-components',
             ],
             'Component Features' => [
                 'Validation' => 'input-validation',
                 'File Uploads' => 'file-uploads',
+                'File Downloads' => 'file-downloads',
+                'Query String' => 'query-string',
                 'Authorization' => 'authorization',
                 'Pagination' => 'pagination',
                 'Redirecting' => 'redirecting',
                 'Flash Messages' => 'flash-messages',
-                'Nesting Components' => 'nesting-components',
             ],
             'UI Niceties' => [
                 'Loading States' => 'loading-states',
@@ -76,16 +80,13 @@ class DocumentationPages
             ],
             'JS Integrations' => [
                 'AlpineJS' => 'alpine-js',
-                'Turbolinks' => 'turbolinks',
                 'Laravel Echo' => 'laravel-echo',
                 'Inline Scripts' => 'inline-scripts',
             ],
             'Testing' => 'testing',
-            'Security' => 'security',
             'Troubleshooting' => 'troubleshooting',
             'Package Development' => 'package-dev',
             'Artisan Commands' => 'artisan-commands',
-            'API Reference' => 'api',
         ],
     ];
 

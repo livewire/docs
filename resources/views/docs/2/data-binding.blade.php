@@ -1,22 +1,12 @@
 
 If you've used front-end frameworks like Angular, React, or Vue, you are already familiar with this concept. However, if you are new to this concept, allow me to demonstrate.
 
-@component('components.code-component', [
-    'className' => 'MyNameIs',
-    'viewName' => 'my-name-is.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class MyNameIs extends Component
 {
     public $name;
-
-    public function render()
-    {
-        return view('livewire.my-name-is');
-    }
 }
 @endverbatim
 @endslot
@@ -74,22 +64,12 @@ By default, Livewire sends a request to server after every "input" event. This i
 
 In those cases, use the `lazy` directive modifier to listen for the native "change" event.
 
-@component('components.code-component', [
-    'className' => 'MyNameIs',
-    'viewName' => 'my-name-is.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class MyNameIs extends Component
 {
     public $name;
-
-    public function render()
-    {
-        return view('livewire.my-name-is');
-    }
 }
 @endverbatim
 @endslot

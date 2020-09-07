@@ -6,27 +6,12 @@ Livewire supports nesting components. Component nesting can be an extremely powe
 
 Here is an example of a nested component called `add-user-note` from another Livewire component's view.
 
-@component('components.code-component', [
-    'className' => 'UserDashboard.php',
-    'viewName' => 'user-dashboard.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class UserDashboard extends Component
 {
-    public $user;
-
-    public function mount(User $user)
-    {
-        $this->user = $user;
-    }
-
-    public function render()
-    {
-        return view('livewire.user-dashboard');
-    }
+    public User $user;
 }
 @endverbatim
 @endslot
@@ -50,7 +35,7 @@ class UserDashboard extends Component
 
 Similar to VueJs, if you render a component inside a loop, Livewire has no way of keeping track of which one is which. To remedy this, livewire offers a special "key" syntax:
 
-@component('components.code-component', ['viewName' => 'show-users.blade.php'])
+@component('components.code-component')
 @slot('view')
 @verbatim
 <div>
@@ -64,7 +49,7 @@ Similar to VueJs, if you render a component inside a loop, Livewire has no way o
 
 If you are on Laravel 7 or above, you can use the tag syntax.
 
-@component('components.code-component', ['viewName' => 'show-users.blade.php'])
+@component('components.code-component')
 @slot('view')
 @verbatim
 <div>
@@ -85,14 +70,14 @@ Each component will need its own unique `key`, but using the method above will l
 @component('components.code', ['lang' => 'html'])
 @verbatim
 <!-- user-profile component -->
-<div>    
+<div>
     // Bad
-    <livewire:user-profile-additional-component :user="$user" :key="$user->id">
-    <livewire:user-profile-some-related-component :user="$user" :key="$user->id">
-    
+    <livewire:user-profile-one :user="$user" :key="$user->id">
+    <livewire:user-profile-two :user="$user" :key="$user->id">
+
     // Good
-    <livewire:user-profile-additional-component :user="$user" :key="'user-profile-additional-component-'.$user->id">
-    <livewire:user-profile-some-related-component :user="$user" :key="'user-profile-some-related-component-'.$user->id">
+    <livewire:user-profile-one :user="$user" :key="'user-profile-one-'.$user->id">
+    <livewire:user-profile-two :user="$user" :key="'user-profile-two-'.$user->id">
 </div>
 @endverbatim
 @endcomponent

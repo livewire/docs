@@ -6,7 +6,7 @@ This feature assumes you have installed Laravel Echo and the `window.Echo` objec
 
 Consider the following Laravel Event:
 
-@component('components.code-component', ['className' => 'OrderShipped'])
+@component('components.code-component')
 @slot('class')
 class OrderShipped implements ShouldBroadcast
 {
@@ -37,10 +37,8 @@ Normally, you would listen for this event in Laravel Echo like so:
 
 With Livewire however, all you have to do is register it in your `$listeners` property, with some special syntax to designate that it originates from Echo.
 
-@component('components.code-component', ['className' => 'OrderTracker'])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class OrderTracker extends Component
 {
     public $showNewOrderNotification = false;
@@ -52,11 +50,6 @@ class OrderTracker extends Component
     {
         $this->showNewOrderNotification = true;
     }
-
-    public function render()
-    {
-        return view('livewire.order-tracker');
-    }
 }
 @endslot
 @endcomponent
@@ -67,10 +60,8 @@ Now, Livewire will intercept the received event from Pusher, and act accordingly
     Make sure you have your <a href="https://laravel.com/docs/master/broadcasting#defining-authorization-callbacks">Authentication Callbacks</a> properly defined.
 @endcomponent
 
-@component('components.code-component', ['className' => 'OrderTracker'])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class OrderTracker extends Component
 {
     public $showNewOrderNotification = false;
@@ -93,11 +84,6 @@ class OrderTracker extends Component
     public function notifyNewOrder()
     {
         $this->showNewOrderNotification = true;
-    }
-
-    public function render()
-    {
-        return view('livewire.order-tracker');
     }
 }
 @endslot

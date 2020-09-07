@@ -1,4 +1,3 @@
-## Updating The Query String {#query-string}
 
 Sometimes it's useful to update the browser's query string when your component state changes.
 
@@ -8,25 +7,15 @@ For example, if you were building a "search posts" component, and wanted the que
 
 This way, when a user hits the back button, or bookmarks the page, you can get the initial state out of the query string, rather than resetting the component every time.
 
-In these cases, you can add a property's name to `protected $updatesQueryString`, and Livewire will update the query string every time the property value changes.
+In these cases, you can add a property's name to `protected $queryString`, and Livewire will update the query string every time the property value changes, and also update the property when the query string changes.
 
-@component('components.code-component', [
-    'className' => 'SearchPosts.php',
-    'viewName' => 'search-posts.blade.php',
-])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class SearchPosts extends Component
 {
     public $search;
 
-    protected $updatesQueryString = ['search'];
-
-    public function mount()
-    {
-        $this->search = request()->query('search', $this->search);
-    }
+    protected $queryString = ['search'];
 
     public function render()
     {
@@ -65,17 +54,15 @@ For example, if you have a `$page` property to track pagination in a component, 
 
 In cases like these, you can use the following syntax:
 
-@component('components.code-component', ['className' => 'SearchPosts.php'])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class SearchPosts extends Component
 {
     public $foo;
     public $search = '';
     public $page = 1;
 
-    protected $updatesQueryString = [
+    protected $queryString = [
         'foo',
         'search' => ['except' => ''],
         'page' => ['except' => 1],

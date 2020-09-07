@@ -70,4 +70,4 @@ Here's an example:
 @endverbatim
 @endcomponent
 
-> Note: the `@@this` directive compiles to the following string for JavaScript to interpret: "Livewire.find([component-id])"
+> Note: the `@@this` directive compiles to the following string for JavaScript to interpret: "window.livewire.find([component-id])"

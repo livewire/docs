@@ -65,7 +65,7 @@ Route::get('/docs/{versionSlug}/{pageSlug}', function ($versionSlug, $pageSlug) 
     $version = Str::before($versionSlug, '.');
 
     if (! file_exists($path = resource_path("views/docs/{$version}/{$pageSlug}.blade.php"))) {
-        return redirect("/docs/{$versionSlug}.x/quickstart");
+        return redirect("/docs/{$versionSlug}/quickstart");
     }
 
     $pages = new DocumentationPages($pageSlug, $version);
@@ -74,6 +74,9 @@ Route::get('/docs/{versionSlug}/{pageSlug}', function ($versionSlug, $pageSlug) 
     );
 
     return view('docs', [
+        // Temoporary V2 twitter card to celebrate V2.
+        'social_size' => $versionSlug === '2.x' ? 'summary_large_image' : 'summary',
+        'social_image' => $versionSlug === '2.x' ? 'https://laravel-livewire.com/img/twitter-card2.jpg' : 'https://laravel-livewire.com/img/twitter.png',
         'title' => $pages->title(),
         'slug' => $pageSlug,
         'pages' => $pages,

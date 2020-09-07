@@ -37,7 +37,7 @@ $this->emit('postAdded');
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-    window.livewire.emit('postAdded')
+    Livewire.emit('postAdded')
 </script>
 @endcomponent
 
@@ -46,30 +46,21 @@ Event listeners are registered in the `$listeners` property of your Livewire com
 
 Listeners are a key->value pair where the key is the event to listen for, and the value is the method to call on the component.
 
-@component('components.code-component', ['className' => 'ShowPosts'])
-@slot('class')
-use Livewire\Component;
-
+@component('components.code', ['lang' => 'php'])
 class ShowPosts extends Component
 {
-    public $addedMessageVisible = false;
+    public $postCount;
 
-    protected $listeners = ['postAdded' => 'showPostAddedMessage'];
+    protected $listeners = ['postAdded' => 'incrementPostCount'];
 
-    public function showPostAddedMessage()
+    public function incrementPostCount()
     {
-        $this->addedMessageVisible = true;
-    }
-
-    public function render()
-    {
-        return view('livewire.show-posts');
+        $this->postCount = Post::count();
     }
 }
-@endslot
 @endcomponent
 
-Now when any other component on the page emits a `postAdded` event, this component will pick it up and fire the `showPostAddedMessage` method on itself.
+Now when any other component on the page emits a `postAdded` event, this component will pick it up and fire the `incrementPostCount` method on itself.
 
 @component('components.tip')
 If the name of the event and the method you're calling match, you can leave out the key. For example: <code>protected $listeners = ['postAdded'];</code> will call the <code>postAdded</code> method when the <code>postAdded</code> event is emitted.
@@ -77,17 +68,15 @@ If the name of the event and the method you're calling match, you can leave out 
 
 If you need to name event listeners dynamically, you can substitute the `$listeners` property for the `getListeners()` protected method on the component:
 
-@component('components.code-component', ['className' => 'ShowPosts'])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class ShowPosts extends Component
 {
-    public $addedMessageVisible = false;
+    public $postCount;
 
     protected function getListeners()
     {
-        return ['postAdded' => 'showPostAddedMessage'];
+        return ['postAdded' => 'incrementPostCount'];
     }
 
     ...
@@ -103,26 +92,19 @@ You can also send parameters with an event emission.
 $this->emit('postAdded', $post->id);
 @endcomponent
 
-@component('components.code-component', ['className' => 'ShowPosts'])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class ShowPosts extends Component
 {
-    public $addedMessageVisible = false;
-    public $addedPost;
+    public $postCount;
+    public $recentlyAddedPost;
 
     protected $listeners = ['postAdded'];
 
-    public function postAdded($postId)
+    public function postAdded(Post $post)
     {
-        $this->addedMessageVisible = true;
-        $this->addedPost = Post::find($postId);
-    }
-
-    public function render()
-    {
-        return view('livewire.show-posts');
+        $this->postCount = Post::count();
+        $this->recentlyAddedPost = $post;
     }
 }
 @endslot
@@ -179,7 +161,7 @@ Livewire allows you to register event listeners in JavaScript like so:
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-window.livewire.on('postAdded', postId => {
+Livewire.on('postAdded', postId => {
     alert('A post was added with the id of: ' + postId);
 })
 </script>

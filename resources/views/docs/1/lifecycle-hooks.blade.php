@@ -68,11 +68,11 @@ afterDomUpdate | Runs after livewire updates the DOM
 @component('components.code', ['lang' => 'js'])
 <script>
     document.addEventListener("livewire:load", function(event) {
-        Livewire.hook('beforeDomUpdate', () => {
+        window.livewire.hook('beforeDomUpdate', () => {
             // Add your custom JavaScript here.
         });
 
-        Livewire.hook('afterDomUpdate', () => {
+        window.livewire.hook('afterDomUpdate', () => {
             // Add your custom JavaScript here.
         });
     });

@@ -29,7 +29,7 @@
         <div
             x-data="{ open: false }"
             x-show="open"
-            @@set-nav-open.window="open = $event.detail"
+            x-on:set-nav-open.window="open = $event.detail"
             class="fixed inset-0 z-20" style="background: rgba(0,0,0,0.5); display: none;"
         >
             <div

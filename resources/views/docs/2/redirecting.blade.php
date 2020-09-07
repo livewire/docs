@@ -1,14 +1,9 @@
 
 You may want to redirect from inside a Livewire component to another page in your app. Livewire supports the standard redirect response syntax you are used to using in Laravel controller.
 
-@component('components.code-component', [
-    'className' => 'ContactForm.php',
-    'viewName' => 'contact-form.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class ContactForm extends Component
 {
     public $email;
@@ -18,11 +13,6 @@ class ContactForm extends Component
         Contact::create(['email' => $this->email]);
 
         return redirect()->to('/contact-form-success');
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
     }
 }
 @endverbatim

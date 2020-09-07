@@ -4,13 +4,13 @@
 
 Include the PHP.
 
-@component('components.code')
-    composer require livewire/livewire
+@component('components.code', ['lang' => 'bash'])
+composer require livewire/livewire
 @endcomponent
 
 Include the JavaScript (on every page that will be using Livewire).
 
-@component('components.code')
+@component('components.code', ['lang' => 'html'])
 @verbatim
     ...
     @livewireStyles
@@ -85,14 +85,14 @@ Livewire components MUST have a single root element.
 Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
 @endverbatim
 
-@component('components.code', ['lineHighlight' => 6])
+@component('components.code', ['lang' => 'html', 'lineHighlight' => 6])
 @verbatim
 <head>
     ...
     @livewireStyles
 </head>
 <body>
-    @livewire('counter')
+    <livewire:counter>
 
     ...
 
@@ -116,8 +116,6 @@ Replace the generated content of the `counter` component class and view with the
 ])
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class Counter extends Component
 {
     public $count = 0;
@@ -125,11 +123,6 @@ class Counter extends Component
     public function increment()
     {
         $this->count++;
-    }
-
-    public function decrement()
-    {
-        $this->count--;
     }
 
     public function render()
@@ -144,7 +137,6 @@ class Counter extends Component
 <div style="text-align: center">
     <button wire:click="increment">+</button>
     <h1>{{ $count }}</h1>
-    <button wire:click="decrement">-</button>
 </div>
 @endverbatim
 @endslot
@@ -155,5 +147,5 @@ class Counter extends Component
 Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic 🧙‍♂.️
 
 @component('components.tip')
-In general, something as trivial as this "counter" is more suited for pure JavaScript or AlpineJS. Livewire's strengths really shine for interactions that would normally interact with the server. (Think forms, data-tables, etc...)
+In general, something as trivial as this "counter" is more suited for something like AlpineJS, however it's one of the best ways to easily understand the way Livewire works.
 @endcomponent

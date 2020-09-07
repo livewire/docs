@@ -7,13 +7,9 @@ Let's say you have a `show-posts` component, but you want to limit the results t
 
 You can paginate the results by using the `WithPagination` trait provided by Livewire.
 
-@component('components.code-component', [
-    'className' => 'app/Http/Livewire/ShowPosts.php',
-    'viewName' => 'resources/views/livewire/show-posts.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Livewire\WithPagination;
 
 class ShowPosts extends Component
@@ -54,12 +50,9 @@ Livewire's `WithPagination` trait exposes a `->resetPage()` method to accomplish
 
 This method can be used in combination with the `updating/updated` lifecycle hooks to reset the page when certain component data is updated.
 
-@component('components.code-component', [
-    'className' => 'app/Http/Livewire/ShowPosts.php',
-])
+
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Livewire\WithPagination;
 
 class ShowPosts extends Component
@@ -82,6 +75,17 @@ class ShowPosts extends Component
 }
 @endverbatim
 @endslot
+@endcomponent
+
+## Using The Bootstrap Pagination Theme {#custom-pagination-view}
+Like Laravel, Livewire's default pagination view uses Tailwind classes for styling. If you use Bootstrap in your application, you can enable the Bootstrap theme for the pagination view using the `$paginationTheme` property on your component.
+
+@component('components.code', ['lang' => 'php'])
+class ShowPosts extends Component
+{
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 @endcomponent
 
 ## Using A Custom Pagination View {#custom-pagination-view}
@@ -137,60 +141,29 @@ See below for an example of how the default livewire paginator works.
 @component('components.code', ['lang' => 'php'])
 @verbatim
 @if ($paginator->hasPages())
-    <ul class="pagination" role="navigation">
+    <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                <span class="page-link" aria-hidden="true">
-                    <span class="d-none d-md-block">&lsaquo;</span>
-                    <span class="d-block d-md-none">@lang('pagination.previous')</span>
-                </span>
-            </li>
+            <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
+                {!! __('pagination.previous') !!}
+            </span>
         @else
-            <li class="page-item">
-                <button type="button" class="page-link" wire:click="previousPage" rel="prev" aria-label="@lang('pagination.previous')">
-                    <span class="d-none d-md-block">&lsaquo;</span>
-                    <span class="d-block d-md-none">@lang('pagination.previous')</span>
-                </button>
-            </li>
+            <a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                {!! __('pagination.previous') !!}
+            </a>
         @endif
-
-        {{-- Pagination Elements --}}
-        @foreach ($elements as $element)
-            {{-- "Three Dots" Separator --}}
-            @if (is_string($element))
-                <li class="page-item disabled d-none d-md-block" aria-disabled="true"><span class="page-link">{{ $element }}</span></li>
-            @endif
-
-            {{-- Array Of Links --}}
-            @if (is_array($element))
-                @foreach ($element as $page => $url)
-                    @if ($page == $paginator->currentPage())
-                        <li class="page-item active d-none d-md-block" aria-current="page"><span class="page-link">{{ $page }}</span></li>
-                    @else
-                        <li class="page-item d-none d-md-block"><button type="button" class="page-link" wire:click="gotoPage({{ $page }})">{{ $page }}</button></li>
-                    @endif
-                @endforeach
-            @endif
-        @endforeach
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <li class="page-item">
-                <button type="button" class="page-link" wire:click="nextPage" rel="next" aria-label="@lang('pagination.next')">
-                    <span class="d-block d-md-none">@lang('pagination.next')</span>
-                    <span class="d-none d-md-block">&rsaquo;</span>
-                </button>
-            </li>
+            <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                {!! __('pagination.next') !!}
+            </a>
         @else
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                <span class="page-link" aria-hidden="true">
-                    <span class="d-block d-md-none">@lang('pagination.next')</span>
-                    <span class="d-none d-md-block">&rsaquo;</span>
-                </span>
-            </li>
+            <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
+                {!! __('pagination.next') !!}
+            </span>
         @endif
-    </ul>
+    </nav>
 @endif
 @endverbatim
 @endcomponent

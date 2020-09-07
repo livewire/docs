@@ -3,35 +3,24 @@ Livewire offers a powerful set of tools for testing your components.
 
 Here's a Livewire component and a corresponding test to demonstrate the basics.
 
-@component('components.code-component', [
-    'className' => 'CreatePost',
-    'viewName' => 'create-post.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class CreatePost extends Component
 {
     public $title;
 
-    public function mount($initialTitle = '')
-    {
-        $this->title = $initialTitle;
-    }
+    protected $rules = [
+        'title' => 'required',
+    ];
 
     public function create()
     {
-        auth()->user()->posts()->create($this->validate([
-            'title' => 'required',
-        ]);
+        auth()->user()->posts()->create(
+            $this->validate()
+        );
 
         return redirect()->to('/posts');
-    }
-
-    public function render()
-    {
-        return view('livewire.create-post');
     }
 }
 @endverbatim

@@ -24,7 +24,7 @@ Add the following Blade directives in the `head` tag, and before the end `body` 
 @endverbatim
 @endcomponent
 
-If you are on Laravel 7 or higher, you can use the new tag syntax.
+You can alternatively use the tag syntax.
 
 @component('components.code')
 @verbatim
@@ -44,35 +44,17 @@ You can publish Livewire's config file with the following artisan command:
 
 @component('components.code', ['lang' => 'bash'])
 @verbatim
-php artisan vendor:publish --tag=livewire:config
+php artisan livewire:publish
 @endverbatim
 @endcomponent
 
-## Configuring The Asset Base URL
+## Publishing Frontend Assets {#publish-assets}
 
-By default, Livewire serves its JavaScript portion (`livewire.js`) from the following route in your app: `/livewire/livewire.js`.
-
-The actual script tag that gets generated defaults to: `<script src="/livewire/livewire.js"`.
-
-There are two scenarios that will cause this default behavior to break:
-
-1. You publish the Livewire assets and are now serving them from a sub-folder like "assets".
-
-2. Your app is hosted on a non-root path on your domain. For example: `https://your-laravel-app.com/application`. In this case, the actual assets will be served from `/application/livewire/livewire.js`, but the generated script tag, will be trying to fetch `/livewire/livewire.js`.
-
-To solve either of these issues, you can configure the "asset_base_url" setting to customize what's prepended to the `src=""` attribute.
-
-For example, after publishing Livewire's config file, here are the settings that would fix the above two issues:
-1. `'asset_base_url' => '/assets'`
-2. `'asset_base_url' => '/application'`
-
-## Publishing Assets {#publish-assets}
-
-If you prefer the JavaScript assets to be served by your web server not through Laravel, use the `vendor:publish` command:
+If you prefer the JavaScript assets to be served by your web server not through Laravel, use the `livewire:publish` command:
 
 @component('components.code', ['lang' => 'bash'])
 @verbatim
-php artisan vendor:publish --tag=livewire:assets
+php artisan livewire:publish --assets
 @endverbatim
 @endcomponent
 
@@ -91,3 +73,22 @@ To keep the assets up-to-date and avoid issues in future updates, we **highly re
 }
 @endverbatim
 @endcomponent
+
+## Configuring The Asset Base URL
+
+By default, Livewire serves its JavaScript portion (`livewire.js`) from the following route in your app: `/livewire/livewire.js`.
+
+The actual script tag that gets generated defaults to:<br> `<script src="/livewire/livewire.js"></script>`
+
+There are two scenarios that will cause this default behavior to break:
+
+1. You publish the Livewire assets and are now serving them from a sub-folder like "assets".
+
+2. Your app is hosted on a non-root path on your domain. For example: `https://your-laravel-app.com/application`. In this case, the actual assets will be served from `/application/livewire/livewire.js`, but the generated script tag, will be trying to fetch `/livewire/livewire.js`.
+
+To solve either of these issues, you can configure the "asset_base_url" in `config/livewire.php` to customize what's prepended to the `src=""` attribute.
+
+For example, after publishing Livewire's config file, here are the settings that would fix the above two issues:
+
+1. `'asset_base_url' => '/assets'`
+2. `'asset_base_url' => '/application'`

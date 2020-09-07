@@ -1,14 +1,9 @@
 
 Livewire offers a `wire:init` directive to run an action as soon as the component is rendered. This can be helpful in cases where you don't want to hold up the entire page load, but want to load some data immediately after the page load.
 
-@component('components.code-component', [
-    'className' => 'app/Http/Livewire/ShowPosts.php',
-    'viewName' => 'resources/views/livewire/show-posts.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class ShowPost extends Component
 {
     public $readyToLoad = false;

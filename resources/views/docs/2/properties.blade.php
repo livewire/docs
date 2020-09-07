@@ -1,19 +1,19 @@
-* [Introduction](#public-properties) { .text-blue-800 }
+* [Introduction](#introduction) { .text-blue-800 }
   * [Important Notes](#important-notes) { .font-normal.text-sm.text-blue-800 }
 * [Initializing Properties](#initializing-properties) { .text-blue-800 }
 * [Data Binding](#data-binding) { .text-blue-800 }
-  * [Debouncing Input](#debouncing-input) { .font-normal.text-sm.text-blue-800 }
   * [Binding Nested Data](#binding-nested-data) { .font-normal.text-sm.text-blue-800 }
+  * [Debouncing Input](#debouncing-input) { .font-normal.text-sm.text-blue-800 }
   * [Lazy Updating](#lazy-updating) { .font-normal.text-sm.text-blue-800 }
-* [Casting Properties](#casting-properties) { .text-blue-800 }
-  * [Custom Casters](#custom-casters) { .font-normal.text-sm.text-blue-800 }
+  * [Deferred Updating](#deferred-updating) { .font-normal.text-sm.text-blue-800 }
+* [Binding Directly To Model Properties](#binding-models) { .text-blue-800 }
 * [Computed Properties](#computed-properties) { .text-blue-800 }
 
 <div>&nbsp;</div>
 
 @include('includes.screencast-cta')
 
-## Public Properties {#public-properties}
+## Introduction {#introduction}
 
 Livewire components store and track data as public properties on the component class.
 
@@ -28,21 +28,11 @@ class HelloWorld extends Component
 
 Public properties in Livewire are automatically made available to the view. No need to explicitly pass them into the view (although you can if you want).
 
-@component('components.code-component', [
-    'className' => 'HelloWorld.php',
-    'viewName' => 'hello-world.blade.php',
-])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class HelloWorld extends Component
 {
     public $message = 'Hello World!';
-
-    public function render()
-    {
-        return view('livewire.hello-world');
-    }
 }
 @endslot
 @slot('view')
@@ -70,10 +60,8 @@ Here are two ESSENTIAL things to note about public properties before embarking o
 
 You can initialize properties using the `mount` method of your component.
 
-@component('components.code-component', ['className' => 'HelloWorld.php'])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class HelloWorld extends Component
 {
     public $message;
@@ -82,18 +70,13 @@ class HelloWorld extends Component
     {
         $this->message = 'Hello World!';
     }
-
-    public function render()
-    {
-        return view('livewire.hello-world');
-    }
 }
 @endslot
 @endcomponent
 
 Livewire also makes a `$this->fill()` method available to you for cases where you have to set lots of properties and want to remove visual noise.
 
-@component('components.code-component', ['className' => 'HelloWorld.php'])
+@component('components.code-component')
 @slot('class')
 public function mount()
 {
@@ -123,22 +106,12 @@ public function resetFilters()
 ## Data Binding {#data-binding}
 If you've used front-end frameworks like Vue, or Angular, you are already familiar with this concept. However, if you are new to this concept, Livewire can "bind" (or "synchronize") the current value of some HTML element with a specific property in your component.
 
-@component('components.code-component', [
-    'className' => 'HelloWorld.php',
-    'viewName' => 'hello-world.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class HelloWorld extends Component
 {
     public $message;
-
-    public function render()
-    {
-        return view('livewire.hello-world');
-    }
 }
 @endverbatim
 @endslot
@@ -201,7 +174,7 @@ In those cases, use the `lazy` directive modifier to listen for the native `chan
 
 Now, the `$message` property will only be updated when the user clicks away from the input field.
 
-### Deferred Updating {#defer-updating}
+### Deferred Updating {#deferred-updating}
 In cases where you don't need data updates to happen live, Livewire has a `.defer` modifer that batches data updates with the next network request.
 
 For example, given the following component:
@@ -217,81 +190,49 @@ When the user presses "Search", Livewire will send ONE network request that cont
 
 This can durastically cut down on network usage when it's not needed.
 
-## Casting Properties {#casting-properties}
+## Binding Directly To Model Properties {#binding-models}
 
-Livewire offers an api to "cast" public properties to a more usable data type. Two common use-cases for this are working with date objects like `Carbon` instances, and dealing with Laravel collections:
+If an Eloquent model is stored as a public property on a Livewire component, you can bind to it's properties directly. Here is an example component:
 
-@component('components.code', ['lang' => 'php'])
-@verbatim
-class CastedComponent extends Component
+@component('components.code-component')
+@slot('class')
+use App\Post;
+
+class PostForm extends Component
 {
-    public $options;
-    public $expiresAt;
-    public $formattedDate;
+    public Post $post;
 
-    protected $casts = [
-        'options' => 'collection',
-        'expiresAt' => 'date',
-        'formattedDate' => 'date:m-d-y'
+    protected $rules = [
+        'post.title' => 'required|string|min:6',
+        'post.content' => 'required|string|max:500',
     ];
 
-    public function mount()
+    public function save()
     {
-        $this->options = collect(['foo', 'bar', 'bar']);
-        $this->expiresAt = \Carbon\Carbon::parse('tomorrow');
-        $this->formattedDate = \Carbon\Carbon::parse('today');
-    }
+        $this->validate();
 
-    public function getUniqueOptions()
-    {
-        return $this->options->unique();
-    }
-
-    public function getExpirationDateForHumans()
-    {
-        return $this->expiresAt->format('m/d/Y');
-    }
-
-    ...
-@endverbatim
-@endcomponent
-
-### Custom Casters {#custom-casters}
-
-Livewire allows you to build your own custom casters for custom use-cases. Implement the `Livewire\Castable` interface in a class and reference it in the `$casts` property:
-
-@component('components.code', ['lang' => 'php'])
-@verbatim
-class FooComponent extends Component
-{
-    public $foo = ['bar', 'baz'];
-
-    protected $casts = ['foo' => CollectionCaster::class];
-
-    ...
-@endverbatim
-@endcomponent
-
-@component('components.code', ['lang' => 'php'])
-@verbatim
-use Livewire\Castable;
-
-class CollectionCaster implements Castable
-{
-    public function cast($value)
-    {
-        return collect($value);
-    }
-
-    public function uncast($value)
-    {
-        return $value->all();
+        $this->post->save();
     }
 }
+@endslot
+@slot('view')
+@verbatim
+<form wire:submit.prevent="save">
+    <input type="text" wire:model="post.title">
+
+    <textarea wire:model="post.content"></textarea>
+
+    <button type="submit">Save</button>
+</form>
 @endverbatim
+@endslot
 @endcomponent
 
-Custom casters are especially useful when you are attempting to store unsupported data types within properties.
+Notice in the above component we are binding directly to the "title" and "content" model attributes. Livewire will take care of hydrating and dehydrating the model between requests with the current, non-persisted data.
+
+@component('components.warning')
+Note: For this to work, you have a validation entry in the `$rules` property for any model attributes you want to bind to. Otherwise, an error will be thrown.
+@endcomponent
 
 ## Computed Properties {#computed-properties}
 
@@ -311,21 +252,11 @@ class ShowPost extends Component
 
 Now, you can access `$this->post` from either the component's class or Blade view:
 
-@component('components.code-component', [
-    'className' => 'ShowPost.php',
-    'viewName' => 'show-post.blade.php',
-])
+@component('components.code-component')
 @slot('class')
-use Livewire\Component;
-
 class ShowPost extends Component
 {
     public $postId;
-
-    public function mount($postId)
-    {
-        $this->postId = $postId;
-    }
 
     public function getPostProperty()
     {
@@ -335,11 +266,6 @@ class ShowPost extends Component
     public function deletePost()
     {
         $this->post->delete();
-    }
-
-    public function render()
-    {
-        return view('livewire.show-post');
     }
 }
 @endslot

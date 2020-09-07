@@ -29,13 +29,9 @@ First, add the `WithFileUploads` trait to your component. Now you can use `wire:
 
 Here's an example of a simple component that handles uploading a photo:
 
-@component('components.code-component', [
-    'className' => 'UploadPhoto.php',
-    'viewName' => 'upload-photo.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class UploadPhoto extends Component
@@ -112,13 +108,9 @@ Livewire handles multiple file uploads automatically by detecting the `multiple`
 
 Here's an example of a file upload that handles multiple uploads:
 
-@component('components.code-component', [
-    'className' => 'UploadPhotos.php',
-    'viewName' => 'upload-photos.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class UploadPhotos extends Component
@@ -163,13 +155,9 @@ It's possible to validate a user's upload in real-time, BEFORE they press "submi
 
 Again, you can accomplish this like you would any other input type in Livewire:
 
-@component('components.code-component', [
-    'className' => 'UploadPhoto.php',
-    'viewName' => 'upload-photo.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class UploadPhoto extends Component
@@ -216,13 +204,9 @@ Livewire makes this trivial with the `->temporaryUrl()` method on uploaded files
 
 Here's an example of a file upload with an image preview:
 
-@component('components.code-component', [
-    'className' => 'UploadPhotoWithPreview.php',
-    'viewName' => 'upload-photo-with-preview.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class UploadPhotoWithPreview extends Component
@@ -278,9 +262,7 @@ Testing file uploads in Livewire is simple with Laravel's file upload testing he
 
 Here's a complete example of testing the "UploadPhoto" component with Livewire.
 
-@component('components.code-component', [
-    'className' => 'UploadPhotoTest.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
 /** @test **/
@@ -312,9 +294,7 @@ If you wish to bypass this system and instead store Livewire's temporary uploads
 
 In your `config/livewire.php` file, set `livewire.temporary_file_upload.disk` to `s3` (or another custom disk that uses the `s3` driver):
 
-@component('components.code-component', [
-    'className' => 'config/livewire.php',
-])
+@component('components.code-component')
 @slot('class')
 return [
     ...
@@ -429,9 +409,7 @@ By default, Livewire will validate ALL temporary file uploads with the following
 
 If you wish to customize this, you can configure exactly what validate rules should run on all temporary file uploads inside `config/livewire.php`:
 
-@component('components.code-component', [
-    'className' => 'config/livewire.php',
-])
+@component('components.code-component')
 @slot('class')
 return [
     ...
@@ -447,9 +425,7 @@ return [
 ### Global Middleware {#global-middleware}
 The temporary file upload endpoint has throttling middleware by default. You can customize exactly what middleware this endpoint uses with the following configuration variable:
 
-@component('components.code-component', [
-    'className' => 'config/livewire.php',
-])
+@component('components.code-component')
 @slot('class')
 return [
     ...
@@ -464,9 +440,7 @@ return [
 ### Temporary Upload Directory {#temporary-upload-directory}
 Temporary files are uploaded to the `livewire-tmp/` directory on the specified disk. You can customize this with the following configuration key:
 
-@component('components.code-component', [
-    'className' => 'config/livewire.php',
-])
+@component('components.code-component')
 @slot('class')
 return [
     ...
