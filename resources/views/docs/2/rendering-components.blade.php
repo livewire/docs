@@ -231,7 +231,7 @@ public function render()
 Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` method. For example:
 
 @component('components.code', ['lang' => 'php'])
-Route::livewire('/post/{id}', ShowPost::class);
+Route::get('/post/{id}', ShowPost::class);
 @endcomponent
 
 @component('components.code', ['lang' => 'php'])
@@ -255,7 +255,7 @@ As you can see, the `mount` method in a Livewire component is acting like a cont
 Like you would expect, Livewire components implement all functionality you're used to in your controllers including route model binding. For example:
 
 @component('components.code', ['lang' => 'php'])
-Route::livewire('/post/{post}', ShowPost::class);
+Route::get('/post/{post}', ShowPost::class);
 @endcomponent
 
 @component('components.code', ['lang' => 'php'])
