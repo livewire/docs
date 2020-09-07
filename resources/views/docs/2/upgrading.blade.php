@@ -36,6 +36,21 @@ Route::get('/post', \App\Http\Livewire\ShowPosts::class);
 @endverbatim
 @endcomponent
 
+The first thing to note is that if you are using Laravel 7, you will need to remove the `namespace(...)` line from `app/Providers/RouteServiceProvider.php`:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+protected function mapWebRoutes()
+{
+    Route::middleware('web')
+        ->namespace($this->namespace) // Remove me
+        ->group(base_path('routes/web.php'));
+}
+@endverbatim
+@endcomponent
+
+This is done by default in Laravel 8, but if you are on Laravel 7, you will need to remove this to be able to pass a Livewire class into `Route::get()`. Otherwise, Laravel will prepend a namespace to ALL classes passed into `Route::get()`.
+
 By default in 1.x, Livewire renders your page-level components using a traditional Blade layout located in `resources/layouts/app.blade.php`. In 2.0, Livewire uses the same layout file as a default, however, it now expects you are using the new Blade component `$slot` syntax in the layout. For example:
 
 @component('components.code', ['lang' => 'html'])
@@ -166,12 +181,12 @@ class SomeComponent extends Component
 {
     public $foo;
 
-    public function hydrate()
+    public function hydrateFoo()
     {
         $this->foo = strtoupper($value);
     }
 
-    public function dehydrate()
+    public function dehydrateFoo()
     {
         $this->foo = strtolower($value);
     }
@@ -202,7 +217,7 @@ class ShowPosts extends Component
 Even though V2 still supports Bootstrap-4, the pagination view has been updated to match Laravel 8. Therefore, it will differ slightly from the view previously used in V1. To use the exact view from V1:
 
 1. Copy the view source [from GitHub](https://raw.githubusercontent.com/livewire/livewire/1.x/src/views/pagination-links.blade.php)
-2. Paste it into a new blade file anywhere you see fit. For example, we'll say: `resources/pagination-links.blade.php`
+2. Paste it into a new blade file anywhere you see fit. For example, we'll say: `resources/views/pagination-links.blade.php`
 3. Now reference it in your Blade view by passing it into the `->links()` method:
 
 @component('components.code', ['lang' => 'php'])
