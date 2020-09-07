@@ -20,9 +20,10 @@ mix.js('resources/assets/js/main.js', 'public/js')
         processCssUrls: false,
         postCss: [tailwindcss('./resources/assets/sass/tailwind.config.js')],
     })
-    .purgeCss({
-        extensions: ['html', 'md', 'js', 'php', 'vue', 'blade'],
-        folders: ['source'],
-        whitelistPatterns: [/language/, /hljs/, /algolia/, /carbon/],
-    })
+    // Purge is ruining syntax highlighting.
+    // .purgeCss({
+    //     extensions: ['html', 'md', 'js', 'php', 'vue', 'blade'],
+    //     folders: ['source'],
+    //     whitelistPatterns: [/language/, /hljs/, /algolia/, /carbon/],
+    // })
     .version();
