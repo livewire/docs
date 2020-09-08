@@ -132,6 +132,7 @@ Name | Description
 `mount(...$params)` | Called when a Livewire component is newed up (think of it like a constructor)
 `updated($field, $newValue)` | Called after a property has been updated
 `updatedFoo($newValue)` | Called after the "foo" property has been updated
+`updatedFooBar($newValue)` | Called after the nested "bar" key on the "foo" property has been updated
 `render()` | Called before "dehydrate" and renders the Blade view for the component
 `dehydrate()` | Called after `render()`, but before the component has been dehydrated and sent to the frontend
 @endcomponent

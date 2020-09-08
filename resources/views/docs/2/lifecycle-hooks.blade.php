@@ -14,6 +14,8 @@ updating | Runs before any update to the Livewire component's data
 updated | Runs after any update to the Livewire component's data
 updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
+updatingFooBar | Runs before updating a nested property `bar` on the `$foo` property
+updatedFooBar | Runs after updating a nested property `bar` on the `$foo` property
 @endcomponent
 
 @component('components.code', ['lang' => 'php'])
@@ -41,6 +43,11 @@ class HelloWorld extends Component
         //
     }
 
+    public function updated($name, $value)
+    {
+        //
+    }
+
     public function updatingFoo($value)
     {
         //
@@ -51,7 +58,12 @@ class HelloWorld extends Component
         //
     }
 
-    public function updated($name, $value)
+    public function updatingFooBar($value)
+    {
+        //
+    }
+
+    public function updatedFooBar($value)
     {
         //
     }
