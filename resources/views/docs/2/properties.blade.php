@@ -95,10 +95,10 @@ public $isActive = true;
 public function resetFilters()
 {
     $this->reset('search');
-    // Will only reset the name property.
+    // Will only reset the search property.
 
     $this->reset(['search', 'isActive']);
-    // Will reset both the name AND the content property.
+    // Will reset both the search AND the isActive property.
 }
 @endslot
 @endcomponent
