@@ -141,7 +141,7 @@ $this->emitTo('counter', 'postAdded');
 (Now, if the button is clicked, the "postAdded" event will only be emitted to `counter` components)
 
 ### Scoping To Self {#scope-to-self}
-Sometimes you may only want to emit an event on the component that fired the event. This is sometimes useful for firing an event in PHP and listening for it in JavaScript.
+Sometimes you may only want to emit an event on the component that fired the event.
 
 In these cases, you can use `emitSelf`:
 
