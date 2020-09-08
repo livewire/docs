@@ -1,11 +1,11 @@
-## V2 Is Here! 🎉
+## V2 is Here! 🎉
 
-Before we get into the technical upgrade stuff. You might be interested in what philosophical underpinnings are behind these changes.
+Before we get into the technical upgrade stuff, you might be interested in what philosophical underpinnings are behind these changes.
 
-* **Livewire is declarative.** Rather than providing an endless set of utilities for interacting with the front-end. Livewire aims to make front-end interactions a "side-effect" of your state (i.e. component properties). For example, with the new `$queryString` API, rather than providing methods to manually update the browsers query string from the backend, you declare which component properties you want to be reflected in the front-end's query string with the `$queryString` property.
-* **Livewire is anti-boilerplate.** By allowing developers to set eloquent models as properties and `wire:model` (bind) to them directly, we're able to cut out SO much boilerplate code. To further kill the boilerplate, in V2, component parameters are now automatically assigned to public properties by matching their name. Now, `mount()` methods are only used for things they MUST be used for. Not for simply forwarding parameters to properties. Kill the noise.
+* **Livewire is declarative.** Rather than providing an endless set of utilities for interacting with the front-end. Livewire aims to make front-end interactions a "side-effect" of your state (i.e. component properties). For example, with the new `$queryString` API, rather than providing methods to manually update the browser's query string from the backend, you declare which component properties you want to be reflected in the front-end's query string with the `$queryString` property.
+* **Livewire is anti-boilerplate.** By allowing developers to set eloquent models as properties and `wire:model` (bind) to them directly, we're able to cut out SO much boilerplate code. To further kill the boilerplate, in V2, component parameters are now automatically assigned to public properties by matching their name. Now, `mount()` methods are only used for things they MUST be used for, not for simply forwarding parameters to properties. Kill the noise.
 * **Livewire is a back-end interface at its core**. The `wire:click` stuff is just sugar that makes the interface easy to use. With the addition of `$wire`, the underlying power is now apparent: Livewire allows you to interface with backend code, directly and declaratively without the need for imperative/boilerplatey patterns like axios.post(), RESTfull endpoints, controllers, etc...
-* **Livewire is simple to use**. Of all the philosophies I hold. I hold this one the strongest. Livewire should always remain ridiculously easy to use. My goal is that you can easily remember and almost guess it's APIs. Before introducing any feature, I scour existing patterns and APIs in Laravel to see if Livewire can use that shared knowledge as leverage for new adopters. A small example is the new `$rules` property. I could have named it anything, but why would I name it anything besides `$rules` (A precedent set by Request objects in Laravel). If I don't think an API is easy, intuitive, and clear. I wait on the feature and let it simmer until something clear and beautiful emerges. (Or at least that's my goal.)
+* **Livewire is simple to use**. Of all the philosophies I hold, I hold this one the strongest. Livewire should always remain ridiculously easy to use. My goal is that you can easily remember and almost guess its APIs. Before introducing any feature, I scour existing patterns and APIs in Laravel to see if Livewire can use that shared knowledge as leverage for new adopters. A small example is the new `$rules` property. I could have named it anything, but why would I name it anything besides `$rules` (a precedent set by Request objects in Laravel)? If I don't think an API is easy, intuitive, and clear, I wait on the feature and let it simmer until something clear and beautiful emerges. (Or at least that's my goal.)
 
 ## Update Your Composer Version
 
@@ -16,7 +16,7 @@ Before we get into the technical upgrade stuff. You might be interested in what 
 
 ## Update Your Application Code
 
-There are the following breaking changes and their upgrade instructions in order of impact.
+Here are the breaking changes and their upgrade instructions in order of impact:
 
 1. [Updated: `$updatesQueryString` to `$queryString`](#query-string)
 1. [Removed: Route::livewire()](#route-livewire)
@@ -167,9 +167,9 @@ Hopefully, this helps spur a community-driven Livewire-Turbolinks adapter in the
 
 ## Changed: `assertSet()` {#assert-set}
 
-In Livewire V1, the testing method `assertSet('property', 'value')` tested against data in the javascript-safe Livewire payload, rather than asserting against the value of a property on the actual Livewire component's PHP instance. This made it impossible to test computed properties from `assertSet()`.
+In Livewire V1, the testing method `assertSet('property', 'value')` tested against data in the JavaScript-safe Livewire payload, rather than asserting against the value of a property on the actual Livewire component's PHP instance. This made it impossible to test computed properties from `assertSet()`.
 
-In V2, `assertSet` now behaves how you would expect: making assertions on data in the actual PHP instance, and if you want to assert against payload data, you can now use the new `assertPayloadSet()`.
+In V2, `assertSet()` now behaves how you would expect: making assertions on data in the actual PHP instance, and if you want to assert against payload data, you can now use the new `assertPayloadSet()`.
 
 For most people, this won't change a thing. However, if during your upgrade you are getting failures in your test suite around an `assertSet()`, you should either refactor your test or use `assertPayloadSet()`.
 
@@ -279,7 +279,7 @@ Even though V2 still supports Bootstrap-4, the pagination view has been updated 
 @endcomponent
 
 ## Updated: JavaScript Hooks {#hooks}
-V2 Offers the same JavaScript hooks as V1, but with three distinct updates:
+V2 offers the same JavaScript hooks as V1, but with three distinct updates:
 
 1. Their names are different
 1. The parameter orders have been updated to be more consistent
