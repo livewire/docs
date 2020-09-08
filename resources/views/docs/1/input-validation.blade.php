@@ -202,7 +202,7 @@ public function name_field_is_required_for_saving_a_contact()
 }
 @endcomponent
 
-For more examples of supported syntax for these two methods, take a look at the [Testing Docs](/docs/testing).
+For more examples of supported syntax for these two methods, take a look at the [Testing Docs](testing).
 
 ## Custom validators {#custom-validators}
 

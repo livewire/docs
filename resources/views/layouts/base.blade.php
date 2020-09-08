@@ -24,9 +24,7 @@
         <meta property="og:image" content="{{ $social_image ?? 'https://laravel-livewire.com/img/twitter.png' }}"/>
         <meta property="og:type" content="website"/>
 
-        <meta name="twitter:image" content="{{ $social_image ?? 'https://laravel-livewire.com/img/twitter.png' }}">
-        <meta name="twitter:image:alt" content="{{ config('app.name') }}">
-        <meta name="twitter:card" content="summary">
+        <meta name="twitter:card" content="{{ $social_size ?? 'summary' }}">
 
         @if ($docsearchApiKey && $docsearchIndexName)
             <meta name="generator" content="tighten_jigsaw_doc">

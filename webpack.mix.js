@@ -13,16 +13,17 @@ require('laravel-mix-purgecss');
  |
  */
 
-mix.js('resources/js/main.js', 'public/js')
+mix.js('resources/assets/js/main.js', 'public/js')
     .sourceMaps()
-    .sass('resources/sass/main.scss', 'public/css')
+    .sass('resources/assets/sass/main.scss', 'public/css')
     .options({
         processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.config.js')],
+        postCss: [tailwindcss('./resources/assets/sass/tailwind.config.js')],
     })
     .purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue', 'blade'],
         folders: ['source'],
         whitelistPatterns: [/language/, /hljs/, /algolia/, /carbon/],
+        whitelistPatternsChildren: [/token$/]
     })
     .version();
