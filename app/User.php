@@ -34,6 +34,7 @@ class User extends Authenticatable
             'ngcammayo',
             'mohsenbostan',
             'mitchjam',
+            'amirzpr',
         ])) return true;
 
         if ($this->sponsor) {

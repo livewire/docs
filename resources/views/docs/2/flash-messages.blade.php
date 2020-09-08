@@ -1,39 +1,26 @@
 
 In cases where it's useful to "flash" a success or failure message to the user, Livewire supports Laravel's system for flashing data to the session.
 
-Here's a common example of it's usage:
+Here's a common example of its usage:
 
-@component('components.code-component', [
-    'className' => 'UpdatePost.php',
-    'viewName' => 'update-post.blade.php',
-])
+@component('components.code-component')
 @slot('class')
 @verbatim
-use Livewire\Component;
-
 class UpdatePost extends Component
 {
-    public $post;
-    public $title;
+    public Post $post;
 
-    public function mount(Post $post)
-    {
-        $this->post = $post;
-        $this->title = $post->title;
-    }
+    protected $rules = [
+        'post.title' => 'required',
+    ];
 
     public function update()
     {
-        $this->post->update([
-            'title' => $this->title,
-        ]);
+        $this->validate();
+
+        $this->post->save();
 
         session()->flash('message', 'Post successfully updated.');
-    }
-
-    public function render()
-    {
-        return view('livewire.update-post');
     }
 }
 @endverbatim
@@ -61,21 +48,19 @@ Now, after the user clicks "Save" and their post is updated, they will see "Post
 
 If you wish to add flash data to a redirect and show the message on the destination page instead, Livewire is smart enough to persist the flash data for one more request. For example:
 
-@component('components.code-component', ['className' => 'UpdatePost.php'])
+@component('components.code-component')
 @slot('class')
 @verbatim
-...
 public function update()
 {
-    $this->post->update([
-        'title' => $this->title,
-    ]);
+    $this->validate();
+
+    $this->post->save();
 
     session()->flash('message', 'Post successfully updated.');
 
     return redirect()->to('/posts');
 }
-...
 @endverbatim
 @endslot
 @endcomponent

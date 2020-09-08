@@ -334,7 +334,7 @@ class CastedComponent extends Component
         'expiresAt' => 'date',
         'formattedDate' => 'date:m-d-y'
     ];
-    
+
     public function mount()
     {
         $this->options = collect(['foo', 'bar', 'bar']);
