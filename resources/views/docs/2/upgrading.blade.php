@@ -21,6 +21,7 @@ There are the following breaking changes and their upgrade instructions in order
 1. [Updated: `$updatesQueryString` to `$queryString`](#query-string)
 1. [Removed: Route::livewire()](#route-livewire)
 1. [Removed: Turbolinks Support](#turbolinks)
+1. [Changed: `assertSet()`](#assert-set)
 1. [Removed: Property Casters](#casters)
 1. [Updated: Pagination Views](#pagination)
 1. [Updated: JavaScript Hooks](#hooks)
@@ -163,6 +164,14 @@ If a lack of Turbolinks support is a deal-breaker for your application, fear not
 [View source on GitHub](https://github.com/livewire/livewire/commit/f7561d014b91c28e6e4774b9491c5dec00c7a711#diff-afbbb6430c73cf50cafea78549c61fd9L201)
 
 Hopefully, this helps spur a community-driven Livewire-Turbolinks adapter in the near future.
+
+## Changed: `assertSet()` {#assert-set}
+
+In Livewire V1, the testing method `assertSet('property', 'value')` tested against data in the javascript-safe Livewire payload, rather than asserting against the value of a property on the actual Livewire component's PHP instance. This made it impossible to test computed properties from `assertSet()`.
+
+In V2, `assertSet` now behaves how you would expect: making assertions on data in the actual PHP instance, and if you want to assert against payload data, you can now use the new `assertPayloadSet()`.
+
+For most people, this won't change a thing. However, if during your upgrade you are getting failures in your test suite around an `assertSet()`, you should either refactor your test or use `assertPayloadSet()`.
 
 ## Removed: Property Casters {#casters}
 Property casters have been removed in Livewire V2. There are three reasons for this decision:

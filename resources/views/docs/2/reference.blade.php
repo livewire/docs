@@ -231,6 +231,8 @@ Name |
 --- |
 `->assertSet($propertyName, $value)` |
 `->assertNotSet($propertyName, $value)` |
+`->assertPayloadSet($propertyName, $value)` |
+`->assertPayloadNotSet($propertyName, $value)` |
 `->assertSee($string)` |
 `->assertDontSee($string)` |
 `->assertSeeHtml($string)` |

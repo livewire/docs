@@ -124,10 +124,16 @@ Livewire::test('foo', ['bar' => $bar]);
 // Fire the "foo" event, and pass the "bar" and "baz" parameters
 
 ->assertSet('foo', 'bar');
-// Asserts that the "foo" property is set to the value "bar"
+// Asserts that the "foo" property is set to the value "bar" (Includes computed properties)
 
 ->assertNotSet('foo', 'bar');
-// Asserts that the "foo" property is NOT set to the value "bar"
+// Asserts that the "foo" property is NOT set to the value "bar" (Includes computed properties)
+
+->assertPayloadSet('foo', 'bar');
+// Asserts that the "foo" property from the JavaScript payload that Livewire returns is set to the value "bar"
+
+->assertPayloadNotSet('foo', 'bar');
+// Asserts that the "foo" property in the JavaScript payload that Livewire returns is NOT set to the value "bar"
 
 ->assertSee('foo');
 // Assert that the string "foo" exists in the currently rendered content of the component
