@@ -188,7 +188,7 @@ As the user types into the `<input>` field, no network requests will be sent. Ev
 
 When the user presses "Search", Livewire will send ONE network request that contains both the new "query" state, AND the "search" action to perform.
 
-This can durastically cut down on network usage when it's not needed.
+This can drastically cut down on network usage when it's not needed.
 
 ## Binding Directly To Model Properties {#binding-models}
 
