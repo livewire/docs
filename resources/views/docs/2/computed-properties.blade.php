@@ -13,40 +13,7 @@ class FooComponent extends Component
 @endverbatim
 @endcomponent
 
-Now, you can access `$this->foo` from either the component's class or Blade view:
-
-@component('components.code-component')
-@slot('class')
-class ShowPost extends Component
-{
-    public $postId;
-
-    public function mount($postId)
-    {
-        $this->postId = $postId;
-    }
-
-    public function getPostProperty()
-    {
-        return Post::find($this->postId);
-    }
-
-    public function deletePost()
-    {
-        $this->post->delete();
-    }
-}
-@endslot
-@slot('view')
-@verbatim
-<div>
-    <h1>{{ $this->post->title }}</h1>
-    ...
-    <button wire:click="deletePost">Delete Post</button>
-</div>
-@endverbatim
-@endslot
-@endcomponent
+Now, you can access `$this->foo` from either the component's class or Blade view.
 
 @component('components.tip')
 Computed properties are cached for an individual Livewire request lifecycle. Meaning, if you call `$this->post` 5 times in a component's blade view, it won't make a seperate database query every time.
