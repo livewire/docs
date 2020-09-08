@@ -26,8 +26,8 @@ php artisan make:livewire post.show
 
 Now, the two created files will be in sub-folders:
 
-* `app/Http/Livewire/Post/Search.php`
-* `resources/views/livewire/post/search.blade.php`
+* `app/Http/Livewire/Post/Show.php`
+* `resources/views/livewire/post/show.blade.php`
 
 ## Inline Components
 If you wish to create Inline components (Component's without `.blade.php` files), you can add the `--inline` flag to the command:
