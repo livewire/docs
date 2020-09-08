@@ -298,6 +298,7 @@ Here are the hook usages side by side for comparison:
 | `livewire.hook('messageFailed', (component) => {})` | `Livewire.hook('message.failed', (message, component) => {})` |
 | `livewire.hook('responseReceived', (component, response) => {})` | `Livewire.hook('message.received', (message, component) => {})` |
 | `livewire.hook('afterDomUpdate', (component) => {})` | `Livewire.hook('message.processed', (message, component) => {})` |
+| `livewire.hook('beforeDomUpdate', (component) => {})` | _Removed in V2_ |
 
 *Note: in some instances, a `message` object is now passed in instead of a `response` object. `response` can be accessed as a property of `message`: `message.response`*
 
