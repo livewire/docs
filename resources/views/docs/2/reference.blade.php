@@ -192,7 +192,7 @@ class PostForm extends Component
 @component('components.table')
 Name | Description
 --- | ---
-`$this->emit($eventName, ...$params)` | Event an event to othe components on the page
+`$this->emit($eventName, ...$params)` | Emit an event to other components on the page
 `$this->emit($eventName, ...$params)->up()` | Emit an event to parent components on the page
 `$this->emit($eventName, ...$params)->self()` | Emit an event only to THIS component
 `$this->emit($eventName, ...$params)->to($componentName)` | Emit and event to any component matching the provided name
