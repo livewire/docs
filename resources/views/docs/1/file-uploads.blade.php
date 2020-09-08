@@ -300,7 +300,7 @@ public function can_upload_photo()
 @endslot
 @endcomponent
 
-Here's a snippet of the "UploadPhoto" component required to make the previous test pass: 
+Here's a snippet of the "UploadPhoto" component required to make the previous test pass:
 
 @component('components.code-component', [
     'className' => 'UploadPhoto.php',
@@ -314,7 +314,7 @@ class UploadPhoto extends Component
     public $photo;
 
     // ...
-    
+
     public function upload($name)
     {
         $this->photo->storeAs('/', $name, $disk = 'avatars');

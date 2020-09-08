@@ -262,20 +262,47 @@ Testing file uploads in Livewire is simple with Laravel's file upload testing he
 
 Here's a complete example of testing the "UploadPhoto" component with Livewire.
 
-@component('components.code-component')
+@component('components.code-component', [
+    'className' => 'UploadPhotoTest.php',
+])
 @slot('class')
 @verbatim
-/** @test **/
-function can_upload_photo() {
-    Storage::fake();
+/** @test */
+public function can_upload_photo()
+{
+    Storage::fake('avatars');
 
     $file = UploadedFile::fake()->image('avatar.png');
 
     Livewire::test(UploadPhoto::class)
         ->set('photo', $file)
-        ->call('save');
+        ->call('upload', 'uploaded-avatar.png');
 
-    Storage::assertExists('avatar.png');
+    Storage::disk('avatars')->assertExists('uploaded-avatar.png');
+}
+@endverbatim
+@endslot
+@endcomponent
+
+Here's a snippet of the "UploadPhoto" component required to make the previous test pass:
+
+@component('components.code-component', [
+    'className' => 'UploadPhoto.php',
+])
+@slot('class')
+@verbatim
+class UploadPhoto extends Component
+{
+    use WithFileUploads;
+
+    public $photo;
+
+    // ...
+
+    public function upload($name)
+    {
+        $this->photo->storeAs('/', $name, $disk = 'avatars');
+    }
 }
 @endverbatim
 @endslot
