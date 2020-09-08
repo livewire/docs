@@ -25,6 +25,7 @@ There are the following breaking changes and their upgrade instructions in order
 1. [Removed: Property Casters](#casters)
 1. [Updated: Pagination Views](#pagination)
 1. [Updated: JavaScript Hooks](#hooks)
+1. [Updated: VueJs Support](#vuejs)
 
 ### Updated: `$updatesQueryString` to `$queryString` {#query-string}
 Livewire 1.x had a more primitive utility for manipulating the browser's query string based on property values. In V2, there is a much more advanced utility for manipulating the query string.
@@ -301,6 +302,25 @@ Here are the hook usages side by side for comparison:
 | `livewire.hook('beforeDomUpdate', (component) => {})` | `Livewire.hook('message.received', (message, component) => {})` |
 
 *Note: in some instances, a `message` object is now passed in instead of a `response` object. `response` can be accessed as a property of `message`: `message.response`*
+
+## Updated: VueJS Support {#vuejs}
+
+If your Livewire currently depends on the [vue-plugin](https://github.com/livewire/vue), you will need to upgrade from version `0.2.x` to `0.3.x`
+
+@component('components.code', ['lang' => 'html'])
+@verbatim
+    ...
+    @livewireScripts
+
+    // Before
+    <script src="https://cdn.jsdelivr.net/gh/livewire/vue@v0.2.x/dist/livewire-vue.js"></script>
+
+    // After
+    <script src="https://cdn.jsdelivr.net/gh/livewire/vue@v0.3.x/dist/livewire-vue.js"></script>
+</body>
+@endverbatim
+@endcomponent
+
 
 ## Signing Off
 Hopefully, the impact of this upgrade isn't much for you.
