@@ -13,7 +13,17 @@ class FooComponent extends Component
 @endverbatim
 @endcomponent
 
-Now, you can access `$this->foo` from either the component's class or Blade view.
+Now, you can access `$this->foo` from either the component's class or Blade view:
+
+@component('components.code-component')
+@slot('view')
+@verbatim
+<div>
+    <span>{{ $this->foo }}</span>
+</div>
+@endverbatim
+@endslot
+@endcomponent
 
 @component('components.tip')
 Computed properties are cached for an individual Livewire request lifecycle. Meaning, if you call `$this->post` 5 times in a component's blade view, it won't make a seperate database query every time.
