@@ -46,7 +46,7 @@ class Search extends Component
 
 Aside from a new property name, there are 2 significant changes to the inner workings:
 
-1. Property values are now automatically set to intial values from the query string on page load
+1. Property values are now automatically set to initial values from the query string on page load
 1. The query string system now uses the browser's `history.pushState` API instead of `history.replaceState` (which means you can now click the back button in a browser to revisit old query string changes)
 
 Because the query string system now automatically sets initial values, there is no need for doing that in the `mount()` method anymore:
