@@ -59,6 +59,8 @@ Because in PHP an array can have keys that are alpha-numeric and numeric keys in
 
 This causes a problem when the JSON is sent back because the "[checksum](https://laravel-livewire.com/docs/security)" will look different.
 
+Some types (Point, LineString, Polygon, and the Multi- variations) will also fail this checksum.
+
 So make sure when you have a public property that is an array numeric keys are before alpha-numeric character keys.
 @component('components.code', ['lang' => 'php'])
 @verbatim
