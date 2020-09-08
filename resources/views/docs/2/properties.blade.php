@@ -192,7 +192,7 @@ This can durastically cut down on network usage when it's not needed.
 
 ## Binding Directly To Model Properties {#binding-models}
 
-If an Eloquent model is stored as a public property on a Livewire component, you can bind to it's properties directly. Here is an example component:
+If an Eloquent model is stored as a public property on a Livewire component, you can bind to its properties directly. Here is an example component:
 
 @component('components.code-component')
 @slot('class')
