@@ -226,6 +226,16 @@ public function render()
 }
 @endcomponent
 
+If you need to pass data from your components to your layout, you can pass the data along with the layout method: 
+
+@component('components.code', ['lang' => 'php'])
+public function render()
+{
+    return view('livewire.show-posts')
+        ->layout('layouts.base', ['title' => 'Show Posts'])
+}
+@endcomponent
+
 ### Route Parameters {#route-params}
 
 Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` method. For example:
