@@ -226,7 +226,7 @@ public function render()
 }
 @endcomponent
 
-If you need to pass data from your components to your layout, simply pass the data along with the layout method: 
+If you need to pass data from your components to your layout, you can pass the data along with the layout method: 
 
 @component('components.code', ['lang' => 'php'])
 public function render()
