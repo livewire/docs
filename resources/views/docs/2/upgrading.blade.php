@@ -167,7 +167,7 @@ If you want to continue using Turbolinks in your Livewire application, you will 
 @verbatim
 ...
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
 </body>
 @endverbatim
 @endcomponent
