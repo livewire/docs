@@ -234,11 +234,15 @@ class ContactForm extends Component
 
     public function saveContact()
     {
-        $validatedData = Validator::make(
+        $validator = Validator::make(
             ['email' => $this->email],
             ['email' => 'required|email'],
             ['required' => 'The :attribute field is required'],
-        )->validate();
+        );
+
+        $this->resetErrorBag();
+
+        $validatedData = $validator->validate();
 
         Contact::create($validatedData);
     }
