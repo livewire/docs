@@ -161,7 +161,7 @@ class ShowPosts extends Component
 ## Removed: Turbolinks Support {#turbolinks}
 Livewire no longer supports Turbolinks out of the box.
 
-If you want to continue using Turbolinks in your Livewire application, you will have to include the Turbolinks adapter alongside Livewire's JavaScript assets:
+If you want to continue using Turbolinks in your Livewire application, you will have to include the [Turbolinks adapter](https://github.com/livewire/turbolinks) alongside Livewire's JavaScript assets:
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
