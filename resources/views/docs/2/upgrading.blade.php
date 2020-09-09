@@ -159,12 +159,20 @@ class ShowPosts extends Component
 @endcomponent
 
 ## Removed: Turbolinks Support {#turbolinks}
-Livewire no longer supports Turbolinks out of the box. There are plans in the future to implement our own alternative, but at the current time, providing support out of the box is out of Livewire's scope.
+Livewire no longer supports Turbolinks out of the box.
 
-If a lack of Turbolinks support is a deal-breaker for your application, fear not. The Livewire V1 integration is surprisingly simple and isolated almost entirely to one chunk of code:
-[View source on GitHub](https://github.com/livewire/livewire/commit/f7561d014b91c28e6e4774b9491c5dec00c7a711#diff-afbbb6430c73cf50cafea78549c61fd9L201)
+If you want to continue using Turbolinks in your Livewire application, you will have to include the Turbolinks adapter alongside Livewire's JavaScript assets:
 
-Hopefully, this helps spur a community-driven Livewire-Turbolinks adapter in the near future.
+@component('components.code', ['lang' => 'html'])
+@verbatim
+...
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"></script>
+</body>
+@endverbatim
+@endcomponent
+
+As this adapter is new, you may run into issues related Turbolinks functionality, if that is the case, please submit an issue on the [adapter's repository](https://github.com/livewire/turbolinks).
 
 ## Changed: `assertSet()` {#assert-set}
 
