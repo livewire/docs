@@ -51,7 +51,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
             <li><button wire:click="archive">Archive</button></li>
             <li><button wire:click="delete">Delete</button></li>
         </ul>
-    </x:dropdown>
+    </x-dropdown>
 </div>
 @endverbatim
 @endcomponent
