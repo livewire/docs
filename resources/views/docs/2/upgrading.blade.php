@@ -242,12 +242,12 @@ class SomeComponent extends Component
 {
     public $foo;
 
-    public function hydrateFoo()
+    public function hydrateFoo($value)
     {
         $this->foo = strtoupper($value);
     }
 
-    public function dehydrateFoo()
+    public function dehydrateFoo($value)
     {
         $this->foo = strtolower($value);
     }
