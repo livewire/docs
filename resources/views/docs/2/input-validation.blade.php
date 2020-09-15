@@ -146,8 +146,41 @@ class ContactForm extends Component
 
 ## Customize Error Message & Attributes
 
-You can write array of custom message & attribute directly into `validate()` after the `$rules` argument.
-If you want to skip some argument you can place an empty array like `[]`.
+If you wish to customize the validation messages used by a Livewire component, you can do so with the `$messages` property:
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+class ContactForm extends Component
+{
+    public $email;
+
+    protected $rules = [
+        'email' => 'required|email',
+    ];
+
+    protected $messages = [
+        'email.required' => 'The Email Address cannot be empty.',
+        'email.email' => 'The Email Address format is not valid.',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    public function saveContact()
+    {
+        $validatedData = $this->validate();
+
+        Contact::create($validatedData);
+    }
+}
+@endverbatim
+@endslot
+@endcomponent
+
+If you are not using the global `$rules` validation property, then you can pass custom messages and attributes directly into `validate()`.
 
 @component('components.code-component')
 @slot('class')
@@ -159,16 +192,12 @@ class ContactForm extends Component
     public function saveContact()
     {
         $validatedData = $this->validate(
-            [
-                'email' => 'required|email',
-            ],
+            ['email' => 'required|email'],
             [
                 'email.required' => 'The :attribute cannot be empty.',
                 'email.email' => 'The :attribute format is not valid.',
             ],
-            [
-                'email' => 'Email Address',
-            ]
+            ['email' => 'Email Address']
         );
 
         Contact::create($validatedData);
