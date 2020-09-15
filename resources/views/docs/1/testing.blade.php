@@ -152,6 +152,12 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertDontSeeHtml('<h1>foo</h1>');
 // Assert that the string "<h1>foo</h1>" DOES NOT exist in the currently rendered HTML of the component
 
+->assertSeeInOrder(['foo', 'bar']);
+// Assert that the string "foo" exists before "bar" in the currently rendered content of the component
+
+->assertSeeHtmlInOrder(['<h1>foo</h1>', '<h1>bar</h1>']);
+// Assert that the string "<h1>foo</h1>" exists before "<h1>bar</h1>" in the currently rendered content of the component
+
 ->assertEmitted('foo');
 // Assert that the "foo" event was emitted
 
