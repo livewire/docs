@@ -6,7 +6,7 @@ Livewire recommends that you use AlpineJS for most of your JavaScript needs, but
     <!-- Your components HTML -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('livewire:load', function () {
             // Your JS here.
         })
     </script>
@@ -41,7 +41,7 @@ Here's an example:
 @component('components.code', ['lang' => 'javascript'])
 @verbatim
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('livewire:load', function () {
         // Get the value of the "count" property
         var someValue = @this.count
 
