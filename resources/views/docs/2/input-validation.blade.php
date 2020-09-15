@@ -144,6 +144,41 @@ class ContactForm extends Component
 @endslot
 @endcomponent
 
+## Customize Error Message & Attributes
+
+You can write array of custom message & attribute directly into `validate()` after the `$rules` argument.
+If you want to skip some argument you can place an empty array like `[]`.
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+class ContactForm extends Component
+{
+    public $email;
+
+    public function saveContact()
+    {
+        $validatedData = $this->validate(
+            [
+                'email' => 'required|email',
+            ],
+            [
+                'email.required' => 'The :attribute cannot be empty.',
+                'email.email' => 'The :attribute format is not valid.',
+            ],
+            [
+                'email' => 'Email Address',
+            ]
+        );
+
+        Contact::create($validatedData);
+    }
+}
+@endverbatim
+@endslot
+@endcomponent
+
+
 ## Direct Error Message Manipulation {#error-bag-manipulation}
 
 The `validate()` and `validateOnly()` method should handle most cases, but sometimes you may want direct control over Livewire's internal ErrorBag.
