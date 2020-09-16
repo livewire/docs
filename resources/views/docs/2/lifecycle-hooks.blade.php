@@ -4,16 +4,14 @@
 
 Each Livewire component undergoes a lifecycle. Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
-> Note: Update hooks are only run when directly updating properties. If you also want to run the hooks when updating a property from an action, just call `$this->updatedFoo()` manually.
-
 @component('components.table')
 Hooks | Description
 --- | ---
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
 hydrate | Runs on every request, after the component is hydrated, but before an action is performed, or `render()` is called
 dehydrate | Runs on every request, before the component is dehydrated, but after `render()` is called
-updating | Runs before any update to the Livewire component's data
-updated | Runs after any update to the Livewire component's data
+updating | Runs before any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
+updated | Runs after any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
 updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
 updatingFooBar | Runs before updating a nested property `bar` on the `$foo` property
