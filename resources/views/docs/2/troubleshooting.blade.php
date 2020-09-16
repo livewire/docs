@@ -73,3 +73,16 @@ class HelloWorld extends Component
     ...
 @endverbatim
 @endcomponent
+
+## Query String Issues
+
+Livewire is using the site's `referrer` information when setting the query string. This can lead to conflicts when you are adding security headers to your application through the `referrer-policy`.
+
+### Symptoms:
+
+* The query string does not get updated at all.
+* The query string does not get updated when the value is empty.
+
+### Cures:
+
+If you do set security headers, make sure the `referrer-policy` value is set to `same-origin`.
