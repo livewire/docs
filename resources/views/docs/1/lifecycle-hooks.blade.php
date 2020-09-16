@@ -4,6 +4,8 @@
 
 Each Livewire component undergoes a lifecycle (`mount`, `updating`, `updated`). Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
+> Note: Update hooks are only run when directly updating properties. If you also want to run the hooks when updating a property from an action, just call `$this->updatedFoo()` manually.
+
 @component('components.table')
 Hooks | Description
 --- | ---
