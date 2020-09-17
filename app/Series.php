@@ -22,6 +22,7 @@ class Series extends Model
             [ 'id' => 3, 'title' => 'Form Notifications' ],
             [ 'id' => 4, 'title' => 'Custom Form Inputs' ],
             [ 'id' => 5, 'title' => 'File Uploads' ],
+            [ 'id' => 6, 'title' => 'Upgrading To V2' ],
         ];
     }
 }

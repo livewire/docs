@@ -454,5 +454,56 @@ class Screencast extends Model
             'series_id' => 5,
             'is_paid' => true,
         ],
+        /**
+         * V2 Upgrade
+         */
+        [
+            'title' => 'Upgrade To V2',
+            'slug' => 's6-upgrade-to-v2',
+            'description' => <<<EOT
+                We upgrade the Surge application from V1 to V2 and fix the little breaking changes. There's really not much, but it's worth knowing about them.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/459037288',
+            'code_url' => 'https://github.com/livewire/surge/commit/178796efdd455546d6dc7274175c76af31fcf4d0',
+            'duration_in_minutes' => '13:20',
+            'series_id' => 6,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Refactoring Validation To $rules',
+            'slug' => 's6-refactor-validation',
+            'description' => <<<EOT
+                We'll refactor the validation in Surge to use the new \$rules property and clean up other small areas of re-use.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/459037421',
+            'code_url' => 'https://github.com/livewire/surge/commit/e0429e361ad54f841649a9546db355abb4060724',
+            'duration_in_minutes' => '6:17',
+            'series_id' => 6,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Binding Directly To Model Properties',
+            'slug' => 's6-bind-to-models',
+            'description' => <<<EOT
+                In V2 you can wire:model bind directly to eloquent model properties. This opens up new potential and cleans up our components even more. Check it out.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/459037466',
+            'code_url' => 'https://github.com/livewire/surge/commit/e0429e361ad54f841649a9546db355abb4060724',
+            'duration_in_minutes' => '7:43',
+            'series_id' => 6,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Refactor Pikaday & Trix to @entangle',
+            'slug' => 's6-refactor-pikaday-trix',
+            'description' => <<<EOT
+                We're going to go deep in this video and refactor our previous Blade components for date picking and rich text editing to use the new @@entangle syntax. It's extremely powerful, but requires a bit of refactoring first.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/459037463',
+            'code_url' => 'https://github.com/livewire/surge/commit/a22e025ce314607ac10a7ed5717023f386fd08a8',
+            'duration_in_minutes' => '27:58',
+            'series_id' => 6,
+            'is_paid' => false,
+        ],
     ];
 }
