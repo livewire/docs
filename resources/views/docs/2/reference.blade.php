@@ -264,7 +264,7 @@ Name | Params | Description
 `artisan make:livewire` | Create a new component
 `artisan livewire:make` | Create a new component
 `artisan livewire:copy` | Copy a component
-`artisan livewire:move` | Mova a component
+`artisan livewire:move` | Move a component
 `artisan livewire:delete` | Delete a component
 `artisan livewire:touch` | Alias for `livewire:make`
 `artisan livewire:cp` | Alias for `livewire:copy`
