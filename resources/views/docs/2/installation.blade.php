@@ -78,7 +78,7 @@ To keep the assets up-to-date and avoid issues in future updates, we **highly re
 
 By default, Livewire serves its JavaScript portion (`livewire.js`) from the following route in your app: `/livewire/livewire.js`.
 
-The actual script tag that gets generated defaults to:<br> `<script src="/livewire/livewire.js"></script>`
+The actual script tag that gets generated defaults to:<br> `<script src="/vendor/livewire/livewire.js"></script>`
 
 There are two scenarios that will cause this default behavior to break:
 
