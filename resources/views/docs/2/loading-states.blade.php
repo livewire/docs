@@ -17,6 +17,8 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 
 When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disappear.
 
+If you want to avoid flickering because loading is very fast, you can add the `.delay` modifier, and it will only show up if loading takes longer than `200ms`.
+
 You can also "hide" an element during a loading state using the `.remove` modifier.
 
 @component('components.code', ['lang' => 'html'])
