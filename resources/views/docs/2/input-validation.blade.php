@@ -223,7 +223,7 @@ $this->addError('email', 'The email field is invalid.');
 
 $this->resetErrorBag();
 $this->resetValidation();
-// These two methods do the same thing. The clear the error bag.
+// These two methods do the same thing. They clear the error bag.
 // If you only want to clear errors for one key, you can use:
 $this->resetValidation('email');
 $this->resetErrorBag('email');
