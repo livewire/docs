@@ -218,19 +218,20 @@ From anywhere inside a Livewire component class, you can call the following meth
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
-$this->addError('email', 'The email field is invalid.');
 // Quickly add a validation message to the error bag.
+$this->addError('email', 'The email field is invalid.');
 
+// These two methods do the same thing, they clear the error bag.
 $this->resetErrorBag();
 $this->resetValidation();
-// These two methods do the same thing. The clear the error bag.
+
 // If you only want to clear errors for one key, you can use:
 $this->resetValidation('email');
 $this->resetErrorBag('email');
 
+// This will give you full access to the error bag.
 $errors = $this->getErrorBag();
-// This will give you full access to the error bag,
-// allowing you to do things like this:
+// With this error bag instance, you can do things like this:
 $errors->add('some-key', 'Some message');
 @endverbatim
 @endcomponent
