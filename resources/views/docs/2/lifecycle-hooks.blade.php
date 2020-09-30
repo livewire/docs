@@ -91,7 +91,7 @@ message.processed | Called after Livewire processes all side effects (including 
 
 @component('components.code', ['lang' => 'js'])
 <script>
-    document.addEventListener("livewire:load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
         Livewire.hook('component.initialized', (component) => {})
         Livewire.hook('element.initialized', (el, component) => {})
         Livewire.hook('element.updating', (fromEl, toEl, component) => {})
