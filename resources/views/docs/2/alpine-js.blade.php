@@ -345,7 +345,7 @@ Now let's see how we might write a re-usable Blade component for this library.
 
 Under the hood, `wire:model` adds an event listener to update a property every time the `input` event is dispatched on or under the element. Another way to communicate between Livewire and Alpine is by using Alpine to dispatch an `input` event with some data within or on an element with `wire:model` on it.
 
-Let's create a contrived example where when a user clicks one button a property called `$foo` is set to `bar`, and when a user clicks another button, `$foo` is set to `baz`.
+Let's create a contrived example where when a user clicks the first button a property called `$foo` is set to `bar`, and when a user clicks the second button, `$foo` is set to `baz`.
 
 **Within A Livewire Component's View:**
 @component('components.code', ['lang' => 'html'])
