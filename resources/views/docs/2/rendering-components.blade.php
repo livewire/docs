@@ -238,7 +238,7 @@ public function render()
 
 ### Route Parameters {#route-params}
 
-Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through it's `mount` method. For example:
+Often you need to access route parameters inside your controller methods. Because we are no longer using controllers, Livewire attempts to mimick this behavior through its `mount` method. For example:
 
 @component('components.code', ['lang' => 'php'])
 Route::get('/post/{id}', ShowPost::class);
