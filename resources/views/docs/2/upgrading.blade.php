@@ -296,6 +296,7 @@ V2 offers the same JavaScript hooks as V1, but with three distinct updates:
 
 Here are the hook usages side by side for comparison:
 
+@component('components.table')
 | V1 Names | V2 Names / Usages |
 | --- | --- |
 | `livewire.hook('componentInitialized', (component) => {})` | `Livewire.hook('component.initialized', (component) => {})` |
@@ -308,6 +309,7 @@ Here are the hook usages side by side for comparison:
 | `livewire.hook('responseReceived', (component, response) => {})` | `Livewire.hook('message.received', (message, component) => {})` |
 | `livewire.hook('afterDomUpdate', (component) => {})` | `Livewire.hook('message.processed', (message, component) => {})` |
 | `livewire.hook('beforeDomUpdate', (component) => {})` | `Livewire.hook('message.received', (message, component) => {})` |
+@endcomponent
 
 *Note: in some instances, a `message` object is now passed in instead of a `response` object. `response` can be accessed as a property of `message`: `message.response`*
 
