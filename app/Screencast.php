@@ -454,6 +454,7 @@ class Screencast extends Model
             'series_id' => 5,
             'is_paid' => true,
         ],
+
         /**
          * V2 Upgrade
          */
@@ -504,6 +505,190 @@ class Screencast extends Model
             'duration_in_minutes' => '27:58',
             'series_id' => 6,
             'is_paid' => false,
+        ],
+
+        /**
+         * Data Tables
+         */
+        [
+            'title' => 'Intro',
+            'slug' => 's7-intro',
+            'description' => <<<EOT
+                This is not your average Surge screencast series. We are going to start simple, then go DEEP on data tables. As deep as we possibly can. We'll come out on the other side with some impressive functionality, but having written NO JavaScript.
+            EOT,
+            'url' => '',
+            'code_url' => '',
+            'duration_in_minutes' => '',
+            'series_id' => 7,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'A Simple Table',
+            'slug' => 's7-simple-table',
+            'description' => <<<EOT
+                Let's build a simple, static table of data as a starting point. This will establish a foundation and we'll ramp up from here.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466345629',
+            'code_url' => '',
+            'duration_in_minutes' => '16:13',
+            'series_id' => 7,
+            'is_paid' => false,
+        ],
+        [
+            'title' => 'Pagination',
+            'slug' => 's7-pagination',
+            'description' => <<<EOT
+                Let's add pagination to our simple data table. Livewire builds on Laravel's awesome pagination system so this will be cake.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466345719',
+            'code_url' => '',
+            'duration_in_minutes' => '3:06',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Basic Search',
+            'slug' => 's7-search',
+            'description' => <<<EOT
+                Let's add a basic search box that users can type into to filter data results in real-time.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466345708',
+            'code_url' => '',
+            'duration_in_minutes' => '11:02',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Basic Sorting',
+            'slug' => 's7-sorting',
+            'description' => <<<EOT
+                Let's add sorting to our column headings. We'll make it simple for users to sort by "title", "amount", etc...
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466345858',
+            'code_url' => '',
+            'duration_in_minutes' => '9:06',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Edit Modal',
+            'slug' => 's7-edit-modal',
+            'description' => <<<EOT
+                This is where things are going to start to ramp up. In this episode, we're going to add the ability to edit any given row inside a modal. This modal will be shared so we don't have 10 modals loaded on a page at the same time.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466345879',
+            'code_url' => '',
+            'duration_in_minutes' => '28:38',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Create Modal',
+            'slug' => 's7-create-modal',
+            'description' => <<<EOT
+                Because of certain design choices in Livewire adding a "Create Modal" in addition to the edit modal we just built will be incredibly simple and fun.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466345988',
+            'code_url' => '',
+            'duration_in_minutes' => '8:02',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Advanced Search',
+            'slug' => 's7-advanced-search',
+            'description' => <<<EOT
+                We already implimented a basic search input for our table. Let's expand on that functionality with an expandible "Advanced Search" section above the table that gives users fine-tuned control over how to filter their results.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346034',
+            'code_url' => '',
+            'duration_in_minutes' => '26:56',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Bulk Export/Delete',
+            'slug' => 's7-bulk-actions',
+            'description' => <<<EOT
+                In this cast, we're going to add checkboxes to our table and allow users to easily delete and export specific records from the table.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346201',
+            'code_url' => '',
+            'duration_in_minutes' => '11:10',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Select-All Checkboxes',
+            'slug' => 's7-select-all',
+            'description' => <<<EOT
+                Now that we have basic "Bulk Actions" implemented. Let's make it more robust by adding a "select all" checkbox that is capable of selecting all the results on a page, but ALSO the entire data-set across all pages.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346211',
+            'code_url' => '',
+            'duration_in_minutes' => '34:53',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Refactoring For Re-Usability',
+            'slug' => 's7-refactoring',
+            'description' => <<<EOT
+                Along the way, our little data table has turned into something quite robust and increasingly complex. Let's take a break and refactor some of the functionality out into traits that can be used across your application in other data tables.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346355',
+            'code_url' => '',
+            'duration_in_minutes' => '20:58',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Multi-Column Sorting',
+            'slug' => 's7-multi-column-sorting',
+            'description' => <<<EOT
+                We added basic column sorting before, but often that's not enough. In this cast we're going to add the ability to sort by multiple columns at the same time and properly order their queries for the expected results.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346514',
+            'code_url' => '',
+            'duration_in_minutes' => '13:01',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Configuring Per-Page Results',
+            'slug' => 's7-configuring-per-page',
+            'description' => <<<EOT
+                We've already added pagination to this table, but often users like to configure how many results to show on a given page. We're going to add that ability, and also make set that configuration for the entire user's session.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346555',
+            'code_url' => '',
+            'duration_in_minutes' => '8:02',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Importing From CSVs',
+            'slug' => 's7-csv-import',
+            'description' => <<<EOT
+                In this case we're going to add a system to import records into the table from a CSV. We're not going to stop at a contrived demo though. We'll go the extra mile and allow the user to configure what columns in their CSV should map to which fields in the data table.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346606',
+            'code_url' => '',
+            'duration_in_minutes' => '30:57',
+            'series_id' => 7,
+            'is_paid' => true,
+        ],
+        [
+            'title' => 'Making Everything Fast: Caching Rusults',
+            'slug' => 's7-caching',
+            'description' => <<<EOT
+                Phew, we've come a long way. Our data table is extremely robust and our users are happy. However, there's ONE last touch up. Let's make sure we're only calling on the database when we need to, so that we don't slow down other interactions on the page.
+            EOT,
+            'url' => 'https://player.vimeo.com/video/466346694',
+            'code_url' => '',
+            'duration_in_minutes' => '16:51',
+            'series_id' => 7,
+            'is_paid' => true,
         ],
     ];
 }
