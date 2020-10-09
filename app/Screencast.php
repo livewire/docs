@@ -516,9 +516,9 @@ class Screencast extends Model
             'description' => <<<EOT
                 This is not your average Surge screencast series. We are going to start simple, then go DEEP on data tables. As deep as we possibly can. We'll come out on the other side with some impressive functionality, but having written NO JavaScript.
             EOT,
-            'url' => '',
+            'url' => 'https://player.vimeo.com/video/466587467',
             'code_url' => '',
-            'duration_in_minutes' => '',
+            'duration_in_minutes' => '2:16',
             'series_id' => 7,
             'is_paid' => false,
         ],
@@ -529,7 +529,7 @@ class Screencast extends Model
                 Let's build a simple, static table of data as a starting point. This will establish a foundation and we'll ramp up from here.
             EOT,
             'url' => 'https://player.vimeo.com/video/466345629',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/a520a978122fed2c6501001db70288d240001b2b',
             'duration_in_minutes' => '16:13',
             'series_id' => 7,
             'is_paid' => false,
@@ -541,7 +541,7 @@ class Screencast extends Model
                 Let's add pagination to our simple data table. Livewire builds on Laravel's awesome pagination system so this will be cake.
             EOT,
             'url' => 'https://player.vimeo.com/video/466345719',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/1a5c95ec69687b1dadbcb342eb71e077cd0f429c',
             'duration_in_minutes' => '3:06',
             'series_id' => 7,
             'is_paid' => true,
@@ -553,7 +553,7 @@ class Screencast extends Model
                 Let's add a basic search box that users can type into to filter data results in real-time.
             EOT,
             'url' => 'https://player.vimeo.com/video/466345708',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/e5367b864f205b91979c4509077f87b4ac3b0b80',
             'duration_in_minutes' => '11:02',
             'series_id' => 7,
             'is_paid' => true,
@@ -565,7 +565,7 @@ class Screencast extends Model
                 Let's add sorting to our column headings. We'll make it simple for users to sort by "title", "amount", etc...
             EOT,
             'url' => 'https://player.vimeo.com/video/466345858',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/221688077e89c7b45c4a109f26e50995a8867f8d',
             'duration_in_minutes' => '9:06',
             'series_id' => 7,
             'is_paid' => true,
@@ -577,7 +577,7 @@ class Screencast extends Model
                 This is where things are going to start to ramp up. In this episode, we're going to add the ability to edit any given row inside a modal. This modal will be shared so we don't have 10 modals loaded on a page at the same time.
             EOT,
             'url' => 'https://player.vimeo.com/video/466345879',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/09daaee9bb8bca366c154bc9b5b839587c42c27d',
             'duration_in_minutes' => '28:38',
             'series_id' => 7,
             'is_paid' => true,
@@ -589,7 +589,7 @@ class Screencast extends Model
                 Because of certain design choices in Livewire adding a "Create Modal" in addition to the edit modal we just built will be incredibly simple and fun.
             EOT,
             'url' => 'https://player.vimeo.com/video/466345988',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/550b87faad1aa933cc6433dcf76e7329a4c0aebb',
             'duration_in_minutes' => '8:02',
             'series_id' => 7,
             'is_paid' => true,
@@ -601,7 +601,7 @@ class Screencast extends Model
                 We already implimented a basic search input for our table. Let's expand on that functionality with an expandible "Advanced Search" section above the table that gives users fine-tuned control over how to filter their results.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346034',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/4830232d734d5b0f6a77a26b0dd79a497c545f8c',
             'duration_in_minutes' => '26:56',
             'series_id' => 7,
             'is_paid' => true,
@@ -613,7 +613,7 @@ class Screencast extends Model
                 In this cast, we're going to add checkboxes to our table and allow users to easily delete and export specific records from the table.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346201',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/80fa7bd4f07f505e7a71f6aad690e2afd4388638',
             'duration_in_minutes' => '11:10',
             'series_id' => 7,
             'is_paid' => true,
@@ -625,7 +625,7 @@ class Screencast extends Model
                 Now that we have basic "Bulk Actions" implemented. Let's make it more robust by adding a "select all" checkbox that is capable of selecting all the results on a page, but ALSO the entire data-set across all pages.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346211',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/41d2e52fe59cfb279a9400f63bd14c422b6b28a8',
             'duration_in_minutes' => '34:53',
             'series_id' => 7,
             'is_paid' => true,
@@ -637,7 +637,7 @@ class Screencast extends Model
                 Along the way, our little data table has turned into something quite robust and increasingly complex. Let's take a break and refactor some of the functionality out into traits that can be used across your application in other data tables.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346355',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/8796c5a39fa7f200dc18c06c69bb1994893858a6',
             'duration_in_minutes' => '20:58',
             'series_id' => 7,
             'is_paid' => true,
@@ -649,7 +649,7 @@ class Screencast extends Model
                 We added basic column sorting before, but often that's not enough. In this cast we're going to add the ability to sort by multiple columns at the same time and properly order their queries for the expected results.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346514',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/3d115e3c87b01c1ab6aac868b733b300a51f52fc',
             'duration_in_minutes' => '13:01',
             'series_id' => 7,
             'is_paid' => true,
@@ -661,7 +661,7 @@ class Screencast extends Model
                 We've already added pagination to this table, but often users like to configure how many results to show on a given page. We're going to add that ability, and also make set that configuration for the entire user's session.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346555',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/70de85eeedec7ad7eeb28f5f27b33d9b440f904f',
             'duration_in_minutes' => '8:02',
             'series_id' => 7,
             'is_paid' => true,
@@ -673,7 +673,7 @@ class Screencast extends Model
                 In this case we're going to add a system to import records into the table from a CSV. We're not going to stop at a contrived demo though. We'll go the extra mile and allow the user to configure what columns in their CSV should map to which fields in the data table.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346606',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/e5759e1c16a31ed72156bc89f0553ba1cdf770e2',
             'duration_in_minutes' => '30:57',
             'series_id' => 7,
             'is_paid' => true,
@@ -685,7 +685,7 @@ class Screencast extends Model
                 Phew, we've come a long way. Our data table is extremely robust and our users are happy. However, there's ONE last touch up. Let's make sure we're only calling on the database when we need to, so that we don't slow down other interactions on the page.
             EOT,
             'url' => 'https://player.vimeo.com/video/466346694',
-            'code_url' => '',
+            'code_url' => 'https://github.com/livewire/surge/commit/19272827010c86695ea77c25b198af7cb0d58510',
             'duration_in_minutes' => '16:51',
             'series_id' => 7,
             'is_paid' => true,

@@ -23,6 +23,7 @@ class Series extends Model
             [ 'id' => 4, 'title' => 'Custom Form Inputs' ],
             [ 'id' => 5, 'title' => 'File Uploads' ],
             [ 'id' => 6, 'title' => 'Upgrading To V2' ],
+            [ 'id' => 7, 'title' => 'Building Data Tables' ],
         ];
     }
 }
