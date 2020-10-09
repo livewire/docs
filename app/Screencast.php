@@ -544,7 +544,7 @@ class Screencast extends Model
             'code_url' => 'https://github.com/livewire/surge/commit/1a5c95ec69687b1dadbcb342eb71e077cd0f429c',
             'duration_in_minutes' => '3:06',
             'series_id' => 7,
-            'is_paid' => true,
+            'is_paid' => false,
         ],
         [
             'title' => 'Basic Search',
@@ -556,7 +556,7 @@ class Screencast extends Model
             'code_url' => 'https://github.com/livewire/surge/commit/e5367b864f205b91979c4509077f87b4ac3b0b80',
             'duration_in_minutes' => '11:02',
             'series_id' => 7,
-            'is_paid' => true,
+            'is_paid' => false,
         ],
         [
             'title' => 'Basic Sorting',
@@ -568,7 +568,7 @@ class Screencast extends Model
             'code_url' => 'https://github.com/livewire/surge/commit/221688077e89c7b45c4a109f26e50995a8867f8d',
             'duration_in_minutes' => '9:06',
             'series_id' => 7,
-            'is_paid' => true,
+            'is_paid' => false,
         ],
         [
             'title' => 'Edit Modal',
