@@ -679,7 +679,7 @@ class Screencast extends Model
             'is_paid' => true,
         ],
         [
-            'title' => 'Making Everything Fast: Caching Rusults',
+            'title' => 'Making Everything Fast: Caching Results',
             'slug' => 's7-caching',
             'description' => <<<EOT
                 Phew, we've come a long way. Our data table is extremely robust and our users are happy. However, there's ONE last touch up. Let's make sure we're only calling on the database when we need to, so that we don't slow down other interactions on the page.
