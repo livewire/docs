@@ -51,7 +51,7 @@
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
         @yield('content')
 
-        <footer class="py-4 text-sm text-center bg-white" role="contentinfo">
+        <footer class="pt-4 pb-6 text-sm text-center bg-white" role="contentinfo">
             <ul class="flex flex-col justify-center list-none md:flex-row">
                 <li class="md:mr-2">
                     &copy; <a href="https://laravel-livewire.com" title="Livewire">Livewire</a> {{ date('Y') }}.
@@ -62,6 +62,11 @@
                     and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
                 </li>
             </ul>
+            <div class="mt-2">
+                <a class="text-sm text-gray-600 hover:text-gray-700" href="mailto:support@laravel-livewire.com" target="__blank">
+                    Need help? Email support@laravel-livewire.com
+                </a>
+            </div>
         </footer>
 
         <script src="{{ mix('js/main.js') }}"></script>
