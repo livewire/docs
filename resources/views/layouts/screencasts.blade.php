@@ -13,8 +13,12 @@
             @yield('content')
         </div>
 
-        <nav class="hidden md:block sticky p-8 bg-white w-1/4">
-            @include('includes.screencast-sidebar')
+        <nav class="hidden w-1/4 lg:block overflow-hidden bg-white">
+            <div class="relative overflow-y-auto max-h-screen invisible hover:visible">
+                <div class="p-8 visible bg-white">
+                    @include('includes.screencast-sidebar')
+                </div>
+            </div>
         </nav>
     </div>
 </section>
