@@ -14,7 +14,7 @@
                     @if (! $hasSentInviteOnCurrentPageLoad)
                         <div class="p-2">
                             <button wire:click="sendInvite" class="inline-flex text-xs font-medium md:text-sm text-gray-600 hover:text-gray-700">
-                                Re-send invitation to view the source code
+                                Resend invitation to view the source code
                             </button>
                         </div>
                     @endif
