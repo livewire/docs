@@ -1,13 +1,14 @@
 <?php
 
 use App\User;
+use App\Series;
 use App\Screencast;
 use App\PodcastEpisode;
 use Michelf\MarkdownExtra;
 use App\DocumentationPages;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 // Algolia Docsearch API Details.
@@ -93,9 +94,28 @@ Route::get('/screencasts', function () {
 Route::get('/screencasts/{slug}', function ($slug) {
     $screencast = Screencast::whereSlug($slug)->firstOrFail();
 
+    $progresses = auth()->check() ? auth()->user()->screencastProgresses()
+        ->toBase()
+        ->select(['screencast_id', 'last_known_timestamp_in_seconds', 'completed_at'])
+        ->get()
+        : collect();
+
+    $series = Series::with('screencasts')->get()->map(function ($series) use ($progresses) {
+        $series->screencasts = $series->screencasts->map(function ($screencast) use ($progresses) {
+            if ($progress = $progresses->firstWhere('screencast_id', $screencast->id)) {
+                $screencast->completed_at = $progress->completed_at;
+                $screencast->last_known_timestamp_in_seconds = $progress->last_known_timestamp_in_seconds;
+                $screencast->percent_complete = $screencast->last_known_timestamp_in_seconds / $screencast->duration_in_seconds * 100;
+            }
+
+            return $screencast;
+        });
+        return $series;
+    });
+
     return view('show-screencast', [
         'title' => $screencast->title . ' | Livewire Screencasts',
-        'screencasts' => Screencast::all(),
+        'series' => $series,
         'screencast' => $screencast,
         'social_image' => 'https://laravel-livewire.com/img/screencast-head.png',
     ]);

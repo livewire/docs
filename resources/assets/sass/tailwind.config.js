@@ -8,6 +8,8 @@ module.exports = {
         },
     },
     variants: {
+        backgroundColor: [...defaultConfig.variants.backgroundColor, 'group-hover'],
+        display: [...defaultConfig.variants.display, 'group-hover'],
         visibility: [defaultConfig.variants.visibility, 'hover'],
     },
     plugins: []

@@ -10,7 +10,7 @@
 <section>
     <div class="flex">
         <div class="flex-1">
-            @yield('content')
+            @livewire('screencast-player', ['screencast' => $screencast])
         </div>
 
         <nav class="hidden w-1/4 lg:block overflow-hidden bg-white">

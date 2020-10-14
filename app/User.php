@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\ScreencastProgress;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -13,7 +14,7 @@ class User extends Authenticatable
 
     public function sponsor()
     {
-         return $this->hasOne(Sponsor::class, 'username', 'github_username');
+        return $this->hasOne(Sponsor::class, 'username', 'github_username');
     }
 
     public function getIsSponsorAttribute()
@@ -37,7 +38,9 @@ class User extends Authenticatable
             'amirzpr',
             'sailaway003',
             'minedun6',
-        ])) return true;
+        ])) {
+            return true;
+        }
 
         if ($this->sponsor) {
             return $this->sponsor->getsScreencasts();
@@ -49,5 +52,10 @@ class User extends Authenticatable
     public function uiActions()
     {
         return $this->hasMany(UiAction::class);
+    }
+
+    public function screencastProgresses()
+    {
+        return $this->hasMany(ScreencastProgress::class);
     }
 }
