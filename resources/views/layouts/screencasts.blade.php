@@ -13,7 +13,7 @@
             @yield('content')
         </div>
 
-        <nav class="hidden md:block sticky p-8 bg-white w-1/4">
+        <nav class="hidden lg:block sticky p-8 bg-white w-1/4">
             @include('includes.screencast-sidebar')
         </nav>
     </div>
