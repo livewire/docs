@@ -17,7 +17,7 @@ class UiAction extends Model
 
     public static function markInviteAsSent($user)
     {
-        static::create([
+        static::firstOrCreate([
             'user_id' => $user->id,
             'type' => static::INVITE_SENT,
         ]);

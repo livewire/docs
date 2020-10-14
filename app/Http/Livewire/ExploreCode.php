@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 class ExploreCode extends Component
 {
     public $screencast;
+    public $hasSentInviteOnCurrentPageLoad = false;
 
     public function mount(Screencast $screencast)
     {
@@ -22,11 +23,8 @@ class ExploreCode extends Component
             ->put('https://api.github.com/repos/livewire/surge/collaborators/'.auth()->user()->github_username, ['permissions' => 'pull']);
 
         UiAction::markInviteAsSent(auth()->user());
-    }
 
-    public function getHasProperty()
-    {
-
+        $this->hasSentInviteOnCurrentPageLoad = true;
     }
 
     public function render()
