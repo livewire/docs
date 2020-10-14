@@ -1,3 +1,5 @@
+const defaultConfig = require('tailwindcss/defaultConfig');
+
 module.exports = {
     theme: {
         fontFamily: {
@@ -5,6 +7,9 @@ module.exports = {
             body: ['Graphik', 'sans-serif'],
         },
     },
-    variants: {},
+    variants: {
+        'backgroundColor': [...defaultConfig.variants.backgroundColor, 'group-hover'],
+        'display': [...defaultConfig.variants.display, 'group-hover'],
+    },
     plugins: []
 }
