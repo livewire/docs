@@ -77,3 +77,29 @@ class SearchPosts extends Component
 }
 @endslot
 @endcomponent
+
+### Dynamic URL
+
+The above method can also be used to update the url directly.
+
+@component('components.code', ['lang' => 'php'])
+Route::get('/post/{id}', ShowPost::class);
+@endcomponent
+
+@component('components.code', ['lang' => 'php'])
+class ShowPost extends Component
+{
+    public $post;
+    
+    protected $queryString = ['id'];
+
+    public function mount($id)
+    {
+        $this->post = Post::find($id);
+    }
+
+    ...
+}
+@endcomponent
+
+
