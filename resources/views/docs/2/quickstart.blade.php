@@ -82,7 +82,7 @@ Livewire components MUST have a single root element.
 
 ## Include the component {#include-the-component}
 @verbatim
-Think of Livewire components like Blade includes. You can insert `@livewire('component')` or `<livewire:component />` anywhere in a Blade view and it will render.
+Think of Livewire components like Blade includes. You can insert `<livewire:some-component />` anywhere in a Blade view and it will render.
 @endverbatim
 
 @component('components.code', ['lang' => 'html', 'lineHighlight' => 6])
@@ -92,9 +92,7 @@ Think of Livewire components like Blade includes. You can insert `@livewire('com
     @livewireStyles
 </head>
 <body>
-    @livewire('counter')
-    {{-- OR --}}
-    <livewire:counter>
+    <livewire:counter />
 
     ...
 
