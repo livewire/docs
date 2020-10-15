@@ -40,7 +40,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i,900" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('css/main.css') }}">
 
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.0/dist/alpine-ie11.js" defer></script>
+        <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
+        <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine-ie11.min.js" defer></script>
 
         @if ($docsearchApiKey && $docsearchIndexName)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />

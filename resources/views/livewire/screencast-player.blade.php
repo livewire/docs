@@ -1,4 +1,8 @@
-<div class="relative p-2 md:p-8 pt-0 bg-gray-100 h-full">
+<div
+    x-data="playerComponent()"
+    x-init="init()"
+    class="relative p-2 md:p-8 pt-0 bg-gray-100 h-full"
+>
     <div class="container mx-auto px-4 lg:px-12 pt-4 text-xl flex-col md:flex-row flex justify-between relative items-center" style="max-width: 900px">
         <div class="pb-16 pt-6 w-full" x-data>
             <div class="rounded overflow-hidden shadow-lg">
@@ -59,51 +63,55 @@
     </div>
 </div>
 
-@push('scripts')
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-var iframe = document.querySelector('iframe');
-var player = new Vimeo.Player(iframe);
+    const playerComponent = function () {
+        return {
+            init() {
+                var iframe = document.querySelector('iframe');
+                var player = new Vimeo.Player(iframe);
 
-if (localStorage.getItem('livewire.screencasts.rate')) {
-    player.setPlaybackRate(localStorage.getItem('livewire.screencasts.rate'))
-}
+                if (localStorage.getItem('livewire.screencasts.rate')) {
+                    player.setPlaybackRate(localStorage.getItem('livewire.screencasts.rate'))
+                }
 
-@if (auth()->check() && $screencastProgress && $screencastProgress->last_known_timestamp_in_seconds)
-    player.setCurrentTime({{ $screencastProgress->last_known_timestamp_in_seconds }});
-@endif
+                @if (auth()->check() && $screencastProgress && $screencastProgress->last_known_timestamp_in_seconds)
+                    player.setCurrentTime({{ $screencastProgress->last_known_timestamp_in_seconds }});
+                @endif
 
-// Automatically send the user to the next video after completion.
-player.on('ended', function() {
-    @this.call('completed');
+                // Automatically send the user to the next video after completion.
+                player.on('ended', () => {
+                    this.$wire.completed();
 
-    // Don't the next link if there is none
-    if (@json(! $screencast->next)) return;
-    location.href = '/screencasts/{{ optional($screencast->next)->slug }}';
-});
+                    // Don't the next link if there is none
+                    if (@json(! $screencast->next)) return;
+                    location.href = '/screencasts/{{ optional($screencast->next)->slug }}';
+                });
 
-// Remember the user's PlaybackRate.
-player.on('playbackratechange', function () {
-    player.getPlaybackRate().then(function (rate) {
-        localStorage.setItem('livewire.screencasts.rate', rate)
-    })
-})
+                // Remember the user's PlaybackRate.
+                player.on('playbackratechange', () => {
+                    player.getPlaybackRate().then(function (rate) {
+                        localStorage.setItem('livewire.screencasts.rate', rate)
+                    })
+                })
 
-@auth
-    setInterval(async () => {
-        if (await player.getPaused()) {
-            return;
+                @auth
+                    setInterval(async () => {
+                        if (await player.getPaused()) {
+                            return;
+                        }
+
+                        let duration = await player.getDuration();
+                        let seconds = await player.getCurrentTime();
+
+                        if (duration - seconds < 5) {
+                            this.$wire.completed();
+                        } else {
+                            this.$wire.updateLastKnownTimestamp(Math.floor(seconds));
+                        }
+                    }, 5000);
+                @endauth
+            }
         }
-
-        let duration = await player.getDuration();
-        let seconds = await player.getCurrentTime();
-
-        if (duration - seconds < 5) {
-            @this.call('completed');
-        } else {
-            @this.call('updateLastKnownTimestamp', Math.floor(seconds));
-        }
-    }, 5000);
-@endauth
+    };
 </script>
-@endpush

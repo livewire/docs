@@ -17,7 +17,7 @@
         "laravel/framework": "^7.0",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^1.0",
+        "livewire/livewire": "^2.0",
         "michelf/php-markdown": "^1.9"
     },
     "require-dev": {

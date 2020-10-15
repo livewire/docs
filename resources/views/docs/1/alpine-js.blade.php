@@ -335,7 +335,9 @@ You may be wondering, "But how do I get the unique component id?". Well, you can
 @endverbatim
 @endcomponent
 
+@verbatim
 If you followed, Livewire has a Blade directive called `@this` that is an alias for `window.livewire.find('...')`. This directive makes it extremely easy to talk to the current Livewire component from JavaScript, particularly AlpineJS expressions.
+@endverbatim
 
 If you were to inspect the source of the rendered page in the browser, here is what that `input` element would look like:
 
