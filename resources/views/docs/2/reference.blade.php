@@ -154,7 +154,7 @@ Name | Description
 `$queryString` | Declare which properties to "bind" to the query sting. [Read Docs](/docs/2.x/query-string)
 `$rules` | Specify validation rules to be applied to properties when calling `$this->validate()`. [Read Docs](/docs/2.x/input-validation)
 `$listeners` | Specify which events you want to listen for emitted by other components. [Read Docs](/docs/2.x/events)
-`$paginationTheme` | Specify weather you want to use Tailwind or Bootstrap for you pagination theme. [Read Docs](/docs/2.x/pagination)
+`$paginationTheme` | Specify whether you want to use Tailwind or Bootstrap for you pagination theme. [Read Docs](/docs/2.x/pagination)
 @endcomponent
 
 ### Component Class Traits
