@@ -82,7 +82,7 @@ Livewire components MUST have a single root element.
 
 ## Include the component {#include-the-component}
 @verbatim
-Think of Livewire components like Blade includes. You can insert `@livewire` anywhere in a Blade view and it will render.
+Think of Livewire components like Blade includes. You can insert `@livewire('component')` or `<livewire:component />` anywhere in a Blade view and it will render.
 @endverbatim
 
 @component('components.code', ['lang' => 'html', 'lineHighlight' => 6])
@@ -92,6 +92,8 @@ Think of Livewire components like Blade includes. You can insert `@livewire` any
     @livewireStyles
 </head>
 <body>
+    @livewire('counter')
+    {{-- OR --}}
     <livewire:counter>
 
     ...
@@ -144,7 +146,7 @@ class Counter extends Component
 
 ## View it in the browser {#view-in-browser-finally}
 
-Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" or "-" button, the page should automatically update without a page reload. Magic 🧙‍♂.️
+Now reload the page in the browser, you should see the `counter` component rendered. If you click the "+" button, the page should automatically update without a page reload. Magic 🧙‍♂.️
 
 @component('components.tip')
 In general, something as trivial as this "counter" is more suited for something like AlpineJS, however it's one of the best ways to easily understand the way Livewire works.
