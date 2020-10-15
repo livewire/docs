@@ -152,7 +152,7 @@ To demonstrate, consider the dropdown example from before, but now with it's `sh
 @component('components.code-component')
 @slot('class')
 @verbatim
-class Counter extends Component
+class Dropdown extends Component
 {
     public $showDropdown = false;
 
