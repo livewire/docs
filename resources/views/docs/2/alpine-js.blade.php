@@ -144,7 +144,7 @@ $wire.call('someMethod', param)
 $wire.__instance
 @endcomponent
 
-## Sharing State Between Livewire And Alpine: `@entangle`
+## Sharing State Between Livewire And Alpine: @verbatim`@entangle`@endverbatim
 Livewire has an incredibly powerful feature called "entangle" that allows you to "entangle" a Livewire and Alpine property together. With entanglement, when one value changes, the other will also be changed.
 
 To demonstrate, consider the dropdown example from before, but now with it's `show` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
@@ -189,8 +189,10 @@ Now a user can toggle on the dropdown immediately with Alpine, but when they cli
 Sometimes, it isn't necessary to update Livewire on every Alpine change, and you'd rather bundle the change with the next Livewire request that goes out. In these cases, you can chain on a `.defer` property like so:
 
 @component('components.code', ['lang' => 'javascript'])
+@verbatim
 <div x-data="{ open: @entangle('showDropdown').defer }">
     ...
+@endverbatim
 @endcomponent
 
 Now, when a user toggles the dropdown open and closed, there will be no AJAX requests sent for Livewire, HOWEVER, when a Livewire action is triggered from a button like "archive" or "delete", the new state of "showDropdown" will be bundled along with the request.
@@ -258,7 +260,9 @@ You can also "forward" these Livewire directives individually. For example:
 @endverbatim
 @endcomponent
 
+@verbatim
 There are LOTS of different ways to use this utility, but one common example is using it in conjunction with the aforementioned `@entangle` directive:
+@endverbatim
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
@@ -282,7 +286,9 @@ There are LOTS of different ways to use this utility, but one common example is 
 @endverbatim
 @endcomponent
 
+@verbatim
 > Note: If the `.defer` modifier is passed via `wire:model.defer`, the `@entangle` directive will automatically recognize it and add the `@entangle('...').defer` modifier under the hood.
+@endverbatim
 
 ## Creating A DatePicker Component {#creating-a-datepicker}
 
