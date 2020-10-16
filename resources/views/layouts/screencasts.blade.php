@@ -14,7 +14,8 @@
         </div>
 
         <nav class="hidden w-1/4 lg:block overflow-hidden bg-white">
-            <div class="relative overflow-y-auto max-h-screen invisible hover:visible">
+            <!-- I removed "max-h-screen" from the tag below because it needs to be implemented better. -->
+            <div class="relative overflow-y-auto invisible hover:visible">
                 <div class="p-8 visible bg-white">
                     @include('includes.screencast-sidebar')
                 </div>
