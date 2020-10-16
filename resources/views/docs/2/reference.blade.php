@@ -252,6 +252,7 @@ Name |
 `->assertViewHas($viewDataKey)` |
 `->assertViewHas($viewDataKey, $expectedValue)` |
 `->assertViewHas($viewDataKey, function ($dataValue) {})` |
+`->assertViewIs('livewire.some-view-name')` |
 @endcomponent
 
 ### Artisan Commands

@@ -69,6 +69,7 @@ class DocumentationPages
                 'Pagination' => 'pagination',
                 'Redirecting' => 'redirecting',
                 'Flash Messages' => 'flash-messages',
+                'Traits' => 'traits',
             ],
             'UI Niceties' => [
                 'Loading States' => 'loading-states',
