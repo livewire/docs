@@ -146,7 +146,9 @@ class ContactForm extends Component
 
 ## Customize Error Message & Attributes
 
-If you wish to customize the validation messages used by a Livewire component, you can do so with the `$messages` property:
+If you wish to customize the validation messages used by a Livewire component, you can do so with the `$messages` property. 
+
+If you want to keep the default Laravel validation messages, but just customize the `:attribute` portion of the message, you can specify custom attribute names using the `$validationAttributes` property. 
 
 @component('components.code-component')
 @slot('class')
@@ -162,6 +164,10 @@ class ContactForm extends Component
     protected $messages = [
         'email.required' => 'The Email Address cannot be empty.',
         'email.email' => 'The Email Address format is not valid.',
+    ];
+
+    protected $validationAttributes = [
+        'email' => 'email address'
     ];
 
     public function updated($propertyName)
