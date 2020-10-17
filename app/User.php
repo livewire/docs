@@ -38,6 +38,7 @@ class User extends Authenticatable
             'amirzpr',
             'sailaway003',
             'minedun6',
+            'mokhosh',
         ])) {
             return true;
         }
