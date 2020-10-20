@@ -38,7 +38,7 @@
                 </a>
             </div>
 
-            <div class="flex flex-wrap items-center justify-around">
+            <div class="flex flex-wrap items-center justify-around space-x-3 lg:space-x-6 lg:-mx-24">
                 <a class="mb-4 block" href="https://padmission.com/" target="_blank">
                     <img class="w-32 m-auto mb-4" src="/img/sponsor_padmission.png" alt="Padmission">
                 </a>
@@ -72,6 +72,9 @@
                 </a>
                 <a class="mb-4 block" href="https://www.snapshooter.io/" target="_blank">
                     <img class="w-32 m-auto mb-4" src="/img/sponsor-snapshooter.svg" alt="SnapShooter Backups">
+                </a>
+                <a class="mb-4 block" href="https://codecourse.com/" target="_blank">
+                    <img class="w-32 m-auto mb-4" src="/img/sponsor_codecourse.svg" alt="Codecourse">
                 </a>
             </div>
         </div>
