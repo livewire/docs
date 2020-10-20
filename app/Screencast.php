@@ -706,5 +706,21 @@ class Screencast extends Model
             'series_id' => 7,
             'is_paid' => true,
         ],
+
+        /**
+         * Hack Sessions
+         */
+        [
+            'title' => 'Supporting Multiple Toaster Notifications At Once',
+            'slug' => 's8-toasters',
+            'description' => <<<EOT
+                Originally we had a notifications Blade component that handled toaster notifications well. However, what happens if we want to show multiple notifications at a time? Let's find out! Along the way, we'll explore a few really good nuggets about how I build small components like this with Alpine.
+            EOT,
+            'url' => 'aHR0cHM6Ly9wbGF5ZXIudmltZW8uY29tL3ZpZGVvLzQ3MDI1ODc4Nw==',
+            'code_url' => 'https://github.com/livewire/surge/commit/ea30804d4156b0ac9c4e8b2dea084257fb90c8b2',
+            'duration_in_minutes' => '29:09',
+            'series_id' => 8,
+            'is_paid' => true,
+        ],
     ];
 }
