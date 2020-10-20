@@ -39,6 +39,10 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-around space-x-3 lg:space-x-6 lg:-mx-24">
+                <a class="mb-4 block" href="https://larajobs.com/" target="_blank">
+                    <img class="w-32 m-auto mb-4" src="/img/sponsor_larajobs.svg" alt="Larajobs">
+                </a>
+
                 <a class="mb-4 block" href="https://padmission.com/" target="_blank">
                     <img class="w-32 m-auto mb-4" src="/img/sponsor_padmission.png" alt="Padmission">
                 </a>
