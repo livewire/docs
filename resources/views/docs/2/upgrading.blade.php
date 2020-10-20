@@ -26,6 +26,7 @@ Here are the breaking changes and their upgrade instructions in order of impact:
 1. [Updated: Pagination Views](#pagination)
 1. [Updated: JavaScript Hooks](#hooks)
 1. [Updated: VueJs Support](#vuejs)
+1. [Changed: `validate()`](#validate)
 
 ### Updated: `$updatesQueryString` to `$queryString` {#query-string}
 Livewire 1.x had a more primitive utility for manipulating the browser's query string based on property values. In V2, there is a much more advanced utility for manipulating the query string.
@@ -331,6 +332,27 @@ If your Livewire currently depends on the [vue-plugin](https://github.com/livewi
 @endverbatim
 @endcomponent
 
+## Changed: `validate()` {#validate}
+
+In Livewire V2, using `$this->validate($rules)` with an empty array of rules will throw a `MissingRulesException`.
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class Post extends Component
+{
+    use ValidatesInput;
+
+    public function update()
+    {
+        // Before: Validation was performed normally
+        $result = $this->validate([]);
+
+        // After: Validation will throw a MissingRulesException
+        $result = $this->validate([]);
+    }
+}
+@endverbatim
+@endcomponent
 
 ## Signing Off
 Hopefully, the impact of this upgrade isn't much for you.
