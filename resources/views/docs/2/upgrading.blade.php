@@ -14,6 +14,15 @@ Before we get into the technical upgrade stuff, you might be interested in what 
 3. Run `php artisan view:clear`
 4. Run `php artisan livewire:publish --assets` (If you published the assets before)
 
+## Update Your Alpine Version
+
+If you are using [AlpineJS](https://github.com/alpinejs/alpine) with Livewire V2, make sure you are on version `2.7.0` or greater.
+
+**For example:**
+@component('components.code', ['lang' => 'html'])
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
+@endcomponent
+
 ## Update Your Application Code
 
 Here are the breaking changes and their upgrade instructions in order of impact:
