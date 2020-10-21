@@ -5,11 +5,32 @@ For these cases, AlpineJS is the perfect companion to Livewire.
 
 It allows you to sprinkle JavaScript behavior directly into your markup in a declarative/reactive way that should feel very similar to VueJS (If that's what you're used to).
 
+## Installation {#installation}
+
+You must install Alpine in order to use it with Livewire.
+
+To install Alpine in your project, add the following script tag to the `<head>` section of your layout file.
+
+@component('components.code', ['lang' => 'html', 'id' => 'js-inject-alpine-version'])
+<head>
+    ...
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
+    <!-- The "defer" attribute is important to make sure Alpine waits for Livewire to load first. -->
+</head>
+@endcomponent
+
+<!-- This is so dark, but this will replace the referenced Alpine version with the latest one. -->
+<span x-data x-init="
+    () => {};
+    let element = document.querySelector('#js-inject-alpine-version');
+    let html = element.innerHTML;
+    element.innerHTML = html.replace('2.7.1', window.Alpine.version);
+"></span>
+
+
+For more installation information, visit the [Alpine Docs](https://github.com/alpinejs/alpine).
+
 ## Using Alpine Inside Of Livewire {#alpine-in-livewire}
-
-Livewire supports Alpine out of the box and works pretty hard to make the combination as smooth as possible.
-
-> Note: You must install Alpine in order to use it. Check out [Alpine repo](https://github.com/alpinejs/alpine) for installation instructions.
 
 Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewire component's view.
 
