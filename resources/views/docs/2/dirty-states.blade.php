@@ -1,7 +1,7 @@
 
-There are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end Livewire component.
+There are cases where it may be useful to provide feedback to user which content or element that has been changed and has not been in-sync yet with the back-end Livewire component.
 
-For input that uses `wire:model`, or `wire:model.lazy`, you may want to display that a field is 'dirty' until Livewire has fully updated.
+For input that uses `wire:model`, or `wire:model.lazy`, you may want to display that a field is 'dirty' until Livewire has been fully updated.
 
 ## Toggling classes on "dirty" elements {#toggling-classes}
 
