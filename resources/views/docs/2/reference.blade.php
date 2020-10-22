@@ -36,7 +36,7 @@ Directive | Description
 
 ### Alpine Component Object (`$wire`)
 
-These are methods and properties availabe on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
+These are methods and properties available on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
 
 @component('components.code', ['lang' => 'html'])
 <div x-data>
