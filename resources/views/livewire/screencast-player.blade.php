@@ -69,6 +69,11 @@
         return {
             init() {
                 var iframe = document.querySelector('iframe');
+
+                if (!iframe) {
+                    return;
+                }
+
                 var player = new Vimeo.Player(iframe);
 
                 if (localStorage.getItem('livewire.screencasts.rate')) {
