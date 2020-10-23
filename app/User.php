@@ -43,6 +43,10 @@ class User extends Authenticatable
             return true;
         }
 
+        if (UiAction::recentlyClickedBecomeASponsor($this)) {
+            return true;
+        }
+
         if ($this->sponsor) {
             return $this->sponsor->getsScreencasts();
         }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UiAction extends Model
 {
     const INVITE_SENT = 1;
+    const BECOME_A_SPONSOR_CLICKED = 2;
 
     protected $guarded = [];
 
@@ -29,5 +30,14 @@ class UiAction extends Model
             'user_id' => $user->id,
             'type' => static::INVITE_SENT,
         ])->exists();
+    }
+
+    public static function recentlyClickedBecomeASponsor($user)
+    {
+        return static::query()
+            ->where('user_id', $user->id)
+            ->where('type', static::BECOME_A_SPONSOR_CLICKED)
+            ->where('created_at', '>=', now()->subMinutes(30))
+            ->exists();
     }
 }
