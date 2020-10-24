@@ -8,6 +8,8 @@ Each Livewire component undergoes a lifecycle. Lifecycle hooks allow you to run 
 Hooks | Description
 --- | ---
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
+hydrateFoo | Runs on every request, after the component is hydrated, but before `hydrate()` is called
+dehydrateFoo | Runs on every request, before the component is dehydrated, but before `dehydrate()` is called
 hydrate | Runs on every request, after the component is hydrated, but before an action is performed, or `render()` is called
 dehydrate | Runs on every request, before the component is dehydrated, but after `render()` is called
 updating | Runs before any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
@@ -24,6 +26,16 @@ class HelloWorld extends Component
     public $foo;
 
     public function mount()
+    {
+        //
+    }
+
+    public function hydrateFoo($value)
+    {
+        //
+    }
+
+    public function dehydrateFoo($value)
     {
         //
     }
