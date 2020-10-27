@@ -80,6 +80,7 @@ Route::get('/docs/{versionSlug}/{pageSlug}', function ($versionSlug, $pageSlug) 
         'social_image' => ($versionSlug === '2.x' && $pageSlug === 'upgrading') ? 'https://laravel-livewire.com/img/twitter-card2.jpg' : 'https://laravel-livewire.com/img/twitter.png',
         'title' => $pages->title(),
         'slug' => $pageSlug,
+        'versionSlug' => $versionSlug,
         'pages' => $pages,
         'content' => $content,
     ]);

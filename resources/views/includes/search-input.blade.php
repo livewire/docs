@@ -34,7 +34,10 @@
                 apiKey: '{{ $docsearchApiKey }}',
                 indexName: '{{ $docsearchIndexName }}',
                 inputSelector: '#docsearch-input',
-                debug: false // Set debug to true if you want to inspect the dropdown
+                debug: false, // Set debug to true if you want to inspect the dropdown
+                algoliaOptions: {
+                    facetFilters: ["version:{{ (new \App\DocumentationPages())->newestVersion() }}.x"]
+                },
             });
 
             const searchInput = {
