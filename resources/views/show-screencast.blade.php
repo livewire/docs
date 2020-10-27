@@ -12,9 +12,10 @@
             @livewire('screencast-player', ['screencast' => $screencast])
         </div>
 
-        <nav class="hidden w-1/4 overflow-y-auto bg-white lg:block">
-            <div class="relative overflow-y-auto invisible hover:visible">
-                <div class="p-8 visible bg-white">
+        <nav class="hidden relative z-10 h-full w-1/4 bg-white overflow-x-hidden lg:block">
+            <div class="absolute right-0 -mr-4 z-10 w-8 h-64 pointer-events-none bg-gradient-to-b from-white to-transparent"></div>
+            <div class="relative h-full flex-1 overflow-y-auto">
+                <div class="p-8 bg-white">
                     @include('includes.screencast-sidebar')
                 </div>
             </div>
