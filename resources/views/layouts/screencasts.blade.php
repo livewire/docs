@@ -1,26 +1,14 @@
-@extends('layouts.master')
-
-@section('nav-menu')
-    <div class="ml-8 mt-8">
-        @include('includes.screencast-sidebar')
-    </div>
-@endsection
-
-@section('content')
-<section>
-    <div class="flex">
-        <div class="flex-1">
-            @livewire('screencast-player', ['screencast' => $screencast])
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @include('includes.head')
+    </head>
+    <body class="font-sans leading-normal text-gray-800 antialiased bg-gray-100">
+        <div class="min-h-screen flex flex-col lg:h-screen">
+            @include('includes.header')
+            @yield('content')
+            @include('includes.footer')
         </div>
-
-        <nav class="hidden w-1/4 lg:block overflow-hidden bg-white">
-            <!-- I removed "max-h-screen" from the tag below because it needs to be implemented better. -->
-            <div class="relative overflow-y-auto invisible hover:visible">
-                <div class="p-8 visible bg-white">
-                    @include('includes.screencast-sidebar')
-                </div>
-            </div>
-        </nav>
-    </div>
-</section>
-@overwrite
+        @include('includes.scripts')
+    </body>
+</html>
