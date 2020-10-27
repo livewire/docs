@@ -4,6 +4,9 @@
     @unless($pages->isNewestVersion())
         <link rel="canonical" href="{{ secure_url('docs/'.$pages->newestVersion().'.x/'.$pages->currentPage) }}" />
     @endunless
+
+    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:version" content="{{ $versionSlug }}" />
 @endpush
 
 @section('nav-menu')
