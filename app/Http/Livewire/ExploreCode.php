@@ -17,6 +17,15 @@ class ExploreCode extends Component
         $this->screencast = $screencast;
     }
 
+    public function becomeASponsor()
+    {
+        if (auth()->check()) {
+            auth()->user()->uiActions()->firstOrCreate(['type' => UiAction::BECOME_A_SPONSOR_CLICKED]);
+        }
+
+        return $this->redirect('https://github.com/sponsors/calebporzio');
+    }
+
     public function sendInvite()
     {
         Http::withToken(env('GITHUB_TOKEN'))

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\UiAction;
 use App\Screencast;
 use Livewire\Component;
 use App\ScreencastProgress;
@@ -21,6 +22,15 @@ class ScreencastPlayer extends Component
                 'user_id' => auth()->id(),
             ]);
         }
+    }
+
+    public function becomeASponsor()
+    {
+        if (auth()->check()) {
+            auth()->user()->uiActions()->firstOrCreate(['type' => UiAction::BECOME_A_SPONSOR_CLICKED]);
+        }
+
+        return $this->redirect('https://github.com/sponsors/calebporzio');
     }
 
     public function updateLastKnownTimestamp($seconds)
