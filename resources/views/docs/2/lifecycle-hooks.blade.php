@@ -8,10 +8,10 @@ Each Livewire component undergoes a lifecycle. Lifecycle hooks allow you to run 
 Hooks | Description
 --- | ---
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
-hydrateFoo | Runs on every request, after the component is hydrated, but before `hydrate()` is called
-dehydrateFoo | Runs on every request, before the component is dehydrated, but before `dehydrate()` is called
 hydrate | Runs on every request, after the component is hydrated, but before an action is performed, or `render()` is called
+hydrateFoo | Runs before a property called `$foo` is hydrated
 dehydrate | Runs on every request, before the component is dehydrated, but after `render()` is called
+dehydrateFoo | Runs before a property called `$foo` is dehydrated
 updating | Runs before any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
 updated | Runs after any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
 updatingFoo | Runs before a property called `$foo` is updated
