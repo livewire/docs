@@ -31,7 +31,7 @@ If you are on Laravel 7 or greater, you can use the tag syntax.
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
-<livewire:foo>
+<livewire:foo />
 @endverbatim
 @endcomponent
 
