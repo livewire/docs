@@ -36,7 +36,7 @@ Directive | Description
 
 ### Alpine Component Object (`$wire`)
 
-These are methods and properties availabe on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
+These are methods and properties available on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
 
 @component('components.code', ['lang' => 'html'])
 <div x-data>
@@ -89,7 +89,7 @@ Method | Description
 
 ### JavaScript Hooks {#js-hooks}
 
-These are "hooks" you can listen for in JavaScript. These allow you to hook into very specific parts of a Livewire component's JavaScript lifecycle for third-party packages or deep customizations. The abilties unlocked here are immense. A significant of Livewire's core uses these hooks to provide functionality.
+These are "hooks" you can listen for in JavaScript. These allow you to hook into very specific parts of a Livewire component's JavaScript lifecycle for third-party packages or deep customizations. The abilities unlocked here are immense. A significant of Livewire's core uses these hooks to provide functionality.
 
 @component('components.code', ['lang' => 'javascript'])
 Livewire.hook('component.initialized', component => {
