@@ -17,7 +17,7 @@
         style="transition: width .2s;"
         name="docsearch"
         type="text"
-        placeholder="Search"
+        placeholder='Search the docs (Press "/" to focus)'
     >
 
     <button
