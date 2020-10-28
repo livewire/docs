@@ -6,7 +6,7 @@ The most common issues encountered by Livewire users has to do with Livewire's D
 For the most part, this system is reliable, but there are certain cases where Livewire is unable to properly track changes. When this happens, hopefully, a helpful error will be thrown and you can debug with the following guide.
 
 ### Symptoms:
-* An input element looses focus
+* An input element loses focus
 * An element or group of elements dissapears suddenly
 * A previously interactive element stops responding to user input
 * A loading indicator mis-fires
