@@ -47,7 +47,10 @@ Here's an example:
 
         // Set the value of the "count" property
         @this.count = 5
-
+        
+        // Is also possible set a value with defer. The third parameter apply defer directive
+        @this.set('count', 5, true);
+        
         // Call the increment component action
         @this.increment()
 
