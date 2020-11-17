@@ -17,7 +17,7 @@ class ShowPosts extends Component
         $this->sortBy = $field;
 
         $this->sortDirection = $this->sortBy === $field
-            ? $this->reverseSort();
+            ? $this->reverseSort()
             : 'asc';
     }
 
