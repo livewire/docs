@@ -44,7 +44,7 @@ You can publish Livewire's config file with the following artisan command:
 
 @component('components.code', ['lang' => 'bash'])
 @verbatim
-php artisan livewire:publish --config
+php artisan livewire:publish
 @endverbatim
 @endcomponent
 
