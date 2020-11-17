@@ -125,6 +125,16 @@ class ShowPosts extends Component
 @endverbatim
 @endcomponent
 
+**Method C**: Publish the Livewire pagination views.
+
+You can publish the Livewire pagination views to <code>resources/views/vendor/livewire</code> using the following artisan command:
+
+@component('components.code', ['lang' => 'bash'])
+@verbatim
+php artisan livewire:publish --pagination
+@endverbatim
+@endcomponent
+
 @component('components.warning')
 Unfortunately, Livewire will overwrite a custom view you have defined inside a service provider using: <code>Paginator::defaultView()</code>.
 @endcomponent
