@@ -99,11 +99,32 @@ class CreatePostTest extends TestCase
 }
 @endcomponent
 
+## Testing With Query String Parameters {#testing-querystring}
+
+To test Livewire's `$queryString` functionality, you can use Livewire's `::withQueryParams` testing utility.
+
+@component('components.code', ['lang' => 'php'])
+class CreatePostTest extends TestCase
+{
+    /** @test */
+    function post_creation_page_contains_livewire_component()
+    {
+        Livewire::withQueryParams(['foo' => 'bar'])
+            ->test(ShowFoo::class)
+            ->assertSet('foo', 'bar')
+            ->assertSee('bar');
+    }
+}
+@endcomponent
+
 ## All Available Test Methods {#all-testing-methods}
 
 @component('components.code', ['lang' => 'php'])
 Livewire::actingAs($user);
 // Set the provided user as the session's logged in user for the test
+
+Livewire::withQueryParams(['foo' => 'bar']);
+// Set the query param "foo" to "bar" for the Livewire component's `$queryString` property to pick up.
 
 Livewire::test('foo', ['bar' => $bar]);
 // Test the "foo" component with "bar" set as a parameter.

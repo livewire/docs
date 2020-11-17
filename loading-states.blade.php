@@ -19,6 +19,19 @@ When the "Checkout" button is clicked, the "Processing Payment..." message will 
 
 If you want to avoid flickering because loading is very fast, you can add the `.delay` modifier, and it will only show up if loading takes longer than `200ms`.
 
+@component('components.code', ['lang' => 'html'])
+<div wire:loading.delay>...</div>
+@endcomponent
+
+By default, Livewire set's a loading element's "display" CSS property to "inline-block". If you want Livewire to use "flex" or "grid", you can use the following modifiers.
+
+@component('components.code', ['lang' => 'html'])
+<div wire:loading.flex>...</div>
+<div wire:loading.grid>...</div>
+<div wire:loading.inline>...</div>
+<div wire:loading.table>...</div>
+@endcomponent
+
 You can also "hide" an element during a loading state using the `.remove` modifier.
 
 @component('components.code', ['lang' => 'html'])
