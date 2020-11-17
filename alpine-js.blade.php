@@ -90,13 +90,13 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 @endverbatim
 @endcomponent
 
-Now, the Livewire and Alpine syntaxes are completely seperate, AND you have a reusable Blade component to use from other components.
+Now, the Livewire and Alpine syntaxes are completely separate, AND you have a reusable Blade component to use from other components.
 
 ## Interacting With Livewire From Alpine: `$wire`
 
 From any Alpine component inside a Livewire component, you can access a magic `$wire` object to access and manipulate the Livewire component.
 
-To demonstrate it's usage, we'll create a "counter" component in Alpine that uses Livewire completely under the hood:
+To demonstrate its usage, we'll create a "counter" component in Alpine that uses Livewire completely under the hood:
 
 @component('components.code-component')
 @slot('class')
@@ -126,7 +126,7 @@ class Counter extends Component
 @endslot
 @endcomponent
 
-Now, when a user clicks "Increment", the standard Livewire roundtrip will trigger and Alpine will reflect Livewire's new `$count` value.
+Now, when a user clicks "Increment", the standard Livewire round trip will trigger and Alpine will reflect Livewire's new `$count` value.
 
 Because `$wire` uses a [JavaScript Proxy]() under the hood, you are able to access properties on it and call methods on it and those operations will be forwarded to Livewire. In addition to this functionality, `$wire` also has standard, built-in methods available to you.
 
@@ -139,7 +139,7 @@ $wire.foo
 // Calling a Livewire method
 $wire.someMethod(someParam)
 
-// Calling a Livewire method and doing something with it's result
+// Calling a Livewire method and doing something with its result
 $wire.someMethod(someParam)
     .then(result => { ... })
 
@@ -168,7 +168,7 @@ $wire.__instance
 ## Sharing State Between Livewire And Alpine: @verbatim`@entangle`@endverbatim
 Livewire has an incredibly powerful feature called "entangle" that allows you to "entangle" a Livewire and Alpine property together. With entanglement, when one value changes, the other will also be changed.
 
-To demonstrate, consider the dropdown example from before, but now with it's `show` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
+To demonstrate, consider the dropdown example from before, but now with its `show` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
 
 @component('components.code-component')
 @slot('class')
