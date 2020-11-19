@@ -14,11 +14,11 @@ class ShowPosts extends Component
 
     public function sortBy($field)
     {
-        $this->sortBy = $field;
-
         $this->sortDirection = $this->sortBy === $field
             ? $this->reverseSort()
             : 'asc';
+
+        $this->sortBy = $field;
     }
 
     public function reverseSort()
