@@ -297,15 +297,13 @@ For example:
 @component('components.code-component')
 @slot('class')
 @verbatim
-use Illuminate\Support\Facades\Validator;
-
 class ContactForm extends Component
 {
     public $email;
 
     public function saveContact()
     {
-        $validatedData = Validator::make(
+        $validatedData = $this->validate(
             ['email' => $this->email],
             ['email' => 'required|email'],
             ['required' => 'The :attribute field is required'],
