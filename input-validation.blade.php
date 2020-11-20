@@ -1,5 +1,5 @@
 
-Validation in Livewire should feel similar to standard form validation in Laravel. In short, Livewire provides a `$rules` property for setting validation rules on a per-component basis, and a `->validate()` method for validating a component's properties using those rules.
+Validation in Livewire should feel similar to standard form validation in Laravel. In short, Livewire provides a `$rules` property for setting validation rules on a per-component basis, and a `$this->validate()` method for validating a component's properties using those rules.
 
 Here's a simple example of a form in Livewire being validated.
 
