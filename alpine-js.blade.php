@@ -241,7 +241,7 @@ For example, you might create a text input Blade component like so:
 
 A simple Blade component like this will work perfectly fine. Laravel and Blade will automatically forward any extra attributes added to the component (like `wire:model` in this case), and place them on the `<input>` tag because we echoed out the attribute bag (`$attributes`).
 
-However, sometimes you might need to extract more detailed into about Livewire attributes passed to the component.
+However, sometimes you might need to extract more detailed information about Livewire attributes passed to the component.
 
 For these cases, Livewire offers a `$attributes->wire()` method to help with these tasks.
 
