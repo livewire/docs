@@ -143,7 +143,7 @@ $wire.someMethod(someParam)
 $wire.someMethod(someParam)
     .then(result => { ... })
 
-// Calling a Livewire method and storing it's response using async/await
+// Calling a Livewire method and storing its response using async/await
 let foo = await $wire.getFoo()
 
 // Emitting a Livewire event called "some-event" with two parameters
@@ -241,9 +241,9 @@ For example, you might create a text input Blade component like so:
 
 A simple Blade component like this will work perfectly fine. Laravel and Blade will automatically forward any extra attributes added to the component (like `wire:model` in this case), and place them on the `<input>` tag because we echoed out the attribute bag (`$attributes`).
 
-However, sometimes you might need to extract more detailed into about Livewire attributes passed to the component.
+However, sometimes you might need to extract more detailed info about Livewire attributes passed to the component.
 
-For these cases, Livewire offers a `$attributes->wire()` method to help with these tasks.
+For these cases, Livewire offers an `$attributes->wire()` method to help with these tasks.
 
 Given the following Blade Component usage:
 
