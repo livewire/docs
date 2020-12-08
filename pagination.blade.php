@@ -44,7 +44,7 @@ Now there will be rendered HTML links for the different pages at the bottom of y
 
 A common pattern when filtering a paginated result set is to reset the current page to "1" when filtering is applied.
 
-For example, If a user visits page "4" of your data set, then types into a search field to narrow the results, it is usually desireable to reset the page to "1".
+For example, if a user visits page "4" of your data set, then types into a search field to narrow the results, it is usually desireable to reset the page to "1".
 
 Livewire's `WithPagination` trait exposes a `->resetPage()` method to accomplish this.
 
