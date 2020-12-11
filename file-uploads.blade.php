@@ -92,7 +92,7 @@ $this->photo->store('photos', 's3');
 $this->photo->storeAs('photos', 'avatar');
 
 // Store in the "photos" directory in a configured "s3" bucket with the filename "avatar.png".
-$this->photo->storeAs('photos', 'avatar', 'S3');
+$this->photo->storeAs('photos', 'avatar', 's3');
 
 // Store in the "photos" directory, with "public" visibility in a configured "s3" bucket.
 $this->photo->storePublicly('photos', 's3');
