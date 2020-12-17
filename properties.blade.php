@@ -47,10 +47,11 @@ class HelloWorld extends Component
 
 ### Important Notes {#important-notes}
 
-Here are two ESSENTIAL things to note about public properties before embarking on your Livewire journey:
+Here are three ESSENTIAL things to note about public properties before embarking on your Livewire journey:
 
-1. Data stored in public properties is made visible to the front-end JavaScript. Therefore, you SHOULD NOT store sensitive data in them.
-2. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Stringable`, `Collection`, `DateTime`, `Model`, `EloquentCollection`.
+1. Property names can't conflict with property names reserved for Livewire (e.g. `rules` or `messages`)
+2. Data stored in public properties is made visible to the front-end JavaScript. Therefore, you SHOULD NOT store sensitive data in them.
+3. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Stringable`, `Collection`, `DateTime`, `Model`, `EloquentCollection`.
 
 @component('components.warning')
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
