@@ -36,6 +36,10 @@ You can alternatively use the tag syntax.
 
 That's it! That's all you need to start using Livewire. Everything else on this page is optional.
 
+@component('components.tip')
+If you are using VueJS along with Livewire, you may need to add a small [vue-plugin](https://github.com/livewire/vue) to prevent certain "fingerprint" errors for nested components.
+@endcomponent
+
 ## Publishing The Config File {#publishing-config}
 
 Livewire aims for "zero-configuration" out-of-the-box, but some users require more configuration options.
