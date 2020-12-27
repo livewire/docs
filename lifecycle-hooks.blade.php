@@ -50,12 +50,12 @@ class HelloWorld extends Component
         //
     }
 
-    public function updating($name, $value)
+    public function updating($value, $name)
     {
         //
     }
 
-    public function updated($name, $value)
+    public function updated($value, $name)
     {
         //
     }
