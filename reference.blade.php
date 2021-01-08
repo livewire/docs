@@ -272,8 +272,8 @@ Name | Params | Description
 `artisan livewire:mv` | Alias for `livewire:move`
 `artisan livewire:rm` | Alias for `livewire:delete`
 `artisan livewire:stubs` | Publish Livewire stubs (used in the above commands) for local modification
-`artisan livewire:publish` | Public Livewire's config file to your project (`config/livewire.php`)
-`artisan livewire:publish --assets` | Public Livewire's config file AND its frontend assets to your project
+`artisan livewire:publish` | Publish Livewire's config file to your project (`config/livewire.php`)
+`artisan livewire:publish --assets` | Publish Livewire's config file AND its frontend assets to your project
 `artisan livewire:configure-s3-upload-cleanup` | Configure your cloud disk driver's S3 bucket to clear temporary uploads after 24 hours
 @endcomponent
 
