@@ -1,6 +1,6 @@
 Already familiar with Livewire and want to skip the long-form documentation? Here's a giant list of everything available in Livewire.
 
-### Template Directives
+### Template Directives {#template-directives}
 These are directives added to elements within Livewire component templates.
 
 @component('components.code', ['lang' => 'html'])
@@ -34,7 +34,7 @@ Directive | Description
 `wire:ignore.self` | The "self" modifier restricts updates to the element itself, but allows modifications to its children.
 @endcomponent
 
-### Alpine Component Object (`$wire`)
+### Alpine Component Object (`$wire`) {#alpine-component-object}
 
 These are methods and properties available on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
 
@@ -64,7 +64,7 @@ API | Description
 `$wire.entangle('foo').defer` | Only update Livewire's "foo" next time a Livewire request is fired
 @endcomponent
 
-### Global Livewire JavaScript Object
+### Global Livewire JavaScript Object {#global-livewire-js}
 
 These are methods available on the `window.Livewire` object in the frontend. These are for deeper Livewire interaction and customization.
 
@@ -111,7 +111,7 @@ Name | Params | Description
 `message.processed` | `(message, component)` | A message has been fully received and implemented (DOM updates, etc...)
 @endcomponent
 
-### Component Class Lifecycle Hooks
+### Component Class Lifecycle Hooks {#component-class-lifecycle}
 
 These are methods you can declare in your Livewire component classes to run code at specific times in the backend's lifecycle. [Read Full Documentation](/docs/2.x/lifecycle-hooks)
 
@@ -137,7 +137,7 @@ Name | Description
 `dehydrate()` | Called after `render()`, but before the component has been dehydrated and sent to the frontend
 @endcomponent
 
-### Component Class Protected Properties
+### Component Class Protected Properties {#component-class-protected-properties}
 
 Livewire provides core functionality through protected properties on a component's class. Most of these have corresponsing methods by the same name if you prefer to return values in a method, rather than declare them as properties.
 
@@ -157,7 +157,7 @@ Name | Description
 `$paginationTheme` | Specify whether you want to use Tailwind or Bootstrap for you pagination theme. [Read Docs](/docs/2.x/pagination)
 @endcomponent
 
-### Component Class Traits
+### Component Class Traits {#component-class-traits}
 
 These are traits that unlock additional functionality in a Livewire component. Usually for features that are considered best as "opt-in".
 
@@ -175,7 +175,7 @@ Name | Description
 `WithFileUploads` | This trait enables adding `wire:model` to an input of `type="file"`. [Read Docs](/docs/2.x/file-uploads)
 @endcomponent
 
-### Class Methods
+### Class Methods {#class-methods}
 
 @component('components.code', ['lang' => 'php'])
 class PostForm extends Component
@@ -213,7 +213,7 @@ Name | Description
 `$this->only([...$propertyNames])` | Return key->value pairs of property data only for a specific set of property names
 @endcomponent
 
-### PHP Testing Methods
+### PHP Testing Methods {#php-testing-methods}
 
 These are methods available on Livewire's testing helpers. [Read Full Documentation](/docs/2.x/testing)
 
@@ -255,7 +255,7 @@ Name |
 `->assertViewIs('livewire.some-view-name')` |
 @endcomponent
 
-### Artisan Commands
+### Artisan Commands {#artisan-commands}
 
 These are the `artisan` commands Livewire makes available to make frequent tasks like creating a component easier.
 
@@ -277,7 +277,7 @@ Name | Params | Description
 `artisan livewire:configure-s3-upload-cleanup` | Configure your cloud disk driver's S3 bucket to clear temporary uploads after 24 hours
 @endcomponent
 
-### PHP Lifecycle Hooks
+### PHP Lifecycle Hooks {#php-lifecycle-hooks}
 
 These are hooks provided by Livewire in PHP for listening to lifecycle occurences at a global level (not at a component level). These are used internally to provide a significant portion of Livewire's core functionality, and can be used in ServiceProviders to further extend Livewire yourself.
 
