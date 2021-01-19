@@ -88,3 +88,8 @@ class OrderTracker extends Component
 }
 @endslot
 @endcomponent
+
+@component('components.warning')
+    Please keep in mind that the method above does not work with events that have a custom name which is defined in your event's `public function broadcastAs()`
+    because Livewire internally appends `App\Events\` to the event name. 
+@endcomponent
