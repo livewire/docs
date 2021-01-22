@@ -8,7 +8,7 @@
 
 @include('includes.screencast-cta')
 
-## Introduction {#introduction}
+## [# Introduction](#introduction) {#introduction}
 
 The goal of actions in Livewire is to be able to easily listen to page interactions, and call a method on your Livewire component (re-rendering the component).
 
