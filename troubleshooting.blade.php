@@ -37,6 +37,22 @@ For the most part, this system is reliable, but there are certain cases where Li
 @endverbatim
 @endcomponent
 
+If you are using pagination, you're better off using a `key` that doesn't come from the `$loop` variable because you might end up with two different livewire component with the same `key`
+
+@component('components.code')
+@verbatim
+<ul>
+    @foreach ($paginatedItems as $item)
+        @livewire('view-item', ['item' => $item], key($item->id))
+
+        <!-- key() using Laravel 7's tag syntax -->
+        <livewire:view-item :item="$item" :key="$loop->index">
+    @endforeach
+    {{ $paginatedItems->links() }}
+</ul>
+@endverbatim
+@endcomponent
+
 * Wrap Blade conditionals (`@@if`, `@@error`, `@@auth`) in an element
 @component('components.code')
 @verbatim
