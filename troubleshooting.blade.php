@@ -48,8 +48,8 @@ If you are using pagination, you're better off using a `key` that doesn't come f
         <!-- key() using Laravel 7's tag syntax -->
         <livewire:view-item :item="$item" :key="$loop->index">
     @endforeach
-    {{ $paginatedItems->links() }}
 </ul>
+{{ $paginatedItems->links() }}
 @endverbatim
 @endcomponent
 
