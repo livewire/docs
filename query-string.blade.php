@@ -28,7 +28,7 @@ class SearchPosts extends Component
 @slot('view')
 @verbatim
 <div>
-    <input wire:model="search" type="text" placeholder="Search posts by title...">
+    <input wire:model="search" type="search" placeholder="Search posts by title...">
 
     <h1>Search Results:</h1>
 
