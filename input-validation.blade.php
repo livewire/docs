@@ -54,6 +54,26 @@ You can also add custom key/message pairs to the error bag.
 @endverbatim
 @endcomponent
 
+If you need to define rules dynamically, you can substitute the `$rules` property for the `getRules()` method on the component:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class ContactForm extends Component
+{
+    public $name;
+    public $email;
+
+    protected function getRules()
+    {
+        return [
+            'name' => 'required|min:6',
+            'email' => ['required', 'email', 'not_in:' . auth()->user()->email],
+        ];
+    }
+}
+@endverbatim
+@endcomponent
+
 ## Real-time Validation {#real-time-validation}
 
 Sometimes it's useful to validate a form field as a user types into it. Livewire makes "real-time" validation simple with the `$this->validateOnly()` method.
