@@ -63,6 +63,19 @@ In the above example, the loading indicator will be displayed when the "Checkout
 
 `wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
+You may also target actions with specific parameters.
+@component('components.code', ['lang' => 'html'])
+<div>
+    <button wire:click="update('bob')">Update</button>
+
+    <div wire:loading wire:target="update('bob')">
+        Updating Bob...
+    </div>
+</div>
+@endcomponent
+
+
+## Targeting models {#targeting-models}
 In addition to actions, you can also target whenever a `wire:model` is synchronized.
 
 @component('components.code', ['lang' => 'html'])
