@@ -10,6 +10,7 @@ For the most part, this system is reliable, but there are certain cases where Li
 * An element or group of elements dissapears suddenly
 * A previously interactive element stops responding to user input
 * A loading indicator mis-fires
+* Not providing a root element
 
 ### Cures:
 * Add `wire:key` to elements inside loops:
