@@ -10,9 +10,10 @@ For the most part, this system is reliable, but there are certain cases where Li
 * An element or group of elements dissapears suddenly
 * A previously interactive element stops responding to user input
 * A loading indicator mis-fires
-* Not providing a root element
+* A user action no longer functions
 
 ### Cures:
+* Ensure your component has a single-level root element
 * Add `wire:key` to elements inside loops:
 @component('components.code')
 @verbatim
