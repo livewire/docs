@@ -255,6 +255,15 @@ Name |
 `->assertViewIs('livewire.some-view-name')` |
 @endcomponent
 
+There are also PHPUnit helpers available to check the presence of a component.
+
+@component('components.table')
+Name |
+--- |
+`->assertSeeLivewire($component)` |
+`->assertDontSeeLivewire($component)` |
+@endcomponent
+
 ### Artisan Commands
 
 These are the `artisan` commands Livewire makes available to make frequent tasks like creating a component easier.
