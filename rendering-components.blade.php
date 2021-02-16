@@ -160,9 +160,13 @@ By default, Livewire will render the `ShowPosts` component into the `@{{ $slot }
 For more information on Laravel components, [visit Laravel's documentation](https://laravel.com/docs/blade#components).
 
 ### Configuring The Layout Component {#custom-layout}
-If you want to specify a different layout file than the default, you can use the `->layout()` method on the view instance you return from `render()`.
 
+If you want to specify a default layout other than the `layouts.app`, you can override the `livewire.layout` config option.
+@component('components.code', ['lang' => 'php'])
+    'layout' => 'app.other_default_layout'
+@endcomponent
 
+If you need even more control, you can use the `->layout()` method on the view instance you return from `render()`.
 @component('components.code', ['lang' => 'php'])
 @verbatim
 class ShowPosts extends Component
@@ -226,7 +230,7 @@ public function render()
 }
 @endcomponent
 
-If you need to pass data from your components to your layout, you can pass the data along with the layout method: 
+If you need to pass data from your components to your layout, you can pass the data along with the layout method:
 
 @component('components.code', ['lang' => 'php'])
 public function render()
