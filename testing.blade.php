@@ -98,7 +98,7 @@ class CreatePostTest extends TestCase
     }
 
     /** @test */
-    function post_creation_page_doesnt_contains_livewire_component()
+    function post_creation_page_doesnt_contain_livewire_component()
     {
         $this->get('/posts/create')->assertDontSeeLivewire('edit-post');
     }
