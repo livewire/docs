@@ -54,7 +54,7 @@ You can also add custom key/message pairs to the error bag.
 @endverbatim
 @endcomponent
 
-If you need to define rules dynamically, you can substitute the `$rules` property for the `getRules()` method on the component:
+If you need to define rules dynamically, you can substitute the `$rules` property for the `rules()` method on the component:
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
@@ -63,7 +63,7 @@ class ContactForm extends Component
     public $name;
     public $email;
 
-    protected function getRules()
+    protected function rules()
     {
         return [
             'name' => 'required|min:6',
@@ -166,9 +166,9 @@ class ContactForm extends Component
 
 ## Customize Error Message & Attributes
 
-If you wish to customize the validation messages used by a Livewire component, you can do so with the `$messages` property. 
+If you wish to customize the validation messages used by a Livewire component, you can do so with the `$messages` property.
 
-If you want to keep the default Laravel validation messages, but just customize the `:attribute` portion of the message, you can specify custom attribute names using the `$validationAttributes` property. 
+If you want to keep the default Laravel validation messages, but just customize the `:attribute` portion of the message, you can specify custom attribute names using the `$validationAttributes` property.
 
 @component('components.code-component')
 @slot('class')

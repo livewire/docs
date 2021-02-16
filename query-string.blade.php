@@ -42,31 +42,6 @@ class SearchPosts extends Component
 @endslot
 @endcomponent
 
-If you need to define the query string dynamically, you can substitute the `$queryString` property for the `getQueryString()` method on the component:
-
-@component('components.code', ['lang' => 'php'])
-@verbatim
-class SearchPosts extends Component
-{
-    public $search;
-    public $author;
-
-    public function getQueryString(): array
-    {
-        return [
-            'search' => ['except' => ''],
-            'author' => ['except' => auth()->id()],
-        ];
-    }
-
-    public function mount()
-    {
-        $this->author = auth()->id();
-    }
-}
-@endverbatim
-@endcomponent
-
 ### Keeping A Clean Query String {#clean-query-string}
 
 In the case above, when the search property is empty, the query string will look like this:
