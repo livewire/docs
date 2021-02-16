@@ -1,5 +1,13 @@
 @include('includes.screencast-cta')
 
+## Requirements {#requirements}
+
+You can check full list of required packages in the [composer.json file on Github](https://github.com/livewire/livewire/blob/master/composer.json) but probably the main two requirements are these:
+
+1. PHP 7.2.5 or higher
+2. Laravel 7.0 or higher  
+
+
 ## Install The Package {#install-package}
 
 @component('components.code', ['lang' => 'bash'])
