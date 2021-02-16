@@ -255,6 +255,15 @@ Name |
 `->assertViewIs('livewire.some-view-name')` |
 @endcomponent
 
+There are also Laravel testing response helpers available to check the presence of a component on a given page.
+
+@component('components.table')
+Name |
+--- |
+`$response->assertSeeLivewire('some-component')` |
+`$response->assertDontSeeLivewire('some-component')` |
+@endcomponent
+
 ### Artisan Commands {#artisan-commands}
 
 These are the `artisan` commands Livewire makes available to make frequent tasks like creating a component easier.
