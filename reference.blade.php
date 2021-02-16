@@ -255,13 +255,13 @@ Name |
 `->assertViewIs('livewire.some-view-name')` |
 @endcomponent
 
-There are also PHPUnit helpers available to check the presence of a component.
+There are also Laravel testing response helpers available to check the presence of a component on a given page.
 
 @component('components.table')
 Name |
 --- |
-`->assertSeeLivewire($component)` |
-`->assertDontSeeLivewire($component)` |
+`$response->assertSeeLivewire('some-component')` |
+`$response->assertDontSeeLivewire('some-component')` |
 @endcomponent
 
 ### Artisan Commands
