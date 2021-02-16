@@ -329,5 +329,5 @@ class ShowPost extends Component
 @endcomponent
 
 @component('components.tip')
-Computed properties are cached for an individual Livewire request lifecycle. Meaning, if you call `$this->post` 5 times in a component's blade view, it won't make a seperate database query every time.
+Computed properties are cached for an individual Livewire request lifecycle. Meaning, if you call `$this->post` 5 times in a component's blade view, it won't make a separate database query every time.
 @endcomponent
