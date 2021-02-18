@@ -84,6 +84,26 @@ class ShowPosts extends Component
 @endslot
 @endcomponent
 
+### Using listeners in a Trait
+
+You can also add listeners in a Trait. All you need to do is to merge them with the eventual existing listeners of the component in your Trait's mount method:
+
+@component('components.code-component')
+@slot('class')
+class MyTrait {
+
+    public function initializeMyTrait()
+    {
+        $this->listeners = array_merge($this->listeners, [
+            'postRemoved' => 'decrementPostCount'
+        ]);
+    }
+
+    ...
+}
+@endslot
+@endcomponent
+
 ## Passing Parameters {#passing-parameters}
 
 You can also send parameters with an event emission.
