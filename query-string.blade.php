@@ -68,11 +68,6 @@ class SearchPosts extends Component
         'page' => ['except' => 1],
     ];
 
-    public function mount()
-    {
-        $this->fill(request()->only('search', 'page'));
-    }
-
     ...
 }
 @endslot
