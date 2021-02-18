@@ -168,7 +168,7 @@ $wire.__instance
 ## Sharing State Between Livewire And Alpine: @verbatim`@entangle`@endverbatim
 Livewire has an incredibly powerful feature called "entangle" that allows you to "entangle" a Livewire and Alpine property together. With entanglement, when one value changes, the other will also be changed.
 
-To demonstrate, consider the dropdown example from before, but now with its `show` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
+To demonstrate, consider the dropdown example from before, but now with its `showDropdown` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
 
 @component('components.code-component')
 @slot('class')
