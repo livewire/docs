@@ -90,7 +90,7 @@ You can also add listeners in a Trait. All you need to do is to merge them with 
 
 @component('components.code-component')
 @slot('class')
-class MyTrait {
+trait MyTrait {
 
     public function initializeMyTrait()
     {
