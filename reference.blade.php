@@ -128,13 +128,18 @@ class ShowPost extends Component
 @component('components.table')
 Name | Description
 --- | ---
-`hydrate()` | Called on subsequent Livewire requests after the component has been hydrated, but before any other action occurs
 `mount(...$params)` | Called when a Livewire component is newed up (think of it like a constructor)
+`hydrate()` | Called on subsequent Livewire requests after the component has been hydrated, but before any other action occurs
+`hydrateFoo()` | Runs after a property called $foo is hydrated
+`dehydrate()` | Called after `render()`, but before the component has been dehydrated and sent to the frontend
+`dehydrateFoo()` | Runs before a property called $foo is dehydrated
+`updating()` | Runs before any update to the Livewire component's data (Using wire:model, not directly inside PHP)
 `updated($field, $newValue)` | Called after a property has been updated
+`updatingFoo()` | Runs before a property called $foo is updated
 `updatedFoo($newValue)` | Called after the "foo" property has been updated
+`updatingFooBar()` | Runs before updating a nested property bar on the $foo property
 `updatedFooBar($newValue)` | Called after the nested "bar" key on the "foo" property has been updated
 `render()` | Called before "dehydrate" and renders the Blade view for the component
-`dehydrate()` | Called after `render()`, but before the component has been dehydrated and sent to the frontend
 @endcomponent
 
 ### Component Class Protected Properties {#component-class-protected-properties}
