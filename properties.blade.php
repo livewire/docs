@@ -235,6 +235,10 @@ Notice in the above component we are binding directly to the "title" and "conten
 Note: For this to work, you have a validation entry in the `$rules` property for any model attributes you want to bind to. Otherwise, an error will be thrown.
 @endcomponent
 
+@component('components.warning')
+Note: Since Livewire can't access to hidden properties in front-end you can't direct bind to hidden property unless using "Deferred Updating" mode for that property.
+@endcomponent
+
 Additionally, you can bind to models within an Eloquent Collection.
 
 @component('components.code-component')
