@@ -156,6 +156,9 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertNotSet('foo', 'bar');
 // Asserts that the "foo" property is NOT set to the value "bar" (Includes computed properties)
 
+->assertCount('foo', 1);
+// Asserts that the "foo" property (an array) has a count of 1 (Includes computed properties)
+
 ->assertPayloadSet('foo', 'bar');
 // Asserts that the "foo" property from the JavaScript payload that Livewire returns is set to the value "bar"
 

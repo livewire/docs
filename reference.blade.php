@@ -237,6 +237,7 @@ Name |
 --- |
 `->assertSet($propertyName, $value)` |
 `->assertNotSet($propertyName, $value)` |
+`->assertCount($propertyName, $value)` |
 `->assertPayloadSet($propertyName, $value)` |
 `->assertPayloadNotSet($propertyName, $value)` |
 `->assertSee($string)` |
