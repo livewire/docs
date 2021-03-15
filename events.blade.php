@@ -179,9 +179,11 @@ Livewire allows you to register event listeners in JavaScript like so:
 
 @component('components.code', ['lang' => 'javascript'])
 <script>
-window.livewire.on('postAdded', postId => {
-    alert('A post was added with the id of: ' + postId);
-})
+document.addEventListener('livewire:load', () => {
+    window.livewire.on('postAdded', postId => {
+        alert('A post was added with the id of: ' + postId);
+    })
+});
 </script>
 @endcomponent
 
