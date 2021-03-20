@@ -162,8 +162,11 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertPayloadNotSet('foo', 'bar');
 // Asserts that the "foo" property in the JavaScript payload that Livewire returns is NOT set to the value "bar"
 
-->assertViewIs('foo')
+->assertViewIs('foo');
 // Assert that the view "foo" is the currently rendered view
+
+->assertViewHas('foo', 'bar');
+// Assert that the rendered view has a key of "foo" with a value of "bar"
 
 ->assertSee('foo');
 // Assert that the string "foo" exists in the currently rendered content of the component
