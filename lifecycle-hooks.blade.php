@@ -16,8 +16,8 @@ updating | Runs before any update to the Livewire component's data (Using `wire:
 updated | Runs after any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
 updatingFoo | Runs before a property called `$foo` is updated
 updatedFoo | Runs after a property called `$foo` is updated
-updatingFooBar | Runs before updating a nested property `bar` on the `$foo` property
-updatedFooBar | Runs after updating a nested property `bar` on the `$foo` property
+updatingFooBar | Runs before updating a nested property `bar` on the `$foo` property or a multiword property such as `$fooBar` or `$foo_bar`
+updatedFooBar | Runs after updating a nested property `bar` on the `$foo` property or a multiword property such as `$fooBar` or `$foo_bar`
 @endcomponent
 
 @component('components.code', ['lang' => 'php'])
