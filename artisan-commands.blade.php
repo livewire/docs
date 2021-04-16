@@ -12,6 +12,9 @@ php artisan make:livewire foo.bar
 
 php artisan make:livewire foo --inline
 # Creates only Foo.php
+
+php artisan make:livewire foo --test
+# Creates Foo.php, foo.blade.php, & FooTest.php
 @endcomponent
 
 Once created, you can render your components in a Blade file with the <code>&#64;livewire('component-name')</code> blade directive.
