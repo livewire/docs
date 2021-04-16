@@ -89,7 +89,7 @@ class ShowPosts extends Component
 
 ## Using A Custom Pagination View {#custom-pagination-view}
 
-Livewire provides 2 ways to customize the pagination links Blade view, rendered when calling `$results->links()`.
+Livewire provides 3 ways to customize the pagination links Blade view, rendered when calling `$results->links()`.
 
 **Method A**: Pass view name directly to the `->links()` method.
 
