@@ -20,6 +20,10 @@ updatingFooBar | Runs before updating a nested property `bar` on the `$foo` prop
 updatedFooBar | Runs after updating a nested property `bar` on the `$foo` property or a multiword property such as `$fooBar` or `$foo_bar`
 @endcomponent
 
+@component('components.warning')
+Please note that mutating a property directly inside a Livewire component class doesn't trigger any of the updating/updated hooks.
+@endcomponent
+
 @component('components.code', ['lang' => 'php'])
 class HelloWorld extends Component
 {
