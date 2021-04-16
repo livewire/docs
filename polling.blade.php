@@ -41,12 +41,22 @@ Now, the `foo` method on the component will be called every 2 seconds.
 Livewire reduces polling when the browser tab is in the background so that it doesn't bog down the server with ajax requests unnecessarily.
 Only about 5% of the expected polling requests are kept.
 
-If you'd like to keep polling at the normal rate even while the tab is in the background, you can use the `keep-alive` modifier: 
+If you'd like to keep polling at the normal rate even while the tab is in the background, you can use the `keep-alive` modifier:
 
 @component('components.code')
 @verbatim
 <div wire:poll.keep-alive>
     Current time: {{ now() }}
 </div>
+@endverbatim
+@endcomponent
+
+## Polling only when element is visible
+
+If your component isn't always visible in the browser's viewport (further down the page for example), you can opt to only poll the server when an element is visible by adding the `.visible` modifier to `wire:poll`. For example:
+
+@component('components.code')
+@verbatim
+<div wire:poll.visible></div>
 @endverbatim
 @endcomponent
