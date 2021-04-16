@@ -60,7 +60,7 @@ trait WithSorting
     public function sortBy($field)
     {
         $this->sortDirection = $this->sortBy === $field
-            ? $this->reverseSort();
+            ? $this->reverseSort()
             : 'asc';
 
         $this->sortBy = $field;
