@@ -75,7 +75,7 @@ However, there is more happening under the hood to make file uploads work in Liv
 
 ### Storing Uploaded Files {#storing-files}
 
-The previous example demonstrates the most basic storage scenario: Moving the temporarily uploaded file to a the "photos" directory on the app's default filesystem disk.
+The previous example demonstrates the most basic storage scenario: Moving the temporarily uploaded file to the "photos" directory on the app's default filesystem disk.
 
 However, you may want to customize the file name of the stored file, or even specify a specific storage "disk" to store the file on (maybe in an S3 bucket for example).
 
