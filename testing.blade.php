@@ -123,6 +123,30 @@ class CreatePostTest extends TestCase
 }
 @endcomponent
 
+## Testing Components With Passed Data {#testing-passed-data}
+
+@component('components.code-component')
+@slot('view')
+@verbatim
+<livewire:show-foo foo="bar">
+@endverbatim
+@endslot
+@slot('class')
+@verbatim
+class CreatePostTest extends TestCase
+{
+    /** @test */
+    function has_data_passed_correctly()
+    {
+        Livewire::test(ShowFoo::class, ['foo' => 'bar'])
+            ->assertSet('foo', 'bar')
+            ->assertSee('bar');
+    }
+}
+@verbatim
+@endslot
+@endcomponent
+
 ## All Available Test Methods {#all-testing-methods}
 
 @component('components.code', ['lang' => 'php'])
