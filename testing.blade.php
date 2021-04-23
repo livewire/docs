@@ -105,6 +105,28 @@ class CreatePostTest extends TestCase
 }
 @endcomponent
 
+Alternatively, you may pass a component's class name to the `assertSeeLivewire` and `assertDontSeeLivewire` methods.
+
+@component('components.code', ['lang' => 'php'])
+use App\Http\Livewire\CreatePost;
+use App\Http\Livewire\EditPost;
+
+class CreatePostTest extends TestCase
+{
+    /** @test */
+    function post_creation_page_contains_livewire_component()
+    {
+        $this->get('/posts/create')->assertSeeLivewire(CreatePost::class);
+    }
+
+    /** @test */
+    function post_creation_page_doesnt_contain_livewire_component()
+    {
+        $this->get('/posts/create')->assertDontSeeLivewire(EditPost::class);
+    }
+}
+@endcomponent
+
 ## Testing With Query String Parameters {#testing-querystring}
 
 To test Livewire's `$queryString` functionality, you can use Livewire's `::withQueryParams` testing utility.
