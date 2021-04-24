@@ -154,7 +154,6 @@ class CreatePostTest extends TestCase
 @endverbatim
 @endslot
 @slot('class')
-@verbatim
 class CreatePostTest extends TestCase
 {
     /** @test */
@@ -165,7 +164,6 @@ class CreatePostTest extends TestCase
             ->assertSee('bar');
     }
 }
-@verbatim
 @endslot
 @endcomponent
 
