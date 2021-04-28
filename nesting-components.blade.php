@@ -63,9 +63,9 @@ If you are on Laravel 7 or above, you can use the tag syntax.
 
 ### Sibling Components in a Loop
 
-In some situations, you may find the need to have sibling components inside of a loop, this situation requires additional consideration for the `key` value.
+In some situations, you may find the need to have sibling components inside of a loop, this situation requires additional consideration for the `wire:key` value.
 
-Each component will need its own unique `key`, but using the method above will lead to both sibling components having the same key, which will cause unforeseen issues. To combat this, you could ensure that each `key` is unique by prefixing it with the component name, for example:
+Each component will need its own unique `wire:key`, but using the method above will lead to both sibling components having the same key, which will cause unforeseen issues. To combat this, you could ensure that each `wire:key` is unique by prefixing it with the component name, for example:
 
 @component('components.code', ['lang' => 'html'])
 @verbatim
