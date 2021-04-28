@@ -54,7 +54,7 @@ If you are on Laravel 7 or above, you can use the tag syntax.
 @verbatim
 <div>
     @foreach ($users as $user)
-        <livewire:user-profile :user="$user" :key="$user->id">
+        <livewire:user-profile :user="$user" :wire:key="$user->id">
     @endforeach
 </div>
 @endverbatim
@@ -72,12 +72,12 @@ Each component will need its own unique `key`, but using the method above will l
 <!-- user-profile component -->
 <div>
     // Bad
-    <livewire:user-profile-one :user="$user" :key="$user->id">
-    <livewire:user-profile-two :user="$user" :key="$user->id">
+    <livewire:user-profile-one :user="$user" :wire:key="$user->id">
+    <livewire:user-profile-two :user="$user" :wire:key="$user->id">
 
     // Good
-    <livewire:user-profile-one :user="$user" :key="'user-profile-one-'.$user->id">
-    <livewire:user-profile-two :user="$user" :key="'user-profile-two-'.$user->id">
+    <livewire:user-profile-one :user="$user" :wire:key="'user-profile-one-'.$user->id">
+    <livewire:user-profile-two :user="$user" :wire:key="'user-profile-two-'.$user->id">
 </div>
 @endverbatim
 @endcomponent
