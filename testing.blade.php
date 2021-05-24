@@ -266,6 +266,9 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertRedirect('/some-path');
 // Assert that a redirect was triggered from the component
 
+->assertNoRedirect();
+// Assert that no redirect was triggered from the component
+
 ->assertUnauthorized();
 // Assert that an error within the component caused an error with the status code: 401
 
