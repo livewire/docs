@@ -37,4 +37,4 @@ class ShowPost extends Component
 @endslot
 @endcomponent
 
-The `loadPosts` action will be run imediately after the Livewire component renders on the page.
+The `loadPosts` action will be run immediately after the Livewire component renders on the page.
