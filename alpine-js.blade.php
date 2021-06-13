@@ -1,3 +1,4 @@
+> Important: Livewire currently only supports Alpine V2. Support for V3 is in the works.
 
 There are lots of instances where a page interaction doesn't warrant a full server-roundtrip, like toggling a modal.
 
