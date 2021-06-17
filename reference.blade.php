@@ -18,7 +18,7 @@ Directive | Description
 `wire:model="foo"` | Assuming `$foo` is a public property on the component class, every time an input element with this directive is updated, the property synchronizes with its value.
 `wire:model.debounce.100ms="foo"` | Debounces the `input` events emitted by the element every 100 milliseconds.
 `wire:model.lazy="foo"` | Lazily syncs the input with its corresponding component property at rest.
-`wire:model.defer="foo"` | Deferrs syncing the input with the Livewire property until an "action" is performed. This saves drastically on server roundtrips.
+`wire:model.defer="foo"` | Defers syncing the input with the Livewire property until an "action" is performed. This saves drastically on server roundtrips.
 `wire:poll.500ms="foo"` | Runs the "foo" method on the component class every 500 milliseconds.
 `wire:init="foo"` | Runs the "foo" method on the component immediately after it renders on the page.
 `wire:loading` | Hides the element by default, and makes it visible while network requests are in transit.
