@@ -26,6 +26,7 @@ To install Alpine in your project, add the following script tag to the `<head>` 
     element.innerHTML = html.replace('2.7.1', window.Alpine.version);
 "></span>
 
+**Note**: Be sure to use version 2 of Alpine, because version 3 is not yet supported.
 
 For more installation information, visit the [Alpine Docs](https://github.com/alpinejs/alpine).
 
