@@ -167,6 +167,27 @@ class CreatePostTest extends TestCase
 @endslot
 @endcomponent
 
+## Testing Components With Route Model Binding {#testing-route-model-binding}
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+Route::get('/post/{post}', ShowPosts::class);
+@endverbatim
+@endcomponent
+
+@component('components.code', ['lang' => 'php'])
+class ShowPostsTest extends TestCase
+{
+    /** @test */
+    function has_route_model_binding()
+    {
+        $post = Post::factory()->create(['title' => 'Hello, world!']);
+        Livewire::test(ShowFoo::class, ['post' => $post])
+            ->assertSee('Hello, world!');
+    }
+}
+@endcomponent
+
 ## All Available Test Methods {#all-testing-methods}
 
 @component('components.code', ['lang' => 'php'])
