@@ -27,7 +27,7 @@ To install Alpine in your project, add the following script tag to the `<head>` 
 "></span>
 
 
-For more installation information, visit the [Alpine Docs](https://github.com/alpinejs/alpine).
+For more installation information, visit the [Alpine Docs](https://alpinejs.dev/).
 
 ## Using Alpine Inside Of Livewire {#alpine-in-livewire}
 
