@@ -63,6 +63,9 @@ Here is an example of usage:
 @component('components.code', ['lang' => 'bash'])
 php artisan livewire:move foo bar.baz
 # Foo.php|foo.blade.php -> Bar/Baz.php|bar/baz.blade.php
+
+php artisan livewire:move foo bar.baz --test
+# Foo.php|foo.blade.php|FooTest.php -> Bar/Baz.php|bar/baz.blade.php|Bar/BazTest.php
 @endcomponent
 
 @component('components.tip')
@@ -81,6 +84,9 @@ php artisan livewire:copy foo bar
 
 php artisan livewire:copy foo bar --force
 # Overwrites existing "bar" component
+
+php artisan livewire:copy foo bar --test
+# Copies Foo.php & foo.blade.php & FooTest.php to Bar.php & bar.blade.php & BarTest.php
 @endcomponent
 
 @component('components.tip')
@@ -99,6 +105,9 @@ php artisan livewire:delete foo
 
 php artisan livewire:delete foo --force
 # Removes without confirmation prompt
+
+php artisan livewire:delete foo --test
+# Removes Foo.php & foo.blade.php & FooTest.php
 @endcomponent
 
 @component('components.tip')
