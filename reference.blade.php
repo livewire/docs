@@ -259,6 +259,7 @@ Name |
 `->assertViewHas($viewDataKey, $expectedValue)` |
 `->assertViewHas($viewDataKey, function ($dataValue) {})` |
 `->assertViewIs('livewire.some-view-name')` |
+`->assertFileDownloaded($filename)` |
 @endcomponent
 
 There are also Laravel testing response helpers available to check the presence of a component on a given page.
