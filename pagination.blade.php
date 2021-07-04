@@ -40,6 +40,11 @@ class ShowPosts extends Component
 
 Now there will be rendered HTML links for the different pages at the bottom of your posts, and the results will be paginated.
 
+@component('components.warning')
+The pagination `$posts->links()` must be in the same `divs` as the rendered `$posts`.
+@endcomponent
+
+
 ## Resetting Pagination After Filtering Data {#resetting-pagination}
 
 A common pattern when filtering a paginated result set is to reset the current page to "1" when filtering is applied.
