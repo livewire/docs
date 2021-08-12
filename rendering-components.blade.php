@@ -50,6 +50,8 @@ You can pass data into a component by passing additional parameters into the <co
 
 For example, let's say we have a `show-post` component. Here's how you would pass in a `$post` model.
 
+Underscore (_) on parameters name not working in <livewire:… /> blade declaration, if you would like to use underscore use for @livewire.
+
 @component('components.code', ['lang' => 'html'])
 @verbatim
 <livewire:show-post :post="$post">
