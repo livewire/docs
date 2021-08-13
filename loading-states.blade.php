@@ -26,6 +26,7 @@ If you want to avoid flickering because loading is very fast, you can add the `.
 By default, Livewire set's a loading element's "display" CSS property to "inline-block". If you want Livewire to use "flex" or "grid", you can use the following modifiers.
 
 @component('components.code', ['lang' => 'html'])
+<div wire:loading.block>...</div>
 <div wire:loading.flex>...</div>
 <div wire:loading.grid>...</div>
 <div wire:loading.inline>...</div>
