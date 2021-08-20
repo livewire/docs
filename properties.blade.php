@@ -8,6 +8,7 @@
   * [Deferred Updating](#deferred-updating) { .font-normal.text-sm.text-blue-800 }
 * [Binding Directly To Model Properties](#binding-models) { .text-blue-800 }
 * [Computed Properties](#computed-properties) { .text-blue-800 }
+* [Key-Value Collections](#keyed-collections) { .text-blue-800 }
 
 <div>&nbsp;</div>
 
@@ -330,4 +331,74 @@ class ShowPost extends Component
 
 @component('components.tip')
 Computed properties are cached for an individual Livewire request lifecycle. Meaning, if you call `$this->post` 5 times in a component's blade view, it won't make a seperate database query every time.
+@endcomponent
+
+## Key-Value Collections {#keyed-collections}
+
+When using a collection to store key-value pairs, you will get a `CorruptComponentPayloadException` thrown if the collection is not in order on your component class.
+
+@component('components.code-component')
+@slot('class')
+class Cars extends Component
+{
+    public Collection $cars;
+    public $car;
+
+    public function mount()
+    {
+        // this will cause a CorruptComponentPayloadException
+        $this->cars = collect([
+            3 => 'Chevy',
+            1 => 'Ford',
+            2 => 'Toyota',
+        ]);
+    }
+}
+@endslot
+@slot('view')
+@verbatim
+<div>
+    <select wire:model="car">
+        @foreach($cars as $key => $value)
+            <option value="{{$key}}">{{$value}}</option>
+        @endforeach
+    </select>
+</div>
+@endverbatim
+@endslot
+@endcomponent
+
+To avoid this error, you must make sure the collection is ordered by keys in the Component class. If you would like to change the order of the collection, you may do so in the blade template.
+
+@component('components.code-component')
+@slot('class')
+class Cars extends Component
+{
+    public Collection $cars;
+    public $car;
+
+    public function mount()
+    {
+        $this->cars = collect([
+            3 => 'Chevy',
+            1 => 'Ford',
+            2 => 'Toyota',
+        ]);
+        // add this line to ensure you do not get the CorruptComponentPayloadException
+        $this->cars = $this->cars->sortKeys();
+    }
+}
+@endslot
+@slot('view')
+@verbatim
+<div>
+    <select wire:model="car">
+        {{-- You can sort the collection here if you want to sort the values alphabetically --}}
+        @foreach($cars->sort() as $key => $value)
+            <option value="{{$key}}">{{$value}}</option>
+        @endforeach
+    </select>
+</div>
+@endverbatim
+@endslot
 @endcomponent
