@@ -100,7 +100,7 @@ By default, Livewire re-applies the out-of-the-box authentication and authorizat
 ]
 @endcomponent
 
-If you wish to add your own middlewares to be captured and re-applied if present, you can do so in your app's service provide with the following API:
+If you wish to add your own middlewares to be captured and re-applied if present, you can do so in your app's service provider with the following API:
 
 @component('components.code', ['lang' => 'php'])
 Livewire::addPersistentMiddleware([
