@@ -19,7 +19,7 @@
 
 The most basic way to render a Livewire component on a page is using the `@@livewire` blade directive:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     @livewire('search-posts')
@@ -29,7 +29,7 @@ The most basic way to render a Livewire component on a page is using the `@@live
 
 If you are on Laravel 7 or greater, you can use the tag syntax.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <livewire:search-posts />
 @endverbatim
@@ -52,7 +52,7 @@ class SearchPosts extends Component
 @endverbatim
 @endcomponent
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <livewire:nav.search-posts />
 @endverbatim
@@ -70,7 +70,7 @@ You can pass data into a component by passing additional parameters into the <co
 
 If you are on Laravel 7 or greater, you can use the tag syntax.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <livewire:show-contact :contact="$contact">
 @endverbatim

@@ -9,7 +9,7 @@ Elements with the `wire:dirty` directive will watch for differences between the 
 
 Adding the `class` modifier allows you to add a class to the element when dirty.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <input wire:dirty.class="border-red-500" wire:model.lazy="foo">
 </div>
@@ -19,7 +19,7 @@ Now, when a user modifies the input value, the element will receive the `border-
 
 You can also perform the inverse, and remove classes by adding the `.remove` modifier, similar to how `wire:loading` works.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <input wire:dirty.class.remove="bg-green-200" class="bg-green-200" wire:model.lazy="foo">
 </div>
@@ -31,7 +31,7 @@ The `bg-green-200` class will be removed from the input while dirty.
 
 The default behaviour of the `wire:dirty` directive without modifiers is that the element will be hidden until dirty. This can create a paradox if used on the input itself, but like loading states, the `dirty` directive can be used to toggle the appearance of other elements using `wire:target`
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <span wire:dirty wire:target="foo">Updating...</span>
     <input wire:model.lazy="foo">
@@ -44,7 +44,7 @@ In this example, the `span` will be hidden by default, and only visible when the
 
 The class and attribute modifiers can be used in the same way for referenced elements
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <label wire:dirty.class="text-red-500" wire:target="foo">Full Name</label>
     <input wire:model.lazy="foo">
