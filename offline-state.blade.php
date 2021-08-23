@@ -17,7 +17,7 @@ This `<div>` will automatically be hidden by default, and shown to the user when
 
 Adding the `class` modifier allows you to add a class to an element when "offline".
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div wire:offline.class="bg-red-300"></div>
 @endcomponent
 
@@ -25,7 +25,7 @@ Now, when the browser goes offline, the element will receive the `bg-red-300` cl
 
 You can also perform the inverse, and remove classes by adding the `.remove` modifier, similar to how `wire:loading` works.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div wire:offline.class.remove="bg-green-300" class="bg-green-300"></div>
 @endcomponent
 
@@ -35,7 +35,7 @@ The `bg-green-300` class will be removed from the `<div>` while offline.
 
 Adding the `attr` modifier allows you to add an attribute to an element when "offline".
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <button wire:offline.attr="disabled">Submit</button>
 @endcomponent
 

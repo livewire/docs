@@ -179,7 +179,7 @@ In cases where you don't need data updates to happen live, Livewire has a `.defe
 
 For example, given the following component:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <input type="text" wire:model.defer="query">
 <button wire:click="search">Search</button>
 @endcomponent

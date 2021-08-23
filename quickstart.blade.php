@@ -4,7 +4,7 @@
 
 Include the PHP.
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 composer require livewire/livewire
 @endcomponent
 
@@ -28,7 +28,7 @@ Include the JavaScript (on every page that will be using Livewire).
 
 Run the following command to generate a new Livewire component called `counter`.
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan make:livewire counter
 @endcomponent
 
@@ -85,14 +85,14 @@ Livewire components MUST have a single root element.
 Think of Livewire components like Blade includes. You can insert `<livewire:some-component />` anywhere in a Blade view and it will render.
 @endverbatim
 
-@component('components.code', ['lang' => 'html', 'lineHighlight' => 6])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <head>
     ...
     @livewireStyles
 </head>
 <body>
-    <livewire:counter />
+    <livewire:counter /> {{-- [tl! highlight] --}}
 
     ...
 

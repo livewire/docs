@@ -1,13 +1,13 @@
 
 Run the following artisan command to create a new Livewire component:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan make:livewire ShowPosts
 @endcomponent
 
 Livewire also supports "kebab" notation for new components.
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan make:livewire show-posts
 @endcomponent
 
@@ -18,7 +18,7 @@ Two new files were created in your project:
 
 If you wish to create components within sub-folders, you can use the following different syntaxes:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan make:livewire Post\\Show
 php artisan make:livewire Post/Show
 php artisan make:livewire post.show
@@ -32,7 +32,7 @@ Now, the two created files will be in sub-folders:
 ## Inline Components
 If you wish to create Inline components (Component's without `.blade.php` files), you can add the `--inline` flag to the command:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan make:livewire ShowPosts --inline
 @endcomponent
 

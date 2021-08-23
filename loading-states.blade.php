@@ -5,7 +5,7 @@ Because Livewire makes a roundtrip to the server every time an action is trigger
 
 Elements with the `wire:loading` directive are only visible while waiting for actions to complete (network requests).
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="checkout">Checkout</button>
 
@@ -21,7 +21,7 @@ If you want to avoid flickering because loading is very fast, you can add the `.
 
 You can also "hide" an element during a loading state using the `.remove` modifier.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="checkout">Checkout</button>
 
@@ -35,7 +35,7 @@ You can also "hide" an element during a loading state using the `.remove` modifi
 
 The method outlined above works well for simple components. For more complex components, you may want to show loading indicators only for specific actions.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="checkout">Checkout</button>
     <button wire:click="cancel">Cancel</button>
@@ -52,7 +52,7 @@ In the above example, the loading indicator will be displayed when the "Checkout
 
 In addition to actions, you can also target whenever a `wire:model` is synchronized.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <input wire:model="quantity">
 
@@ -66,7 +66,7 @@ In addition to actions, you can also target whenever a `wire:model` is synchroni
 
 You can add or remove classes from an element during loading states, by adding the `.class` modifier to the `wire:loading` directive.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="checkout" wire:loading.class="bg-gray">
         Checkout
@@ -78,7 +78,7 @@ Now, when the "Checkout" button is clicked, the background will turn gray while 
 
 You can also perform the inverse and remove classes by adding the `.remove` modifier.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="checkout" wire:loading.class.remove="bg-blue" class="bg-blue">
         Checkout
@@ -92,7 +92,7 @@ Now the `bg-blue` class will be removed from the button while loading.
 
 Similar to classes, HTML attributes can be added or removed from elements during loading states:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="checkout" wire:loading.attr="disabled">
         Checkout

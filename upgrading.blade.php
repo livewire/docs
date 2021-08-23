@@ -19,7 +19,7 @@ Before we get into the technical upgrade stuff, you might be interested in what 
 If you are using [AlpineJS](https://github.com/alpinejs/alpine) with Livewire V2, make sure you are on version `2.7.0` or greater.
 
 **For example:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
 @endcomponent
 
@@ -107,7 +107,7 @@ This is done by default in Laravel 8, but if you are on Laravel 7, you will need
 
 By default in 1.x, Livewire renders your page-level components using a traditional Blade layout located in `resources/layouts/app.blade.php`. In 2.0, Livewire uses the same layout file as a default, however, it now expects you are using the new Blade component `$slot` syntax in the layout. For example:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <!-- Before -->
 <html>
@@ -172,7 +172,7 @@ Livewire no longer supports Turbolinks out of the box.
 
 If you want to continue using Turbolinks in your Livewire application, you will have to include the [Turbolinks adapter](https://github.com/livewire/turbolinks) alongside Livewire's JavaScript assets:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 ...
     @livewireScripts
@@ -326,7 +326,7 @@ Here are the hook usages side by side for comparison:
 
 If your Livewire currently depends on the [vue-plugin](https://github.com/livewire/vue), you will need to upgrade from version `0.2.x` to `0.3.x`
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
     ...
     @livewireScripts
