@@ -82,14 +82,14 @@ In some situations, you may find the need to have sibling components inside of a
 
 Each component will need its own unique `key`, but using the method above will lead to both sibling components having the same key, which will cause unforeseen issues. To combat this, you could ensure that each `key` is unique by prefixing it with the component name, for example:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <!-- user-profile component -->
-<div>    
+<div>
     // Bad
     <livewire:user-profile-additional-component :user="$user" :key="$user->id">
     <livewire:user-profile-some-related-component :user="$user" :key="$user->id">
-    
+
     // Good
     <livewire:user-profile-additional-component :user="$user" :key="'user-profile-additional-component-'.$user->id">
     <livewire:user-profile-some-related-component :user="$user" :key="'user-profile-some-related-component-'.$user->id">

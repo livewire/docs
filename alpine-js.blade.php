@@ -13,7 +13,7 @@ Livewire supports Alpine out of the box and works pretty hard to make the combin
 
 Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewire component's view.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     ...
 
@@ -37,7 +37,7 @@ Because of this, when possible, you should extract the Alpine parts to reusable 
 Here is an example (Using Laravel 7 Blade component tag syntax).
 
 **The Livewire View:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     ...
@@ -57,7 +57,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 @endcomponent
 
 **The Reusable "dropdown" Blade Component:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div x-data="{ open: false }">
     <span @click="open = true">{{ $trigger }}</span>
@@ -81,7 +81,7 @@ Let's create a re-usable Blade component called `date-picker` that we can use to
 
 Here's how we will be using it:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <form wire:submit.prevent="schedule">
     <label for="title">Event Title</label>
@@ -99,7 +99,7 @@ For this component we will be using the [Pikaday](https://github.com/Pikaday/Pik
 
 According to the docs, the most basic usage of the package (after including the assets) looks like this:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <input type="text" id="datepicker">
 
@@ -114,7 +114,7 @@ All you need is an `<input>` element, and Pikaday will add all the extra date-pi
 Now let's see how we might write a re-usable Blade component for this library.
 
 **The `date-picker` Reusable Blade Component:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <input
     x-data
@@ -135,7 +135,7 @@ Under the hood, `wire:model` adds an event listener to update a property every t
 Let's create a contrived example where when a user clicks a one button a property called `$foo` is set to `bar`, and when a user clicks another button, `$foo` is set to `baz`.
 
 **Within A Livewire Component's View:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     <div wire:model="foo">
@@ -149,7 +149,7 @@ Let's create a contrived example where when a user clicks a one button a propert
 A more real-world example would be creating a "color-picker" Blade component that might be consumed inside a Livewire component.
 
 **Color-picker Component Usage:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     <x-color-picker wire:model="color"/>
@@ -162,7 +162,7 @@ For the component definition, we will be using a third-party color-picker lib ca
 This sample assumes you have it loaded on the page.
 
 **Color-picker Blade Component Definition (Un-commented):**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div
     x-data="{ color: '#ffffff' }"
@@ -183,7 +183,7 @@ This sample assumes you have it loaded on the page.
 @endcomponent
 
 **Color-picker Blade Component Definition (Commented):**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div
     x-data="{ color: '#ffffff' }"
@@ -224,10 +224,10 @@ The Select2 library is one of those libraries that takes over its portion of the
 
 Here is an example of using the Select2 library inside a Livewire component to demonstrate the usage of `wire:ignore`.
 
-@component('components.code', ['lineHighlight' => '2'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
-    <div wire:ignore>
+    <div wire:ignore> {{-- [tl! highlight] --}}
         <select class="select2" name="state">
             <option value="AL">Alabama</option>
             <option value="WY">Wyoming</option>

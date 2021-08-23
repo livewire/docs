@@ -2,7 +2,7 @@
 
 ## Install The Package {#install-package}
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 composer require livewire/livewire
 @endcomponent
 
@@ -42,7 +42,7 @@ Livewire aims for "zero-configuration" out-of-the-box, but some users require mo
 
 You can publish Livewire's config file with the following artisan command:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 @verbatim
 php artisan vendor:publish --tag=livewire:config
 @endverbatim
@@ -70,7 +70,7 @@ For example, after publishing Livewire's config file, here are the settings that
 
 If you prefer the JavaScript assets to be served by your web server not through Laravel, use the `vendor:publish` command:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 @verbatim
 php artisan vendor:publish --tag=livewire:assets
 @endverbatim

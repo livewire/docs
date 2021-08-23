@@ -211,7 +211,7 @@ window.addEventListener('name-updated', event => {
 
 AlpineJS allows you to easily listen for these window events within your HTML:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div x-data="{ open: false }" @name-updated.window="open = false">
     <!-- Modal with a Livewire name update form -->
 </div>

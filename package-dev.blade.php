@@ -15,7 +15,7 @@ class YourPackageServiceProvider extends ServiceProvider {
 
 Now, applications with your package installed can consume your component in their views like so:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     @livewire('some-component')
