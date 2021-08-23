@@ -340,7 +340,7 @@ This temporary directory will fill up with files quickly, therefore, it's import
 
 To configure this behavior, simply run the following artisan command from the environment that has the S3 bucket configured.
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan livewire:configure-s3-upload-cleanup
 @endcomponent
 
@@ -355,7 +355,7 @@ Although `wire:model` for file uploads works differently than other `wire:model`
 
 You can display a loading indicator scoped to the file upload like so:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <input type="file" wire:model="photo">
 
 <div wire:loading wire:target="photo">Uploading...</div>
@@ -379,7 +379,7 @@ Event | Description
 
 Here is an example of wrapping a Livewire file upload in an AlpineJS component to display a progress bar:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div
     x-data="{ isUploading: false, progress: 0 }"
     x-on:livewire-upload-start="isUploading = true"
@@ -406,7 +406,7 @@ For these cases, Livewire exposes dedicated JavaScript functions.
 The functions exist on the JavaScript component object, which can be accessesed using the convenience Blade directive: `@this`. If you haven't seen `@this` before, you can read more about it [here](inline-scripts).
 @endverbatim
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <script>
     let file = document.querySelector('input[type="file"]').files[0]

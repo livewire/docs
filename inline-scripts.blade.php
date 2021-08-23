@@ -1,6 +1,6 @@
 Livewire recommends that you use AlpineJS for most of your JavaScript needs, but it does support using `<script>` tags directly inside your component's view.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     <!-- Your components HTML -->

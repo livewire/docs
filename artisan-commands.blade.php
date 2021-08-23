@@ -1,6 +1,6 @@
 ## The `make` command
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan make:livewire foo
 # Creates Foo.php & foo.blade.php
 
@@ -32,7 +32,7 @@ Think of Livewire components like Blade includes. You can insert <code>&#64;live
 
 If you are on Laravel 7 or greater, you can use the tag syntax.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <livewire:foo />
 @endverbatim
@@ -42,7 +42,7 @@ If you are on Laravel 7 or greater, you can use the tag syntax.
 
 You can customize the stubs (templates) that Livewire uses to create new component classes and views using the `livewire:stubs` command.
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan livewire:stubs
 @endcomponent
 
@@ -60,7 +60,7 @@ The `php artisan livewire:move` command will move/rename the component class and
 
 Here is an example of usage:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan livewire:move foo bar.baz
 # Foo.php|foo.blade.php -> Bar/Baz.php|bar/baz.blade.php
 @endcomponent
@@ -75,7 +75,7 @@ The `php artisan livewire:copy` command will create copies of the component clas
 
 Here are a few examples of usage:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan livewire:copy foo bar
 # Copies Foo.php & foo.blade.php to Bar.php and bar.blade.php
 
@@ -93,7 +93,7 @@ The `php artisan livewire:delete` command will remove the component class and bl
 
 Here are a few examples of usage:
 
-@component('components.code', ['lang' => 'bash'])
+@component('components.code', ['lang' => 'shell'])
 php artisan livewire:delete foo
 # Removes Foo.php & foo.blade.php
 

@@ -3,7 +3,7 @@ Already familiar with Livewire and want to skip the long-form documentation? Her
 ### Template Directives {#template-directives}
 These are directives added to elements within Livewire component templates.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <button wire:click="save">...</button>
 @endcomponent
 
@@ -38,7 +38,7 @@ Directive | Description
 
 These are methods and properties available on the `$wire` object provided to Alpine components within a Livewire template. [Read Full Documentation](/docs/2.x/alpine-js)
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div x-data>
     <span x-show="$wire.showMessage">...</span>
 

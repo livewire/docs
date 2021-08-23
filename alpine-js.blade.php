@@ -10,7 +10,7 @@ You must install Alpine in order to use it with Livewire.
 
 To install Alpine in your project, add the following script tag to the `<head>` section of your layout file.
 
-@component('components.code', ['lang' => 'html', 'id' => 'js-inject-alpine-version'])
+@component('components.code', ['lang' => 'blade', 'id' => 'js-inject-alpine-version'])
 <head>
     ...
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
@@ -33,7 +33,7 @@ For more installation information, visit the [Alpine Docs](https://github.com/al
 
 Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewire component's view.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     ...
 
@@ -57,7 +57,7 @@ Because of this, when possible, you should extract the Alpine parts to reusable 
 Here is an example (Using Laravel 7 Blade component tag syntax).
 
 **The Livewire View:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     ...
@@ -77,7 +77,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 @endcomponent
 
 **The Reusable "dropdown" Blade Component:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div x-data="{ open: false }">
     <span @click="open = true">{{ $trigger }}</span>
@@ -226,7 +226,7 @@ One difficulty you might encounter while implementing Blade components within a 
 
 For example, you might create a text input Blade component like so:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <!-- Usage -->
 <x-inputs.text wire:model="foo"/>
@@ -246,7 +246,7 @@ For these cases, Livewire offers an `$attributes->wire()` method to help with th
 
 Given the following Blade Component usage:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <x-inputs.text wire:model.defer="foo" wire:loading.class="opacity-25"/>
 @endverbatim
@@ -267,7 +267,7 @@ $attributes->wire('loading')->value(); // "opacity-25"
 
 You can also "forward" these Livewire directives individually. For example:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <!-- Given -->
 <x-inputs.text wire:model.defer="foo" wire:loading.class="opacity-25"/>
@@ -284,7 +284,7 @@ You can also "forward" these Livewire directives individually. For example:
 There are LOTS of different ways to use this utility, but one common example is using it in conjunction with the aforementioned `@entangle` directive:
 @endverbatim
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <!-- Usage -->
 <x-dropdown wire:model="show">
@@ -320,7 +320,7 @@ Let's create a re-usable Blade component called `date-picker` that we can use to
 
 Here's how we will be using it:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <form wire:submit.prevent="schedule">
     <label for="title">Event Title</label>
@@ -338,7 +338,7 @@ For this component we will be using the [Pikaday](https://github.com/Pikaday/Pik
 
 According to the docs, the most basic usage of the package (after including the assets) looks like this:
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <input type="text" id="datepicker">
 
@@ -353,7 +353,7 @@ All you need is an `<input>` element, and Pikaday will add all the extra date-pi
 Now let's see how we might write a re-usable Blade component for this library.
 
 **The `date-picker` Reusable Blade Component:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <input
     x-data
@@ -374,7 +374,7 @@ Under the hood, `wire:model` adds an event listener to update a property every t
 Let's create a contrived example where when a user clicks the first button a property called `$foo` is set to `bar`, and when a user clicks the second button, `$foo` is set to `baz`.
 
 **Within A Livewire Component's View:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     <div wire:model="foo">
@@ -388,7 +388,7 @@ Let's create a contrived example where when a user clicks the first button a pro
 A more real-world example would be creating a "color-picker" Blade component that might be consumed inside a Livewire component.
 
 **Color-picker Component Usage:**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     <x-color-picker wire:model="color"/>
@@ -401,7 +401,7 @@ For the component definition, we will be using a third-party color-picker lib ca
 This sample assumes you have it loaded on the page.
 
 **Color-picker Blade Component Definition (Un-commented):**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div
     x-data="{ color: '#ffffff' }"
@@ -422,7 +422,7 @@ This sample assumes you have it loaded on the page.
 @endcomponent
 
 **Color-picker Blade Component Definition (Commented):**
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div
     x-data="{ color: '#ffffff' }"
@@ -463,10 +463,10 @@ The Select2 library is one of those libraries that takes over its portion of the
 
 Here is an example of using the Select2 library inside a Livewire component to demonstrate the usage of `wire:ignore`.
 
-@component('components.code', ['lineHighlight' => '2'])
+@component('components.code'])
 @verbatim
 <div>
-    <div wire:ignore>
+    <div wire:ignore> {{-- [tl! highlight] --}}
         <select class="select2" name="state">
             <option value="AL">Alabama</option>
             <option value="WY">Wyoming</option>
