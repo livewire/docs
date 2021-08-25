@@ -10,7 +10,7 @@ composer require livewire/livewire
 
 Include the JavaScript (on every page that will be using Livewire).
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
     ...
     @livewireStyles
