@@ -198,7 +198,7 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 
 Notice that we are no longer calling the `setMessageToHello` function, we are directly specifying, what we want data set to.
 
-It can also be used in the backend when listening for an event. For example, if you have one compnent that emits an even like this:
+It can also be used in the backend when listening for an event. For example, if you have one component that emits an event like this:
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
