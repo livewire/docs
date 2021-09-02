@@ -97,7 +97,7 @@ component.initialized | Called when a component has been initialized on the page
 element.initialized | Called when Livewire initializes an individual element
 element.updating | Called before Livewire updates an element during its DOM-diffing cycle after a network roundtrip
 element.updated | Called after Livewire updates an element during its DOM-diffing cycle after a network roundtrip
-element.removed | Called after Livewire removes an element durting its DOM-diffing cycle
+element.removed | Called after Livewire removes an element during its DOM-diffing cycle
 message.sent | Called when a Livewire update triggers a message sent to the server via AJAX
 message.failed | Called if the message send fails for some reason
 message.received | Called when a message has finished its roudtrip, but before Livewire updates the DOM
