@@ -14,8 +14,8 @@ dehydrate | Runs on every request, before the component is dehydrated, but after
 dehydrateFoo | Runs before a property called `$foo` is dehydrated
 updating | Runs before any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
 updated | Runs after any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
-updatingFoo | Runs before a property called `$foo` is updated
-updatedFoo | Runs after a property called `$foo` is updated
+updatingFoo | Runs before a property called `$foo` is updated. Array properties have an additional `$key` argument passed to this function to specify changing element inside array, like `updatingArray($value, $key)`
+updatedFoo | Runs after a property called `$foo` is updated. Array properties have additional `$key` argument as above
 updatingFooBar | Runs before updating a nested property `bar` on the `$foo` property or a multiword property such as `$fooBar` or `$foo_bar`
 updatedFooBar | Runs after updating a nested property `bar` on the `$foo` property or a multiword property such as `$fooBar` or `$foo_bar`
 @endcomponent
