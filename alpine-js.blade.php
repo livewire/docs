@@ -127,7 +127,7 @@ class Counter extends Component
 
 Now, when a user clicks "Increment", the standard Livewire round trip will trigger and Alpine will reflect Livewire's new `$count` value.
 
-Because `$wire` uses a [JavaScript Proxy]() under the hood, you are able to access properties on it and call methods on it and those operations will be forwarded to Livewire. In addition to this functionality, `$wire` also has standard, built-in methods available to you.
+Because `$wire` uses a [JavaScript Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) under the hood, you are able to access properties on it and call methods on it and those operations will be forwarded to Livewire. In addition to this functionality, `$wire` also has standard, built-in methods available to you.
 
 Here is the full API for `$wire`:
 
