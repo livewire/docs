@@ -144,7 +144,7 @@ Name | Description
 
 ### Component Class Protected Properties {#component-class-protected-properties}
 
-Livewire provides core functionality through protected properties on a component's class. Most of these have corresponsing methods by the same name if you prefer to return values in a method, rather than declare them as properties.
+Livewire provides core functionality through protected properties on a component's class. Most of these have corresponding methods by the same name if you prefer to return values in a method, rather than declare them as properties.
 
 @component('components.code', ['lang' => 'php'])
 class ShowPost extends Component
