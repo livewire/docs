@@ -19,13 +19,13 @@ When the "Checkout" button is clicked, the "Processing Payment..." message will 
 
 If you want to avoid flickering because loading is very fast, you can add the `.delay` modifier, and it will only show up if loading takes longer than `200ms`.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div wire:loading.delay>...</div>
 @endcomponent
 
 By default, Livewire set's a loading element's "display" CSS property to "inline-block". If you want Livewire to use "flex" or "grid", you can use the following modifiers.
 
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div wire:loading.block>...</div>
 <div wire:loading.flex>...</div>
 <div wire:loading.grid>...</div>
@@ -65,7 +65,7 @@ In the above example, the loading indicator will be displayed when the "Checkout
 `wire:target` can accept multiple arguments in a comma separated format like this: `wire:target="foo, bar"`.
 
 You may also target actions with specific parameters.
-@component('components.code', ['lang' => 'html'])
+@component('components.code', ['lang' => 'blade'])
 <div>
     <button wire:click="update('bob')">Update</button>
 
