@@ -403,7 +403,7 @@ Integrating with 3rd-party file-uploading libraries often requires finer-tuned c
 For these cases, Livewire exposes dedicated JavaScript functions.
 
 @verbatim
-The functions exist on the JavaScript component object, which can be accessesed using the convenience Blade directive: `@this`. If you haven't seen `@this` before, you can read more about it [here](inline-scripts).
+The functions exist on the JavaScript component object, which can be accessed using the convenience Blade directive: `@this`. If you haven't seen `@this` before, you can read more about it [here](inline-scripts).
 @endverbatim
 
 @component('components.code', ['lang' => 'blade'])
