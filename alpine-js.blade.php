@@ -157,8 +157,37 @@ $wire.get('property')
 // Setting a Livewire property to a specific value
 $wire.set('property', value)
 
+// Defer setting a Livewire property to a specific value
+$wire.set('property', value, true)
+
 // Calling a Livewire action
 $wire.call('someMethod', param)
+
+// Uploading file and setting Livewire property
+$wire.upload(
+    'property',
+    file,
+    finishCallback = (uploadedFilename) => {},
+    errorCallback = () => {},
+    progressCallback = (event) => {}
+)
+
+// Uploading multiple files and setting Livewire property
+$wire.uploadMultiple(
+    'property',
+    files,
+    finishCallback = (uploadedFilenames) => {},
+    errorCallback = () => {},
+    progressCallback = (event) => {}
+)
+
+// Removing (one of) uploaded file(s) and updating Livewire property
+$wire.removeUpload(
+    'property',
+    uploadedFilename,
+    finishCallback = (uploadedFilename) => {},
+    errorCallback = () => {}
+)
 
 // Accessing the underlying Livewire component JavaScript instance
 $wire.__instance
