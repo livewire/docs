@@ -93,9 +93,9 @@ There are two scenarios that will cause this default behavior to break:
 
 2. Your app is hosted on a non-root path on your domain. For example: `https://your-laravel-app.com/application`. In this case, the actual assets will be served from `/application/livewire/livewire.js`, but the generated script tag, will be trying to fetch `/livewire/livewire.js`.
 
-To solve either of these issues, you can configure the "asset_base_url" in `config/livewire.php` to customize what's prepended to the `src=""` attribute.
+To solve either of these issues, you can configure the "asset_url" in `config/livewire.php` to customize what's prepended to the `src=""` attribute.
 
 For example, after publishing Livewire's config file, here are the settings that would fix the above two issues:
 
-1. `'asset_base_url' => '/assets'`
-2. `'asset_base_url' => '/application'`
+1. `'asset_url' => '/assets'`
+2. `'asset_url' => '/application'`
