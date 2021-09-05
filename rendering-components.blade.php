@@ -48,6 +48,10 @@ For example, if we have a `ShowPosts` component inside of a `app/Http/Livewire/N
 
 You can pass data into a component by passing additional parameters into the <code><livewire:</code> tag.
 
+@component('components.warning')
+Parameter names cannot have any dashes "`-`" or underscores "`_`"
+@endcomponent
+
 For example, let's say we have a `show-post` component. Here's how you would pass in a `$post` model.
 
 @component('components.code', ['lang' => 'blade'])
