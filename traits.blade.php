@@ -124,3 +124,24 @@ trait WithSorting
 @endverbatim
 @endslot
 @endcomponent
+
+It is also possible to define a method to run during the hydration phase of the component, using the initialize{ClassName} method naming convention:
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+trait WithSorting
+{
+    ...
+
+    public function initializeWithSorting()
+    {
+        //
+    }
+
+
+}
+@endverbatim
+@endslot
+@endcomponent
+
