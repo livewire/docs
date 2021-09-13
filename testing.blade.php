@@ -182,6 +182,9 @@ Livewire::test('foo', ['bar' => $bar]);
 ->set('foo', 'bar');
 // Set the "foo" property (`public $foo`) to the value: "bar"
 
+->toggle('foo');
+// Toggle the "foo" property (`public $foo`) between true and false
+
 ->call('foo');
 // Call the "foo" method
 
