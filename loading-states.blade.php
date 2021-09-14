@@ -17,12 +17,6 @@ Elements with the `wire:loading` directive are only visible while waiting for ac
 
 When the "Checkout" button is clicked, the "Processing Payment..." message will show. When the action is finished, the message will disappear.
 
-If you want to avoid flickering because loading is very fast, you can add the `.delay` modifier, and it will only show up if loading takes longer than `200ms`.
-
-@component('components.code', ['lang' => 'blade'])
-<div wire:loading.delay>...</div>
-@endcomponent
-
 By default, Livewire set's a loading element's "display" CSS property to "inline-block". If you want Livewire to use "flex" or "grid", you can use the following modifiers.
 
 @component('components.code', ['lang' => 'blade'])
@@ -43,6 +37,26 @@ You can also "hide" an element during a loading state using the `.remove` modifi
         Hide Me While Loading...
     </div>
 </div>
+@endcomponent
+
+## Delaying loading indicator {#delaying-loading}
+
+If you want to avoid flickering because loading is very fast, you can add the `.delay` modifier, and it will only show up if loading takes longer than `200ms`.
+
+@component('components.code', ['lang' => 'blade'])
+<div wire:loading.delay>...</div>
+@endcomponent
+
+If you wish, you can customize the delay duration with the following modifiers:
+
+@component('components.code', ['lang' => 'blade'])
+<div wire:loading.delay.shortest>...</div> <!-- 50ms -->
+<div wire:loading.delay.shorter>...</div>  <!-- 100ms -->
+<div wire:loading.delay.short>...</div>    <!-- 150ms -->
+<div wire:loading.delay>...</div>          <!-- 200ms -->
+<div wire:loading.delay.long>...</div>     <!-- 300ms -->
+<div wire:loading.delay.longer>...</div>   <!-- 500ms -->
+<div wire:loading.delay.longest>...</div>  <!-- 1000ms -->
 @endcomponent
 
 ## Targeting specific actions {#targeting-actions}
@@ -75,6 +89,19 @@ You may also target actions with specific parameters.
 </div>
 @endcomponent
 
+If you wish to trigger a loading indicator when ANY of the properties of an array change, you can simply target the entire array:
+
+@component('components.code', ['lang' => 'blade'])
+<div>
+    <input type="text" wire:model="post.title">
+    <input type="text" wire:model="post.author">
+    <input type="text" wire:model="post.content">
+
+    <div wire:loading wire:target="post">
+        Updating Post...
+    </div>
+</div>
+@endcomponent
 
 ## Targeting models {#targeting-models}
 In addition to actions, you can also target whenever a `wire:model` is synchronized.

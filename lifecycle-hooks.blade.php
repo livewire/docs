@@ -7,10 +7,11 @@ Each Livewire component undergoes a lifecycle. Lifecycle hooks allow you to run 
 @component('components.table')
 Hooks | Description
 --- | ---
+boot | Runs on every request, immediately after the component is instantiated, but before any other lifecycle methods are called
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
-hydrate | Runs on every request, after the component is hydrated, but before an action is performed, or `render()` is called
+hydrate | Runs on every subsequent request, after the component is hydrated, but before an action is performed, or `render()` is called
 hydrateFoo | Runs after a property called `$foo` is hydrated
-dehydrate | Runs on every request, before the component is dehydrated, but after `render()` is called
+dehydrate | Runs on every subsequent request, before the component is dehydrated, but after `render()` is called
 dehydrateFoo | Runs before a property called `$foo` is dehydrated
 updating | Runs before any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
 updated | Runs after any update to the Livewire component's data (Using `wire:model`, not directly inside PHP)
@@ -28,6 +29,11 @@ Please note that mutating a property directly inside a Livewire component class 
 class HelloWorld extends Component
 {
     public $foo;
+
+    public function boot()
+    {
+        //
+    }
 
     public function mount()
     {

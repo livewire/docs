@@ -76,6 +76,44 @@ class ShowPosts extends Component
 @endverbatim
 @endcomponent
 
+## Multiple paginators on the same page {#multiple-paginators}
+
+Because Livewire hardcodes the `$page` property inside the `WithPagination` trait, there is no way to have two different paginators on the same page because each will be competing for the same property name in the query string of the URL bar.
+
+Here’s an example of two different components that might exist on the same page. By giving the second one (the comments one) a name, Livewire will pick it up and handle everything accordingly.
+
+@component('components.code', ['lang' => 'php'])
+class ShowPosts extends Livewire\Component
+{
+    public function render()
+    {
+        return view('livewire.show-posts', [
+            'posts' => Post::paginate(10),
+        ]);
+    }
+}
+@endcomponent
+
+@component('components.code', ['lang' => 'php'])
+class ListPostComments extends Livewire\Component
+{
+	  public Post $post;
+
+    public function render()
+    {
+        return view('livewire.show-posts', [
+            'posts' => $post->comments()->paginate(10, ['*'], 'commentsPage'),
+        ]);
+    }
+}
+@endcomponent
+
+Now in the query string, both paginators will be represented like so:
+
+@component('components.code', ['lang' => 'html'])
+?page=2&commentsPage=3
+@endcomponent
+
 ## Using The Bootstrap Pagination Theme {#custom-pagination-view}
 Like Laravel, Livewire's default pagination view uses Tailwind classes for styling. If you use Bootstrap in your application, you can enable the Bootstrap theme for the pagination view using the `$paginationTheme` property on your component.
 

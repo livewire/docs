@@ -7,6 +7,7 @@
   * [Lazy Updating](#lazy-updating) { .font-normal.text-sm.text-blue-800 }
   * [Deferred Updating](#deferred-updating) { .font-normal.text-sm.text-blue-800 }
 * [Binding Directly To Model Properties](#binding-models) { .text-blue-800 }
+* [Custom (Wireable) Properties](#wireable-properties) { .text-blue-800 }
 * [Computed Properties](#computed-properties) { .text-blue-800 }
 
 <div>&nbsp;</div>
@@ -281,6 +282,101 @@ class PostForm extends Component
 @endverbatim
 @endslot
 @endcomponent
+
+Livewire also supports binding to relationships on Eloquent models like so:
+
+@component('components.code-component')
+@slot('class')
+class EditUsersPosts extends Component
+{
+    public User $user;
+
+    protected $rules = [
+        'user.posts.*.title'
+    ];
+
+    public function save()
+    {
+		$this->validate();
+
+        $this->user->posts->each->save();
+    }
+}
+@endslot
+@slot('view')
+@verbatim
+<div>
+    @foreach ($user->posts as $i => $post)
+        <input type="text" wire:model="user.posts.{{ $i }}.title" />
+        
+        <span class="error">
+            @error('user.posts.{{ $i }}.title') {{ $message }} @enderror
+        </span>
+    @endforeach
+
+    <button wire:click="save">Save</button>
+</div>
+@endverbatim
+@endslot
+@endcomponent
+
+## Custom (Wireable) Properties {#wireable-properties}
+
+Sometimes you may want to set a component property to a non-model object that's available inside your app, like a DTO (Data Transfer Object).
+
+For example, let’s say we have a custom object in our app called `Settings`. Rather than just store settings data as a plain array on our Livewire component, we can attach associated behavior to this data with a convenient wrapper object or DTO like `Settings`:
+
+@component('components.code-component')
+@slot('class')
+class Settings implements Livewire\Wireable
+{
+    public $items = [];
+
+    public function __construct($items)
+    {
+        $this->items = $items;
+    }
+
+    ...
+
+    public function toLivewire()
+    {
+        return $this->items;
+    } 
+
+    public static function fromLivewire($value)
+    {
+        return new static($value);
+    } 
+}
+@endslot
+@endcomponent
+
+Now you can freely use this object as a public property of your component as long as that object implements the `Livewire\Wireable` interface AND the property is typhinted like so:
+
+@component('components.code-component')
+@slot('class')
+class SettingsComponent extends Livewire\Component
+{
+    public Settings $settings;
+
+    public function mount() {
+        $this->settings = new Settings([
+            'foo' => 'bar',
+        ]);
+    }
+
+    public function changeSetting()
+    {
+        $this->settings->foo = 'baz';
+    }
+}
+@endslot
+@endcomponent
+
+And as you can see, changes to the component are persisted between requests because, with `Wireable`, Livewire knows how to “dehydrate” and “re-hydrate” this property on your component.
+
+> If words like “hydrate” or “dehydrate” in the context of Livewire are fuzzy for you, [give this post a quick read](https://calebporzio.com/livewire-isnt-actually-live).
 
 ## Computed Properties {#computed-properties}
 
