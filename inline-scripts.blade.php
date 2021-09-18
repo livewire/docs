@@ -32,6 +32,10 @@ You can also push scripts directly onto Blade stacks from your Livewire componen
 @endverbatim
 @endcomponent
 
+@component('components.warning')
+If you are printing a much data please consider using `@@push` as it's not sent over the wire as opposed to the `<script>` inside the component's view.
+@endcomponent
+
 ### Accessing the JavaScript component instance
 
 Because Livewire has both a PHP AND a JavaScript portion, each component also has a JavaScript object. You can access this object using the special `@@this` blade directive in your component's view.
