@@ -360,7 +360,8 @@ class SettingsComponent extends Livewire\Component
 {
     public Settings $settings;
 
-    public function mount() {
+    public function mount()
+    {
         $this->settings = new Settings([
             'foo' => 'bar',
         ]);
