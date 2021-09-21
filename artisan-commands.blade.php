@@ -7,6 +7,12 @@ php artisan make:livewire foo
 php artisan make:livewire foo-bar
 # Creates FooBar.php & foo-bar.blade.php
 
+php artisan make:livewire Foo
+# Creates Foo.php & foo.blade.php
+
+php artisan make:livewire FooBar
+# Creates FooBar.php & foo-bar.blade.php
+
 php artisan make:livewire foo.bar
 # Creates Foo/Bar.php & foo/bar.blade.php
 
