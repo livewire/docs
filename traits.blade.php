@@ -146,7 +146,7 @@ trait WithSorting
         return [
             'sortBy' => ['except' => 'id'],
             'sortDirection' => ['except' => $this->defaultSortDirection()],
-        ]
+        ];
     }
 }
 @endverbatim
