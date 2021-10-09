@@ -88,3 +88,15 @@ Livewire is using the site's `referrer` information when setting the query strin
 ### Cures:
 
 If you do set security headers, make sure the `referrer-policy` value is set to `same-origin`.
+
+
+## Dynamic Loading Issues
+
+If you load livewire components dynamically (e.g. using jQuery/XHR requests), you may need to perform a rescan your.
+
+### Symptoms:
+
+* Livewire components loaded via XHR does not behave as expected.
+
+### Cures:
+Run `window.livewire.rescan()` after making the XRH request.
