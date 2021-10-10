@@ -262,6 +262,32 @@ $errors->add('some-key', 'Some message');
 @endverbatim
 @endcomponent
 
+## Access Validator instance
+
+Sometimes you may want to access the Validator instance that Livewire uses in the `validate()` and `validateOnly()` methods. This is possible using the `withValidator` method. The closure you provide receives the fully constructed validator as an argument, allowing you to call any of its methods before the validation rules are actually evaluated.
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+use Illuminate\Validation\Validator;
+
+class ContactForm extends Component
+{
+    public function save()
+    {
+        $this->withValidator(function (Validator $validator) {
+            $validator->after(function ($validator) {
+                if ($this->somethingElseIsInvalid()) {
+                    $validator->errors()->add('field', 'Something is wrong with this field!');
+                }
+            });
+        })->validate();
+    }
+}
+@endverbatim
+@endslot
+@endcomponent
+
 ## Testing Validation {#testing-validation}
 
 Livewire provides useful testing utilities for validation scenarios. Let's a write a simple test for the original "Contact Form" component.
