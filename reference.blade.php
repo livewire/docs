@@ -128,6 +128,8 @@ class ShowPost extends Component
 @component('components.table')
 Name | Description
 --- | ---
+`boot()` | Called on all requests, immediately after the component is instantiated, but before any other lifecycle methods are called
+`booted()` | Called on all requests, after the component is mounted or hydrated, but before any update methods are called
 `mount(...$params)` | Called when a Livewire component is newed up (think of it like a constructor)
 `hydrate()` | Called on subsequent Livewire requests after the component has been hydrated, but before any other action occurs
 `hydrateFoo()` | Runs after a property called $foo is hydrated
