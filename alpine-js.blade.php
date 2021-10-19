@@ -248,6 +248,24 @@ Now, when a user toggles the dropdown open and closed, there will be no AJAX req
 
 If you are having trouble following this difference. Open your browser's devtools and observe the difference in XHR requests with and without `.defer` added.
 
+## Using the `@verbatim@js@endverbatim` directive
+
+If ever you need to output PHP data for use in Alpine, you can now use the `@verbatim@js@endverbatim` directive to output data as a JSON string.
+
+@component('components.code', ['lang' => 'blade'])
+@verbatim
+@php
+$data = ['foo', 'bar'];
+@endphp
+
+<!-- @js($data) will output a json string '["foo","bar"]' -->
+<!-- Which can then be JSON parsed, and data will now be an array of ['foo','bar'] -->
+<div x-data="{ data: JSON.parse(@js($data)) }">
+    ...
+</div>
+@endverbatim
+@endcomponent
+
 ## Accessing Livewire Directives From Blade Components
 Extracting re-usable Blade components within your Livewire application is an essential pattern.
 
