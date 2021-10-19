@@ -1,34 +1,54 @@
-Livewire recommends that you use AlpineJS for most of your JavaScript needs, but it does support using `<script>` tags directly inside your component's view.
+Livewire recommends that you use AlpineJS for most of your JavaScript needs, but it does support using `@verbatim@push@endverbatim` inside your component's view, to push scripts to a stack.
+
+In your layout file, make sure to add a scripts stack after Livewire's scripts.
+
+@component('components.code', ['lang' => 'blade'])
+@verbatim
+    ...
+    @livewireScripts
+    @stack('scripts')
+</body>
+</html>
+@endverbatim
+@endcomponent
+
+Then in your component, you can push to your scripts stack.
 
 @component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
     <!-- Your components HTML -->
-
-    <script>
-        document.addEventListener('livewire:load', function () {
-            // Your JS here.
-        })
-    </script>
 </div>
+
+@push('scripts')
+    <script>
+        // Your JS here.
+    </script>
+@endpush
 @endverbatim
 @endcomponent
 
+This will also work for both Livewire and blade components that are dynamically added to the page.
+
 @component('components.warning')
-Please note that your scripts will be run only once upon the first render of the component. If you need to run a JavaScript function later - emit the event from the component and listen to it in JavaScript as described <a href="https://laravel-livewire.com/docs/events/">here</a>)
+Please note that your scripts will only be pushed to the stack the first time that the component is added to the page and as such is not dynamic after that.
 @endcomponent
 
-You can also push scripts directly onto Blade stacks from your Livewire component:
+You can also make use of the `@verbatim@once@endverbatim` directive to ensure if you have multiple of the same component on the page, that the scripts only get rendered once.
 
-@component('components.code', ['lang' => 'javascript'])
+@component('components.code', ['lang' => 'blade'])
 @verbatim
-<!-- Your component's view here -->
+<div>
+    <!-- Your components HTML -->
+</div>
 
-@push('scripts')
-<script>
-    // Your JS here.
-</script>
-@endpush
+@once
+    @push('scripts')
+        <script>
+            // Your JS here.
+        </script>
+    @endpush
+@endonce
 @endverbatim
 @endcomponent
 
