@@ -86,6 +86,16 @@ trait WithSorting
 {
     ...
 
+    public function bootWithSorting()
+    {
+        //
+    }
+
+    public function bootedWithSorting()
+    {
+        //
+    }
+
     public function mountWithSorting()
     {
         //

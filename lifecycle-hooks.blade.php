@@ -8,6 +8,7 @@ Each Livewire component undergoes a lifecycle. Lifecycle hooks allow you to run 
 Hooks | Description
 --- | ---
 boot | Runs on every request, immediately after the component is instantiated, but before any other lifecycle methods are called
+booted | Runs on every request, after the component is mounted or hydrated, but before any update methods are called
 mount | Runs once, immediately after the component is instantiated, but before `render()` is called
 hydrate | Runs on every subsequent request, after the component is hydrated, but before an action is performed, or `render()` is called
 hydrateFoo | Runs after a property called `$foo` is hydrated
@@ -31,6 +32,11 @@ class HelloWorld extends Component
     public $foo;
 
     public function boot()
+    {
+        //
+    }
+
+    public function booted()
     {
         //
     }
