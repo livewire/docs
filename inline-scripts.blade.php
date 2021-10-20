@@ -34,20 +34,14 @@ You can also push scripts directly onto Blade stacks from your Livewire componen
 
 ### Using the `@verbatim@js@endverbatim` directive
 
-If ever you need to output PHP data for use in Javascript, you can now use the `@verbatim@js@endverbatim` directive to output data as a JSON string.
+If ever you need to output PHP data for use in Javascript, you can now use the `@verbatim@js@endverbatim` directive.
 
 @component('components.code', ['lang' => 'blade'])
 @verbatim
-@php
-$data = ['foo', 'bar'];
-@endphp
-
 <script>
-    // data will be a json string '["foo","bar"]'
-    let data = @js($data)
+    let posts = @js($posts)
     
-    // Which can then be JSON parsed, and data will now be an array of ['foo','bar']
-    data = JSON.parse(data)
+    // "posts" will now be a JavaScript array of post data from PHP.
 </script>
 @endverbatim
 @endcomponent
