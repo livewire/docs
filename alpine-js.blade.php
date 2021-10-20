@@ -254,11 +254,7 @@ If ever you need to output PHP data for use in Alpine, you can now use the `@ver
 
 @component('components.code', ['lang' => 'blade'])
 @verbatim
-@php
-$data = ['foo', 'bar'];
-@endphp
-
-<div x-data="{ data: @js($data) }">
+<div x-data="{ posts: @js($posts) }">
     ...
 </div>
 @endverbatim
