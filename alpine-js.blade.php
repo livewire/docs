@@ -250,7 +250,7 @@ If you are having trouble following this difference. Open your browser's devtool
 
 ## Using the `@verbatim@js@endverbatim` directive
 
-If ever you need to output PHP data for use in Alpine, you can now use the `@verbatim@js@endverbatim` directive to output data as a JSON string.
+If ever you need to output PHP data for use in Alpine, you can now use the `@verbatim@js@endverbatim` directive.
 
 @component('components.code', ['lang' => 'blade'])
 @verbatim
@@ -258,9 +258,7 @@ If ever you need to output PHP data for use in Alpine, you can now use the `@ver
 $data = ['foo', 'bar'];
 @endphp
 
-<!-- @js($data) will output a json string '["foo","bar"]' -->
-<!-- Which can then be JSON parsed, and data will now be an array of ['foo','bar'] -->
-<div x-data="{ data: JSON.parse(@js($data)) }">
+<div x-data="{ data: @js($data) }">
     ...
 </div>
 @endverbatim
