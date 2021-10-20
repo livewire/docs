@@ -32,6 +32,20 @@ You can also push scripts directly onto Blade stacks from your Livewire componen
 @endverbatim
 @endcomponent
 
+### Using the `@verbatim@js@endverbatim` directive
+
+If ever you need to output PHP data for use in Javascript, you can now use the `@verbatim@js@endverbatim` directive.
+
+@component('components.code', ['lang' => 'blade'])
+@verbatim
+<script>
+    let posts = @js($posts)
+    
+    // "posts" will now be a JavaScript array of post data from PHP.
+</script>
+@endverbatim
+@endcomponent
+
 ### Accessing the JavaScript component instance
 
 Because Livewire has both a PHP AND a JavaScript portion, each component also has a JavaScript object. You can access this object using the special `@@this` blade directive in your component's view.
