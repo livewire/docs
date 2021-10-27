@@ -217,7 +217,9 @@ Name | Description
 `$this->reset()` | Reset all public properties to their initial (pre-mount) state
 `$this->reset($field)` | Reset a specific public property to its pre-mount state
 `$this->reset([...$fields])` | Reset multiple specific properties
+`$this->all()` | Return key->value pairs of property data
 `$this->only([...$propertyNames])` | Return key->value pairs of property data only for a specific set of property names
+`$this->except([...$propertyNames])` | Return key->value pairs of property data except for a specific set of property names
 @endcomponent
 
 ### PHP Testing Methods {#php-testing-methods}
