@@ -55,7 +55,8 @@ Here are three ESSENTIAL things to note about public properties before embarking
 3. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Stringable`, `Collection`, `DateTime`, `Model`, `EloquentCollection`.
 
 @component('components.warning')
-<code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
+<code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.<br>
+You should also note that while <code>null</code> data type is Javascript-friendly, <code>public</code> properties set to <code>null</code> DO NOT persist between Livewire updates.
 @endcomponent
 
 ## Initializing Properties {#initializing-properties}
