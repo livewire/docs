@@ -38,3 +38,26 @@ return response()->streamDownload(function () {
 }, 'export.csv');
 @endverbatim
 @endcomponent
+
+## Testing File Downloads
+Testing file downloads is simple with livewire.
+
+Here is an example of testing the component above and making sure the export was downloaded.
+
+@component('components.code-component', [
+    'className' => 'ExportDownloadedTest.php',
+])
+@slot('class')
+@verbatim
+/** @test */
+public function can_download_export()
+{
+    Livewire::test(ExportButton::class)
+        ->call('download')
+        ->assertFileDownloaded('export')
+    ;
+
+}
+@endverbatim
+@endslot
+@endcomponent
