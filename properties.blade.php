@@ -88,7 +88,7 @@ public function mount()
 @endslot
 @endcomponent
 
-Additionally, Livewire offers `$this->reset()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
+Additionally, Livewire offers `$this->reset()` and `$this->resetExcept()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
 @component('components.code-component')
 @slot('class')
@@ -102,6 +102,9 @@ public function resetFilters()
 
     $this->reset(['search', 'isActive']);
     // Will reset both the search AND the isActive property.
+    
+    $this->resetExcept('search');
+    // Will only reset the isActive property (any property but the search property).
 }
 @endslot
 @endcomponent
