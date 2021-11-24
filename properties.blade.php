@@ -88,7 +88,7 @@ public function mount()
 @endslot
 @endcomponent
 
-Additionally, Livewire offers `$this->reset()` and `$this->resetExcept()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
+Additionally, Livewire offers `$this->reset()` and `$this->resetExcept()` to programmatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
 @component('components.code-component')
 @slot('class')
