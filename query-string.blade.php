@@ -72,3 +72,28 @@ class SearchPosts extends Component
 }
 @endslot
 @endcomponent
+
+Additionally, if you want to modify how properties are represented in the URL, Livewire offers a simple syntax for aliasing query strings.
+
+For example, if you want to shorten the URL, where page property is represented as `p` and search as `s`, you can use `as` modifier to achieve that outcome.
+
+@component('components.code-component')
+@slot('class')
+class SearchPosts extends Component
+{
+    public $search = '';
+    public $page = 1;
+
+    protected $queryString = [
+        'search' => ['except' => '', 'as' => 's'],
+        'page' => ['except' => 1, 'as' => 'p'],
+    ];
+
+    ...
+}
+@endslot
+@endcomponent
+
+Now the URL can look like this:
+
+`?search=Livewire%20is%20awesome&p=2`

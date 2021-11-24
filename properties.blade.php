@@ -55,7 +55,8 @@ Here are three ESSENTIAL things to note about public properties before embarking
 3. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Stringable`, `Collection`, `DateTime`, `Model`, `EloquentCollection`.
 
 @component('components.warning')
-<code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
+<code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.<br>
+You should also note that while <code>null</code> data type is Javascript-friendly, <code>public</code> properties set to <code>null</code> DO NOT persist between Livewire updates.
 @endcomponent
 
 ## Initializing Properties {#initializing-properties}
@@ -87,7 +88,7 @@ public function mount()
 @endslot
 @endcomponent
 
-Additionally, Livewire offers `$this->reset()` to programmatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
+Additionally, Livewire offers `$this->reset()` and `$this->resetExcept()` to programmatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
 @component('components.code-component')
 @slot('class')
@@ -101,6 +102,9 @@ public function resetFilters()
 
     $this->reset(['search', 'isActive']);
     // Will reset both the search AND the isActive property.
+    
+    $this->resetExcept('search');
+    // Will only reset the isActive property (any property but the search property).
 }
 @endslot
 @endcomponent
@@ -310,7 +314,7 @@ class EditUsersPosts extends Component
         <input type="text" wire:model="user.posts.{{ $i }}.title" />
         
         <span class="error">
-            @error('user.posts.{{ $i }}.title') {{ $message }} @enderror
+            @error('user.posts.'.$i.'.title') {{ $message }} @enderror
         </span>
     @endforeach
 
