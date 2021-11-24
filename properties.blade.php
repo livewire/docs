@@ -310,7 +310,7 @@ class EditUsersPosts extends Component
         <input type="text" wire:model="user.posts.{{ $i }}.title" />
         
         <span class="error">
-            @error('user.posts.{{ $i }}.title') {{ $message }} @enderror
+            @error('user.posts.'.$i.'.title') {{ $message }} @enderror
         </span>
     @endforeach
 
