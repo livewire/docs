@@ -9,7 +9,7 @@ Hooks | Description
 --- | ---
 boot | Runs on every request, immediately after the component is instantiated, but before any other lifecycle methods are called
 booted | Runs on every request, after the component is mounted or hydrated, but before any update methods are called
-mount | Runs once, immediately after the component is instantiated, but before `render()` is called
+mount | Runs once, immediately after the component is instantiated, but before `render()` is called. This is only called once on initial page load, and never called again, even on component refreshes.
 hydrate | Runs on every subsequent request, after the component is hydrated, but before an action is performed, or `render()` is called
 hydrateFoo | Runs after a property called `$foo` is hydrated
 dehydrate | Runs on every subsequent request, before the component is dehydrated, but after `render()` is called
