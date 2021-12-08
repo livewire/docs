@@ -22,6 +22,7 @@ By default, Livewire set's a loading element's "display" CSS property to "inline
 @component('components.code', ['lang' => 'blade'])
 <div wire:loading.block>...</div>
 <div wire:loading.flex>...</div>
+<div wire:loading.inline-flex>...</div>
 <div wire:loading.grid>...</div>
 <div wire:loading.inline>...</div>
 <div wire:loading.table>...</div>
