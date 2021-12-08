@@ -103,6 +103,8 @@ class ShowPost extends Component
 
 @component('components.tip')
 In Livewire components, you use <code>mount()</code> instead of a class constructor <code>__construct()</code> like you may be used to.
+
+NB: <code>mount()</code> is only ever called when the component is first mounted and will not be called again even when the component is refreshed or rerendered.
 @endcomponent
 
 
