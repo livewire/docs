@@ -38,7 +38,7 @@ You need to either place the `Livewire.onPageExpired()` call after Livewire's sc
 @verbatim
 <livewire:scripts />
 <script>
-    Livewire.onPageExpired(() => {})
+    Livewire.onPageExpired((response, message) => {})
 </script>
 @endverbatim
 @endcomponent
@@ -48,7 +48,7 @@ Or wrap it in an event lister that waits for Livewire to load
 @component('components.code', ['lang' => 'blade'])
 <script>
     document.addEventListener('livewire:load', () => {
-        Livewire.onPageExpired(() => {})
+        Livewire.onPageExpired((response, message) => {})
     })
 </script>
 @endcomponent
