@@ -9,7 +9,7 @@ Occasionally there will be changes to Livewire's internal method signatures that
 
 To achieve this, Livewire uses an internal deployment hash and keeps track of whether it has changed or not.
 
-If Livewire's deployment hash has changed, it will trigger the page expired dialog or hook (see below).
+If Livewire's deployment hash has changed, it will trigger the [page expired dialog or hook](#page-expired-dialog-and-hook).
 
 ## Page Expired Dialog and Hook {#page-expired-dialog-and-hook}
 
@@ -21,7 +21,7 @@ By default, if a deployment hash doesn't match (see above) or a users session ha
 
 ### Page Expired Hook {#page-expired-hook}
 
-If the default page expired dialog isn't suitable, you can implement your own solution for notifying users, by using the page expired hook.
+If the default page expired dialog isn't suitable, you can implement a custom solution for notifying users, by using the page expired hook.
 
 To do this you would pass a javascript callback to `Livewire.onPageExpired()` that handles notifying your users.
 
