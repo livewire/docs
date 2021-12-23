@@ -78,6 +78,7 @@ Method | Description
 `Livewire.hook(hookName, (...) => {})` | Call a method when JS lifecycle hook is fired. [Read more](#js-hooks)
 `Livewire.onLoad(() => {})` | Fires when Livewire is first finished loading on a page
 `Livewire.onError((message, statusCode) => {})` | Fires when a Livewire request fails. You can `return false` from the callback to prevent Livewire's default behavior
+`Livewire.onPageExpired((response, message) => {})` | When the page or session has expired it executes the callback instead of Livewire's [page expired dialog](/docs/2.x/deployment#page-expired-dialog)
 `Livewire.emit(eventName, ...params)` | Emit an event to all Livewire components listening on a page
 `Livewire.emitTo(componentName, eventName, ...params)` | Emit an event to specific component name
 `Livewire.on(eventName, (...params) => {})` | Listen for an event to be emitted from a component

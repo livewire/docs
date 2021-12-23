@@ -26,7 +26,7 @@ If the default page expired dialog isn't suitable, you can implement a custom so
 To do this you would pass a javascript callback to `Livewire.onPageExpired()` that handles notifying your users.
 
 @component('components.code', ['lang' => 'js'])
-Livewire.onPageExpired(() => confirm('Page Expired'))
+Livewire.onPageExpired((response, message) => {})
 @endcomponent
 
 @component('components.tip')
