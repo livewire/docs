@@ -96,4 +96,4 @@ class SearchPosts extends Component
 
 Now the URL can look like this:
 
-`?search=Livewire%20is%20awesome&p=2`
+`?s=Livewire%20is%20awesome&p=2`
