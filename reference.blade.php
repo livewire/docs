@@ -200,9 +200,9 @@ class PostForm extends Component
 Name | Description
 --- | ---
 `$this->emit($eventName, ...$params)` | Emit an event to other components on the page
-`$this->emit($eventName, ...$params)->up()` | Emit an event to parent components on the page
-`$this->emit($eventName, ...$params)->self()` | Emit an event only to THIS component
-`$this->emit($eventName, ...$params)->to($componentName)` | Emit an event to any component matching the provided name
+`$this->emitUp($eventName, ...$params)->up()` | Emit an event to parent components on the page
+`$this->emitSelf($eventName, ...$params)->self()` | Emit an event only to THIS component
+`$this->emitTo($eventName, ...$params)->to($componentName)` | Emit an event to any component matching the provided name
 `$this->dispatchBrowserEvent($eventName, ...$params)` | Dispatch a browser event from this component's root element
 `$this->validate()` | Run the validation rules provided in the `$rules` property against the public component properties
 `$this->validate($rules, $messages)` | Run the provided validation rules against the public properties
