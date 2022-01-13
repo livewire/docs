@@ -237,7 +237,7 @@ class PostForm extends Component
 Notice in the above component we are binding directly to the "title" and "content" model attributes. Livewire will take care of hydrating and dehydrating the model between requests with the current, non-persisted data.
 
 @component('components.warning')
-Note: For this to work, you have a validation entry in the `$rules` property for any model attributes you want to bind to. Otherwise, an error will be thrown.
+Note: For this to work, you need to have a validation entry in the `$rules` property for any model attributes you want to bind to. Otherwise, an error will be thrown.
 @endcomponent
 
 Additionally, you can bind to models within an Eloquent Collection.
