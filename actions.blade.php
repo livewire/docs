@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Introduction](#introduction)
 * [Passing Action Parameters](#action-parameters)
 * [Event Modifiers](#event-modifiers)

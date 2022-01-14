@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Requirements](#requirements)
 * [Install The Package](#install-package)
 * [Include The Assets](#include-js)

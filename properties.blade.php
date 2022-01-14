@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Introduction](#introduction)
   * [Important Notes](#important-notes)
 * [Initializing Properties](#initializing-properties)

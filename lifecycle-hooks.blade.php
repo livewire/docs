@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Class Hooks](#class-hooks)
 * [Javascript Hooks](#js-hooks)
 

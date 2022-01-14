@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Install Livewire](#install-livewire)
 * [Create a component](#create-a-component)
 * [Include the component](#include-the-component)

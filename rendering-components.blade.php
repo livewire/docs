@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Inline Components](#inline-components)
   * [Parameters](#parameters)
 * [Full-Page Components](#page-components)

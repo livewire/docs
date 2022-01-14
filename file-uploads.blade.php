@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Basic Upload](#basic-upload)
   * [Storing Uploaded Files](#storing-files)
 * [Handling Multiple Files](#multiple-files)

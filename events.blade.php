@@ -1,5 +1,3 @@
-@include('includes.screencast-cta')
-
 * [Firing Events](#firing-events)
   * [From The Template](#from-template)
   * [From The Component](#from-component)
