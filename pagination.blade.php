@@ -1,3 +1,8 @@
+* [Paginating Data](#paginating-data)
+* [Resetting Pagination After Filtering Data](#resetting-pagination)
+* [Multiple paginators on the same page](#multiple-paginators)
+* [Using The Bootstrap Pagination Theme](#custom-pagination-view)
+* [Using A Custom Pagination View](#custom-pagination-view)
 
 Livewire offers the ability to paginate results within a component. This feature hooks into Laravel's native pagination features, so it should feel like an invisible feature to you.
 

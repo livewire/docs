@@ -1,3 +1,10 @@
+* [Introduction](#introduction)
+* [Testing Component Presence](#testing-component-presence)
+* [Testing With Query String Parameters](#testing-querystring)
+* [Testing Components With Passed Data](#testing-passed-data)
+* [All Available Test Methods](#all-testing-methods)
+
+## Introduction {#introduction}
 
 Livewire offers a powerful set of tools for testing your components.
 

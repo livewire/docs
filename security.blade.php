@@ -1,3 +1,10 @@
+* [Introduction](#introduction)
+* [Security Measures](#security-measures)
+    * [The Checksum](#the-checksum)
+    * [Persistent Middleware](#persistent-middleware)
+
+## Introduction {#introduction}
+
 To the new Livewire developer, the experience is somewhat magical. It feels as if when the page loads, your Livewire component is living on a server listening for updates from the browser and responding to them in real-time.
 
 This is not far from how other, similar tools like [Phoenix LiveView](https://dockyard.com/blog/2018/12/12/phoenix-liveview-interactive-real-time-apps-no-need-to-write-javascript) work.
@@ -59,7 +66,7 @@ Here is a deeper visualization of the actual component lifecycles during these r
 
 Hopefully now you've adopted a more accurate mental model of how Livewire works under the hood. This will allow you to more intelligently debug problems and understand the performance and security implications of using Livewire.
 
-## Security Measures
+## Security Measures {#security-measures}
 
 Like you learned above, each Livewire request is "stateless" in the sense that there is no long-running server instance maintaining state. The state is stored in the browser and passed back and forth to the server between requests.
 
@@ -67,7 +74,7 @@ Because the state is stored in the browser, it is vulnerable to front-end manipu
 
 In our "counter" example, there are no real negative implications of manipulating something as trivial and ephemeral as the "count" of that component, but in a component with more at stake, for example an "edit post" component with a delete button, security measures need to be in place.
 
-### The Checksum
+### The Checksum {#the-checksum}
 
 The fundamental security underpinning Livewire is a "checksum" that travels along with request/responses and is used to validate that the state from the server hasn't been tampered with in the browser.
 
@@ -84,7 +91,7 @@ A more realistic representation of the Livewire payload for the "counter" would 
 
 Now if a malicous person tampered with the state in the browser between requests, before Livewire handled a component update, it would see that a hash of the payload doesn't match the checksum and throw an error.
 
-### Persistent Middleware
+### Persistent Middleware {#persistent-middleware}
 
 The second security measure Livewire puts in place is "persistent middleware". This means Livewire will capture any authentication/authorization middleware that was used during the "Initial Request" and re-apply it to subsequent requests.
 

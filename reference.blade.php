@@ -1,3 +1,15 @@
+* [Template Directives](#template-directives)
+* [Alpine Component Object (`$wire`)](#alpine-component-object)
+* [Global Livewire JavaScript Object](#global-livewire-js)
+* [JavaScript Hooks](#js-hooks)
+* [Component Class Lifecycle Hooks](#component-class-lifecycle)
+* [Component Class Protected Properties](#component-class-protected-properties)
+* [Component Class Traits](#component-class-traits)
+* [Class Methods](#class-methods)
+* [PHP Testing Methods](#php-testing-methods)
+* [Artisan Commands](#artisan-commands)
+* [PHP Lifecycle Hooks](#php-lifecycle-hooks)
+
 Already familiar with Livewire and want to skip the long-form documentation? Here's a giant list of everything available in Livewire.
 
 ### Template Directives {#template-directives}

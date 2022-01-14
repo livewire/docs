@@ -1,6 +1,7 @@
-@include('includes.screencast-cta')
+* [Class Hooks](#class-hooks)
+* [Javascript Hooks](#js-hooks)
 
-## Class Hooks
+## Class Hooks {#class-hooks}
 
 Each Livewire component undergoes a lifecycle. Lifecycle hooks allow you to run code at any part of the component's lifecyle, or before specific properties are updated.
 
