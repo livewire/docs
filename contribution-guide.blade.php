@@ -1,21 +1,20 @@
+* [Setup Livewire locally](#setup-livewire-locally)
+    * [Fork Livewire](#fork-livewire)
+    * [Git clone your fork locally](#clone-fork)
+    * [Install dependencies](#install-dependencies)
+    * [Configure dusk](#configure-dusk)
+    * [Run tests](#setup-run-tests)
+* [Bug fix/ feature development](#bug-fix-feature-development)
+    * [Create a branch](#create-a-branch)
+    * [Add failing tests](#add-failing-tests)
+    * [Add working code](#add-working-code)
+    * [Run tests](#development-run-tests)
+    * [Submit PR](#submit-pr)
+    * [Thanks for contributing! 🙌](#thanks)
+
 At Livewire we appreciate and welcome all contributions!
 
 If that's something you would be interested in doing, we recommend going through this contribution guide first before starting.
-
-* [Setup Livewire locally](#setup-livewire-locally) { .text-blue-800 }
-    * [Fork Livewire](#fork-livewire) { .font-normal.text-sm.text-blue-800 }
-    * [Git clone your fork locally](#clone-fork) { .font-normal.text-sm.text-blue-800 }
-    * [Install dependencies](#install-dependencies) { .font-normal.text-sm.text-blue-800 }
-    * [Configure dusk](#configure-dusk) { .font-normal.text-sm.text-blue-800 }
-    * [Run tests](#setup-run-tests) { .font-normal.text-sm.text-blue-800 }
-* [Bug fix/ feature development](#bug-fix-feature-development) { .text-blue-800 }
-    * [Create a branch](#create-a-branch) { .font-normal.text-sm.text-blue-800 }
-    * [Add failing tests](#add-failing-tests) { .font-normal.text-sm.text-blue-800 }
-    * [Add working code](#add-working-code) { .font-normal.text-sm.text-blue-800 }
-    * [Run tests](#development-run-tests) { .font-normal.text-sm.text-blue-800 }
-    * [Submit PR](#submit-pr) { .font-normal.text-sm.text-blue-800 }
-    * [Thanks for contributing! 🙌](#thanks) { .font-normal.text-sm.text-blue-800 }
-
 
 ## Setup Livewire locally {#setup-livewire-locally}
 

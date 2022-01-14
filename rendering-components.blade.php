@@ -1,16 +1,14 @@
-* [Inline Components](#inline-components) { .text-blue-800 }
-  * [Parameters](#parameters) { .font-normal.text-sm.text-blue-800 }
-* [Full-Page Components](#page-components) { .text-blue-800 }
-  * [Configuring The Layout Component](#custom-layout) { .font-normal.text-sm.text-blue-800 }
-  * [Route Parameters](#route-params) { .font-normal.text-sm.text-blue-800 }
-  * [Route Model Binding](#route-model-binding) { .font-normal.text-sm.text-blue-800 }
-* [The Render Method](#render-method) { .text-blue-800 }
-  * [Returning Blade Views](#returning-blade) { .font-normal.text-sm.text-blue-800 }
-  * [Returning Template String](#returning-strings) { .font-normal.text-sm.text-blue-800 }
-
-<div>&nbsp;</div>
-
 @include('includes.screencast-cta')
+
+* [Inline Components](#inline-components)
+  * [Parameters](#parameters)
+* [Full-Page Components](#page-components)
+  * [Configuring The Layout Component](#custom-layout)
+  * [Route Parameters](#route-params)
+  * [Route Model Binding](#route-model-binding)
+* [The Render Method](#render-method)
+  * [Returning Blade Views](#returning-blade)
+  * [Returning Template String](#returning-strings)
 
 ## Inline Components {#inline-components}
 

@@ -1,7 +1,7 @@
-* [Livewire Changes](#livewire-changes) { .text-blue-800 }
-* [Page Expired Dialog and Hook](#page-expired-dialog-and-hook) { .text-blue-800 }
-    * [Page Expired Dialog](#page-expired-dialog) { .text-blue-800 }
-    * [Page Expired Hook](#page-expired-hook) { .text-blue-800 }
+* [Livewire Changes](#livewire-changes)
+* [Page Expired Dialog and Hook](#page-expired-dialog-and-hook)
+    * [Page Expired Dialog](#page-expired-dialog)
+    * [Page Expired Hook](#page-expired-hook)
 
 ## Livewire Changes {#livewire-changes}
 

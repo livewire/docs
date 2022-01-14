@@ -1,3 +1,4 @@
+* [Registering Custom Components](#registering-components)
 
 ## Registering Custom Components {#registering-components}
 

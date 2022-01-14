@@ -1,12 +1,10 @@
-* [Introduction](#introduction) { .text-blue-800 }
-* [Passing Action Parameters](#action-parameters) { .text-blue-800 }
-* [Event Modifiers](#event-modifiers) { .text-blue-800 }
-  * [Keydown Modifiers](#keydown-modifiers) { .font-normal.text-sm.text-blue-800 }
-* [Magic Actions](#magic-actions) { .text-blue-800 }
-
-<div>&nbsp;</div>
-
 @include('includes.screencast-cta')
+
+* [Introduction](#introduction)
+* [Passing Action Parameters](#action-parameters)
+* [Event Modifiers](#event-modifiers)
+  * [Keydown Modifiers](#keydown-modifiers)
+* [Magic Actions](#magic-actions)
 
 ## Introduction {#introduction}
 

@@ -1,3 +1,7 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
+
 Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
 
 @component('components.warning')

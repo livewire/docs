@@ -1,3 +1,8 @@
+* [Introduction](#introduction)
+    * [Keeping A Clean Query String](#clean-query-string)
+    * [Query String Aliases](#query-string-aliases)
+
+## Introduction {#introduction}
 
 Sometimes it's useful to update the browser's query string when your component state changes.
 
@@ -72,6 +77,8 @@ class SearchPosts extends Component
 }
 @endslot
 @endcomponent
+
+### Query String Aliases {#query-string-aliases}
 
 Additionally, if you want to modify how properties are represented in the URL, Livewire offers a simple syntax for aliasing query strings.
 

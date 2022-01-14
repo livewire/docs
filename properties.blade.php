@@ -1,18 +1,16 @@
-* [Introduction](#introduction) { .text-blue-800 }
-  * [Important Notes](#important-notes) { .font-normal.text-sm.text-blue-800 }
-* [Initializing Properties](#initializing-properties) { .text-blue-800 }
-* [Data Binding](#data-binding) { .text-blue-800 }
-  * [Binding Nested Data](#binding-nested-data) { .font-normal.text-sm.text-blue-800 }
-  * [Debouncing Input](#debouncing-input) { .font-normal.text-sm.text-blue-800 }
-  * [Lazy Updating](#lazy-updating) { .font-normal.text-sm.text-blue-800 }
-  * [Deferred Updating](#deferred-updating) { .font-normal.text-sm.text-blue-800 }
-* [Binding Directly To Model Properties](#binding-models) { .text-blue-800 }
-* [Custom (Wireable) Properties](#wireable-properties) { .text-blue-800 }
-* [Computed Properties](#computed-properties) { .text-blue-800 }
-
-<div>&nbsp;</div>
-
 @include('includes.screencast-cta')
+
+* [Introduction](#introduction)
+  * [Important Notes](#important-notes)
+* [Initializing Properties](#initializing-properties)
+* [Data Binding](#data-binding)
+  * [Binding Nested Data](#binding-nested-data)
+  * [Debouncing Input](#debouncing-input)
+  * [Lazy Updating](#lazy-updating)
+  * [Deferred Updating](#deferred-updating)
+* [Binding Directly To Model Properties](#binding-models)
+* [Custom (Wireable) Properties](#wireable-properties)
+* [Computed Properties](#computed-properties)
 
 ## Introduction {#introduction}
 

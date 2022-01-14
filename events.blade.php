@@ -1,19 +1,17 @@
-* [Firing Events](#firing-events) { .text-blue-800 }
-  * [From The Template](#from-template) { .font-normal.text-sm.text-blue-800 }
-  * [From The Component](#from-component) { .font-normal.text-sm.text-blue-800 }
-  * [From Global JavaScript](#from-js) { .font-normal.text-sm.text-blue-800 }
-* [Event Listeners](#event-listeners) { .text-blue-800 }
-* [Passing Parameters](#passing-parameters) { .text-blue-800 }
-* [Scoping Events](#scoping-events) { .text-blue-800 }
-  * [Scoping To Parent Listeners](#scope-to-parents) { .font-normal.text-sm.text-blue-800 }
-  * [Scoping To Components By Name](#scope-by-name) { .font-normal.text-sm.text-blue-800 }
-  * [Scoping To Self](#scope-to-self) { .font-normal.text-sm.text-blue-800 }
-* [Listening For Events In JavaScript](#in-js) { .text-blue-800 }
-* [Dispatching Browser Events](#browser) { .text-blue-800 }
-
-<div>&nbsp;</div>
-
 @include('includes.screencast-cta')
+
+* [Firing Events](#firing-events)
+  * [From The Template](#from-template)
+  * [From The Component](#from-component)
+  * [From Global JavaScript](#from-js)
+* [Event Listeners](#event-listeners)
+* [Passing Parameters](#passing-parameters)
+* [Scoping Events](#scoping-events)
+  * [Scoping To Parent Listeners](#scope-to-parents)
+  * [Scoping To Components By Name](#scope-by-name)
+  * [Scoping To Self](#scope-to-self)
+* [Listening For Events In JavaScript](#in-js)
+* [Dispatching Browser Events](#browser)
 
 Livewire components can communicate with each other through a global event system. As long as two Livewire components are living on the same page, they can communicate using events and listeners.
 

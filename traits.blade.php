@@ -1,3 +1,7 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
+
 PHP Traits are a great way to re-use functionality between multiple Livewire components.
 
 For example, you might have multiple "data table" components in your application that all share the same logic surrounding sorting.

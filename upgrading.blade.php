@@ -1,4 +1,18 @@
-## V2 is Here! 🎉
+* [V2 is Here! 🎉](#v2-is-here)
+* [Update Your Composer Version](#update-your-composer-version)
+* [Update Your Alpine Version](#update-your-alpine-verion)
+* [Update Your Application Code](#update-your-application-code)
+    * [Updated: `$updatesQueryString` to `$queryString`](#query-string)
+    * [Removed: Route::livewire()](#route-livewire)
+* [Removed: Turbolinks Support](#turbolinks)
+* [Changed: `assertSet()`](#assert-set)
+* [Removed: Property Casters](#casters)
+* [Updated: Pagination Views](#pagination)
+* [Updated: JavaScript Hooks](#hooks)
+* [Updated: VueJS Support](#vuejs)
+* [Signing Off](#signing-off)
+
+## V2 is Here! 🎉 {#v2-is-here}
 
 Before we get into the technical upgrade stuff, you might be interested in what philosophical underpinnings are behind these changes.
 
@@ -7,14 +21,14 @@ Before we get into the technical upgrade stuff, you might be interested in what 
 * **Livewire is a back-end interface at its core**. The `wire:click` stuff is just sugar that makes the interface easy to use. With the addition of `$wire`, the underlying power is now apparent: Livewire allows you to interface with backend code, directly and declaratively without the need for imperative/boilerplatey patterns like axios.post(), RESTfull endpoints, controllers, etc...
 * **Livewire is simple to use**. Of all the philosophies I hold, I hold this one the strongest. Livewire should always remain ridiculously easy to use. My goal is that you can easily remember and almost guess its APIs. Before introducing any feature, I scour existing patterns and APIs in Laravel to see if Livewire can use that shared knowledge as leverage for new adopters. A small example is the new `$rules` property. I could have named it anything, but why would I name it anything besides `$rules` (a precedent set by Request objects in Laravel)? If I don't think an API is easy, intuitive, and clear, I wait on the feature and let it simmer until something clear and beautiful emerges. (Or at least that's my goal.)
 
-## Update Your Composer Version
+## Update Your Composer Version {#update-your-composer-version}
 
 1. Update the `livewire/livewire` dependency in your `composer.json` file to `^2.0`
 2. Run `composer update livewire/livewire`
 3. Run `php artisan view:clear`
 4. Run `php artisan livewire:publish --assets` (If you published the assets before)
 
-## Update Your Alpine Version
+## Update Your Alpine Version {#update-your-alpine-verion}
 
 If you are using [AlpineJS](https://github.com/alpinejs/alpine) with Livewire V2, make sure you are on version `2.7.0` or greater.
 
@@ -23,7 +37,7 @@ If you are using [AlpineJS](https://github.com/alpinejs/alpine) with Livewire V2
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
 @endcomponent
 
-## Update Your Application Code
+## Update Your Application Code {#update-your-application-code}
 
 Here are the breaking changes and their upgrade instructions in order of impact:
 
@@ -341,7 +355,7 @@ If your Livewire currently depends on the [vue-plugin](https://github.com/livewi
 @endcomponent
 
 
-## Signing Off
+## Signing Off {#signing-off}
 Hopefully, the impact of this upgrade isn't much for you.
 
 If you have questions or corrections to make to this document, please [submit a GitHub issue on the repository.](https://github.com/livewire/livewire/issues/new/choose)

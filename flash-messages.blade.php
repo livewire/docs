@@ -1,3 +1,6 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
 
 In cases where it's useful to "flash" a success or failure message to the user, Livewire supports Laravel's system for flashing data to the session.
 

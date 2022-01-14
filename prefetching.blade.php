@@ -1,3 +1,6 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
 
 Livewire offers the ability to "prefetch" the result of an action on mouseover. Toggling display content is a common use case.
 

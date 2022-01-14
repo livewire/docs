@@ -1,3 +1,12 @@
+* [Introduction](#introduction)
+* [Toggling elements during "loading" states](#toggling-elements)
+* [Delaying loading indicator](#delaying-loading)
+* [Targeting specific actions](#targeting-actions)
+* [Targeting models](#targeting-models)
+* [Toggling classes](#toggling-classes)
+* [Toggling attributes](#toggling-attributes)
+
+## Introduction {#introduction}
 
 Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases when the page may not react immediately to a user event (like a click). Livewire allows you to easily display loading states, which can make your app feel more responsive.
 

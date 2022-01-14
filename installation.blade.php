@@ -1,5 +1,12 @@
 @include('includes.screencast-cta')
 
+* [Requirements](#requirements)
+* [Install The Package](#install-package)
+* [Include The Assets](#include-js)
+* [Publishing The Config File](#publishing-config)
+* [Publishing Frontend Assets](#publish-assets)
+* [Configuring The Asset Base URL](#configuring-the-asset-base-url)
+
 ## Requirements {#requirements}
 
 1. PHP 7.2.5 or higher
@@ -81,7 +88,7 @@ To keep the assets up-to-date and avoid issues in future updates, we **highly re
 @endverbatim
 @endcomponent
 
-## Configuring The Asset Base URL
+## Configuring The Asset Base URL {#configuring-the-asset-base-url}
 
 By default, Livewire serves its JavaScript portion (`livewire.js`) from the following route in your app: `/livewire/livewire.js`.
 

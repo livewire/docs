@@ -1,4 +1,10 @@
-## The `make` command
+* [The `make` command](#make-command)
+    * [Modifying Stubs](#modifying-stubs)
+* [The `move` Command](#move-command)
+* [The `copy` Command](#copy-command)
+* [The `delete` Command](#delete-command)
+
+## The `make` command {#make-command}
 
 @component('components.code', ['lang' => 'shell'])
 php artisan make:livewire foo

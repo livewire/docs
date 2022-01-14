@@ -1,3 +1,6 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
 
 You may want to redirect from inside a Livewire component to another page in your app. Livewire supports the standard redirect response syntax you are used to using in Laravel controller.
 

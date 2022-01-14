@@ -1,3 +1,8 @@
+* [Introduction](#introduction)
+* [Keeping Track Of Components In A Loop](#keyed-components)
+    * [Sibling Components in a Loop](#sibling-components-in-a-loop)
+
+## Introduction {#introduction}
 
 Livewire supports nesting components. Component nesting can be an extremely powerful technique, but there are a few gotchas worth mentioning up-front:
 
@@ -61,7 +66,7 @@ If you are on Laravel 7 or above, you can use the tag syntax.
 @endslot
 @endcomponent
 
-### Sibling Components in a Loop
+### Sibling Components in a Loop {#sibling-components-in-a-loop}
 
 In some situations, you may find the need to have sibling components inside of a loop, this situation requires additional consideration for the `wire:key` value.
 
