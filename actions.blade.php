@@ -69,6 +69,10 @@ Here are a few examples of each in HTML:
 You can listen for any event dispatched by the element you are binding to. Let's say you have an element that dispatches a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
 @endcomponent
 
+@component('components.warning')
+Like the above example using `wire:submit.prevent` directly at the form opening tag will generate "readonly" properties for all html elements inside the form during the requests.
+@endcomponent
+
 ## Passing Action Parameters {#action-parameters}
 
 You can pass extra parameters into a Livewire action directly in the expression like so:
