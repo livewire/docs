@@ -60,6 +60,17 @@ For the most part, this system is reliable, but there are certain cases where Li
 <div wire:key="bar">...</div>
 @endcomponent
 
+* Ensure there is no leading comment or element outside the main <div> tag. You component must have a div tag that is parent to everthing else.
+
+* This will cause dom diffing issues. The whole component will disappear while trying to update dom.
+@component('components.code')
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div>
+    ...
+</div>
+@endcomponent
+
+
 ## Checksum Issues {#checksum-issues}
 
 On every request, Livewire does a "[checksum](https://laravel-livewire.com/docs/security)" but in some cases with arrays, it can throw an exception even when the data inside the array is the same.
