@@ -331,6 +331,10 @@ return [
 
 Now, when a user uploads a file, the file will never actually hit your server. It will be uploaded directly to your S3 bucket, under the sub-directory: `livewire-tmp/`.
 
+@component('components.warning')
+In case of a CORS error when uploading the file, make sure to configure your receiving end to allow the appropriate headers. In addition to the <code>x-amz-acl</code> header you need to allow the <code>Content-Type</code> header when uploading files.
+@endcomponent
+
 ### Configuring Automatic File Cleanup {#auto-cleanup}
 This temporary directory will fill up with files quickly, therefore, it's important to configure S3 to cleanup files older than 24 hours.
 
