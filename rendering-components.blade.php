@@ -179,6 +179,21 @@ class ShowPosts extends Component
 @endverbatim
 @endcomponent
 
+If your layout has an associated class file, you will need to reference that for any custom logic or properties.
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class ShowPosts extends Component
+{
+    ...
+    public function render()
+    {
+        return view('livewire.show-posts')
+            ->layout(\App\View\Components\BaseLayout::class);
+    }
+}
+@endverbatim
+@endcomponent
+
 If you are using a non-default slot in the component, you can also chain on `->slot()`:
 
 @component('components.code', ['lang' => 'php'])
