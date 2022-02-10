@@ -5,6 +5,10 @@
 * [Query String Issues](#query-string-issues)
     * [Symptoms](#query-string-symptoms)
     * [Cures](#query-string-cures)
+* [Root Element Issues](#root-element-issues)
+    * [Symptoms](#root-element-symptoms)
+    * [Cures](#root-element-cures)
+
 
 ## Dom Diffing Issues {#dom-diffing-issues}
 
@@ -95,3 +99,42 @@ Livewire is using the site's `referrer` information when setting the query strin
 ### Cures {#query-string-cures}
 
 If you do set security headers, make sure the `referrer-policy` value is set to `same-origin`.
+
+## Root Element Issues {#root-element-issues}
+
+Livewire requires that there be only one HTML element at the root of a components blade view. 
+
+Having multiple root elements can mean that parts of your view won't work with Livewire correctly, if at all.
+
+### Symptoms {#root-element-symptoms}
+
+* A button isn't triggering a `wire:click`
+* Entering data into an input doesn't trigger a network request
+* Parts of your view aren't updating properly (could also be a [Dom Diffing issue](#dom-diffing-issues), see above)
+* You get an error in your browser console that says `Livewire: Multiple root elements detected. This is not supported.`
+* See below for an example of a component with a button that doesn't work:
+
+@component('components.code', ['lang' => 'blade'])
+<div>
+    Some content
+</div>
+
+<!-- This button isn't working -->
+<button wire:click="doSomething">Do Something</button>
+@endcomponent
+
+### Cures {#root-element-cures}
+
+The solution is to ensure that you only have one root HTML element, such as a `<div>`. If you have multiple elements, then wrap everything in a `<div>` or another element that suits your layout.
+
+So in our example from above, we have wrapped everything in a `<div>` which gets the button running:
+
+@component('components.code', ['lang' => 'blade'])
+<div> <!-- Added this wrapping div -->
+    <div>
+        Some content
+    </div>
+
+    <button wire:click="doSomething">Do Something</button>
+</div> <!-- Added this closing tag for the wrapping div -->
+@endcomponent
