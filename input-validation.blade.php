@@ -246,7 +246,7 @@ class ContactForm extends Component
 
 ## Direct Error Message Manipulation {#error-bag-manipulation}
 
-The `validate()` and `validateOnly()` method should handle most cases, but sometimes you may want direct control over Livewire's internal ErrorBag.
+The `validate()` and `validateOnly()` methods should handle most cases, but sometimes you may want direct control over Livewire's internal ErrorBag.
 
 Livewire provides a handful of methods for you to directly manipulate the ErrorBag.
 
@@ -300,7 +300,7 @@ class ContactForm extends Component
 
 ## Testing Validation {#testing-validation}
 
-Livewire provides useful testing utilities for validation scenarios. Let's a write a simple test for the original "Contact Form" component.
+Livewire provides useful testing utilities for validation scenarios. Let's write a simple test for the original "Contact Form" component.
 
 @component('components.code', ['lang' => 'php'])
 /** @test */
