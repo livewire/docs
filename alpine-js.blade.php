@@ -212,7 +212,7 @@ To demonstrate, consider the dropdown example from before, but now with its `sho
 @component('components.code-component')
 @slot('class')
 @verbatim
-class Dropdown extends Component
+class YourLiveWireComponent extends Component
 {
     public $showDropdown = false;
 
