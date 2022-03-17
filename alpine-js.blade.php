@@ -24,21 +24,12 @@ To install Alpine in your project, add the following script tag to the `<head>` 
 @component('components.code', ['lang' => 'blade', 'id' => 'js-inject-alpine-version'])
 <head>
     ...
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- The "defer" attribute is important to make sure Alpine waits for Livewire to load first. -->
 </head>
 @endcomponent
 
-<!-- This is so dark, but this will replace the referenced Alpine version with the latest one. -->
-<span x-data x-init="
-    () => {};
-    let element = document.querySelector('#js-inject-alpine-version');
-    let html = element.innerHTML;
-    element.innerHTML = html.replace('2.7.1', window.Alpine.version);
-"></span>
-
-
-For more installation information, visit the [Alpine Docs](https://alpinejs.dev/).
+For more installation information, visit the [Alpine Docs](https://alpinejs.dev/essentials/installation).
 
 ## Using Alpine Inside Of Livewire {#alpine-in-livewire}
 
