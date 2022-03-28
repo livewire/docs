@@ -90,6 +90,8 @@ Here’s an example of two different components that might exist on the same pag
 @component('components.code', ['lang' => 'php'])
 class ShowPosts extends Livewire\Component
 {
+    use WithPagination;
+
     public function render()
     {
         return view('livewire.show-posts', [
@@ -102,7 +104,9 @@ class ShowPosts extends Livewire\Component
 @component('components.code', ['lang' => 'php'])
 class ListPostComments extends Livewire\Component
 {
-	  public Post $post;
+    use WithPagination;
+
+    public Post $post;
 
     public function render()
     {
