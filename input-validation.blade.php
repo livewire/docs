@@ -216,6 +216,8 @@ class ContactForm extends Component
 @endslot
 @endcomponent
 
+You can substitute the `$messages` property for the `messages()` method on the component.
+
 If you are not using the global `$rules` validation property, then you can pass custom messages and attributes directly into `validate()`.
 
 @component('components.code-component')
