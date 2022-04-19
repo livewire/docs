@@ -128,7 +128,7 @@ Modifier | Description
 stop | Equivalent of `event.stopPropagation()`
 prevent | Equivalent of `event.preventDefault()`
 self | Only triggers an action if the event was triggered on itself. This prevents outer elements from catching events that were triggered from a child element. (Like often in the case of registering a listener on a modal backdrop)
-debounce.150ms | Adds an Xms debounce the handling of the action.
+debounce.150ms | Adds an Xms debounce to the handling of the action.
 @endcomponent
 
 ### Keydown Modifiers {#keydown-modifiers}
