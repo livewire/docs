@@ -42,7 +42,7 @@ Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewi
     <div x-data="{ open: false }">
         <button @click="open = true">Show More...</button>
 
-        <ul x-show="open" @click.away="open = false">
+        <ul x-show="open" @click.outside="open = false">
             <li><button wire:click="archive">Archive</button></li>
             <li><button wire:click="delete">Delete</button></li>
         </ul>
@@ -84,7 +84,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 <div x-data="{ open: false }">
     <span @click="open = true">{{ $trigger }}</span>
 
-    <div x-show="open" @click.away="open = false">
+    <div x-show="open" @click.outside="open = false">
         {{ $slot }}
     </div>
 </div>
@@ -226,7 +226,7 @@ class Dropdown extends Component
 <div x-data="{ open: @entangle('showDropdown') }">
     <button @click="open = true">Show More...</button>
 
-    <ul x-show="open" @click.away="open = false">
+    <ul x-show="open" @click.outside="open = false">
         <li><button wire:click="archive">Archive</button></li>
         <li><button wire:click="delete">Delete</button></li>
     </ul>
@@ -342,7 +342,7 @@ There are LOTS of different ways to use this utility, but one common example is 
 <div x-data="{ open: @entangle($attributes->wire('model')) }">
     <span @click="open = true">{{ $trigger }}</span>
 
-    <div x-show="open" @click.away="open = false">
+    <div x-show="open" @click.outside="open = false">
         {{ $slot }}
     </div>
 </div>
