@@ -291,6 +291,9 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertDispatchedBrowserEvent('event', $data);
 // Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
 
+->assertNotDispatchedBrowserEvent('event');
+// Assert that a browser event was not dispatched from the component using (->dispatchBrowserEvent(...))
+
 ->assertFileDownloaded($filename)
 // Assert that a downloaded file was returned with a specific name
 @endcomponent
