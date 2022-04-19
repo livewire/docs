@@ -82,7 +82,7 @@ class SearchPosts extends Component
 
 Additionally, if you want to modify how properties are represented in the URL, Livewire offers a simple syntax for aliasing query strings.
 
-For example, if you want to shorten the URL, where page property is represented as `p` and search as `s`, you can use `as` modifier to achieve that outcome.
+For example, if you want to shorten the URL, where the page property is represented as `p` and search as `s`, you can use the `as` modifier to achieve that outcome.
 
 @component('components.code-component')
 @slot('class')
