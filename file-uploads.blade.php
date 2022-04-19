@@ -144,6 +144,8 @@ class UploadPhotos extends Component
 ## File Validation {#file-validation}
 Like you've seen in previous examples, validating file uploads with Livewire is exactly the same as handling file uploads from a standard Laravel controller.
 
+> Note: Many of the Laravel validation rules relating to files require access to the file. If you are [uploading directly to S3](#upload-to-s3) these validation rules will fail if the object is not publicly accessible.
+
 For more information on Laravel's File Validation utilities, [visit the documentation](https://laravel.com/docs/validation#available-validation-rules).
 
 ### Real-time Validation {#real-time-validation}
