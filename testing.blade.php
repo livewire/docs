@@ -174,7 +174,7 @@ class CreatePostTest extends TestCase
 @endslot
 @endcomponent
 
-## Generating Tests
+## Generating Tests {#generating-tests}
 
 When creating a component, you can include the `--test` flag, and a test file will be created for you as well.
 
