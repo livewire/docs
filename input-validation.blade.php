@@ -1,3 +1,13 @@
+* [Introduction](#introduction)
+* [Real-time Validation](#real-time-validation)
+* [Validating with rules outside of the `$rules` property](#validating-with-other-rules)
+* [Customize Error Message & Attributes](#customize-error-message-and-attributes)
+* [Direct Error Message Manipulation](#error-bag-manipulation)
+* [Access Validator instance](#access-validator-instance)
+* [Testing Validation](#testing-validation)
+* [Custom validators](#custom-validators)
+
+## Introduction {#introduction}
 
 Validation in Livewire should feel similar to standard form validation in Laravel. In short, Livewire provides a `$rules` property for setting validation rules on a per-component basis, and a `$this->validate()` method for validating a component's properties using those rules.
 
@@ -131,7 +141,7 @@ Let's break down exactly what is happening in this example:
 
 If you are wondering, "why do I need `validateOnly`? Can't I just use `validate`?". The reason is because otherwise, every single update to any field would validate ALL of the fields. This can be a jarring user experience. Imagine if you typed one character into the first field of a form, and all of a sudden every single field had a validation message. `validateOnly` prevents that, and only validates the current field being updated.
 
-## Validating with rules outside of the `$rules` property
+## Validating with rules outside of the `$rules` property {#validating-with-other-rules}
 If for whatever reason you want to validate using rules other than the ones defined in the `$rules` property, you can always do this by passing the rules directly into the `validate()` and `validateOnly()` methods.
 
 @component('components.code-component')
@@ -164,7 +174,7 @@ class ContactForm extends Component
 @endslot
 @endcomponent
 
-## Customize Error Message & Attributes
+## Customize Error Message & Attributes {#customize-error-message-and-attributes}
 
 If you wish to customize the validation messages used by a Livewire component, you can do so with the `$messages` property.
 
@@ -236,7 +246,7 @@ class ContactForm extends Component
 
 ## Direct Error Message Manipulation {#error-bag-manipulation}
 
-The `validate()` and `validateOnly()` method should handle most cases, but sometimes you may want direct control over Livewire's internal ErrorBag.
+The `validate()` and `validateOnly()` methods should handle most cases, but sometimes you may want direct control over Livewire's internal ErrorBag.
 
 Livewire provides a handful of methods for you to directly manipulate the ErrorBag.
 
@@ -262,9 +272,35 @@ $errors->add('some-key', 'Some message');
 @endverbatim
 @endcomponent
 
+## Access Validator instance {#access-validator-instance}
+
+Sometimes you may want to access the Validator instance that Livewire uses in the `validate()` and `validateOnly()` methods. This is possible using the `withValidator` method. The closure you provide receives the fully constructed validator as an argument, allowing you to call any of its methods before the validation rules are actually evaluated.
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+use Illuminate\Validation\Validator;
+
+class ContactForm extends Component
+{
+    public function save()
+    {
+        $this->withValidator(function (Validator $validator) {
+            $validator->after(function ($validator) {
+                if ($this->somethingElseIsInvalid()) {
+                    $validator->errors()->add('field', 'Something is wrong with this field!');
+                }
+            });
+        })->validate();
+    }
+}
+@endverbatim
+@endslot
+@endcomponent
+
 ## Testing Validation {#testing-validation}
 
-Livewire provides useful testing utilities for validation scenarios. Let's a write a simple test for the original "Contact Form" component.
+Livewire provides useful testing utilities for validation scenarios. Let's write a simple test for the original "Contact Form" component.
 
 @component('components.code', ['lang' => 'php'])
 /** @test */

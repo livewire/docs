@@ -1,3 +1,12 @@
+* [Introduction](#introduction)
+* [Toggling elements during "loading" states](#toggling-elements)
+* [Delaying loading indicator](#delaying-loading)
+* [Targeting specific actions](#targeting-actions)
+* [Targeting models](#targeting-models)
+* [Toggling classes](#toggling-classes)
+* [Toggling attributes](#toggling-attributes)
+
+## Introduction {#introduction}
 
 Because Livewire makes a roundtrip to the server every time an action is triggered on the page, there are cases when the page may not react immediately to a user event (like a click). Livewire allows you to easily display loading states, which can make your app feel more responsive.
 
@@ -22,6 +31,7 @@ By default, Livewire set's a loading element's "display" CSS property to "inline
 @component('components.code', ['lang' => 'blade'])
 <div wire:loading.block>...</div>
 <div wire:loading.flex>...</div>
+<div wire:loading.inline-flex>...</div>
 <div wire:loading.grid>...</div>
 <div wire:loading.inline>...</div>
 <div wire:loading.table>...</div>

@@ -1,16 +1,12 @@
-* [Inline Components](#inline-components) { .text-blue-800 }
-  * [Parameters](#parameters) { .font-normal.text-sm.text-blue-800 }
-* [Full-Page Components](#page-components) { .text-blue-800 }
-  * [Configuring The Layout Component](#custom-layout) { .font-normal.text-sm.text-blue-800 }
-  * [Route Parameters](#route-params) { .font-normal.text-sm.text-blue-800 }
-  * [Route Model Binding](#route-model-binding) { .font-normal.text-sm.text-blue-800 }
-* [The Render Method](#render-method) { .text-blue-800 }
-  * [Returning Blade Views](#returning-blade) { .font-normal.text-sm.text-blue-800 }
-  * [Returning Template String](#returning-strings) { .font-normal.text-sm.text-blue-800 }
-
-<div>&nbsp;</div>
-
-@include('includes.screencast-cta')
+* [Inline Components](#inline-components)
+  * [Parameters](#parameters)
+* [Full-Page Components](#page-components)
+  * [Configuring The Layout Component](#custom-layout)
+  * [Route Parameters](#route-params)
+  * [Route Model Binding](#route-model-binding)
+* [The Render Method](#render-method)
+  * [Returning Blade Views](#returning-blade)
+  * [Returning Template String](#returning-strings)
 
 ## Inline Components {#inline-components}
 
@@ -103,6 +99,8 @@ class ShowPost extends Component
 
 @component('components.tip')
 In Livewire components, you use <code>mount()</code> instead of a class constructor <code>__construct()</code> like you may be used to.
+
+NB: <code>mount()</code> is only ever called when the component is first mounted and will not be called again even when the component is refreshed or rerendered.
 @endcomponent
 
 
@@ -176,6 +174,21 @@ class ShowPosts extends Component
     {
         return view('livewire.show-posts')
             ->layout('layouts.base');
+    }
+}
+@endverbatim
+@endcomponent
+
+If your layout has an associated class file, you will need to reference that for any custom logic or properties.
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class ShowPosts extends Component
+{
+    ...
+    public function render()
+    {
+        return view('livewire.show-posts')
+            ->layout(\App\View\Components\BaseLayout::class);
     }
 }
 @endverbatim

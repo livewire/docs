@@ -1,18 +1,29 @@
+* [Dom Diffing Issues](#dom-diffing-issues)
+    * [Symptoms](#dom-diffing-symptoms)
+    * [Cures](#dom-diffing-cures)
+* [Checksum Issues](#checksum-issues)
+* [Query String Issues](#query-string-issues)
+    * [Symptoms](#query-string-symptoms)
+    * [Cures](#query-string-cures)
+* [Root Element Issues](#root-element-issues)
+    * [Symptoms](#root-element-symptoms)
+    * [Cures](#root-element-cures)
 
-## Dom Diffing Issues
+
+## Dom Diffing Issues {#dom-diffing-issues}
 
 The most common issues encountered by Livewire users has to do with Livewire's DOM diffing/patching system. This is the system that selectively updates elements that have been changed, added, or removed after every component update.
 
 For the most part, this system is reliable, but there are certain cases where Livewire is unable to properly track changes. When this happens, hopefully, a helpful error will be thrown and you can debug with the following guide.
 
-### Symptoms:
+### Symptoms {#dom-diffing-symptoms}
 * An input element loses focus
 * An element or group of elements dissapears suddenly
 * A previously interactive element stops responding to user input
 * A loading indicator mis-fires
 * A user action no longer functions
 
-### Cures:
+### Cures {#dom-diffing-cures}
 * Ensure your component has a single-level root element
 * Add `wire:key` to elements inside loops:
 @component('components.code')
@@ -53,7 +64,7 @@ For the most part, this system is reliable, but there are certain cases where Li
 <div wire:key="bar">...</div>
 @endcomponent
 
-## Checksum Issues
+## Checksum Issues {#checksum-issues}
 
 On every request, Livewire does a "[checksum](https://laravel-livewire.com/docs/security)" but in some cases with arrays, it can throw an exception even when the data inside the array is the same.
 
@@ -76,15 +87,54 @@ class HelloWorld extends Component
 @endverbatim
 @endcomponent
 
-## Query String Issues
+## Query String Issues {#query-string-issues}
 
 Livewire is using the site's `referrer` information when setting the query string. This can lead to conflicts when you are adding security headers to your application through the `referrer-policy`.
 
-### Symptoms:
+### Symptoms {#query-string-symptoms}
 
 * The query string does not get updated at all.
 * The query string does not get updated when the value is empty.
 
-### Cures:
+### Cures {#query-string-cures}
 
 If you do set security headers, make sure the `referrer-policy` value is set to `same-origin`.
+
+## Root Element Issues {#root-element-issues}
+
+Livewire requires that there be only one HTML element at the root of a components blade view. 
+
+Having multiple root elements can mean that parts of your view won't work with Livewire correctly, if at all.
+
+### Symptoms {#root-element-symptoms}
+
+* A button isn't triggering a `wire:click`
+* Entering data into an input doesn't trigger a network request
+* Parts of your view aren't updating properly (could also be a [Dom Diffing issue](#dom-diffing-issues), see above)
+* You get an error in your browser console that says `Livewire: Multiple root elements detected. This is not supported.`
+* See below for an example of a component with a button that doesn't work:
+
+@component('components.code', ['lang' => 'blade'])
+<div>
+    Some content
+</div>
+
+<!-- This button isn't working -->
+<button wire:click="doSomething">Do Something</button>
+@endcomponent
+
+### Cures {#root-element-cures}
+
+The solution is to ensure that you only have one root HTML element, such as a `<div>`. If you have multiple elements, then wrap everything in a `<div>` or another element that suits your layout.
+
+So in our example from above, we have wrapped everything in a `<div>` which gets the button running:
+
+@component('components.code', ['lang' => 'blade'])
+<div> <!-- Added this wrapping div -->
+    <div>
+        Some content
+    </div>
+
+    <button wire:click="doSomething">Do Something</button>
+</div> <!-- Added this closing tag for the wrapping div -->
+@endcomponent

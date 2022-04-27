@@ -1,23 +1,19 @@
-* [Basic Upload](#basic-upload) { .text-blue-800 }
-  * [Storing Uploaded Files](#storing-files) { .font-normal.text-sm.text-blue-800 }
-* [Handling Multiple Files](#multiple-files) { .text-blue-800 }
-* [File Validation](#file-validation) { .text-blue-800 }
-  * [Real-time Validation](#real-time-validation) { .font-normal.text-sm.text-blue-800 }
-* [Temporary Preview Urls](#preview-urls) { .text-blue-800 }
-* [Testing File Uploads](#testing-uploads) { .text-blue-800 }
-* [Uploading Directly To Amazon S3](#upload-to-s3) { .text-blue-800 }
-  * [Configuring Automatic File Cleanup](#auto-cleanup) { .font-normal.text-sm.text-blue-800 }
-* [Loading Indicators](#loading-indicators) { .text-blue-800 }
-* [Progress Indicators (And All JavaScript Events)](#js-hooks) { .text-blue-800 }
-* [JavaScript Upload API](#js-api) { .text-blue-800 }
-* [Configuration](#configuration) { .text-blue-800 }
-  * [Global Validation](#global-validation) { .font-normal.text-sm.text-blue-800 }
-  * [Global Middleware](#global-middleware) { .font-normal.text-sm.text-blue-800 }
-  * [Temporary Upload Directory](#temporary-upload-directory) { .font-normal.text-sm.text-blue-800 }
-
-<div>&nbsp;</div>
-
-@include('includes.screencast-cta')
+* [Basic Upload](#basic-upload)
+  * [Storing Uploaded Files](#storing-files)
+* [Handling Multiple Files](#multiple-files)
+* [File Validation](#file-validation)
+  * [Real-time Validation](#real-time-validation)
+* [Temporary Preview Urls](#preview-urls)
+* [Testing File Uploads](#testing-uploads)
+* [Uploading Directly To Amazon S3](#upload-to-s3)
+  * [Configuring Automatic File Cleanup](#auto-cleanup)
+* [Loading Indicators](#loading-indicators)
+* [Progress Indicators (And All JavaScript Events)](#js-hooks)
+* [JavaScript Upload API](#js-api)
+* [Configuration](#configuration)
+  * [Global Validation](#global-validation)
+  * [Global Middleware](#global-middleware)
+  * [Temporary Upload Directory](#temporary-upload-directory)
 
 ## Basic File Upload {#basic-upload}
 
@@ -64,7 +60,7 @@ class UploadPhoto extends Component
 @endslot
 @endcomponent
 
-From the developers perspective, handling file inputs is no different than handling any other input type: Add `wire:model` to the `<input>` tag and everything else is taken care of for you.
+From the developer's perspective, handling file inputs is no different than handling any other input type: Add `wire:model` to the `<input>` tag and everything else is taken care of for you.
 
 However, there is more happening under the hood to make file uploads work in Livewire. Here's a glimpse at what goes on when a user selects a file to upload:
 
@@ -147,6 +143,8 @@ class UploadPhotos extends Component
 
 ## File Validation {#file-validation}
 Like you've seen in previous examples, validating file uploads with Livewire is exactly the same as handling file uploads from a standard Laravel controller.
+
+> Note: Many of the Laravel validation rules relating to files require access to the file. If you are [uploading directly to S3](#upload-to-s3) these validation rules will fail if the object is not publicly accessible.
 
 For more information on Laravel's File Validation utilities, [visit the documentation](https://laravel.com/docs/validation#available-validation-rules).
 

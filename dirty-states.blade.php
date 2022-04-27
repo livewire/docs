@@ -1,3 +1,6 @@
+* [Toggling classes on "dirty" elements](#toggling-classes)
+* [Toggling elements](#toggling-elements)
+* [Toggling classes on other elements](#toggling-classes)
 
 There are cases where it may be useful to provide feedback that content has changed and is not yet in-sync with the back-end Livewire component.
 

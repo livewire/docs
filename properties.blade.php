@@ -1,18 +1,14 @@
-* [Introduction](#introduction) { .text-blue-800 }
-  * [Important Notes](#important-notes) { .font-normal.text-sm.text-blue-800 }
-* [Initializing Properties](#initializing-properties) { .text-blue-800 }
-* [Data Binding](#data-binding) { .text-blue-800 }
-  * [Binding Nested Data](#binding-nested-data) { .font-normal.text-sm.text-blue-800 }
-  * [Debouncing Input](#debouncing-input) { .font-normal.text-sm.text-blue-800 }
-  * [Lazy Updating](#lazy-updating) { .font-normal.text-sm.text-blue-800 }
-  * [Deferred Updating](#deferred-updating) { .font-normal.text-sm.text-blue-800 }
-* [Binding Directly To Model Properties](#binding-models) { .text-blue-800 }
-* [Custom (Wireable) Properties](#wireable-properties) { .text-blue-800 }
-* [Computed Properties](#computed-properties) { .text-blue-800 }
-
-<div>&nbsp;</div>
-
-@include('includes.screencast-cta')
+* [Introduction](#introduction)
+  * [Important Notes](#important-notes)
+* [Initializing Properties](#initializing-properties)
+* [Data Binding](#data-binding)
+  * [Binding Nested Data](#binding-nested-data)
+  * [Debouncing Input](#debouncing-input)
+  * [Lazy Updating](#lazy-updating)
+  * [Deferred Updating](#deferred-updating)
+* [Binding Directly To Model Properties](#binding-models)
+* [Custom (Wireable) Properties](#wireable-properties)
+* [Computed Properties](#computed-properties)
 
 ## Introduction {#introduction}
 
@@ -55,7 +51,8 @@ Here are three ESSENTIAL things to note about public properties before embarking
 3. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Stringable`, `Collection`, `DateTime`, `Model`, `EloquentCollection`.
 
 @component('components.warning')
-<code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.
+<code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.<br>
+You should also note that while <code>null</code> data type is Javascript-friendly, <code>public</code> properties set to <code>null</code> DO NOT persist between Livewire updates.
 @endcomponent
 
 ## Initializing Properties {#initializing-properties}
@@ -87,7 +84,7 @@ public function mount()
 @endslot
 @endcomponent
 
-Additionally, Livewire offers `$this->reset()` to programatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
+Additionally, Livewire offers `$this->reset()` and `$this->resetExcept()` to programmatically reset public property values to their initial state. This is useful for cleaning input fields after performing an action.
 
 @component('components.code-component')
 @slot('class')
@@ -101,6 +98,9 @@ public function resetFilters()
 
     $this->reset(['search', 'isActive']);
     // Will reset both the search AND the isActive property.
+    
+    $this->resetExcept('search');
+    // Will only reset the isActive property (any property but the search property).
 }
 @endslot
 @endcomponent
@@ -233,7 +233,7 @@ class PostForm extends Component
 Notice in the above component we are binding directly to the "title" and "content" model attributes. Livewire will take care of hydrating and dehydrating the model between requests with the current, non-persisted data.
 
 @component('components.warning')
-Note: For this to work, you have a validation entry in the `$rules` property for any model attributes you want to bind to. Otherwise, an error will be thrown.
+Note: For this to work, you need to have a validation entry in the `$rules` property for any model attributes you want to bind to. Otherwise, an error will be thrown.
 @endcomponent
 
 Additionally, you can bind to models within an Eloquent Collection.
@@ -310,7 +310,7 @@ class EditUsersPosts extends Component
         <input type="text" wire:model="user.posts.{{ $i }}.title" />
         
         <span class="error">
-            @error('user.posts.{{ $i }}.title') {{ $message }} @enderror
+            @error('user.posts.'.$i.'.title') {{ $message }} @enderror
         </span>
     @endforeach
 
@@ -360,7 +360,8 @@ class SettingsComponent extends Livewire\Component
 {
     public Settings $settings;
 
-    public function mount() {
+    public function mount()
+    {
         $this->settings = new Settings([
             'foo' => 'bar',
         ]);

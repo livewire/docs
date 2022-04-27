@@ -1,10 +1,22 @@
-## The `make` command
+* [The `make` command](#make-command)
+    * [Modifying Stubs](#modifying-stubs)
+* [The `move` Command](#move-command)
+* [The `copy` Command](#copy-command)
+* [The `delete` Command](#delete-command)
+
+## The `make` command {#make-command}
 
 @component('components.code', ['lang' => 'shell'])
 php artisan make:livewire foo
 # Creates Foo.php & foo.blade.php
 
 php artisan make:livewire foo-bar
+# Creates FooBar.php & foo-bar.blade.php
+
+php artisan make:livewire Foo
+# Creates Foo.php & foo.blade.php
+
+php artisan make:livewire FooBar
 # Creates FooBar.php & foo-bar.blade.php
 
 php artisan make:livewire foo.bar
@@ -56,15 +68,12 @@ Now, when you run the `make:livewire` command, Livewire will use the above stub 
 
 ## The `move` Command {#move-command}
 
-The `php artisan livewire:move` command will move/rename the component class and blade view, taking care of namespaces and paths
+The `php artisan livewire:move` command will move/rename the component class, blade view and the component test if it exists, taking care of namespaces and paths
 
 Here is an example of usage:
 
 @component('components.code', ['lang' => 'shell'])
 php artisan livewire:move foo bar.baz
-# Foo.php|foo.blade.php -> Bar/Baz.php|bar/baz.blade.php
-
-php artisan livewire:move foo bar.baz --test
 # Foo.php|foo.blade.php|FooTest.php -> Bar/Baz.php|bar/baz.blade.php|Bar/BazTest.php
 @endcomponent
 

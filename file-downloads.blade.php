@@ -1,3 +1,8 @@
+* [Introduction](#introduction)
+* [Testing File Downloads](#testing-file-downloads)
+
+## Introduction {#introduction}
+
 Livewire supports triggering file downloads for users with a simple, intuitive API.
 
 To trigger a file download, you can return a Laravel file download from any component action.
@@ -37,4 +42,27 @@ return response()->streamDownload(function () {
     echo 'CSV Contents...';
 }, 'export.csv');
 @endverbatim
+@endcomponent
+
+## Testing File Downloads {#testing-file-downloads}
+Testing file downloads is simple with livewire.
+
+Here is an example of testing the component above and making sure the export was downloaded.
+
+@component('components.code-component', [
+    'className' => 'ExportDownloadedTest.php',
+])
+@slot('class')
+@verbatim
+/** @test */
+public function can_download_export()
+{
+    Livewire::test(ExportButton::class)
+        ->call('download')
+        ->assertFileDownloaded('export')
+    ;
+
+}
+@endverbatim
+@endslot
 @endcomponent

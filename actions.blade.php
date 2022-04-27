@@ -1,12 +1,8 @@
-* [Introduction](#introduction) { .text-blue-800 }
-* [Passing Action Parameters](#action-parameters) { .text-blue-800 }
-* [Event Modifiers](#event-modifiers) { .text-blue-800 }
-  * [Keydown Modifiers](#keydown-modifiers) { .font-normal.text-sm.text-blue-800 }
-* [Magic Actions](#magic-actions) { .text-blue-800 }
-
-<div>&nbsp;</div>
-
-@include('includes.screencast-cta')
+* [Introduction](#introduction)
+* [Passing Action Parameters](#action-parameters)
+* [Event Modifiers](#event-modifiers)
+  * [Keydown Modifiers](#keydown-modifiers)
+* [Magic Actions](#magic-actions)
 
 ## Introduction {#introduction}
 
@@ -67,6 +63,10 @@ Here are a few examples of each in HTML:
 
 @component('components.tip')
 You can listen for any event dispatched by the element you are binding to. Let's say you have an element that dispatches a browser event called "foo", you could listen for that event like so: <code>&lt;button wire:foo="someAction"&gt;</code>
+@endcomponent
+
+@component('components.warning')
+Like the above example using `wire:submit.prevent` directly at the form opening tag will generate "readonly" properties for all html elements inside the form during the requests.
 @endcomponent
 
 ## Passing Action Parameters {#action-parameters}
@@ -132,7 +132,7 @@ Modifier | Description
 stop | Equivalent of `event.stopPropagation()`
 prevent | Equivalent of `event.preventDefault()`
 self | Only triggers an action if the event was triggered on itself. This prevents outer elements from catching events that were triggered from a child element. (Like often in the case of registering a listener on a modal backdrop)
-debounce.150ms | Adds an Xms debounce the handling of the action.
+debounce.150ms | Adds an Xms debounce to the handling of the action.
 @endcomponent
 
 ### Keydown Modifiers {#keydown-modifiers}
@@ -197,3 +197,19 @@ Let's take `$set()` for example. It can be used to manually set a component prop
 @endcomponent
 
 Notice that we are no longer calling the `setMessageToHello` function, we are directly specifying, what we want data set to.
+
+It can also be used in the backend when listening for an event. For example, if you have one component that emits an event like this:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+$this->emit('some-event');
+@endverbatim
+@endcomponent
+
+Then in another component you can use a magic action for example `$refresh()` instead of having to point the listener to a method:
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+protected $listeners = ['some-event' => '$refresh'];
+@endverbatim
+@endcomponent

@@ -1,6 +1,11 @@
-@include('includes.screencast-cta')
+* [Install Livewire](#install-livewire)
+* [Create a component](#create-a-component)
+* [Include the component](#include-the-component)
+* [View it in the browser](#view-in-browser)
+* [Add "counter" functionality](#add-counter)
+* [View it in the browser](#view-in-browser-finally)
 
-## Install Livewire
+## Install Livewire {#install-livewire}
 
 Include the PHP.
 

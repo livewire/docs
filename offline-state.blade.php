@@ -1,3 +1,6 @@
+* [Toggling elements](#toggling-elements)
+* [Toggling classes](#toggling-classes)
+* [Toggling attributes](#toggling-attributes)
 
 It's sometimes important to notify a user if they have lost their internet connection. Livewire provides helpful utilities to perform actions based on a user's "offline" state.
 

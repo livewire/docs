@@ -1,3 +1,14 @@
+* [Installation](#installation)
+* [Using Alpine Inside Of Livewire](#alpine-in-livewire)
+* [Extracting Reusable Blade Components](#extracting-blade-components)
+* [Interacting With Livewire From Alpine: `$wire`](#interacting-with-livewire-from-alpine)
+* [Sharing State Between Livewire And Alpine: @verbatim`@entangle`@endverbatim](#sharing-state)
+* [Using the `@verbatim@js@endverbatim` directive](#js-directive)
+* [Accessing Livewire Directives From Blade Components](#livewire-directives-from-blade-components)
+* [Creating A DatePicker Component](#creating-a-datepicker)
+* [Forwarding `wire:model` `input` Events](#forwarding-wire-model-input-events)
+* [Ignoring DOM-changes (using `wire:ignore`)](#ignoring-dom-changes)
+
 There are lots of instances where a page interaction doesn't warrant a full server-roundtrip, like toggling a modal.
 
 For these cases, AlpineJS is the perfect companion to Livewire.
@@ -13,21 +24,12 @@ To install Alpine in your project, add the following script tag to the `<head>` 
 @component('components.code', ['lang' => 'blade', 'id' => 'js-inject-alpine-version'])
 <head>
     ...
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- The "defer" attribute is important to make sure Alpine waits for Livewire to load first. -->
 </head>
 @endcomponent
 
-<!-- This is so dark, but this will replace the referenced Alpine version with the latest one. -->
-<span x-data x-init="
-    () => {};
-    let element = document.querySelector('#js-inject-alpine-version');
-    let html = element.innerHTML;
-    element.innerHTML = html.replace('2.7.1', window.Alpine.version);
-"></span>
-
-
-For more installation information, visit the [Alpine Docs](https://alpinejs.dev/).
+For more installation information, visit the [Alpine Docs](https://alpinejs.dev/essentials/installation).
 
 ## Using Alpine Inside Of Livewire {#alpine-in-livewire}
 
@@ -40,7 +42,7 @@ Here's an example of using AlpineJS for "dropdown" functionality INSIDE a Livewi
     <div x-data="{ open: false }">
         <button @click="open = true">Show More...</button>
 
-        <ul x-show="open" @click.away="open = false">
+        <ul x-show="open" @click.outside="open = false">
             <li><button wire:click="archive">Archive</button></li>
             <li><button wire:click="delete">Delete</button></li>
         </ul>
@@ -82,7 +84,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 <div x-data="{ open: false }">
     <span @click="open = true">{{ $trigger }}</span>
 
-    <div x-show="open" @click.away="open = false">
+    <div x-show="open" @click.outside="open = false">
         {{ $slot }}
     </div>
 </div>
@@ -91,7 +93,7 @@ Here is an example (Using Laravel 7 Blade component tag syntax).
 
 Now, the Livewire and Alpine syntaxes are completely separate, AND you have a reusable Blade component to use from other components.
 
-## Interacting With Livewire From Alpine: `$wire`
+## Interacting With Livewire From Alpine: `$wire` {#interacting-with-livewire-from-alpine}
 
 From any Alpine component inside a Livewire component, you can access a magic `$wire` object to access and manipulate the Livewire component.
 
@@ -193,7 +195,7 @@ $wire.removeUpload(
 $wire.__instance
 @endcomponent
 
-## Sharing State Between Livewire And Alpine: @verbatim`@entangle`@endverbatim
+## Sharing State Between Livewire And Alpine: @verbatim`@entangle`@endverbatim {#sharing-state}
 Livewire has an incredibly powerful feature called "entangle" that allows you to "entangle" a Livewire and Alpine property together. With entanglement, when one value changes, the other will also be changed.
 
 To demonstrate, consider the dropdown example from before, but now with its `showDropdown` property entangled between Livewire and Alpine. By using entanglement, we are now able to control the state of the dropdown from both Alpine AND Livewire.
@@ -224,7 +226,7 @@ class Dropdown extends Component
 <div x-data="{ open: @entangle('showDropdown') }">
     <button @click="open = true">Show More...</button>
 
-    <ul x-show="open" @click.away="open = false">
+    <ul x-show="open" @click.outside="open = false">
         <li><button wire:click="archive">Archive</button></li>
         <li><button wire:click="delete">Delete</button></li>
     </ul>
@@ -248,7 +250,19 @@ Now, when a user toggles the dropdown open and closed, there will be no AJAX req
 
 If you are having trouble following this difference. Open your browser's devtools and observe the difference in XHR requests with and without `.defer` added.
 
-## Accessing Livewire Directives From Blade Components
+## Using the `@verbatim@js@endverbatim` directive {#js-directive}
+
+If ever you need to output PHP data for use in Alpine, you can now use the `@verbatim@js@endverbatim` directive.
+
+@component('components.code', ['lang' => 'blade'])
+@verbatim
+<div x-data="{ posts: @js($posts) }">
+    ...
+</div>
+@endverbatim
+@endcomponent
+
+## Accessing Livewire Directives From Blade Components {#livewire-directives-from-blade-components}
 Extracting re-usable Blade components within your Livewire application is an essential pattern.
 
 One difficulty you might encounter while implementing Blade components within a Livewire context is accessing the value of attributes like `wire:model` from inside the component.
@@ -328,7 +342,7 @@ There are LOTS of different ways to use this utility, but one common example is 
 <div x-data="{ open: @entangle($attributes->wire('model')) }">
     <span @click="open = true">{{ $trigger }}</span>
 
-    <div x-show="open" @click.away="open = false">
+    <div x-show="open" @click.outside="open = false">
         {{ $slot }}
     </div>
 </div>
@@ -396,7 +410,7 @@ Now let's see how we might write a re-usable Blade component for this library.
 
 > Note: The @verbatim {{ $attributes }} @endverbatim expression is a mechanism in Laravel 7 and above to forward extra HTML attributes declared on the component tag.
 
-## Forwarding `wire:model` `input` Events
+## Forwarding `wire:model` `input` Events {#forwarding-wire-model-input-events}
 
 Under the hood, `wire:model` adds an event listener to update a property every time the `input` event is dispatched on or under the element. Another way to communicate between Livewire and Alpine is by using Alpine to dispatch an `input` event with some data within or on an element with `wire:model` on it.
 
@@ -480,7 +494,7 @@ This sample assumes you have it loaded on the page.
 @endverbatim
 @endcomponent
 
-## Ignoring DOM-changes (using `wire:ignore`)
+## Ignoring DOM-changes (using `wire:ignore`) {#ignoring-dom-changes}
 
 Fortunately a library like Pikaday adds its extra DOM at the end of the page. Many other libraries manipulate the DOM as soon as they are initialized and continue to mutate the DOM as you interact with them.
 

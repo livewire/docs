@@ -1,3 +1,6 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
 
 To authorize actions in Livewire, you can use the `AuthorizesRequests` trait in any component, then call `$this->authorize()` like you normally would inside a controller. For example:
 

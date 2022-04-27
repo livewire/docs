@@ -1,3 +1,15 @@
+* [Template Directives](#template-directives)
+* [Alpine Component Object (`$wire`)](#alpine-component-object)
+* [Global Livewire JavaScript Object](#global-livewire-js)
+* [JavaScript Hooks](#js-hooks)
+* [Component Class Lifecycle Hooks](#component-class-lifecycle)
+* [Component Class Protected Properties](#component-class-protected-properties)
+* [Component Class Traits](#component-class-traits)
+* [Class Methods](#class-methods)
+* [PHP Testing Methods](#php-testing-methods)
+* [Artisan Commands](#artisan-commands)
+* [PHP Lifecycle Hooks](#php-lifecycle-hooks)
+
 Already familiar with Livewire and want to skip the long-form documentation? Here's a giant list of everything available in Livewire.
 
 ### Template Directives {#template-directives}
@@ -78,6 +90,7 @@ Method | Description
 `Livewire.hook(hookName, (...) => {})` | Call a method when JS lifecycle hook is fired. [Read more](#js-hooks)
 `Livewire.onLoad(() => {})` | Fires when Livewire is first finished loading on a page
 `Livewire.onError((message, statusCode) => {})` | Fires when a Livewire request fails. You can `return false` from the callback to prevent Livewire's default behavior
+`Livewire.onPageExpired((response, message) => {})` | When the page or session has expired it executes the callback instead of Livewire's [page expired dialog](/docs/2.x/deployment#page-expired-dialog)
 `Livewire.emit(eventName, ...params)` | Emit an event to all Livewire components listening on a page
 `Livewire.emitTo(componentName, eventName, ...params)` | Emit an event to specific component name
 `Livewire.on(eventName, (...params) => {})` | Listen for an event to be emitted from a component
@@ -128,6 +141,8 @@ class ShowPost extends Component
 @component('components.table')
 Name | Description
 --- | ---
+`boot()` | Called on all requests, immediately after the component is instantiated, but before any other lifecycle methods are called
+`booted()` | Called on all requests, after the component is mounted or hydrated, but before any update methods are called
 `mount(...$params)` | Called when a Livewire component is newed up (think of it like a constructor)
 `hydrate()` | Called on subsequent Livewire requests after the component has been hydrated, but before any other action occurs
 `hydrateFoo()` | Runs after a property called $foo is hydrated
@@ -215,7 +230,9 @@ Name | Description
 `$this->reset()` | Reset all public properties to their initial (pre-mount) state
 `$this->reset($field)` | Reset a specific public property to its pre-mount state
 `$this->reset([...$fields])` | Reset multiple specific properties
+`$this->all()` | Return key->value pairs of property data
 `$this->only([...$propertyNames])` | Return key->value pairs of property data only for a specific set of property names
+`$this->except([...$propertyNames])` | Return key->value pairs of property data except for a specific set of property names
 @endcomponent
 
 ### PHP Testing Methods {#php-testing-methods}

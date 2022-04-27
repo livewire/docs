@@ -1,3 +1,7 @@
+* [Introduction](#introduction)
+* [Inline Components](#inline-components)
+
+## Introduction {#introduction}
 
 Run the following artisan command to create a new Livewire component:
 
@@ -29,7 +33,7 @@ Now, the two created files will be in sub-folders:
 * `app/Http/Livewire/Post/Show.php`
 * `resources/views/livewire/post/show.blade.php`
 
-### Generating Tests
+### Generating Tests {#generating-tests}
 
 Optionally, you can include the `--test` flag when creating a component, and a test file will be created for you as well.
 
@@ -37,7 +41,7 @@ Optionally, you can include the `--test` flag when creating a component, and a t
 php artisan make:livewire ShowPosts --test
 @endcomponent
 
-## Inline Components
+## Inline Components {#inline-components}
 If you wish to create Inline components (Component's without `.blade.php` files), you can add the `--inline` flag to the command:
 
 @component('components.code', ['lang' => 'shell'])

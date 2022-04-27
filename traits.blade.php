@@ -1,3 +1,7 @@
+* [Introduction](#introduction)
+
+## Introduction {#introduction}
+
 PHP Traits are a great way to re-use functionality between multiple Livewire components.
 
 For example, you might have multiple "data table" components in your application that all share the same logic surrounding sorting.
@@ -86,6 +90,16 @@ trait WithSorting
 {
     ...
 
+    public function bootWithSorting()
+    {
+        //
+    }
+
+    public function bootedWithSorting()
+    {
+        //
+    }
+
     public function mountWithSorting()
     {
         //
@@ -124,3 +138,33 @@ trait WithSorting
 @endverbatim
 @endslot
 @endcomponent
+
+Livewire offers hooks for query strings as well.
+
+@component('components.code-component')
+@slot('class')
+@verbatim
+trait WithSorting
+{
+    ...
+
+    protected $queryStringWithSorting = [
+        'sortBy' => ['except' => 'id'],
+        'sortDirection' => ['except' => 'asc'],
+    ];
+
+    // or as a method
+
+    public function queryStringWithSorting()
+    {
+        return [
+            'sortBy' => ['except' => 'id'],
+            'sortDirection' => ['except' => $this->defaultSortDirection()],
+        ];
+    }
+}
+@endverbatim
+@endslot
+@endcomponent
+
+Note that you are allowed to override any query string in your component class.

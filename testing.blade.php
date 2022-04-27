@@ -1,3 +1,10 @@
+* [Introduction](#introduction)
+* [Testing Component Presence](#testing-component-presence)
+* [Testing With Query String Parameters](#testing-querystring)
+* [Testing Components With Passed Data](#testing-passed-data)
+* [All Available Test Methods](#all-testing-methods)
+
+## Introduction {#introduction}
 
 Livewire offers a powerful set of tools for testing your components.
 
@@ -307,4 +314,9 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertDispatchedBrowserEvent('event', $data);
 // Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
 
+->assertNotDispatchedBrowserEvent('event');
+// Assert that a browser event was not dispatched from the component using (->dispatchBrowserEvent(...))
+
+->assertFileDownloaded($filename)
+// Assert that a downloaded file was returned with a specific name
 @endcomponent

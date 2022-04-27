@@ -1,3 +1,8 @@
+* [Paginating Data](#paginating-data)
+* [Resetting Pagination After Filtering Data](#resetting-pagination)
+* [Multiple paginators on the same page](#multiple-paginators)
+* [Using The Bootstrap Pagination Theme](#custom-pagination-view)
+* [Using A Custom Pagination View](#custom-pagination-view)
 
 Livewire offers the ability to paginate results within a component. This feature hooks into Laravel's native pagination features, so it should feel like an invisible feature to you.
 
@@ -50,6 +55,8 @@ Livewire's `WithPagination` trait exposes a `->resetPage()` method to accomplish
 
 This method can be used in combination with the `updating/updated` lifecycle hooks to reset the page when certain component data is updated.
 
+An optional page name parameter may be passed through, if the pagination name is set to anything other than `page`.
+
 
 @component('components.code', ['lang' => 'php'])
 @verbatim
@@ -85,6 +92,8 @@ Here’s an example of two different components that might exist on the same pag
 @component('components.code', ['lang' => 'php'])
 class ShowPosts extends Livewire\Component
 {
+    use WithPagination;
+
     public function render()
     {
         return view('livewire.show-posts', [
@@ -97,7 +106,9 @@ class ShowPosts extends Livewire\Component
 @component('components.code', ['lang' => 'php'])
 class ListPostComments extends Livewire\Component
 {
-	  public Post $post;
+    use WithPagination;
+
+    public Post $post;
 
     public function render()
     {
@@ -112,6 +123,31 @@ Now in the query string, both paginators will be represented like so:
 
 @component('components.code', ['lang' => 'html'])
 ?page=2&commentsPage=3
+@endcomponent
+
+To reset a specific paginator, you may pass through your custom page name using the `->resetPage()` method as found in the `WithPagination` trait.
+
+@component('components.code', ['lang' => 'php'])
+@verbatim
+class ListPostComments extends Livewire\Component
+{
+    use WithPagination;
+
+    public $search = '';
+
+    public function updatingSearch()
+    {
+        $this->resetPage('commentsPage');
+    }
+
+    public function render()
+    {
+        return view('livewire.show-posts', [
+            'posts' => $post->comments()->where('title', 'like', '%'.$this->search.'%')->paginate(10, ['*'], 'commentsPage'),
+        ]);
+    }
+}
+@endverbatim
 @endcomponent
 
 ## Using The Bootstrap Pagination Theme {#custom-pagination-view}
