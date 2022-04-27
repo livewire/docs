@@ -174,6 +174,29 @@ class CreatePostTest extends TestCase
 @endslot
 @endcomponent
 
+## Generating Tests
+
+When creating a component, you can include the `--test` flag, and a test file will be created for you as well.
+
+@component('components.code', ['lang' => 'shell'])
+php artisan make:livewire ShowPosts --test
+@endcomponent
+
+@component('components.code-component', ['lang' => 'php', 'className' => 'tests/Feature/Livewire/ShowPostsTest.php'])
+@slot('class')
+class ShowPostsTest extends TestCase
+{
+    /** @test */
+    public function the_component_can_render()
+    {
+        $component = Livewire::test(ShowPosts::class);
+
+        $component->assertStatus(200);
+    }
+}
+@endslot
+@endcomponent
+
 ## All Available Test Methods {#all-testing-methods}
 
 @component('components.code', ['lang' => 'php'])
