@@ -2,6 +2,7 @@
 * [Testing Component Presence](#testing-component-presence)
 * [Testing With Query String Parameters](#testing-querystring)
 * [Testing Components With Passed Data](#testing-passed-data)
+* [Generating Tests](#generating-tests)
 * [All Available Test Methods](#all-testing-methods)
 
 ## Introduction {#introduction}
