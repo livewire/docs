@@ -86,6 +86,10 @@ class OrderTracker extends Component
 @endslot
 @endcomponent
 
+@component('components.warning')
+<code>getListeners()</code> will only dynamically generate the names of listeners when the component is mounted. Once the listeners are setup, these can't be changed.
+@endcomponent
+
 Now, Livewire will intercept the received event from Pusher, and act accordingly.
 
 ## Private & Presence Channels {#private-presence-channels}

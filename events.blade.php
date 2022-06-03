@@ -80,6 +80,10 @@ class ShowPosts extends Component
 @endslot
 @endcomponent
 
+@component('components.warning')
+<code>getListeners()</code> will only dynamically generate the names of listeners when the component is mounted. Once the listeners are setup, these can't be changed.
+@endcomponent
+
 ## Passing Parameters {#passing-parameters}
 
 You can also send parameters with an event emission.
