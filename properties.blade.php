@@ -49,6 +49,7 @@ Here are three ESSENTIAL things to note about public properties before embarking
 1. Property names can't conflict with property names reserved for Livewire (e.g. `rules` or `messages`)
 2. Data stored in public properties is made visible to the front-end JavaScript. Therefore, you SHOULD NOT store sensitive data in them.
 3. Properties can ONLY be either JavaScript-friendly data types (`string`, `int`, `array`, `boolean`), OR one of the following PHP types: `Stringable`, `Collection`, `DateTime`, `Model`, `EloquentCollection`.
+4. PHP native enums are partially supported as of v2.10.4. You can set a property to an enum but when updating you will manually have to reinstantiate the enum class in the `Updating` method for now.
 
 @component('components.warning')
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.<br>
