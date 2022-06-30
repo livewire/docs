@@ -61,7 +61,9 @@ For the most part, this system is reliable, but there are certain cases where Li
 * Add `wire:key`. As a final measure, adding `wire:key` will directly tell Livewire how to keep track of a DOM element. Over-using this attribute is a smell, but it is very useful and powerful for problems of this nature.
 
 @component('components.warning')
-The value you pass to <code>wire:key</code> must be entirely unique to that page. Meaning that you should prefix it, like <code>wire:key="item-{{ $item->id }}"</code>, and avoid using <code>$loop->index</code> to track the individual elements where you can. 
+@verbatim
+The value you pass to <code>wire:key</code> must be entirely unique to that page. Meaning that you should prefix it, like <code>wire:key="item-{{ $item->id }}"</code>, and avoid using <code>$loop->index</code> to track the individual elements where you can.
+@endverbatim
 @endcomponent
 
 @component('components.code')
@@ -107,7 +109,7 @@ If you do set security headers, make sure the `referrer-policy` value is set to 
 
 ## Root Element Issues {#root-element-issues}
 
-Livewire requires that there be only one HTML element at the root of a components blade view. 
+Livewire requires that there be only one HTML element at the root of a components blade view.
 
 Having multiple root elements can mean that parts of your view won't work with Livewire correctly, if at all.
 
