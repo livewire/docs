@@ -25,26 +25,26 @@ For the most part, this system is reliable, but there are certain cases where Li
 
 ### Cures {#dom-diffing-cures}
 * Ensure your component has a single-level root element
-* Add `wire:key` to elements inside loops:
+* Add `wire:key` to elements inside loops (the value to `wire:key` must be unique accross the page):
 @component('components.code')
 @verbatim
 <ul>
     @foreach ($items as $item)
-        <li wire:key="{{ $loop->index }}">{{ $item }}</li>
+        <li wire:key="item-{{ $item->id }}">{{ $item }}</li>
     @endforeach
 </ul>
 @endverbatim
 @endcomponent
 
-* Add `key()` to nested components in a loop
+* Add `key()`/`wire:key` to nested components in a loop
 @component('components.code')
 @verbatim
 <ul>
     @foreach ($items as $item)
-        @livewire('view-item', ['item' => $item], key($loop->index))
+        @livewire('view-item', ['item' => $item], key('item-'.$item->id))
 
         <!-- key() using Laravel 7's tag syntax -->
-        <livewire:view-item :item="$item" :wire:key="$loop->index">
+        <livewire:view-item :item="$item" :wire:key="'item-'.$item->id">
     @endforeach
 </ul>
 @endverbatim
@@ -59,6 +59,11 @@ For the most part, this system is reliable, but there are certain cases where Li
 @endcomponent
 
 * Add `wire:key`. As a final measure, adding `wire:key` will directly tell Livewire how to keep track of a DOM element. Over-using this attribute is a smell, but it is very useful and powerful for problems of this nature.
+
+@component('components.warning')
+The value you pass to <code>wire:key</code> must be entirely unique to that page. Meaning that you should prefix it, like <code>wire:key="item-{{ $item->id }}"</code>, and avoid using <code>$loop->index</code> to track the individual elements where you can. 
+@endcomponent
+
 @component('components.code')
 <div wire:key="foo">...</div>
 <div wire:key="bar">...</div>
