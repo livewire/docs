@@ -76,7 +76,8 @@ class ShowPosts extends Component
     public function render()
     {
         return view('livewire.show-posts', [
-            'posts' => Post::where('title', 'like', '%'.$this->search.'%')->paginate(10),
+            'posts' => Post::where('title', 'like', '%'.$this->search.'%')
+                            ->paginate(10),
         ]);
     }
 }
@@ -113,7 +114,8 @@ class ListPostComments extends Livewire\Component
     public function render()
     {
         return view('livewire.show-posts', [
-            'posts' => $post->comments()->paginate(10, ['*'], 'commentsPage'),
+            'posts' => $post->comments()
+                            ->paginate(10, ['*'], 'commentsPage'),
         ]);
     }
 }
@@ -143,7 +145,9 @@ class ListPostComments extends Livewire\Component
     public function render()
     {
         return view('livewire.show-posts', [
-            'posts' => $post->comments()->where('title', 'like', '%'.$this->search.'%')->paginate(10, ['*'], 'commentsPage'),
+            'posts' => $post->comments()
+                            ->where('title', 'like', '%'.$this->search.'%')
+                            ->paginate(10, ['*'], 'commentsPage'),
         ]);
     }
 }

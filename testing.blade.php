@@ -202,10 +202,12 @@ class ShowPostsTest extends TestCase
 
 @component('components.code', ['lang' => 'php'])
 Livewire::actingAs($user);
-// Set the provided user as the session's logged in user for the test
+// Set the provided user as the session's logged in user
+// for the test
 
 Livewire::withQueryParams(['foo' => 'bar']);
-// Set the query param "foo" to "bar" for the Livewire component's `$queryString` property to pick up.
+// Set the query param "foo" to "bar" for the Livewire component's
+// `$queryString` property to pick up.
 
 Livewire::test('foo', ['bar' => $bar]);
 // Test the "foo" component with "bar" set as a parameter.
@@ -229,19 +231,24 @@ Livewire::test('foo', ['bar' => $bar]);
 // Fire the "foo" event, and pass the "bar" and "baz" parameters
 
 ->assertSet('foo', 'bar');
-// Asserts that the "foo" property is set to the value "bar" (Includes computed properties)
+// Asserts that the "foo" property is set to the value "bar"
+// (Includes computed properties)
 
 ->assertNotSet('foo', 'bar');
-// Asserts that the "foo" property is NOT set to the value "bar" (Includes computed properties)
+// Asserts that the "foo" property is NOT set to the value "bar"
+// (Includes computed properties)
 
 ->assertCount('foo', 1);
-// Asserts that the "foo" property (an array) has a count of 1 (Includes computed properties)
+// Asserts that the "foo" property (an array) has a count of 1
+// (Includes computed properties)
 
 ->assertPayloadSet('foo', 'bar');
-// Asserts that the "foo" property from the JavaScript payload that Livewire returns is set to the value "bar"
+// Asserts that the "foo" property from the JavaScript payload that
+// Livewire returns is set to the value "bar"
 
 ->assertPayloadNotSet('foo', 'bar');
-// Asserts that the "foo" property in the JavaScript payload that Livewire returns is NOT set to the value "bar"
+// Asserts that the "foo" property in the JavaScript payload that
+// Livewire returns is NOT set to the value "bar"
 
 ->assertViewIs('foo');
 // Assert that the view "foo" is the currently rendered view
@@ -250,28 +257,35 @@ Livewire::test('foo', ['bar' => $bar]);
 // Assert that the rendered view has a key of "foo" with a value of "bar"
 
 ->assertSee('foo');
-// Assert that the string "foo" exists in the currently rendered content of the component
+// Assert that the string "foo" exists in the currently rendered
+// content of the component
 
 ->assertDontSee('foo');
-// Assert that the string "foo" DOES NOT exist in the currently rendered content of the component
+// Assert that the string "foo" DOES NOT exist in the currently
+// rendered content of the component
 
 ->assertSeeHtml('<h1>foo</h1>');
-// Assert that the string "<h1>foo</h1>" exists in the currently rendered HTML of the component
+// Assert that the string "<h1>foo</h1>" exists in the currently
+// rendered HTML of the component
 
 ->assertDontSeeHtml('<h1>foo</h1>');
-// Assert that the string "<h1>foo</h1>" DOES NOT exist in the currently rendered HTML of the component
+// Assert that the string "<h1>foo</h1>" DOES NOT exist in the
+// currently rendered HTML of the component
 
 ->assertSeeInOrder(['foo', 'bar']);
-// Assert that the string "foo" exists before "bar" in the currently rendered content of the component
+// Assert that the string "foo" exists before "bar" in the
+// currently rendered content of the component
 
 ->assertSeeHtmlInOrder(['<h1>foo</h1>', '<h1>bar</h1>']);
-// Assert that the string "<h1>foo</h1>" exists before "<h1>bar</h1>" in the currently rendered content of the component
+// Assert that the string "<h1>foo</h1>" exists before "<h1>bar</h1>"
+// in the currently rendered content of the component
 
 ->assertEmitted('foo');
 // Assert that the "foo" event was emitted
 
 ->assertEmitted('foo', 'bar', 'baz');
-// Assert that the "foo" event was emitted with the "bar" and "baz" parameters
+// Assert that the "foo" event was emitted with the "bar" and
+// "baz" parameters
 
 ->assertNotEmitted('foo');
 // Assert that the "foo" event was NOT emitted
@@ -283,19 +297,23 @@ Livewire::test('foo', ['bar' => $bar]);
 // Assert that the "foo" AND "bar" properties have validation errors
 
 ->assertHasErrors(['foo' => 'required']);
-// Assert that the "foo" property has a "required" validation rule error
+// Assert that the "foo" property has a "required" validation
+// rule error
 
 ->assertHasErrors(['foo' => ['required', 'min']]);
-// Assert that the "foo" property has a "required" AND "min" validation rule error
+// Assert that the "foo" property has a "required" AND "min"
+// validation rule error
 
 ->assertHasNoErrors('foo');
 // Assert that the "foo" property has no validation errors
 
 ->assertHasNoErrors(['foo', 'bar']);
-// Assert that the "foo" AND "bar" properties have no validation errors
+// Assert that the "foo" AND "bar" properties have no
+// validation errors
 
 ->assertNotFound();
-// Assert that an error within the component caused an error with the status code: 404
+// Assert that an error within the component caused an error
+// with the status code: 404
 
 ->assertRedirect('/some-path');
 // Assert that a redirect was triggered from the component
@@ -304,19 +322,24 @@ Livewire::test('foo', ['bar' => $bar]);
 // Assert that no redirect was triggered from the component
 
 ->assertUnauthorized();
-// Assert that an error within the component caused an error with the status code: 401
+// Assert that an error within the component caused an error
+// with the status code: 401
 
 ->assertForbidden();
-// Assert that an error within the component caused an error with the status code: 403
+// Assert that an error within the component caused an error
+// with the status code: 403
 
 ->assertStatus(500);
-// Assert that an error within the component caused an error with the status code: 500
+// Assert that an error within the component caused an error
+// with the status code: 500
 
 ->assertDispatchedBrowserEvent('event', $data);
-// Assert that a browser event was dispatched from the component using (->dispatchBrowserEvent(...))
+// Assert that a browser event was dispatched from the component
+// using (->dispatchBrowserEvent(...))
 
 ->assertNotDispatchedBrowserEvent('event');
-// Assert that a browser event was not dispatched from the component using (->dispatchBrowserEvent(...))
+// Assert that a browser event was not dispatched from the component
+// using (->dispatchBrowserEvent(...))
 
 ->assertFileDownloaded($filename)
 // Assert that a downloaded file was returned with a specific name

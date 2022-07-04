@@ -77,7 +77,11 @@ class ContactForm extends Component
     {
         return [
             'name' => 'required|min:6',
-            'email' => ['required', 'email', 'not_in:' . auth()->user()->email],
+            'email' => [
+                'required',
+                'email',
+                'not_in:' . auth()->user()->email
+            ],
         ];
     }
 }
@@ -288,7 +292,8 @@ class ContactForm extends Component
         $this->withValidator(function (Validator $validator) {
             $validator->after(function ($validator) {
                 if ($this->somethingElseIsInvalid()) {
-                    $validator->errors()->add('field', 'Something is wrong with this field!');
+                    $validator->errors()
+                              ->add('field', 'Something is wrong with this field!');
                 }
             });
         })->validate();

@@ -100,7 +100,8 @@ public function resetFilters()
     // Will reset both the search AND the isActive property.
     
     $this->resetExcept('search');
-    // Will only reset the isActive property (any property but the search property).
+    // Will only reset the isActive property
+    // (any property but the search property).
 }
 @endslot
 @endcomponent

@@ -146,14 +146,18 @@ class OrderTracker extends Component
             // Public Channel
             "echo:orders,OrderShipped" => 'notifyNewOrder',
             
-            // Privete Channel
+            // Private Channel
             "echo-private:orders,OrderShipped" => 'notifyNewOrder',
             
             //Presence Channel
-            "echo-presence:orders,OrderShipped" => 'notifyNewOrder',    // Listen
-            "echo-presence:orders,here" => 'notifyNewOrder',            // Here
-            "echo-presence:orders,joining" => 'notifyNewOrder',         // Joining
-            "echo-presence:orders,leaving" => 'notifyNewOrder',         // Leaving
+            // Listen
+            "echo-presence:orders,OrderShipped" => 'notifyNewOrder',
+            // Here
+            "echo-presence:orders,here" => 'notifyNewOrder',
+            // Joining
+            "echo-presence:orders,joining" => 'notifyNewOrder',
+            // Leaving
+            "echo-presence:orders,leaving" => 'notifyNewOrder',
         ];
     }
 
