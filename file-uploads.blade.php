@@ -87,13 +87,16 @@ $this->photo->store('photos', 's3');
 // Store in the "photos" directory with the filename "avatar.png".
 $this->photo->storeAs('photos', 'avatar');
 
-// Store in the "photos" directory in a configured "s3" bucket with the filename "avatar.png".
+// Store in the "photos" directory in a configured "s3" bucket
+// with the filename "avatar.png".
 $this->photo->storeAs('photos', 'avatar', 's3');
 
-// Store in the "photos" directory, with "public" visibility in a configured "s3" bucket.
+// Store in the "photos" directory, with "public" visibility in a
+// configured "s3" bucket.
 $this->photo->storePublicly('photos', 's3');
 
-// Store in the "photos" directory, with the name "avatar.png", with "public" visibility in a configured "s3" bucket.
+// Store in the "photos" directory, with the name "avatar.png", with
+// "public" visibility in a configured "s3" bucket.
 $this->photo->storePubliclyAs('photos', 'avatar', 's3');
 @endcomponent
 
@@ -416,7 +419,8 @@ The functions exist on the JavaScript component object, which can be accessed us
         // Error callback.
     }, (event) => {
         // Progress callback.
-        // event.detail.progress contains a number between 1 and 100 as the upload progresses.
+        // event.detail.progress contains a number between
+        // 1 and 100 as the upload progresses.
     })
 
     // Upload multiple files:
@@ -442,7 +446,8 @@ return [
     ...
     'temporary_file_upload' => [
         ...
-        'rules' => 'file|mimes:png,jpg,pdf|max:102400', // (100MB max, and only pngs, jpegs, and pdfs.)
+        'rules' => 'file|mimes:png,jpg,pdf|max:102400',
+        // (100MB max, and only pngs, jpegs, and pdfs.)
         ...
     ],
 ];
@@ -458,7 +463,8 @@ return [
     ...
     'temporary_file_upload' => [
         ...
-        'middleware' => 'throttle:5,1', // Only allow 5 uploads per user per minute.
+        'middleware' => 'throttle:5,1',
+        // Only allow 5 uploads per user per minute.
     ],
 ];
 @endslot
