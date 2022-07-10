@@ -6,6 +6,7 @@
 * [Access Validator instance](#access-validator-instance)
 * [Testing Validation](#testing-validation)
 * [Custom validators](#custom-validators)
+* [Considerations when using Casted Properties](#casted-properties)
 
 ## Introduction {#introduction}
 
@@ -389,4 +390,42 @@ class ContactForm extends Component
 
 @component('components.warning')
 You might be wondering if you can use Laravel's "FormRequest"s. Due to the nature of Livewire, hooking into the http request wouldn't make sense. For now, this functionality is not possible or recommended.
+@endcomponent
+
+## Considerations when using Casted Properties {#casted-properties}
+
+If you are validating a binded model with a property that has a cast defined, consider that when the validation logic extracts your model properties it uses the toArray() method of the model. This method will return properties after the casting has been applied. For example:
+
+Lets say you have a cast defined on a User to turn a property into a boolean. This is a common convenience done to use a boolean that in a database might be stored as a 0 or 1 but you want to use it is a boolean type, so you apply a cast.
+@component('components.code', ['lang' => 'php'])
+class User extends Model
+{
+   protected $casts = [
+        'is_admin' => 'boolean',
+    ];
+}
+@endcomponent
+
+Then you have the following livewire component:
+@component('components.code', ['lang' => 'php'])
+class UserConfigComponent extends Component
+{
+   public $user;
+
+   protected $rules = [
+        'user.is_admin' => ['required','boolean'],
+    ];
+
+   public something()
+   {
+        $this->validate();
+
+        $this->user->save();
+   }
+}
+@endcomponent
+
+If you assing a number or a random string to the is_admin property, that will be casted as true before it is applied the validation rule.
+@component('components.code', ['lang' => 'php'])
+$user->is_admin = 300; // If I read $user->is_admin it will return "true"
 @endcomponent
