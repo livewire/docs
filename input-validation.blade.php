@@ -141,6 +141,8 @@ Let's break down exactly what is happening in this example:
 
 If you are wondering, "why do I need `validateOnly`? Can't I just use `validate`?". The reason is because otherwise, every single update to any field would validate ALL of the fields. This can be a jarring user experience. Imagine if you typed one character into the first field of a form, and all of a sudden every single field had a validation message. `validateOnly` prevents that, and only validates the current field being updated.
 
+Note that when validating arrays, if you want to validate each item using the validateOnly method, you need to specify that in the property name. For example, the property name you pass to validateOnly to validate an array of numbers called $selection would be 'selection', but the property name you would pass to validate each item in the $selection array would be 'selection.*'.
+
 ## Validating with rules outside of the `$rules` property {#validating-with-other-rules}
 If for whatever reason you want to validate using rules other than the ones defined in the `$rules` property, you can always do this by passing the rules directly into the `validate()` and `validateOnly()` methods.
 
