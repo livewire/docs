@@ -104,3 +104,8 @@ For example, after publishing Livewire's config file, here are the settings that
 
 1. `'asset_url' => '/assets'`
 2. `'asset_url' => '/application'`
+
+## Serving Livewire from CDN
+
+By default, Livewire tries to communicate with the backend using the `asset_url`, if your assets are served from CDN this won't work because then Livewire will send all the requests to the CDN url.
+To make it works in that setup you should configure the `app_url` which can be found in Livewire config file (if not, you can add this value manually). In most cases, it should have the same value as Laravels `app.url`.
