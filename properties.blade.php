@@ -54,7 +54,10 @@ Here are three ESSENTIAL things to note about public properties before embarking
 <code>protected</code> and <code>private</code> properties DO NOT persist between Livewire updates. In general, you should avoid using them for storing state.<br>
 You should also note that while <code>null</code> data type is Javascript-friendly, <code>public</code> properties set to <code>null</code> DO NOT persist between Livewire updates.
 @endcomponent
-
+@component('components.warning')
+Properties stored as static PHP types such as <code>int</code>, <code>string</code>, <code>boolean</code>, <code>array</code> can be modified by the frontend. There for you should not store data that you don't want users to be able to modify from the frontend. If you don't want a property to be able to be modified by the frontend, you can bind it directly to it's corresponding eloquent Model.
+For example, assuming you have a livewire component that uses  you should not store the the user's id directly as a `public $userId` property, but you should store the user as  `public User $user` and access the user's id as `$user->id` whenever you need it. Or you could set the `$userId = $user->id` in the `mount()` method
+@endcomponent
 ## Initializing Properties {#initializing-properties}
 
 You can initialize properties using the `mount` method of your component.
