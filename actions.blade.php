@@ -76,7 +76,7 @@ You can pass extra parameters into a Livewire action directly in the expression 
 @component('components.code')
 @verbatim
 
-<button wire:click="addTodo({{ $todo->id }}, '{{ $todo->name }}')">
+<button wire:click="addTodo('{{ $todo->id }}', '{{ $todo->name }}')">
     Add Todo
 </button>
 
