@@ -506,11 +506,10 @@ The Select2 library is one of those libraries that takes over its portion of the
 
 Here is an example of using the Select2 library inside a Livewire component to demonstrate the usage of `wire:ignore`.
 
-@component('components.code')
+@component('components.code', ['lang' => 'blade'])
 @verbatim
 <div>
-    {{-- [tl! highlight:1] --}}
-    <div wire:ignore>
+    <div wire:ignore> {{-- [tl! highlight] --}}
         <select class="select2" name="state">
             <option value="AL">Alabama</option>
             <option value="WY">Wyoming</option>
