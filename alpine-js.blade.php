@@ -509,7 +509,8 @@ Here is an example of using the Select2 library inside a Livewire component to d
 @component('components.code')
 @verbatim
 <div>
-    <div wire:ignore> {{-- [tl! highlight] --}}
+    {{-- [tl! highlight:1] --}}
+    <div wire:ignore>
         <select class="select2" name="state">
             <option value="AL">Alabama</option>
             <option value="WY">Wyoming</option>
