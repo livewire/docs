@@ -146,7 +146,7 @@ class OrderTracker extends Component
             // Public Channel
             "echo:orders,OrderShipped" => 'notifyNewOrder',
             
-            // Privete Channel
+            // Private Channel
             "echo-private:orders,OrderShipped" => 'notifyNewOrder',
             
             //Presence Channel
