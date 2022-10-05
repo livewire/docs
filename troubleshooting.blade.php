@@ -145,3 +145,5 @@ So in our example from above, we have wrapped everything in a `<div>` which gets
     <button wire:click="doSomething">Do Something</button>
 </div> <!-- Added this closing tag for the wrapping div -->
 @endcomponent
+
+Another cause can be using __construct() inside the Livewire class or a Trait.
