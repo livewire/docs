@@ -276,6 +276,9 @@ Livewire::test('foo', ['bar' => $bar]);
 ->assertNotEmitted('foo');
 // Assert that the "foo" event was NOT emitted
 
+->assertEmittedTo('bar','foo');
+// Assert that the "foo" event was emitted to "bar" component
+
 ->assertHasErrors('foo');
 // Assert that the "foo" property has validation errors
 
