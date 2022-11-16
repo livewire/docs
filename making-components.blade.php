@@ -42,7 +42,7 @@ php artisan make:livewire ShowPosts --test
 @endcomponent
 
 ## Inline Components {#inline-components}
-If you wish to create Inline components (Component's without `.blade.php` files), you can add the `--inline` flag to the command:
+If you wish to create Inline components (Components without `.blade.php` files), you can add the `--inline` flag to the command:
 
 @component('components.code', ['lang' => 'shell'])
 php artisan make:livewire ShowPosts --inline
