@@ -71,6 +71,7 @@ API | Description
 `$wire.emitSelf('foo', ...args)` | Emit the "foo" event only to this component
 `$wire.get('foo')` | Get the "foo" property
 `$wire.set('foo', 'bar')` | Set the "foo" property on the component
+`$wire.set('foo', 'bar', true)` | Defer setting the "foo" property on the component
 `$wire.call('foo', ..args)` | Call the "foo" method with params on the component
 `x-data="{ foo: $wire.entangle('foo') }"` | Entagle the value of "foo" between Livewire and Alpine
 `$wire.entangle('foo').defer` | Only update Livewire's "foo" next time a Livewire request is fired
