@@ -65,7 +65,7 @@ From the developer's perspective, handling file inputs is no different than hand
 However, there is more happening under the hood to make file uploads work in Livewire. Here's a glimpse at what goes on when a user selects a file to upload:
 
 1. When a new file is selected, Livewire's JavaScript makes an initial request to the component on the server to get a temporary "signed" upload URL.
-2. Once the url is received, JavaScript then does the actual "upload" to the signed URL, storing the upload in a temporary directory designated by Livewire and returning the new temporary file's unique hash ID.
+2. Once the URL is received, JavaScript then does the actual "upload" to the signed URL, storing the upload in a temporary directory designated by Livewire and returning the new temporary file's unique hash ID.
 3. Once the file is uploaded and the unique hash ID is generated, Livewire's JavaScript makes a final request to the component on the server telling it to "set" the desired public property to the new temporary file.
 4. Now the public property (in this case `$photo`) is set to the temporary file upload and is ready to be stored or validated at any point.
 
@@ -249,10 +249,10 @@ Livewire stores temporary files in a non-public directory as previously mentione
 
 Livewire takes care of this complexity, by providing a temporary, signed URL that pretends to be the uploaded image so that your page can show something to your users.
 
-This url is protected against showing files in directories above the temporary directory of course and because it's signed temporarily, users can't abuse this URL to preview other files on your system.
+This URL is protected against showing files in directories above the temporary directory of course and because it's signed temporarily, users can't abuse this URL to preview other files on your system.
 
 @component('components.tip')
-    If you've configured Livewire to use S3 for temporary file storage, calling <code>->temporaryUrl()</code> will generate a temporary, signed url from S3 directly so that you don't hit your Laravel app server for this preview at all.
+    If you've configured Livewire to use S3 for temporary file storage, calling <code>->temporaryUrl()</code> will generate a temporary, signed URL from S3 directly so that you don't hit your Laravel app server for this preview at all.
 @endcomponent
 
 ## Testing File Uploads {#testing-uploads}

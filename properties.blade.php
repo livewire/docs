@@ -98,7 +98,7 @@ public function resetFilters()
 
     $this->reset(['search', 'isActive']);
     // Will reset both the search AND the isActive property.
-    
+
     $this->resetExcept('search');
     // Will only reset the isActive property (any property but the search property).
 }
@@ -177,7 +177,7 @@ In those cases, use the `lazy` directive modifier to listen for the native `chan
 Now, the `$message` property will only be updated when the user clicks away from the input field.
 
 ### Deferred Updating {#deferred-updating}
-In cases where you don't need data updates to happen live, Livewire has a `.defer` modifer that batches data updates with the next network request.
+In cases where you don't need data updates to happen live, Livewire has a `.defer` modifier that batches data updates with the next network request.
 
 For example, given the following component:
 
@@ -308,7 +308,7 @@ class EditUsersPosts extends Component
 <div>
     @foreach ($user->posts as $i => $post)
         <input type="text" wire:model="user.posts.{{ $i }}.title" />
-        
+
         <span class="error">
             @error('user.posts.'.$i.'.title') {{ $message }} @enderror
         </span>
@@ -342,12 +342,12 @@ class Settings implements Livewire\Wireable
     public function toLivewire()
     {
         return $this->items;
-    } 
+    }
 
     public static function fromLivewire($value)
     {
         return new static($value);
-    } 
+    }
 }
 @endslot
 @endcomponent
