@@ -66,6 +66,8 @@ If you are on Laravel 7 or above, you can use the tag syntax.
 @endslot
 @endcomponent
 
+NB: For best results us an integer for your key value.
+
 ### Sibling Components in a Loop {#sibling-components-in-a-loop}
 
 In some situations, you may find the need to have sibling components inside of a loop, this situation requires additional consideration for the `wire:key` value.
