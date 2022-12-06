@@ -1,7 +1,7 @@
 * [Paginating Data](#paginating-data)
 * [Resetting Pagination After Filtering Data](#resetting-pagination)
 * [Multiple paginators on the same page](#multiple-paginators)
-* [Using The Bootstrap Pagination Theme](#custom-pagination-view)
+* [Using The Bootstrap Pagination Theme](#bootstrap-theme)
 * [Using A Custom Pagination View](#custom-pagination-view)
 
 Livewire offers the ability to paginate results within a component. This feature hooks into Laravel's native pagination features, so it should feel like an invisible feature to you.
@@ -150,7 +150,7 @@ class ListPostComments extends Livewire\Component
 @endverbatim
 @endcomponent
 
-## Using The Bootstrap Pagination Theme {#custom-pagination-view}
+## Using The Bootstrap Pagination Theme {#bootstrap-theme}
 Like Laravel, Livewire's default pagination view uses Tailwind classes for styling. If you use Bootstrap in your application, you can enable the Bootstrap theme for the pagination view using the `$paginationTheme` property on your component.
 
 @component('components.code', ['lang' => 'php'])
