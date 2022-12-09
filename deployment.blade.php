@@ -43,7 +43,7 @@ You need to either place the `Livewire.onPageExpired()` call after Livewire's sc
 @endverbatim
 @endcomponent
 
-Or wrap it in an event lister that waits for Livewire to load
+Or wrap it in an event listener that waits for Livewire to load
 
 @component('components.code', ['lang' => 'blade'])
 <script>
