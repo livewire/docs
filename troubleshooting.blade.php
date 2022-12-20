@@ -25,7 +25,7 @@ For the most part, this system is reliable, but there are certain cases where Li
 
 ### Cures {#dom-diffing-cures}
 * Ensure your component has a single-level root element
-* Add `wire:key` to elements inside loops (the value to `wire:key` must be unique accross the page):
+* Add `wire:key` to elements inside loops (the value to `wire:key` must be unique across the page):
 @component('components.code')
 @verbatim
 <ul>
