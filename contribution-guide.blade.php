@@ -127,7 +127,7 @@ public function it_can_run_foo_action
 }
 @endcomponent
 
-You can see how to use Dusk in the [Laravel documententation](https://laravel.com/docs/8.x/dusk) as well as look at Livewire's existing browser tests for further examples.
+You can see how to use Dusk in the [Laravel documentation](https://laravel.com/docs/8.x/dusk) as well as look at Livewire's existing browser tests for further examples.
 
 ### Add working code {#add-working-code}
 
