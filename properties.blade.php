@@ -352,7 +352,7 @@ class Settings implements Livewire\Wireable
 @endslot
 @endcomponent
 
-Now you can freely use this object as a public property of your component as long as that object implements the `Livewire\Wireable` interface AND the property is typhinted like so:
+Now you can freely use this object as a public property of your component as long as that object implements the `Livewire\Wireable` interface AND the property is typehinted like so:
 
 @component('components.code-component')
 @slot('class')
