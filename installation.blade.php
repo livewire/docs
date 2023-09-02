@@ -15,7 +15,7 @@ Visit the [composer.json file on Github](https://github.com/livewire/livewire/bl
 ## Install The Package {#install-package}
 
 @component('components.code', ['lang' => 'shell'])
-composer require livewire/livewire
+composer require livewire/livewire:^2.0
 @endcomponent
 
 ## Include The Assets {#include-js}
