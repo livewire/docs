@@ -478,3 +478,18 @@ return [
 ];
 @endslot
 @endcomponent
+
+### Maximum Upload Time
+File uploads are automatically invalidated if they take longer than 5 minutes. You can customize this with the following configuration key:
+
+@component('components.code-component')
+@slot('class')
+return [
+    ...
+    'temporary_file_upload' => [
+        ...
+        'max_upload_time' => 5,
+    ],
+];
+@endslot
+@endcomponent
