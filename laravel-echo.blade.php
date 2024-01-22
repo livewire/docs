@@ -90,6 +90,11 @@ class OrderTracker extends Component
 <code>getListeners()</code> will only dynamically generate the names of listeners when the component is mounted. Once the listeners are setup, these can't be changed.
 @endcomponent
 
+@component('components.warning')
+Note that if you're using [Model Broadcasting](https://laravel.com/docs/10.x/broadcasting#model-broadcasting), you need to [prefix the event](https://laravel.com/docs/10.x/broadcasting#listening-for-model-broadcasts) with a '.' so that the right event is listened for, like <code>.MessageCreated</code>.
+@endcomponent
+
+
 Now, Livewire will intercept the received event from Pusher, and act accordingly.
 
 ## Private & Presence Channels {#private-presence-channels}
